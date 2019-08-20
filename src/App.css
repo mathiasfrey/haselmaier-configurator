@@ -2,11 +2,97 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.configurator {
+  background: #E8E8E8;
+  width: 1400px;
+  margin: 70px auto;
+  box-shadow: 0 5px 0 rgba(133, 104, 250, 0.26);
+  border-radius: 6px;
+  overflow: hidden;
+  height: 1000px;
+ }
+
+
+header {
+  color: #000000;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  background-color: #D0D0D0;
+  font: 15px "Roboto Light", sans-serif;
+  border-bottom: solid 2px #D4CAFF;
 }
+
+header h1 {
+  flex-grow: 1;
+  font-weight: bold;
+  font: 30px "Roboto Light", sans-serif;
+}
+
+.settings {
+  font-size: 1.2em;
+  padding: 15px 10px 5px 10px;
+  border-bottom: solid 2px #EEEEEE;
+  line-height: 1.2em;
+
+}
+
+.padding-left {
+  padding-left: 50px;
+}
+
+
+.btn {
+    border: none;
+    font: 16px Lato, Calibri, Arial, sans-serif;
+    font-size: inherit;
+    color: inherit;
+    background: none;
+    cursor: pointer;
+    padding: 25px 80px;
+    display: inline-block;
+    margin: 15px 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.btn:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.btn-1 {
+    border: 3px solid #fff;
+    color: #fff;
+}
+
+.btn-1e {
+    overflow: hidden;
+}
+
+.btn-1e:after {
+    width: 100%;
+    height: 0;
+    top: 50%;
+    left: 50%;
+    background: #003ffa;
+    opacity: 0;
+    -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    -moz-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    -ms-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+}
+
 
 .App-header {
   background-color: #282c34;
