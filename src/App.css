@@ -3,14 +3,21 @@
 }
 
 .configurator {
-  background: #E8E8E8;
+  background: #D3D3D3;
   width: 1400px;
   margin: 70px auto;
-  box-shadow: 0 5px 0 rgba(133, 104, 250, 0.26);
+  box-shadow: 13px 10px #888888;
   border-radius: 6px;
-  overflow: hidden;
+  overflow-x: hidden;
   height: 1000px;
  }
+
+.Modal {
+     background: #D3D3D3;
+     width: 400px;
+      height: 100px;
+
+}
 
 
 header {
@@ -20,7 +27,7 @@ header {
   align-items: center;
   background-color: #D0D0D0;
   font: 15px "Roboto Light", sans-serif;
-  border-bottom: solid 2px #D4CAFF;
+  border-bottom: solid 2px #e1edf6;
 }
 
 header h1 {
@@ -44,14 +51,13 @@ header h1 {
 
 .btn {
     border: none;
-    font: 16px Lato, Calibri, Arial, sans-serif;
-    font-size: inherit;
+    font-size: 13px;
     color: inherit;
     background: none;
     cursor: pointer;
     padding: 25px 80px;
     display: inline-block;
-    margin: 15px 30px;
+    margin: 10px 20px;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 700;
@@ -93,6 +99,19 @@ header h1 {
     transform: translateX(-50%) translateY(-50%) rotate(45deg);
 }
 
+.btn-2a {
+    border-radius: 0 0 5px 5px;
+}
+
+.btn-2 {
+    background: #6741cb;
+    display: inline-block;
+    color: #fff;
+    box-shadow: 0 6px #B0B0B0;
+    -webkit-transition: none;
+    -moz-transition: none;
+    transition: none;
+}
 
 .App-header {
   background-color: #282c34;
