@@ -12,11 +12,21 @@
   height: 1000px;
  }
 
+.productView {
+    background: #EEEEEE;
+    width: 600px;
+    height: 500px;
+    margin-left: 450px;
+}
+
+.tableSmall {
+    background-image: url('./assets/table_small.jpg')
+}
+
 .Modal {
      background: #D3D3D3;
      width: 400px;
-      height: 100px;
-
+     height: 100px;
 }
 
 
