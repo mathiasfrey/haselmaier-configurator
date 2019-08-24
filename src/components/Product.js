@@ -1,16 +1,25 @@
 import React from 'react';
 
-const Product = (props) => {
+class Product extends React.Component {
 
-    return(
+
+
+    render() {
+
+       return(
         <>
         <div className="padding-left">
-            <h2>{props.title}</h2>
+            <h2>{this.props.title}</h2>
         </div>
         <div className="productView">
         </div>
         </>
     )
-};
+
+    }
+
+
+
+}
 
 export default Product;
