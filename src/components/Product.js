@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const Product = (props) => {
 
     return(
@@ -9,7 +8,6 @@ const Product = (props) => {
             <h2>{props.title}</h2>
         </div>
         <div className="productView">
-            <button onClick={props.smallTable}>Show me </button>
         </div>
         </>
     )
