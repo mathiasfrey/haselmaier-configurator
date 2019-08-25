@@ -3,10 +3,10 @@
 }
 
 .configurator {
-  background: #D3D3D3;
+  background: #E8E8E8;
   width: 1400px;
   margin: 70px auto;
-  box-shadow: 13px 10px #888888;
+  box-shadow: 13px 10px #E0E0E0;
   border-radius: 6px;
   overflow-x: hidden;
   height: 1000px;
@@ -36,11 +36,11 @@
 
 
 header {
-  color: #000000;
+  color: #ffffff;
   text-align: center;
   display: flex;
   align-items: center;
-  background-color: #D0D0D0;
+  background-color: #d02611;
   font: 15px "Roboto Light", sans-serif;
   border-bottom: solid 2px #e1edf6;
 }
@@ -63,12 +63,16 @@ header h1 {
   padding-left: 50px;
 }
 
+.white {
+    color: white;
+}
+
 
 .btn {
     border: none;
     font-size: 13px;
     color: inherit;
-    background: none;
+    background: #F5F5F5;
     cursor: pointer;
     padding: 25px 80px;
     display: inline-block;
@@ -94,7 +98,7 @@ header h1 {
 
 .btn-1 {
     border: 3px solid #fff;
-    color: #fff;
+    color: 	#A9A9A9;
 }
 
 .btn-1e {
