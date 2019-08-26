@@ -17,11 +17,45 @@ const imagesPath = {
   middle_table: table_middle,
   large_table: table_large,
 };
+
+export const sizeNumber = {
+    sizeOne: 1,
+    sizeTwo: 2,
+    sizeThree: 3,
+    sizeFour: 4,
+    sizeFive: 5,
+    sizeSix: 6,
+    sizeSeven: 7,
+    sizeEight: 8
+};
+
+export const decision = {
+    0: 'Yes',
+    1: 'No',
+};
+
+export const assembler = {
+    0: 'Harry',
+    1: 'Spax',
+    2: 'Lukas',
+    3: 'Kieflandi',
+};
+
+
 class Settings extends React.Component {
 state = {
         chosenTable: String,
         priceOfTable: Number,
+        chosenMonitorSize: Number,
+        chosenServerSize: Number,
+        chosenHeight: String,
+        chosenLight: String,
+        chosenPowerboard: String,
+        chosenAssembler: String,
     };
+
+
+    //TABLE CONFIGURATION
 
     loadTableSmall = () => {
         this.setState({chosenTable: 'S' });
@@ -60,6 +94,41 @@ state = {
         )
     };
 
+    //MONITOR CONFIGURATION
+
+    monitorSize = (sizeNumber) => {
+        this.setState({chosenMonitorSize: sizeNumber});
+    };
+
+    //SERVER CONFIGURATION
+
+    serverSize = (sizeNumber) => {
+        this.setState({chosenServerSize: sizeNumber})
+    };
+
+    //HEIGHT CONFIGURATION
+
+    adjustHeight = (decision) => {
+        this.setState({chosenHeight: decision})
+    };
+
+    //LIGHT CONFIGURATION
+
+    preferLight = (decision) => {
+        this.setState({chosenLight: decision})
+    };
+
+    //POWERBOARD CONFIGURATOR
+
+    preferConfigurator = (decision) => {
+        this.setState({chosenPowerboard: decision})
+    };
+
+    //ASSEMBLER CONFIGURATOR
+
+    preferredAssembler = (assembler) => {
+        this.setState({chosenAssembler: assembler})
+    };
 
 
     render() {
@@ -74,15 +143,33 @@ state = {
                 middleTable={this.loadTableMiddle}
                 largeTable={this.loadTableLarge}
                 />
-                <Monitor />
-                <Server />
-                <Height />
-                <Light />
-                <Powerboards />
-                <Assembler />
+                <Monitor
+                monitorSize={this.monitorSize}
+                />
+                <Server
+                serverSize={this.serverSize}
+                />
+                <Height
+                adjustHeight={this.adjustHeight}
+                />
+                <Light
+                chosenLight={this.preferLight}
+                />
+                <Powerboards
+                chosenPowerboard={this.preferConfigurator}
+                />
+                <Assembler
+                chosenAssembler={this.preferredAssembler}
+                />
                 <Summary
                 chosenTable={this.state.chosenTable}
                 priceOfTable={this.state.priceOfTable}
+                chosenMonitorSize={this.state.chosenMonitorSize}
+                chosenServerSize={this.state.chosenServerSize}
+                chosenHeight={this.state.chosenHeight}
+                chosenLight={this.state.chosenLight}
+                chosenPowerboard={this.state.chosenPowerboard}
+                chosenAssembler={this.state.chosenAssembler}
                 />
                 </div>
             </>

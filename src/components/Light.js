@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'react-responsive-modal';
+import {decision} from "./Settings";
 
 class Light extends React.Component {
     state = {
@@ -21,8 +22,8 @@ class Light extends React.Component {
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
         <h2>Do you prefer a light system?</h2>
         <div>
-        <button className="btn btn-2 btn-2a"> Yes </button>
-        <button className="btn btn-2 btn-2a"> No </button>
+        <button className="btn btn-2 btn-2a" onClick={() => this.props.chosenLight(decision[0])}> Yes </button>
+        <button className="btn btn-2 btn-2a" onClick={() => this.props.chosenLight(decision[1])}> No </button>
         </div>
         </Modal>
         </>
