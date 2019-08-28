@@ -23,6 +23,7 @@ class Summary extends React.Component {
                 <h6> {this.props.chosenPowerboard} </h6>
                 <h6> Preferred Assembler? </h6>
                 <h6> {this.props.chosenAssembler} </h6>
+                <h6> Total Account </h6>
             </div>
         )
     }

@@ -47,6 +47,7 @@ state = {
         chosenTable: String,
         priceOfTable: Number,
         chosenMonitorSize: Number,
+        priceOfMonitor: Number,
         chosenServerSize: Number,
         chosenHeight: String,
         chosenLight: String,
@@ -98,6 +99,7 @@ state = {
 
     monitorSize = (sizeNumber) => {
         this.setState({chosenMonitorSize: sizeNumber});
+        this.setState({priceOfMonitor: 200})
     };
 
     //SERVER CONFIGURATION
