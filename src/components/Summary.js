@@ -9,20 +9,21 @@ class Summary extends React.Component {
         return (
             <div className="summary">
                 <h4> Hi there, this is your configuration</h4>
-                <h5> Table Size </h5>
-                {this.props.chosenTable} {this.props.priceOfTable} €
-                <h5> Monitor Size </h5>
-                {this.props.chosenMonitorSize}
-                <h5> Server Size </h5>
-                {this.props.chosenServerSize}
-                <h5> Adjust height? </h5>
-                {this.props.chosenHeight}
-                <h5> Need Light? </h5>
-                {this.props.chosenLight}
-                <h5> Powerboards? </h5>
-                {this.props.chosenPowerboard}
-                <h5> Preferred Assembler? </h5>
-                {this.props.chosenAssembler}
+                <h6> Table Size </h6>
+                <h6> {this.props.chosenTable} {this.props.priceOfTable} € </h6>
+                <h6> Monitor Size </h6>
+                <h6> {this.props.chosenMonitorSize} </h6>
+                <h6> Server Size </h6>
+                <h6> {this.props.chosenServerSize} </h6>
+                <h6> Adjust height? </h6>
+                <h6> {this.props.chosenHeight} </h6>
+                <h6> Need Light? </h6>
+                <h6> {this.props.chosenLight} </h6>
+                <h6> Powerboards? </h6>
+                <h6> {this.props.chosenPowerboard} </h6>
+                <h6> Preferred Assembler? </h6>
+                <h6> {this.props.chosenAssembler} </h6>
+                <h6> Total Account </h6>
             </div>
         )
     }

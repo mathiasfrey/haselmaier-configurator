@@ -16,14 +16,15 @@
     background: #EEEEEE;
     width: 600px;
     height: 500px;
-    margin-left: 450px;
+    margin-left: 451px;
 }
 
 .summary {
   position: absolute;
-  top: 496px;
+  top: 480px;
   padding: 15px 10px 10px 10px;
   background: #e1edf6;
+  line-height: 5px;
 
 }
 
