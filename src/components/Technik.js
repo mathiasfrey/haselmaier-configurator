@@ -25,6 +25,8 @@ class Technik extends React.Component {
         this.props.chosenLight(decision[0])
     };
 
+    //test
+
     render() {
         return (
         <>
