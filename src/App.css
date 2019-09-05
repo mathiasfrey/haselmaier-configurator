@@ -27,7 +27,10 @@
   width: 300px;
   padding: 15px 10px 10px 10px;
   line-height: 5px;
+}
 
+.lineSpacing {
+    line-height: 2.0;
 }
 
 .Modal {

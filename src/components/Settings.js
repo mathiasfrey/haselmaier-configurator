@@ -27,25 +27,39 @@ export const sizeNumber = {
     sizeEight: 8
 };
 
-export const decision = {
-    0: 'Yes',
-    1: 'No',
+export const blendDecision = {
+    0: 'Keinen',
+    1: 'Voller Blendschutz',
 };
 
+export const cableDecision = {
+    0: 'Ohne',
+    1: 'Voll integriert',
+};
+
+export const rows = {
+    0: '1 - Reihig',
+    1: '2 - Reihig',
+};
+
+export const sides = {
+    0: 'Linksseitig',
+    1: 'Rechtsseitig',
+    2: 'Links- und rechtsseitig'
+};
 
 class Settings extends React.Component {
 state = {
         chosenTable: String,
         chosenMonitorSize: Number,
-        priceOfMonitor: Number,
+        chosenMonitorRow: Number,
         chosenKabelSize: Number,
         chosenBlende: String,
-        chosenTechnik: String,
+        chosenTechnik: Number,
         chosenPowerboard: String,
         chosenAssembler: String,
+
     };
-
-
 
     //TABLE CONFIGURATION
 
@@ -86,22 +100,26 @@ state = {
         this.setState({chosenMonitorSize: sizeNumber});
     };
 
-    //KABEL CONFIGURATION
-
-    KabelSize = (sizeNumber) => {
-        this.setState({chosenKabelSize: sizeNumber})
+    monitorRow = (rows) => {
+        this.setState({chosenMonitorRow: rows})
     };
 
-    //HEIGHT CONFIGURATION
+    //KABEL CONFIGURATION
+
+    KabelSize = (cableDecision) => {
+        this.setState({chosenKabelSize: cableDecision})
+    };
+
+    //BLEND CONFIGURATION
 
     chosenBlende = (decision) => {
         this.setState({chosenBlende: decision})
     };
 
-    //LIGHT CONFIGURATION
+    //TECHNIK CONFIGURATION
 
-    chosenTechnik = (decision) => {
-        this.setState({chosenTechnik: decision})
+    chosenTechnik = (sides) => {
+        this.setState({chosenTechnik: sides})
     };
 
     render() {
@@ -118,6 +136,7 @@ state = {
                 />
                 <Monitor
                 monitorSize={this.monitorSize}
+                monitorRow={this.monitorRow}
                 />
                 <Kabel
                 kabelSize={this.KabelSize}
@@ -126,11 +145,12 @@ state = {
                 chosenBlende={this.chosenBlende}
                 />
                 <Technik
-                chosenLight={this.chosenTechnik}
+                chosenTechnik={this.chosenTechnik}
                 />
                 <Summary
                 chosenTable={this.state.chosenTable}
                 chosenMonitorSize={this.state.chosenMonitorSize}
+                chosenMonitorRow={this.state.chosenMonitorRow}
                 chosenServerSize={this.state.chosenKabelSize}
                 chosenBlende={this.state.chosenBlende}
                 chosenTechnik={this.state.chosenTechnik}

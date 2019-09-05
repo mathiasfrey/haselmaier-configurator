@@ -8,17 +8,18 @@ class Summary extends React.Component {
 
         return (
             <>
-             <div  className="padding-left">
+             <div  className="padding-left lineSpacing">
                  <h4> Meine Leitstelle </h4>
-                 ✔ Höhenverstellbar (Video) <br />
-                 ✔ Industriedesign (Video) <br />
-                 ✔ Robust (Video)
+                 ✅ Höhenverstellbar (Video) <br />
+                 ✅ Industriedesign (Video) <br />
+                 ✅ Robust (Video)
               </div>
             <div className="padding-left summary">
                 <h4> Meine Leitstelle (current state) </h4>
                 <h6> Tischgröße </h6>
                 <h5>  - {this.props.chosenTable} </h5>
-                <h6> Monitor </h6>
+                <h6> Monitor Einstellung</h6>
+                <h5>  - {this.props.chosenMonitorRow} </h5>
                 <h5>  - {this.props.chosenMonitorSize} </h5>
                 <h6> Kabelführung </h6>
                 <h5>  - {this.props.chosenServerSize} </h5>

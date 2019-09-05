@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from 'react-responsive-modal';
-import {decision} from "./Settings";
+import {sides} from "./Settings";
 
 class Technik extends React.Component {
     state = {
@@ -15,17 +15,20 @@ class Technik extends React.Component {
     this.setState({ open: false });
     };
 
-    handlingTechnikOne = () => {
+    handlingTechnikLeft = () => {
         this.setState({ open: false });
-        this.props.chosenLight(decision[0])
+        this.props.chosenTechnik(sides[0]);
+    };
+    handlingTechnikRight = () => {
+        this.setState({ open: false });
+        this.props.chosenTechnik(sides[1]);
+    };
+    handlingTechnikBoth = () => {
+        this.setState({ open: false });
+        this.props.chosenTechnik(sides[2]);
     };
 
-    handlingTechnikTwo = () => {
-        this.setState({ open: false });
-        this.props.chosenLight(decision[0])
-    };
 
-    //test
 
     render() {
         return (
@@ -34,8 +37,9 @@ class Technik extends React.Component {
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
         <h2>Gewünschte Technik?</h2>
         <div>
-        <button className="btn btn-2 btn-2a" onClick={this.handlingTechnikOne}> Yes </button>
-        <button className="btn btn-2 btn-2a" onClick={this.handlingTechnikTwo}> No </button>
+        <button className="btn btn-2 btn-2a" onClick={this.handlingTechnikLeft}> Linksseitig </button>
+        <button className="btn btn-2 btn-2a" onClick={this.handlingTechnikRight}> Rechtsseitig </button>
+        <button className="btn btn-2 btn-2a" onClick={this.handlingTechnikBoth}> Beidseitig </button>
         </div>
         </Modal>
         </>

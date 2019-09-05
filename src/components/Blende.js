@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Modal from 'react-responsive-modal';
-import {decision} from "./Settings";
+import {blendDecision} from "./Settings";
 
 
 class Blende extends Component {
@@ -18,12 +18,12 @@ class Blende extends Component {
 
     handlingBlendeOne = () => {
         this.setState({ open: false });
-        this.props.chosenBlende(decision[0])
+        this.props.chosenBlende(blendDecision[0])
     };
 
     handlingBlendeTwo = () => {
         this.setState({ open: false });
-        this.props.chosenBlende(decision[1])
+        this.props.chosenBlende(blendDecision[1])
     };
 
     render() {
@@ -33,8 +33,8 @@ class Blende extends Component {
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
         <h2>Gewünschte Blendeneinstellung?</h2>
         <div>
-        <button className="btn btn-2 btn-2a" onClick={this.handlingBlendeOne}> Yes </button>
-        <button className="btn btn-2 btn-2a" onClick={this.handlingBlendeTwo}> No </button>
+        <button className="btn btn-2 btn-2a" onClick={this.handlingBlendeOne}> Keinen </button>
+        <button className="btn btn-2 btn-2a" onClick={this.handlingBlendeTwo}> Voller Blendschutz </button>
         </div>
         </Modal>
         </>
