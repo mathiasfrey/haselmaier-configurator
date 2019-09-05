@@ -15,16 +15,32 @@ class Table extends Component {
     this.setState({ openTable: false });
     };
 
+    handlingSmallTable = () => {
+        this.props.smallTable();
+        this.setState({ openTable: false })
+    };
+
+    handlingMiddleTable = () => {
+        this.props.middleTable();
+        this.setState( { openTable: false})
+    };
+
+    handlingLargeTable = () => {
+        this.props.largeTable();
+        this.setState({ openTable: false})
+    };
+
+
     render() {
 
         return (
         <>
-        <button className="btn btn-1 btn-1e" onClick={this.onOpenModal}>Table</button>
-        <Modal open={this.state.openTable} onClose={this.onCloseModal} center>
+        <button className="btn btn-1 btn-1e" onClick={this.onOpenModal}>Tisch</button>
+        <Modal open={this.state.openTable} onClose={this.onCloseModal} closeOnOverlayClick={true} center>
         <h2>Choose your size please</h2>
-        <button className="btn btn-2 btn-2a" onClick={this.props.smallTable}> Size: S </button>
-        <button className="btn btn-2 btn-2a" onClick={this.props.middleTable}> Size: M </button>
-        <button className="btn btn-2 btn-2a" onClick={this.props.largeTable}> Size: L </button>
+        <button className="btn btn-2 btn-2a" onClick={this.handlingSmallTable}> Size: S </button>
+        <button className="btn btn-2 btn-2a" onClick={this.handlingMiddleTable}> Size: M </button>
+        <button className="btn btn-2 btn-2a" onClick={this.handlingLargeTable}> Size: L </button>
         </Modal>
 
         </>

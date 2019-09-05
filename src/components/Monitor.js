@@ -17,6 +17,23 @@ class Monitor extends React.Component {
     this.setState({ open: false });
     };
 
+    handlingMonitorOne = () => {
+        this.setState({ open: false });
+        this.props.monitorSize(sizeNumber['sizeOne'])
+    };
+    handlingMonitorTwo = () => {
+        this.setState({ open: false });
+        this.props.monitorSize(sizeNumber['sizeTwo'])
+    };
+    handlingMonitorThree = () => {
+        this.setState({ open: false });
+        this.props.monitorSize(sizeNumber['sizeThree'])
+    };
+    handlingMonitorFour = () => {
+        this.setState({ open: false });
+        this.props.monitorSize(sizeNumber['sizeFour'])
+    };
+
 
     render() {
         return (
@@ -25,14 +42,10 @@ class Monitor extends React.Component {
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
         <h2>Choose your number please</h2>
         <div>
-        <button className="btn btn-2 btn-2a" onClick={() => this.props.monitorSize(sizeNumber['sizeOne'])}> Size: 1 </button>
-        <button className="btn btn-2 btn-2a" onClick={() => this.props.monitorSize(sizeNumber['sizeTwo'])}> Size: 2 </button>
-        <button className="btn btn-2 btn-2a" onClick={() => this.props.monitorSize(sizeNumber['sizeThree'])}> Size: 3 </button>
-        <button className="btn btn-2 btn-2a" onClick={() => this.props.monitorSize(sizeNumber['sizeFour'])}> Size: 4 </button>
-        <button className="btn btn-2 btn-2a" onClick={() => this.props.monitorSize(sizeNumber['sizeFive'])}> Size: 5 </button>
-        <button className="btn btn-2 btn-2a" onClick={() => this.props.monitorSize(sizeNumber['sizeSix'])}> Size: 6 </button>
-        <button className="btn btn-2 btn-2a" onClick={() => this.props.monitorSize(sizeNumber['sizeSeven'])}> Size: 7 </button>
-        <button className="btn btn-2 btn-2a" onClick={() => this.props.monitorSize(sizeNumber['sizeEight'])}> Size: 8 </button>
+        <button className="btn btn-2 btn-2a" onClick={this.handlingMonitorOne}> Size: 1 </button>
+        <button className="btn btn-2 btn-2a" onClick={this.handlingMonitorTwo}> Size: 2 </button>
+        <button className="btn btn-2 btn-2a" onClick={this.handlingMonitorThree}> Size: 3 </button>
+        <button className="btn btn-2 btn-2a" onClick={this.handlingMonitorFour}> Size: 4 </button>
         </div>
         </Modal>
         </>

@@ -8,9 +8,6 @@ class Product extends React.Component {
 
        return(
         <>
-        <div className="padding-left">
-            <h2>{this.props.title}</h2>
-        </div>
         <div className="productView">
         </div>
         </>

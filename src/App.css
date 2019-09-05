@@ -13,17 +13,19 @@
  }
 
 .productView {
+    position: absolute;
     background: #EEEEEE;
     width: 600px;
     height: 500px;
     margin-left: 451px;
+    top: 500px;
+
 }
 
 .summary {
-  position: absolute;
-  top: 480px;
+  top: 420px;
+  width: 300px;
   padding: 15px 10px 10px 10px;
-  background: #e1edf6;
   line-height: 5px;
 
 }
@@ -51,6 +53,10 @@ header h1 {
   font: 30px "Roboto Light", sans-serif;
 }
 
+h4 {
+   text-decoration: underline;
+}
+
 .settings {
   font-size: 1.2em;
   padding: 15px 10px 5px 10px;
@@ -60,14 +66,12 @@ header h1 {
 }
 
 .padding-left {
-  padding-left: 50px;
+  padding-left: 40px;
 }
 
 .white {
     color: white;
 }
-
-
 
 .btn {
     border: none;
