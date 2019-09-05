@@ -1,15 +1,14 @@
 import React from 'react';
 import Table from "./Table";
 import Monitor from "./Monitor";
-import Height from "./Height";
-import Server from "./Server";
-import Light from "./Light";
-import Powerboards from "./Powerboards";
-import Assembler from "./Assembler";
+import Blende from "./Blende";
+import Kabel from "./Kabel";
+import Technik from "./Technik";
 import table_small from '../assets/table_small.jpg'
 import table_middle from '../assets/table_middle.jpeg'
 import table_large from '../assets/table_large.jpg'
 import Summary from "./Summary";
+
 
 
 const imagesPath = {
@@ -29,39 +28,44 @@ export const sizeNumber = {
     sizeEight: 8
 };
 
-export const decision = {
-    0: 'Yes',
-    1: 'No',
+export const blendDecision = {
+    0: 'Keinen',
+    1: 'Voller Blendschutz',
 };
 
-export const assembler = {
-    0: 'Harry',
-    1: 'Spax',
-    2: 'Lukas',
-    3: 'Kieflandi',
+export const cableDecision = {
+    0: 'Ohne',
+    1: 'Voll integriert',
 };
 
+export const rows = {
+    0: '1 - Reihig',
+    1: '2 - Reihig',
+};
+
+export const sides = {
+    0: 'Linksseitig',
+    1: 'Rechtsseitig',
+    2: 'Links- und rechtsseitig'
+};
 
 class Settings extends React.Component {
 state = {
         chosenTable: String,
-        priceOfTable: Number,
         chosenMonitorSize: Number,
-        priceOfMonitor: Number,
-        chosenServerSize: Number,
-        chosenHeight: String,
-        chosenLight: String,
+        chosenMonitorRow: Number,
+        chosenKabelSize: Number,
+        chosenBlende: String,
+        chosenTechnik: Number,
         chosenPowerboard: String,
         chosenAssembler: String,
-    };
 
+    };
 
     //TABLE CONFIGURATION
 
     loadTableSmall = () => {
         this.setState({chosenTable: 'S' });
-        this.setState({priceOfTable: 100});
-        console.log(this.state.chosenTable);
         const imageName = 'small_table';
         return (
         <div>
@@ -72,9 +76,7 @@ state = {
 
 
     loadTableMiddle = () => {
-       console.log(this.state.chosenTable);
         this.setState({chosenTable: 'M'});
-        this.setState({priceOfTable: 500});
         const imageName = 'middle_table';
         return (
         <div>
@@ -84,9 +86,7 @@ state = {
     };
 
     loadTableLarge = () => {
-        console.log(this.state.chosenTable);
         this.setState({chosenTable: 'L'});
-        this.setState({priceOfTable: 1000});
         const imageName = 'large_table';
         return (
         <div>
@@ -99,45 +99,36 @@ state = {
 
     monitorSize = (sizeNumber) => {
         this.setState({chosenMonitorSize: sizeNumber});
-        this.setState({priceOfMonitor: 200})
     };
 
-    //SERVER CONFIGURATION
-
-    serverSize = (sizeNumber) => {
-        this.setState({chosenServerSize: sizeNumber})
+    monitorRow = (rows) => {
+        this.setState({chosenMonitorRow: rows})
     };
 
-    //HEIGHT CONFIGURATION
+    //KABEL CONFIGURATION
 
-    adjustHeight = (decision) => {
-        this.setState({chosenHeight: decision})
+    KabelSize = (cableDecision) => {
+        this.setState({chosenKabelSize: cableDecision})
     };
 
-    //LIGHT CONFIGURATION
+    //BLEND CONFIGURATION
 
-    preferLight = (decision) => {
-        this.setState({chosenLight: decision})
+    chosenBlende = (decision) => {
+        this.setState({chosenBlende: decision})
     };
 
-    //POWERBOARD CONFIGURATOR
+    //TECHNIK CONFIGURATION
 
-    preferConfigurator = (decision) => {
-        this.setState({chosenPowerboard: decision})
+    chosenTechnik = (sides) => {
+        this.setState({chosenTechnik: sides})
     };
-
-    //ASSEMBLER CONFIGURATOR
-
-    preferredAssembler = (assembler) => {
-        this.setState({chosenAssembler: assembler})
-    };
-
 
     render() {
       return (
             <>
                 <div className="padding-left">
-                <h2>Configure your own product </h2>
+                <h2>Konfigurieren Sie Ihre Leitstelle </h2>
+
                 </div>
                 <div className="settings">
                 <Table
@@ -147,31 +138,24 @@ state = {
                 />
                 <Monitor
                 monitorSize={this.monitorSize}
+                monitorRow={this.monitorRow}
                 />
-                <Server
-                serverSize={this.serverSize}
+                <Kabel
+                kabelSize={this.KabelSize}
                 />
-                <Height
-                adjustHeight={this.adjustHeight}
+                <Blende
+                chosenBlende={this.chosenBlende}
                 />
-                <Light
-                chosenLight={this.preferLight}
-                />
-                <Powerboards
-                chosenPowerboard={this.preferConfigurator}
-                />
-                <Assembler
-                chosenAssembler={this.preferredAssembler}
+                <Technik
+                chosenTechnik={this.chosenTechnik}
                 />
                 <Summary
                 chosenTable={this.state.chosenTable}
-                priceOfTable={this.state.priceOfTable}
                 chosenMonitorSize={this.state.chosenMonitorSize}
-                chosenServerSize={this.state.chosenServerSize}
-                chosenHeight={this.state.chosenHeight}
-                chosenLight={this.state.chosenLight}
-                chosenPowerboard={this.state.chosenPowerboard}
-                chosenAssembler={this.state.chosenAssembler}
+                chosenMonitorRow={this.state.chosenMonitorRow}
+                chosenServerSize={this.state.chosenKabelSize}
+                chosenBlende={this.state.chosenBlende}
+                chosenTechnik={this.state.chosenTechnik}
                 />
                 </div>
             </>

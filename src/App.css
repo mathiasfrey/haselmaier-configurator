@@ -13,19 +13,24 @@
  }
 
 .productView {
+    position: absolute;
     background: #EEEEEE;
     width: 600px;
     height: 500px;
     margin-left: 451px;
+    top: 390px;
+
 }
 
 .summary {
-  position: absolute;
-  top: 480px;
+  top: 420px;
+  width: 300px;
   padding: 15px 10px 10px 10px;
-  background: #e1edf6;
   line-height: 5px;
+}
 
+.lineSpacing {
+    line-height: 2.0;
 }
 
 .Modal {
@@ -40,7 +45,7 @@ header {
   text-align: center;
   display: flex;
   align-items: center;
-  background-color: #d02611;
+  background-color: #040404;
   font: 15px "Roboto Light", sans-serif;
   border-bottom: solid 2px #e1edf6;
 }
@@ -49,6 +54,10 @@ header h1 {
   flex-grow: 1;
   font-weight: bold;
   font: 30px "Roboto Light", sans-serif;
+}
+
+h4 {
+   text-decoration: underline;
 }
 
 .settings {
@@ -60,13 +69,12 @@ header h1 {
 }
 
 .padding-left {
-  padding-left: 50px;
+  padding-left: 40px;
 }
 
 .white {
     color: white;
 }
-
 
 .btn {
     border: none;
@@ -87,6 +95,13 @@ header h1 {
     transition: all 0.3s;
 }
 
+
+.btn-2a:active {
+  background-color: #6741cb;
+  box-shadow: 0 2px #666;
+  transform: translateY(3px);
+}
+
 .btn:after {
     content: '';
     position: absolute;
@@ -102,7 +117,23 @@ header h1 {
 }
 
 .btn-1e {
-    overflow: hidden;
+    border: 3px solid #fff;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+}
+
+.btn-1:hover, .btn-1e:active {
+    color: #0e83cd;
+}
+
+.btn:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
 }
 
 .btn-1e:after {

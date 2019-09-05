@@ -12,11 +12,10 @@ class App extends Component{
   return (
       <div className="configurator">
           <Header
-          title="Haselmaier Configurator"
+          title="Leitstellen Konfigurator TTV"
           />
           <Settings />
           <Product
-          title="Product View"
           />
       </div>
   );
