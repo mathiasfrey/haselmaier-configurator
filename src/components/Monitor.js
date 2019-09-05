@@ -57,10 +57,10 @@ class Monitor extends React.Component {
         </div>
         <h2>Monitorgröße</h2>
         <div>
-        <button className="btn btn-2 btn-2a" onClick={this.handlingMonitorTwo}> Size: 2 </button>
-        <button className="btn btn-2 btn-2a" onClick={this.handlingMonitorThree}> Size: 3 </button>
-        <button className="btn btn-2 btn-2a" onClick={this.handlingMonitorFour}> Size: 4 </button>
-        <button className="btn btn-2 btn-2a" onClick={this.handlingMonitorFive}> Size: 5 </button>
+        <button className="btn btn-2 btn-2a" onClick={this.handlingMonitorTwo}> Anzahl: 2 </button>
+        <button className="btn btn-2 btn-2a" onClick={this.handlingMonitorThree}> Anzahl: 3 </button>
+        <button className="btn btn-2 btn-2a" onClick={this.handlingMonitorFour}> Anzahl: 4 </button>
+        <button className="btn btn-2 btn-2a" onClick={this.handlingMonitorFive}> Anzahl: 5 </button>
         </div>
         </Modal>
         </>

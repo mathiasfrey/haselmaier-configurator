@@ -1,18 +1,28 @@
 import React from 'react';
+import Video from "./Video";
+
 
 
 class Summary extends React.Component {
-
 
     render() {
 
         return (
             <>
-             <div  className="padding-left lineSpacing">
+             <div className="padding-left lineSpacing">
                  <h4> Meine Leitstelle </h4>
-                 ✅ Höhenverstellbar (Video) <br />
+                 ✅ Höhenverstellbar <br />
+                 <Video
+                 title="Höhenverstellbar"
+                 /> <br/>
                  ✅ Industriedesign (Video) <br />
-                 ✅ Robust (Video)
+                 <Video
+                 title="Industriedesign"
+                 /> <br />
+                 ✅ Robust (Video) <br />
+                 <Video
+                 title="Robust"
+                 />
               </div>
             <div className="padding-left summary">
                 <h4> Meine Leitstelle (current state) </h4>
@@ -28,7 +38,7 @@ class Summary extends React.Component {
                 <h6> Gewünschte Technik </h6>
                 <h5>  - {this.props.chosenTechnik} </h5>
             </div>
-                </>
+            </>
         )
     }
 

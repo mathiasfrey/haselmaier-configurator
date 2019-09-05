@@ -10,6 +10,7 @@ import table_large from '../assets/table_large.jpg'
 import Summary from "./Summary";
 
 
+
 const imagesPath = {
   small_table: table_small,
   middle_table: table_middle,
@@ -127,6 +128,7 @@ state = {
             <>
                 <div className="padding-left">
                 <h2>Konfigurieren Sie Ihre Leitstelle </h2>
+
                 </div>
                 <div className="settings">
                 <Table

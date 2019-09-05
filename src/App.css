@@ -118,14 +118,23 @@ h4 {
 
 .btn-1e {
     border: 3px solid #fff;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
 
 }
 
-.btn-1e:hover, .btn-1e:active {
+.btn-1:hover, .btn-1e:active {
     color: #0e83cd;
 }
 
+.btn:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
 
 .btn-1e:after {
     width: 100%;
