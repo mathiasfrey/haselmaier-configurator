@@ -68,9 +68,10 @@ state = {
         this.setState({chosenTable: 'S' });
         const imageName = 'small_table';
         return (
-        <div>
+            <div>
             <img style={{maxWidth: '500px'}} src={imagesPath[imageName]} alt="image_small" />
-        </div>
+            </div>
+
         )
     };
 
@@ -127,7 +128,7 @@ state = {
       return (
             <>
                 <div className="padding-left">
-                <h2>Konfigurieren Sie Ihre Leitstelle </h2>
+                <h2>Konfigurieren Sie Ihren Leitstellentisch </h2>
 
                 </div>
                 <div className="settings">
