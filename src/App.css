@@ -4,6 +4,7 @@
 
 .configurator {
   background: #E8E8E8;
+  position: relative;
   width: 1400px;
   margin: 70px auto;
   box-shadow: 13px 10px #E0E0E0;
@@ -13,13 +14,12 @@
  }
 
 .productView {
-    position: absolute;
-    background: #EEEEEE;
+    position: relative;
+    background: rgba(4, 4, 4, 0.22);
     width: 600px;
     height: 500px;
     margin-left: 451px;
-    top: 390px;
-
+    bottom: 700px;
 }
 
 .summary {
