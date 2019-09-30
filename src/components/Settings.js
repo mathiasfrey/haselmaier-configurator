@@ -4,17 +4,18 @@ import Monitor from "./Monitor";
 import Blende from "./Blende";
 import Kabel from "./Kabel";
 import Technik from "./Technik";
-import table_small from '../assets/table_small.jpg'
+import table_small from '../assets/test.png'
 import table_middle from '../assets/table_middle.jpeg'
 import table_large from '../assets/table_large.jpg'
 import Summary from "./Summary";
+import Product from "./Product";
 
 
 
 const imagesPath = {
-  small_table: table_small,
-  middle_table: table_middle,
-  large_table: table_large,
+  small_table: <img src={table_small} height="450" width="400" alt="ref"/>,
+  middle_table: <img src={table_middle} height="450" width="400" alt="ref"/>,
+  large_table: <img src={table_large} height="450" width="400" alt="ref"/>,
 };
 
 export const sizeNumber = {
@@ -52,6 +53,7 @@ export const sides = {
 class Settings extends React.Component {
 state = {
         chosenTable: String,
+        chosenTablePic: Array,
         chosenMonitorSize: Number,
         chosenMonitorRow: Number,
         chosenKabelSize: Number,
@@ -59,41 +61,24 @@ state = {
         chosenTechnik: Number,
         chosenPowerboard: String,
         chosenAssembler: String,
-
     };
 
     //TABLE CONFIGURATION
 
     loadTableSmall = () => {
+        this.setState({chosenTablePic: imagesPath.small_table});
         this.setState({chosenTable: 'S' });
-        const imageName = 'small_table';
-        return (
-            <div>
-            <img style={{maxWidth: '500px'}} src={imagesPath[imageName]} alt="image_small" />
-            </div>
-
-        )
     };
 
 
     loadTableMiddle = () => {
+        this.setState({chosenTablePic: imagesPath.middle_table});
         this.setState({chosenTable: 'M'});
-        const imageName = 'middle_table';
-        return (
-        <div>
-            <img style={{maxWidth: '500px'}} src={imagesPath[imageName]} alt="image_middle" />
-        </div>
-        )
     };
 
     loadTableLarge = () => {
+        this.setState({chosenTablePic: imagesPath.large_table});
         this.setState({chosenTable: 'L'});
-        const imageName = 'large_table';
-        return (
-        <div>
-            <img style={{maxWidth: '500px'}} src={imagesPath[imageName]} alt="image_large" />
-        </div>
-        )
     };
 
     //MONITOR CONFIGURATION
@@ -157,6 +142,10 @@ state = {
                 chosenServerSize={this.state.chosenKabelSize}
                 chosenBlende={this.state.chosenBlende}
                 chosenTechnik={this.state.chosenTechnik}
+                />
+                <Product
+                chosenTable={this.state.chosenTable}
+                chosenPic={this.state.chosenTablePic}
                 />
                 </div>
             </>

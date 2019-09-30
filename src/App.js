@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import Header from './components/Header';
 import './App.css';
 import Settings from './components/Settings';
-import Product from "./components/Product";
 
 
 class App extends Component{
@@ -15,8 +14,7 @@ class App extends Component{
           title="Leitstellen Konfigurator TTV"
           />
           <Settings />
-          <Product
-          />
+
       </div>
   );
   }
