@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import Header from './components/Header';
 import './App.css';
 import Settings from './components/Settings';
+//import Tour from "./components/Tour";
+
 
 
 class App extends Component{
@@ -18,6 +20,4 @@ class App extends Component{
   );
   }
 }
-
-
 export default App;

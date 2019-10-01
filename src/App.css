@@ -19,7 +19,16 @@
     width: 600px;
     height: 500px;
     margin-left: 451px;
-    bottom: 700px;
+    bottom: 750px;
+}
+
+.tourView {
+    position: relative;
+    background: rgba(4, 4, 4, 0.22);
+    width: 400px;
+    height: 300px;
+    margin-left: 451px;
+    bottom: 100px;
 }
 
 .summary {
