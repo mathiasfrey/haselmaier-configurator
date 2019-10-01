@@ -5,7 +5,7 @@
 .configurator {
   background: #E8E8E8;
   position: relative;
-  width: 1400px;
+  width: 1500px;
   margin: 70px auto;
   box-shadow: 13px 10px #E0E0E0;
   border-radius: 6px;
@@ -69,7 +69,16 @@ h4 {
 }
 
 .padding-left {
-  padding-left: 40px;
+  padding-left: 40px;}
+    .reset {
+        position: relative;
+        left: 1200px;
+        bottom: 70px;
+    }
+
+.padding-right {
+    position: relative;
+    left: 800px;
 }
 
 .white {
@@ -78,16 +87,16 @@ h4 {
 
 .btn {
     border: none;
-    font-size: 13px;
+    font-size: 12px;
     color: inherit;
     background: #F5F5F5;
     cursor: pointer;
-    padding: 25px 80px;
+    padding: 20px 70px;
     display: inline-block;
     margin: 10px 20px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-weight: 700;
+    font-weight: 500;
     outline: none;
     position: relative;
     -webkit-transition: all 0.3s;
@@ -120,7 +129,11 @@ h4 {
     border: 3px solid #fff;
     overflow-x: hidden;
     overflow-y: hidden;
+}
 
+.btn-1a:hover, .btn-1a:active {
+    color: #0e83cd;
+    background: #fff;
 }
 
 .btn-1:hover, .btn-1e:active {

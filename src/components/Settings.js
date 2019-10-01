@@ -2,31 +2,35 @@ import React from 'react';
 import Table from "./Table";
 import Monitor from "./Monitor";
 import Blende from "./Blende";
-import Kabel from "./Kabel";
+import Height from "./Height";
 import Technik from "./Technik";
-import table_small from '../assets/test.png'
-import table_middle from '../assets/table_middle.jpeg'
-import table_large from '../assets/table_large.jpg'
+import table from '../assets/table_white.png'
+import table_eight_monitors from '../assets/table_white_eight_monitors.png'
+import table_four_monitors from '../assets/table_white_four_monitors.png'
+import table_black_eight_monitors from '../assets/table_black_eight_monitors.png'
 import Summary from "./Summary";
 import Product from "./Product";
 
 
-
 const imagesPath = {
-  small_table: <img src={table_small} height="450" width="400" alt="ref"/>,
-  middle_table: <img src={table_middle} height="450" width="400" alt="ref"/>,
-  large_table: <img src={table_large} height="450" width="400" alt="ref"/>,
+    //Table
+  small_table: <img src={table} height="500" width="600" alt="ref"/>,
+  middle_table: <img src={table} height="500" width="600" alt="ref"/>,
+  large_table: <img src={table} height="500" width="600" alt="ref"/>,
+    //Monitor
+  monitorOneRow: <img src={table_four_monitors} height="500" width="600" alt="ref"/>,
+  monitorTwoRow: <img src={table_eight_monitors} height="500" width="600" alt="ref"/>,
+    //Height
+  eco: <img src={table_black_eight_monitors} height="500" width="600" alt="ref"/>,
+
+
 };
 
-export const sizeNumber = {
-    sizeOne: 1,
-    sizeTwo: 2,
-    sizeThree: 3,
-    sizeFour: 4,
-    sizeFive: 5,
-    sizeSix: 6,
-    sizeSeven: 7,
-    sizeEight: 8
+export const monitorSystem = {
+    0: 'OHNE',
+    1: 'STATIV',
+    2: 'RELING: OHNE HV',
+    3: 'RELING: MIT HV',
 };
 
 export const blendDecision = {
@@ -34,9 +38,9 @@ export const blendDecision = {
     1: 'Voller Blendschutz',
 };
 
-export const cableDecision = {
-    0: 'Ohne',
-    1: 'Voll integriert',
+export const heightDecision = {
+    0: 'ECO',
+    1: 'VARIO',
 };
 
 export const rows = {
@@ -47,21 +51,28 @@ export const rows = {
 export const sides = {
     0: 'Linksseitig',
     1: 'Rechtsseitig',
-    2: 'Links- und rechtsseitig'
+    2: 'Links- und rechtsseitig',
+    3: 'Ohne',
 };
 
 class Settings extends React.Component {
-state = {
+    constructor(props) {
+        super(props);
+        this.state = {
         chosenTable: String,
         chosenTablePic: Array,
         chosenMonitorSize: Number,
+        chosenMonitorPic: Array,
         chosenMonitorRow: Number,
-        chosenKabelSize: Number,
+        chosenHeightSetting: Number,
+        chosenHeightPic: Array,
         chosenBlende: String,
         chosenTechnik: Number,
         chosenPowerboard: String,
         chosenAssembler: String,
-    };
+        };
+        this.initialState = this.state
+    }
 
     //TABLE CONFIGURATION
 
@@ -83,18 +94,29 @@ state = {
 
     //MONITOR CONFIGURATION
 
-    monitorSize = (sizeNumber) => {
-        this.setState({chosenMonitorSize: sizeNumber});
+    monitorSize = (monitorSystem) => {
+
+        this.setState({chosenMonitorSize: monitorSystem});
     };
 
-    monitorRow = (rows) => {
-        this.setState({chosenMonitorRow: rows})
+    monitorOneRow = () => {
+        this.setState({chosenTablePic: Array});
+        this.setState({chosenMonitorPic: imagesPath.monitorOneRow});
+        this.setState({chosenMonitorRow: rows[0]})
     };
 
-    //KABEL CONFIGURATION
+    monitorTwoRow = () => {
+        this.setState({chosenTablePic: Array});
+        this.setState({chosenMonitorPic: imagesPath.monitorTwoRow});
+        this.setState({chosenMonitorRow: rows[1]})
+    };
 
-    KabelSize = (cableDecision) => {
-        this.setState({chosenKabelSize: cableDecision})
+    //HEIGHT CONFIGURATION
+
+    heightSetting = (heightDecision) => {
+        this.setState({chosenMonitorPic: Array});
+        this.setState({chosenHeightPic: imagesPath.eco});
+        this.setState({chosenHeightSetting: heightDecision})
     };
 
     //BLEND CONFIGURATION
@@ -109,12 +131,20 @@ state = {
         this.setState({chosenTechnik: sides})
     };
 
+    //RESET
+
+    handleReset = () => {
+        this.setState(this.initialState)
+    };
+
     render() {
       return (
             <>
                 <div className="padding-left">
                 <h2>Konfigurieren Sie Ihren Leitstellentisch </h2>
-
+                </div>
+                <div className="padding-left reset">
+                    <button className="btn btn-1 btn-1a" onClick={this.handleReset}>RESET</button>
                 </div>
                 <div className="settings">
                 <Table
@@ -124,10 +154,11 @@ state = {
                 />
                 <Monitor
                 monitorSize={this.monitorSize}
-                monitorRow={this.monitorRow}
+                monitorOneRow={this.monitorOneRow}
+                monitorTwoRow={this.monitorTwoRow}
                 />
-                <Kabel
-                kabelSize={this.KabelSize}
+                <Height
+                heightSetting={this.heightSetting}
                 />
                 <Blende
                 chosenBlende={this.chosenBlende}
@@ -139,13 +170,14 @@ state = {
                 chosenTable={this.state.chosenTable}
                 chosenMonitorSize={this.state.chosenMonitorSize}
                 chosenMonitorRow={this.state.chosenMonitorRow}
-                chosenServerSize={this.state.chosenKabelSize}
+                chosenServerSize={this.state.chosenHeightSetting}
                 chosenBlende={this.state.chosenBlende}
                 chosenTechnik={this.state.chosenTechnik}
                 />
                 <Product
-                chosenTable={this.state.chosenTable}
-                chosenPic={this.state.chosenTablePic}
+                chosenTablePic={this.state.chosenTablePic}
+                chosenMonitorPic={this.state.chosenMonitorPic}
+                chosenHeightPic={this.state.chosenHeightPic}
                 />
                 </div>
             </>

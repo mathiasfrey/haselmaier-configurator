@@ -37,10 +37,10 @@ class Table extends Component {
         <>
         <button className="btn btn-1 btn-1e" onClick={this.onOpenModal}>Tisch</button>
         <Modal open={this.state.openTable} onClose={this.onCloseModal} closeOnOverlayClick={true} center>
-        <h2>Choose your size please</h2>
-        <button className="btn btn-2 btn-2a" onClick={this.handlingSmallTable}> Size: S </button>
-        <button className="btn btn-2 btn-2a" onClick={this.handlingMiddleTable}> Size: M </button>
-        <button className="btn btn-2 btn-2a" onClick={this.handlingLargeTable}> Size: L </button>
+        <h2>Wähle deine Tischgröße</h2>
+        <button className="btn btn-2 btn-2a" onClick={this.handlingSmallTable}> KLEIN (bis zu 3 Monitore) </button>
+        <button className="btn btn-2 btn-2a" onClick={this.handlingMiddleTable}> MITTEL (bis zu 4 Monitore) </button>
+        <button className="btn btn-2 btn-2a" onClick={this.handlingLargeTable}> GROß (bis zu Monitore) </button>
         </Modal>
 
         </>

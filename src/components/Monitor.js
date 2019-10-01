@@ -1,7 +1,6 @@
 import React from 'react';
 import Modal from 'react-responsive-modal';
-import {sizeNumber} from "./Settings";
-import {rows} from "./Settings";
+import {monitorSystem} from "./Settings";
 
 
 class Monitor extends React.Component {
@@ -18,37 +17,38 @@ class Monitor extends React.Component {
     this.setState({ open: false });
     };
 
-    handlingMonitorTwo = () => {
+    handlingMonitorNoSystem = () => {
         this.setState({ open: false });
-        this.props.monitorSize(sizeNumber['sizeTwo'])
+        this.props.monitorSize(monitorSystem[0])
     };
-    handlingMonitorThree = () => {
+    handlingMonitorSystem = () => {
         this.setState({ open: false });
-        this.props.monitorSize(sizeNumber['sizeThree'])
-    };
-    handlingMonitorFour = () => {
-        this.setState({ open: false });
-        this.props.monitorSize(sizeNumber['sizeFour'])
+        this.props.monitorSize(monitorSystem[1])
     };
 
-    handlingMonitorFive = () => {
+    handlingMonitorRelingSystemNo = () => {
         this.setState({ open: false });
-        this.props.monitorSize(sizeNumber['sizeFive'])
+        this.props.monitorSize(monitorSystem[2])
+    };
+
+    handlingMonitorRelingSystem = () => {
+        this.setState({ open: false });
+        this.props.monitorSize(monitorSystem[3])
     };
 
     handlingMonitorRowOne = () => {
-        this.props.monitorRow(rows[0]);
+        this.props.monitorOneRow();
     };
 
     handlingMonitorRowTwo = () => {
-        this.props.monitorRow(rows[1]);
+        this.props.monitorTwoRow();
     };
 
 
     render() {
         return (
         <>
-        <button className="btn btn-1 btn-1e" onClick={this.onOpenModal}>Monitor</button>
+        <button className="btn btn-1 btn-1e" onClick={this.onOpenModal}>Monitortragsystem</button>
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
         <h2> 1-reihig oder 2-reihig? </h2>
         <div>
@@ -57,10 +57,10 @@ class Monitor extends React.Component {
         </div>
         <h2>Monitorgröße</h2>
         <div>
-        <button className="btn btn-2 btn-2a" onClick={this.handlingMonitorTwo}> Anzahl: 2 </button>
-        <button className="btn btn-2 btn-2a" onClick={this.handlingMonitorThree}> Anzahl: 3 </button>
-        <button className="btn btn-2 btn-2a" onClick={this.handlingMonitorFour}> Anzahl: 4 </button>
-        <button className="btn btn-2 btn-2a" onClick={this.handlingMonitorFive}> Anzahl: 5 </button>
+        <button className="btn btn-2 btn-2a" onClick={this.handlingMonitorNoSystem}>1. OHNE </button>
+        <button className="btn btn-2 btn-2a" onClick={this.handlingMonitorSystem}> 2. STATIVSYSTEM </button>
+        <button className="btn btn-2 btn-2a" onClick={this.handlingMonitorRelingSystemNo}>3. RELING: OHNE HV </button>
+        <button className="btn btn-2 btn-2a" onClick={this.handlingMonitorRelingSystem}> 3. RELING: MIT HV </button>
         </div>
         </Modal>
         </>

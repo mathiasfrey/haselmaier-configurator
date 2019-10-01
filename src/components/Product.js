@@ -8,17 +8,13 @@ class Product extends React.Component {
        return(
         <>
         <div className="productView">
-            {this.props.chosenTable}
-            <br />
-            {this.props.chosenPic}
+            {this.props.chosenTablePic}
+            {this.props.chosenMonitorPic}
+            {this.props.chosenHeightPic}
         </div>
         </>
     )
-
     }
-
-
-
 }
 
 export default Product;

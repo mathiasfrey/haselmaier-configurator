@@ -1,5 +1,6 @@
 import React from 'react';
 import Video from "./Video";
+import video from '../assets/video.mp4';
 
 
 
@@ -13,15 +14,15 @@ class Summary extends React.Component {
                  <h4> Mein Tisch </h4>
                  ✅ Höhenverstellbar <br />
                  <Video
-                 title="Höhenverstellbar"
+                 title="Höhenverstellbar" src={video}
                  /> <br/>
                  ✅ Industriedesign (Video) <br />
                  <Video
-                 title="Industriedesign"
+                 title="Industriedesign" src={video}
                  /> <br />
                  ✅ Robust (Video) <br />
                  <Video
-                 title="Robust"
+                 title="Robust" src={video}
                  />
               </div>
             <div className="padding-left summary">

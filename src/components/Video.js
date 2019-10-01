@@ -24,7 +24,7 @@ class Video extends React.Component {
             <Modal open={this.state.open} onClose={this.onCloseModal} center>
                 <h2> {this.props.title} </h2>
             <video autoPlay="true" height="500" width="500" controls>
-            <source src={video} type="video/mp4"/>
+            <source src={this.props.src} type="video/mp4"/>
             </video>
             </Modal>
          </>

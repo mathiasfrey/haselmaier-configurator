@@ -14,7 +14,6 @@ class App extends Component{
           title="Leitstellen Konfigurator TTV"
           />
           <Settings />
-
       </div>
   );
   }
