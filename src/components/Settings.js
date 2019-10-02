@@ -9,7 +9,7 @@ import table_eight_monitors from '../assets/table_white_eight_monitors.png'
 import table_four_monitors from '../assets/table_white_four_monitors.png'
 import table_black_eight_monitors from '../assets/table_black_eight_monitors.png'
 import Summary from "./Summary";
-import Product from "./Product";
+import TourSetup from "./Tour/TourSetup";
 
 
 const imagesPath = {
@@ -174,11 +174,12 @@ class Settings extends React.Component {
                 chosenBlende={this.state.chosenBlende}
                 chosenTechnik={this.state.chosenTechnik}
                 />
-                <Product
+                <TourSetup
                 chosenTablePic={this.state.chosenTablePic}
                 chosenMonitorPic={this.state.chosenMonitorPic}
                 chosenHeightPic={this.state.chosenHeightPic}
                 />
+
                 </div>
             </>
        )

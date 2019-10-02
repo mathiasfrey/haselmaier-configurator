@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Modal from 'react-responsive-modal';
+import tisch_video from '../assets/tisch_video.mp4';
 
 class Table extends Component {
 
@@ -37,6 +38,10 @@ class Table extends Component {
         <>
         <button className="btn btn-1 btn-1e" onClick={this.onOpenModal}>Tisch</button>
         <Modal open={this.state.openTable} onClose={this.onCloseModal} closeOnOverlayClick={true} center>
+
+        <video autoPlay="true" height="300" width="500" controls playsinline="false">
+        <source src={tisch_video} type="video/mp4"/>
+        </video>
         <h2>Wähle deine Tischgröße</h2>
         <button className="btn btn-2 btn-2a" onClick={this.handlingSmallTable}> KLEIN (bis zu 3 Monitore) </button>
         <button className="btn btn-2 btn-2a" onClick={this.handlingMiddleTable}> MITTEL (bis zu 4 Monitore) </button>
