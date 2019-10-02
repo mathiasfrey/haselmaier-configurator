@@ -59,6 +59,7 @@ class Settings extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+        productCode: String,
         chosenTable: String,
         chosenTablePic: Array,
         chosenMonitorSize: Number,
@@ -79,17 +80,20 @@ class Settings extends React.Component {
     loadTableSmall = () => {
         this.setState({chosenTablePic: imagesPath.small_table});
         this.setState({chosenTable: 'S' });
+        this.setState({productCode: 'S'})
     };
 
 
     loadTableMiddle = () => {
         this.setState({chosenTablePic: imagesPath.middle_table});
         this.setState({chosenTable: 'M'});
+        this.setState({productCode: 'M'})
     };
 
     loadTableLarge = () => {
         this.setState({chosenTablePic: imagesPath.large_table});
         this.setState({chosenTable: 'L'});
+        this.setState({productCode: 'L'})
     };
 
     //MONITOR CONFIGURATION

@@ -41,7 +41,7 @@ class Technik extends React.Component {
         <>
         <button className="btn btn-1 btn-1e" onClick={this.onOpenModal}>Technik</button>
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
-        <h2>Technikintegration</h2>
+        <h2>Technik Integration</h2>
         <video autoPlay="true" height="300" width="500" controls playsInline="false">
         <source src={technik_video} type="video/mp4"/>
         </video>
