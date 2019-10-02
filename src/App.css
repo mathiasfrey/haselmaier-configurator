@@ -15,7 +15,7 @@
 
 .productView {
     position: relative;
-    background: rgba(4, 4, 4, 0.22);
+    background: rgba(4, 4, 4, 0.33);
     width: 600px;
     height: 500px;
     margin-left: 451px;
@@ -24,12 +24,34 @@
 
 .tourView {
     position: relative;
-    background: rgba(4, 4, 4, 0.22);
-    width: 400px;
-    height: 300px;
+    width: 600px;
+    height: 600px;
     margin-left: 451px;
-    bottom: 100px;
+    bottom: 750px;
 }
+
+.background_black {
+    background-color: #000000;
+    text-align: center;
+}
+
+.white {
+   color: white;
+}
+
+.tourNav {
+    position: relative;
+    }
+    .next {
+        bottom: 770px;
+        left: 850px;
+    }
+    .prev {
+        left: 210px;
+        bottom: 770px;
+    }
+
+
 
 .summary {
   top: 420px;
@@ -183,6 +205,49 @@ h4 {
     -webkit-transition: none;
     -moz-transition: none;
     transition: none;
+}
+
+.btn-4 {
+    border: 3px solid #fff;
+    color: #000000;
+    overflow: hidden;
+}
+
+.btn-4:hover {
+    background: #24b662;
+}
+
+.btn-4:active {
+    border-color: #17954c;
+    color: #17954c;
+}
+
+.btn-4a:before {
+    left: 130%;
+    top: 0;
+}
+
+.btn-4:before {
+    position: absolute;
+    height: 100%;
+    font-size: 125%;
+    line-height: 3.5;
+    color: #fff;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+
+.btn:before, .icon-heart:after, .icon-star:after, .icon-plus:after, .icon-file:before {
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
 }
 
 #buttonboxback {
