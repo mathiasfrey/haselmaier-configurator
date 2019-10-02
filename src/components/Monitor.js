@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from 'react-responsive-modal';
 import {monitorSystem} from "./Settings";
-
+import monitor_video from '../assets/monitor_video.mp4';
 
 class Monitor extends React.Component {
 
@@ -50,6 +50,10 @@ class Monitor extends React.Component {
         <>
         <button className="btn btn-1 btn-1e" onClick={this.onOpenModal}>Monitortragsystem</button>
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
+            <h2> Monitortragsystem </h2>
+         <video autoPlay="true" height="300" width="500" controls playsinline="false">
+         <source src={monitor_video} type="video/mp4"/>
+         </video>
         <h2> 1-reihig oder 2-reihig? </h2>
         <div>
         <button className="btn btn-2 btn-2a" onClick={this.handlingMonitorRowOne}> 1 - Reihig </button>
