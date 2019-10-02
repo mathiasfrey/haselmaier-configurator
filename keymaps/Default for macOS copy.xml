@@ -22,13 +22,9 @@
   <action id="GotoDeclaration">
     <mouse-shortcut keystroke="meta button1" />
     <mouse-shortcut keystroke="button2" />
-  </action>
-  <action id="GotoLine" />
-  <action id="QuickImplementations">
-    <keyboard-shortcut first-keystroke="alt space" />
-    <keyboard-shortcut first-keystroke="meta y" />
     <keyboard-shortcut first-keystroke="meta d" />
   </action>
+  <action id="GotoLine" />
   <action id="RunDashboard.CopyConfiguration" />
   <action id="SendEOF" />
   <action id="Vcs.Log.FocusTextFilter" />
