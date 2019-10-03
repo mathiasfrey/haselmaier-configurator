@@ -99,20 +99,22 @@ class Settings extends React.Component {
     //MONITOR CONFIGURATION
 
     monitorSize = (monitorSystem) => {
-
         this.setState({chosenMonitorSize: monitorSystem});
+        this.setState({productCode: this.state.productCode + monitorSystem})
     };
 
     monitorOneRow = () => {
         this.setState({chosenTablePic: Array});
         this.setState({chosenMonitorPic: imagesPath.monitorOneRow});
-        this.setState({chosenMonitorRow: rows[0]})
+        this.setState({chosenMonitorRow: rows[0]});
+        this.setState({productCode: this.state.productCode + '1'})
     };
 
     monitorTwoRow = () => {
         this.setState({chosenTablePic: Array});
         this.setState({chosenMonitorPic: imagesPath.monitorTwoRow});
-        this.setState({chosenMonitorRow: rows[1]})
+        this.setState({chosenMonitorRow: rows[1]});
+        this.setState({productCode: this.state.productCode + '2'})
     };
 
     //HEIGHT CONFIGURATION
@@ -120,19 +122,22 @@ class Settings extends React.Component {
     heightSetting = (heightDecision) => {
         this.setState({chosenMonitorPic: Array});
         this.setState({chosenHeightPic: imagesPath.eco});
-        this.setState({chosenHeightSetting: heightDecision})
+        this.setState({chosenHeightSetting: heightDecision});
+        this.setState({productCode: this.state.productCode + heightDecision})
     };
 
     //BLEND CONFIGURATION
 
     chosenBlende = (decision) => {
-        this.setState({chosenBlende: decision})
+        this.setState({chosenBlende: decision});
+        this.setState({productCode: this.state.productCode + decision})
     };
 
     //TECHNIK CONFIGURATION
 
     chosenTechnik = (sides) => {
-        this.setState({chosenTechnik: sides})
+        this.setState({chosenTechnik: sides});
+        this.setState({productCode: this.state.productCode + sides})
     };
 
     //RESET
@@ -182,6 +187,7 @@ class Settings extends React.Component {
                 chosenTablePic={this.state.chosenTablePic}
                 chosenMonitorPic={this.state.chosenMonitorPic}
                 chosenHeightPic={this.state.chosenHeightPic}
+                productCode={this.state.productCode}
                 />
 
                 </div>

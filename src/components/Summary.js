@@ -32,7 +32,7 @@ class Summary extends React.Component {
                 <h6> Monitor Einstellung</h6>
                 <h5>  - {this.props.chosenMonitorRow} </h5>
                 <h5>  - {this.props.chosenMonitorSize} </h5>
-                <h6> Kabelführung </h6>
+                <h6> Höhenverstellbar </h6>
                 <h5>  - {this.props.chosenServerSize} </h5>
                 <h6> Gewünschte Blendeneinstellung </h6>
                 <h5>  - {this.props.chosenBlende} </h5>

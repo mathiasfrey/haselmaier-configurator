@@ -24,10 +24,10 @@ class TourSetup extends React.Component {
             {this.props.chosenTablePic}
             {this.props.chosenMonitorPic}
             {this.props.chosenHeightPic}
-
         </div>
         <div>
             <h2> Ihr Productcode </h2>
+            {this.props.productCode}
         </div>
       </ReactSwipe>
       <button className="tourNav next btn btn-4 btn-4a" onClick={() => reactSwipeEl.next()}>Next</button>
