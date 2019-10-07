@@ -122,7 +122,7 @@ h4 {
     color: inherit;
     background: #F5F5F5;
     cursor: pointer;
-    padding: 20px 70px;
+    padding: 15px 60px;
     display: inline-block;
     margin: 10px 20px;
     text-transform: uppercase;
@@ -137,7 +137,7 @@ h4 {
 
 
 .btn-2a:active {
-  background-color: #6741cb;
+  background-color: #0096d0;
   box-shadow: 0 2px #666;
   transform: translateY(3px);
 }
@@ -194,11 +194,11 @@ h4 {
 }
 
 .btn-2a {
-    border-radius: 0 0 5px 5px;
+    border-radius: 20px 20px 20px 20px;
 }
 
 .btn-2 {
-    background: #6741cb;
+    background: #0096d0;
     display: inline-block;
     color: #fff;
     box-shadow: 0 6px #B0B0B0;
@@ -214,11 +214,11 @@ h4 {
 }
 
 .btn-4:hover {
-    background: #24b662;
+    background: #0096d0;
 }
 
 .btn-4:active {
-    border-color: #17954c;
+    border-color: #0096d0;
     color: #17954c;
 }
 
