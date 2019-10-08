@@ -10,7 +10,3 @@ it('renders without crashing', () => {
 });
 
 
-it('return images', () => {
-  const small_table = <img src={table} height="500" width="600" alt="ref"/>
-
-})
