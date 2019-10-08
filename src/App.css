@@ -25,9 +25,9 @@
 .tourView {
     position: relative;
     width: 600px;
-    height: 600px;
+    height: 1100px;
     margin-left: 451px;
-    bottom: 750px;
+    bottom: 600px;
 }
 
 .background_black {
@@ -43,12 +43,12 @@
     position: relative;
     }
     .next {
-        bottom: 770px;
-        left: 850px;
+        bottom: 570px;
+        left: 870px;
     }
     .prev {
-        left: 210px;
-        bottom: 770px;
+        left: 220px;
+        bottom: 570px;
     }
 
 
@@ -96,7 +96,15 @@ h4 {
   padding: 15px 10px 5px 10px;
   border-bottom: solid 2px #EEEEEE;
   line-height: 1.2em;
+}
 
+.current_state {
+    padding-left: 1200px;
+}
+
+.top {
+    position: relative;
+    top: 20px;
 }
 
 .padding-left {

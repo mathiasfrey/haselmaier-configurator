@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactSwipe from 'react-swipe';
 import Intro from '../Tour/Intro';
+import Table from "../Table";
 
 let reactSwipeEl;
 
 class TourSetup extends React.Component {
-
-
 
   render() {
    return (
@@ -20,7 +19,7 @@ class TourSetup extends React.Component {
         <Intro />
         </div>
         <div>
-            <h2> Ihr Tisch </h2>
+
             {this.props.chosenTablePic}
             {this.props.chosenMonitorPic}
             {this.props.chosenHeightPic}
@@ -31,7 +30,7 @@ class TourSetup extends React.Component {
         </div>
       </ReactSwipe>
       <button className="tourNav next btn btn-4 btn-4a" onClick={() => reactSwipeEl.next()}>Next</button>
-      <button className="tourNav prev btn btn-4 btn-4a" onClick={() => reactSwipeEl.prev()}>Previous</button>
+      <button className="tourNav prev btn btn-4 btn-4a" onClick={() => reactSwipeEl.prev()}>Back</button>
     </div>
    )
 

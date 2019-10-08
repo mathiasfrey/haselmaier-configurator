@@ -10,22 +10,7 @@ class Summary extends React.Component {
 
         return (
             <>
-             <div className="padding-left lineSpacing">
-                 <h4> Mein Tisch </h4>
-                 ✅ Höhenverstellbar <br />
-                 <Video
-                 title="Höhenverstellbar" src={video}
-                 /> <br/>
-                 ✅ Industriedesign (Video) <br />
-                 <Video
-                 title="Industriedesign" src={video}
-                 /> <br />
-                 ✅ Robust (Video) <br />
-                 <Video
-                 title="Robust" src={video}
-                 />
-              </div>
-            <div className="padding-left summary">
+            <div className="current_state top">
                 <h4> Mein Tisch (current state) </h4>
                 <h6> Tischgröße </h6>
                 <h5>  - {this.props.chosenTable} </h5>
