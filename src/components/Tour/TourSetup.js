@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactSwipe from 'react-swipe';
 import Intro from '../Tour/Intro';
-import Table from "../Table";
 
 let reactSwipeEl;
 
@@ -19,7 +18,7 @@ class TourSetup extends React.Component {
         <Intro />
         </div>
         <div>
-
+            <h2> Wähle oberhalb deine Konfiguration </h2>
             {this.props.chosenTablePic}
             {this.props.chosenMonitorPic}
             {this.props.chosenHeightPic}

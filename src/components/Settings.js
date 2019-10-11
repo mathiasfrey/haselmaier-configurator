@@ -23,7 +23,6 @@ const imagesPath = {
     //Height
   eco: <img src={table_black_eight_monitors} height="500" width="600" alt="ref"/>,
 
-
 };
 
 export const monitorSystem = {
@@ -34,8 +33,13 @@ export const monitorSystem = {
 };
 
 export const blendDecision = {
-    0: 'Keinen',
+    0: 'Keinen Blendschutz',
     1: 'Voller Blendschutz',
+};
+
+export const kabelRuecken = {
+    0: 'Mit Kabelrücken',
+    1: 'Ohne Kabelrücken',
 };
 
 export const heightDecision = {
@@ -52,7 +56,12 @@ export const sides = {
     0: 'Linksseitig',
     1: 'Rechtsseitig',
     2: 'Links- und rechtsseitig',
-    3: 'Ohne',
+    3: 'Ohne Technikintegration',
+};
+
+export const container = {
+    0: 'Mit Ladencontainer',
+    1: 'Ohne Ladencontainer',
 };
 
 class Settings extends React.Component {
@@ -68,7 +77,9 @@ class Settings extends React.Component {
         chosenHeightSetting: Number,
         chosenHeightPic: Array,
         chosenBlende: String,
+        chosenKabelRuecken: String,
         chosenTechnik: Number,
+        chosenTechnikContainer: String,
         chosenPowerboard: String,
         chosenAssembler: String,
         };
@@ -81,6 +92,7 @@ class Settings extends React.Component {
         this.setState({chosenTablePic: imagesPath.small_table});
         this.setState({chosenTable: 'S' });
         this.setState({productCode: 'S'})
+
     };
 
 
@@ -133,11 +145,21 @@ class Settings extends React.Component {
         this.setState({productCode: this.state.productCode + decision})
     };
 
+    chosenKabelRuecken = (kabelRuecken) => {
+        this.setState({chosenKabelRuecken: kabelRuecken});
+        this.setState({productCode: this.state.productCode + kabelRuecken})
+    };
+
     //TECHNIK CONFIGURATION
 
     chosenTechnik = (sides) => {
         this.setState({chosenTechnik: sides});
         this.setState({productCode: this.state.productCode + sides})
+    };
+
+    chosenTechnikContainer = (container) => {
+        this.setState({chosenTechnikContainer: container});
+        this.setState({productCode: this.state.productCode + container})
     };
 
     //RESET
@@ -171,9 +193,11 @@ class Settings extends React.Component {
                 />
                 <Blende
                 chosenBlende={this.chosenBlende}
+                chosenKabelRuecken={this.chosenKabelRuecken}
                 />
                 <Technik
                 chosenTechnik={this.chosenTechnik}
+                chosenContainer={this.chosenTechnikContainer}
                 />
                 <Summary
                 chosenTable={this.state.chosenTable}
@@ -181,7 +205,9 @@ class Settings extends React.Component {
                 chosenMonitorRow={this.state.chosenMonitorRow}
                 chosenServerSize={this.state.chosenHeightSetting}
                 chosenBlende={this.state.chosenBlende}
+                chosenKabelRuecken={this.state.chosenKabelRuecken}
                 chosenTechnik={this.state.chosenTechnik}
+                chosenContainer={this.state.chosenTechnikContainer}
                 />
                 <TourSetup
                 chosenTablePic={this.state.chosenTablePic}
@@ -189,7 +215,6 @@ class Settings extends React.Component {
                 chosenHeightPic={this.state.chosenHeightPic}
                 productCode={this.state.productCode}
                 />
-
                 </div>
             </>
        )
