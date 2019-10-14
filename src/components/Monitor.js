@@ -1,6 +1,5 @@
 import React from 'react';
 import Modal from 'react-responsive-modal';
-import {monitorSystem} from "./Settings";
 import monitor_video from '../assets/monitor_video.mp4';
 
 class Monitor extends React.Component {
@@ -17,23 +16,32 @@ class Monitor extends React.Component {
     this.setState({ open: false });
     };
 
-    handlingMonitorNoSystem = () => {
+    handlingMonitorSystemWithout = () => {
         this.setState({ open: false });
-        this.props.monitorSize(monitorSystem[0])
+        this.props.monitorSystemWithout();
+        document.getElementById('kabel').style.color = '#D8D8D8';
+        document.getElementById('kabel').disabled = true;
     };
-    handlingMonitorSystem = () => {
+    handlingMonitorSystemStativ = () => {
         this.setState({ open: false });
-        this.props.monitorSize(monitorSystem[1])
+        this.props.monitorSystemStativ();
+        document.getElementById('kabel').style.color = '#D8D8D8';
+        document.getElementById('kabel').disabled = true;
     };
 
-    handlingMonitorRelingSystemNo = () => {
+    handlingMonitorSystemRelingHv = () => {
         this.setState({ open: false });
-        this.props.monitorSize(monitorSystem[2])
+        this.props.monitorSystemRelingHV();
+        document.getElementById('kabel').style.color = '#A9A9A9';
+        document.getElementById('kabel').disabled = false;
     };
 
-    handlingMonitorRelingSystem = () => {
+    handlingMonitorSystemReling = () => {
         this.setState({ open: false });
-        this.props.monitorSize(monitorSystem[3])
+        this.props.monitorSystemReling();
+        document.getElementById('kabel').style.color = '#A9A9A9';
+        document.getElementById('kabel').disabled = false;
+
     };
 
     handlingMonitorRowOne = () => {
@@ -43,6 +51,7 @@ class Monitor extends React.Component {
     handlingMonitorRowTwo = () => {
         this.props.monitorTwoRow();
     };
+
 
 
     render() {
@@ -59,12 +68,12 @@ class Monitor extends React.Component {
         <button className="btn btn-2 btn-2a" onClick={this.handlingMonitorRowOne}> 1 - Reihig </button>
         <button className="btn btn-2 btn-2a" onClick={this.handlingMonitorRowTwo}> 2 - Reihig </button>
         </div>
-        <h2>Monitorgröße</h2>
+        <h2>Monitorsystem</h2>
         <div>
-        <button className="btn btn-2 btn-2a" onClick={this.handlingMonitorNoSystem}>1. OHNE </button>
-        <button className="btn btn-2 btn-2a" onClick={this.handlingMonitorSystem}> 2. STATIVSYSTEM </button>
-        <button className="btn btn-2 btn-2a" onClick={this.handlingMonitorRelingSystemNo}>3. RELING: OHNE HV </button>
-        <button className="btn btn-2 btn-2a" onClick={this.handlingMonitorRelingSystem}> 3. RELING: MIT HV </button>
+        <button id="ohne" className="btn btn-2 btn-2a" onClick={this.handlingMonitorSystemWithout}>1. OHNE </button>
+        <button id="stativ" className="btn btn-2 btn-2a" onClick={this.handlingMonitorSystemStativ}> 2. STATIVSYSTEM </button>
+        <button className="btn btn-2 btn-2a" onClick={this.handlingMonitorSystemReling}>3. RELING: OHNE HV </button>
+        <button className="btn btn-2 btn-2a" onClick={this.handlingMonitorSystemRelingHv}> 4. RELING: MIT HV </button>
         </div>
         </Modal>
         </>

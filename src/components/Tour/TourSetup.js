@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactSwipe from 'react-swipe';
 import Intro from '../Tour/Intro';
-import Table from "../Table";
 
 let reactSwipeEl;
 
+
 class TourSetup extends React.Component {
+
 
   render() {
    return (
@@ -15,18 +16,19 @@ class TourSetup extends React.Component {
         swipeOptions={{ continuous: false }}
         ref={el => (reactSwipeEl = el)}
       >
-        <div>
+        <div className="top">
         <Intro />
         </div>
         <div>
-
+            <h2> Wähle oberhalb deine Konfiguration </h2>
             {this.props.chosenTablePic}
             {this.props.chosenMonitorPic}
             {this.props.chosenHeightPic}
         </div>
         <div>
             <h2> Ihr Productcode </h2>
-            {this.props.productCode}
+            {this.props.productCodeOfTable + this.props.productCodeOfMonitor + this.props.productCodeOfMonitorRow + this.props.productCodeOfHeight +
+            this.props.productCodeOfBlende + this.props.productCodeOfKabel + this.props.productCodeOfTechnik + this.props.productCodeOfContainer}
         </div>
       </ReactSwipe>
       <button className="tourNav next btn btn-4 btn-4a" onClick={() => reactSwipeEl.next()}>Next</button>

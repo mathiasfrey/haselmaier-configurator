@@ -1,6 +1,5 @@
 import React from 'react';
 import Modal from 'react-responsive-modal';
-import {sides} from "./Settings";
 import technik_video from '../assets/technik_video.mp4';
 
 class Technik extends React.Component {
@@ -17,23 +16,53 @@ class Technik extends React.Component {
     };
 
     handlingTechnikLeft = () => {
-        this.setState({ open: false });
-        this.props.chosenTechnik(sides[0]);
+        this.setState({ open: true });
+        this.props.chosenTechnikLinks();
+        document.getElementById('ohne').disabled = false;
+        document.getElementById('laden').disabled = false;
+        document.getElementById('laden').style.color = '#F5F5F5';
+        document.getElementById('ohne').style.color = '#F5F5F5';
     };
     handlingTechnikRight = () => {
-        this.setState({ open: false });
-        this.props.chosenTechnik(sides[1]);
+        this.setState({ open: true });
+        this.props.chosenTechnikRechts();
+        document.getElementById('ohne').disabled = false;
+        document.getElementById('laden').disabled = false;
+        document.getElementById('laden').style.color = '#F5F5F5';
+        document.getElementById('ohne').style.color = '#F5F5F5';
     };
     handlingTechnikBoth = () => {
-        this.setState({ open: false });
-        this.props.chosenTechnik(sides[2]);
+        this.setState({ open: true });
+        this.props.chosenTechnikBeide();
+        document.getElementById('laden').style.color = '#D8D8D8';
+        document.getElementById('laden').disabled = true;
+        document.getElementById('ohne').style.color = '#D8D8D8';
+        document.getElementById('ohne').disabled = true;
+
     };
     handlingWithoutTechnik = () => {
         this.setState({ open: false });
-        this.props.chosenTechnik(sides[3]);
+        this.props.chosenTechnikOhne();
+        document.getElementById('ohne').disabled = false;
+        document.getElementById('laden').disabled = false;
+        document.getElementById('laden').style.color = '#F5F5F5';
+        document.getElementById('ohne').style.color = '#F5F5F5';
+    };
+    handlingWithContainer = () => {
+        this.setState({ open: false });
+        this.props.chosenTechnikContainerMit()
+    };
+    handlingWithoutContainer = () => {
+        this.setState({open: false});
+        this.props.chosenTechnikContainerOhne()
     };
 
-
+    /*disableBtn = () => {
+        document.getElementById('laden').disabled = true;
+        document.getElementById('laden').style.color = 'gray';
+        document.getElementById('ohne').disabled = true;
+        document.getElementById('ohne').style.color = 'gray';
+    };*/
 
 
     render() {
@@ -51,6 +80,11 @@ class Technik extends React.Component {
         <button className="btn btn-2 btn-2a" onClick={this.handlingTechnikRight}> Rechtsseitig </button>
         <button className="btn btn-2 btn-2a" onClick={this.handlingTechnikBoth}> Beidseitig </button>
         <button className="btn btn-2 btn-2a" onClick={this.handlingWithoutTechnik}> Ohne </button>
+        </div>
+        <h2> Treffen Sie Ihre Auswahl </h2>
+        <div>
+        <button id='laden' className="btn btn-2 btn-2a" onClick={this.handlingWithContainer}> Mit Ladencontainer </button>
+        <button id='ohne' className="btn btn-2 btn-2a" onClick={this.handlingWithoutContainer}> Ohne Ladencontainer </button>
         </div>
         </Modal>
         </>

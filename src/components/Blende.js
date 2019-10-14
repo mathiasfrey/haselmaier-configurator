@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Modal from 'react-responsive-modal';
-import {blendDecision} from "./Settings";
+import blende_video from '../assets/blende_video.mp4';
+
 
 
 class Blende extends Component {
@@ -16,25 +17,30 @@ class Blende extends Component {
     this.setState({ open: false });
     };
 
-    handlingBlendeOne = () => {
+    handlingBlendeOhne = () => {
         this.setState({ open: false });
-        this.props.chosenBlende(blendDecision[0])
+        this.props.chosenBlendeKeinen()
     };
 
-    handlingBlendeTwo = () => {
+    handlingBlendeVoll = () => {
         this.setState({ open: false });
-        this.props.chosenBlende(blendDecision[1])
+        this.props.chosenBlendeVoll()
     };
+
+
 
     render() {
         return (
         <>
-        <button className="btn btn-1 btn-1e" onClick={this.onOpenModal}>Blende</button>
+        <button id="blende" className="btn btn-1 btn-1e" onClick={this.onOpenModal}>Blende</button>
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
-        <h2>Gewünschte Blendeneinstellung?</h2>
+        <video autoPlay="true" height="300" width="500" controls playsinline="false">
+        <source src={blende_video} type="video/mp4"/>
+        </video>
+        <h2>Gewünschte Blendeneinstellung</h2>
         <div>
-        <button className="btn btn-2 btn-2a" onClick={this.handlingBlendeOne}> Keinen </button>
-        <button className="btn btn-2 btn-2a" onClick={this.handlingBlendeTwo}> Voller Blendschutz </button>
+        <button className="btn btn-2 btn-2a" onClick={this.handlingBlendeOhne}> Keinen </button>
+        <button className="btn btn-2 btn-2a" onClick={this.handlingBlendeVoll}> Voller Blendschutz </button>
         </div>
         </Modal>
         </>

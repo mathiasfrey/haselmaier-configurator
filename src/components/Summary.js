@@ -1,6 +1,4 @@
 import React from 'react';
-import Video from "./Video";
-import video from '../assets/video.mp4';
 
 
 
@@ -21,8 +19,10 @@ class Summary extends React.Component {
                 <h5>  - {this.props.chosenServerSize} </h5>
                 <h6> Gewünschte Blendeneinstellung </h6>
                 <h5>  - {this.props.chosenBlende} </h5>
+                <h5> - {this.props.chosenKabelRuecken} </h5>
                 <h6> Gewünschte Technik </h6>
                 <h5>  - {this.props.chosenTechnik} </h5>
+                <h5> - {this.props.chosenContainer} </h5>
             </div>
             </>
         )
