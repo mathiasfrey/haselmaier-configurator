@@ -16,7 +16,7 @@ class TourSetup extends React.Component {
         swipeOptions={{ continuous: false }}
         ref={el => (reactSwipeEl = el)}
       >
-        <div>
+        <div className="top">
         <Intro />
         </div>
         <div>

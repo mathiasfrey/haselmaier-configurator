@@ -5,9 +5,9 @@
 .configurator {
   background: #E8E8E8;
   position: relative;
-  width: 1700px;
-  margin: 70px auto;
-  box-shadow: 13px 10px #E0E0E0;
+  width: 1650px;
+  margin: 20px auto;
+  box-shadow: 13px 10px #F0F0F0;
   border-radius: 6px;
   overflow-x: hidden;
   height: 1000px;
@@ -27,7 +27,7 @@
     width: 600px;
     height: 1100px;
     margin-left: 451px;
-    bottom: 600px;
+    bottom: 720px;
 }
 
 .background_black {
@@ -43,12 +43,12 @@
     position: relative;
     }
     .next {
-        bottom: 1065px;
+        bottom: 1245px;
         left: 870px;
     }
     .prev {
-        left: 220px;
-        bottom: 1065px;
+        left: 228px;
+        bottom: 1245px;
     }
 
 .summary {
@@ -74,7 +74,7 @@ header {
   text-align: center;
   display: flex;
   align-items: center;
-  background-color: #040404;
+  background-color: rgb(209,0,25);
   font: 15px "Roboto Light", sans-serif;
   border-bottom: solid 2px #e1edf6;
 }
@@ -91,7 +91,7 @@ h4 {
 
 .settings {
   font-size: 1.2em;
-  padding: 15px 10px 5px 10px;
+  padding: 0px 10px 5px 10px;
   border-bottom: solid 2px #EEEEEE;
   line-height: 1.2em;
 }
@@ -102,7 +102,8 @@ h4 {
 
 .top {
     position: relative;
-    top: 20px;
+    padding-top: 8px;
+    padding-bottom: 5px;
 }
 
 .padding-left {
@@ -179,7 +180,7 @@ h4 {
 }
 
 .btn-1:hover, .btn-1e:active {
-    color: #0e83cd;
+    color: #cd1806;
 }
 
 .btn:after {
@@ -220,17 +221,18 @@ h4 {
 
 .btn-4 {
     border: 3px solid #fff;
-    color: #000000;
+    color: #B0B0B0;
     overflow: hidden;
 }
 
 .btn-4:hover {
-    background: #0096d0;
+    background: rgb(209,0,25);
+    color: white;
 }
 
 .btn-4:active {
-    border-color: #0096d0;
-    color: #17954c;
+    border-color: rgb(209,0,25);
+    color: #ffffff;
 }
 
 .btn-4a:before {
