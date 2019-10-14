@@ -1,6 +1,5 @@
 import React from 'react';
 import Modal from 'react-responsive-modal';
-import { heightDecision } from "./Settings";
 import hv_video from '../assets/hv_video.mp4';
 
 
@@ -20,12 +19,12 @@ class Height extends React.Component {
 
     handlingHeightECO = () => {
         this.setState({ open: false });
-        this.props.heightSetting(heightDecision[0])
+        this.props.heightSettingEco();
     };
 
     handlingHeightVARIO = () => {
         this.setState({ open: false });
-        this.props.heightSetting(heightDecision[1])
+        this.props.heightSettingVario();
     };
 
 

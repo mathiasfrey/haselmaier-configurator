@@ -1,6 +1,5 @@
 import React from 'react';
 import Modal from 'react-responsive-modal';
-import {container, sides} from "./Settings";
 import technik_video from '../assets/technik_video.mp4';
 
 class Technik extends React.Component {
@@ -18,39 +17,52 @@ class Technik extends React.Component {
 
     handlingTechnikLeft = () => {
         this.setState({ open: true });
-        this.props.chosenTechnik(sides[0]);
+        this.props.chosenTechnikLinks();
+        document.getElementById('ohne').disabled = false;
+        document.getElementById('laden').disabled = false;
+        document.getElementById('laden').style.color = '#F5F5F5';
+        document.getElementById('ohne').style.color = '#F5F5F5';
     };
     handlingTechnikRight = () => {
         this.setState({ open: true });
-        this.props.chosenTechnik(sides[1]);
+        this.props.chosenTechnikRechts();
+        document.getElementById('ohne').disabled = false;
+        document.getElementById('laden').disabled = false;
+        document.getElementById('laden').style.color = '#F5F5F5';
+        document.getElementById('ohne').style.color = '#F5F5F5';
     };
     handlingTechnikBoth = () => {
         this.setState({ open: true });
-        this.props.chosenTechnik(sides[2]);
-        this.disableBtn();
+        this.props.chosenTechnikBeide();
+        document.getElementById('laden').style.color = '#D8D8D8';
+        document.getElementById('laden').disabled = true;
+        document.getElementById('ohne').style.color = '#D8D8D8';
+        document.getElementById('ohne').disabled = true;
 
     };
     handlingWithoutTechnik = () => {
         this.setState({ open: false });
-        this.props.chosenTechnik(sides[3]);
+        this.props.chosenTechnikOhne();
+        document.getElementById('ohne').disabled = false;
+        document.getElementById('laden').disabled = false;
+        document.getElementById('laden').style.color = '#F5F5F5';
+        document.getElementById('ohne').style.color = '#F5F5F5';
     };
     handlingWithContainer = () => {
         this.setState({ open: false });
-        this.props.chosenContainer(container[0])
+        this.props.chosenTechnikContainerMit()
     };
     handlingWithoutContainer = () => {
         this.setState({open: false});
-        this.props.chosenContainer(container[1])
+        this.props.chosenTechnikContainerOhne()
     };
-    disableBtn = () => {
+
+    /*disableBtn = () => {
         document.getElementById('laden').disabled = true;
         document.getElementById('laden').style.color = 'gray';
         document.getElementById('ohne').disabled = true;
         document.getElementById('ohne').style.color = 'gray';
-    };
-
-
-
+    };*/
 
 
     render() {
