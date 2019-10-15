@@ -10,7 +10,7 @@ import table_eight_monitors from '../assets/table_white_eight_monitors.png'
 import table_four_monitors from '../assets/table_white_four_monitors.png'
 import table_black_eight_monitors from '../assets/table_black_eight_monitors.png'
 import Summary from "./Summary";
-import TourSetup from "./Tour/TourSetup";
+import Product from "./Product";
 
 
 const imagesPath = {
@@ -71,8 +71,6 @@ class Settings extends React.Component {
         chosenKabelRuecken: String,
         chosenTechnik: Number,
         chosenTechnikContainer: String,
-        chosenPowerboard: String,
-        chosenAssembler: String,
         };
         this.initialState = this.state
     }
@@ -274,7 +272,7 @@ class Settings extends React.Component {
                 chosenTechnik={this.state.chosenTechnik}
                 chosenContainer={this.state.chosenTechnikContainer}
                 />
-                <TourSetup
+                <Product
                 chosenTablePic={this.state.chosenTablePic}
                 chosenMonitorPic={this.state.chosenMonitorPic}
                 chosenHeightPic={this.state.chosenHeightPic}
