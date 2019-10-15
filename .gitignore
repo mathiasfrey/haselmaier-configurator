@@ -12,9 +12,9 @@
 /build
 
 # mac
-/_mac
-/codestyles
-/keymaps
+/_mac/
+/keymaps/
+/codestyles/
 
 
 # idea
@@ -39,6 +39,3 @@ yarn-error.log*
 
 # Local Netlify folder
 .netlify
-/_mac/
-/keymaps/
-/codestyles/
