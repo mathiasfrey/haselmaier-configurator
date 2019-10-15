@@ -77,6 +77,48 @@ class Settings extends React.Component {
         this.initialState = this.state
     }
 
+    code2state = (code) => {
+        console.log(code);
+
+        // parse product code
+        // example: TTV.SRE-HV1EVMKLOL
+        // var (table, monitorSystem, monitorCount, height, blende, technik);
+        // x.match(/TTV\./)
+
+        // step by step match and replace from LTR
+        if (code.match(/TTV\./)) {
+            // ok => matches, valid TTV code
+        } else {
+            return 0;
+        }
+        code = code.replace(/TTV\./, '');
+
+        // code table
+        // TODO => function
+        tableRegex = /[SML]/;
+        if (code.match(tableRegex)) {
+            table = code.match(tableRegex)[0];
+        } else {
+            return false;
+        }
+        code = code.replace(tableRegex, '');
+
+        // result => 
+        /* 
+        
+        this.setState(
+            {
+                table: table,
+                monitorSystem: monitorSystem,
+                monitorCount: monitorCount,
+                height: height,
+                blende: blende,
+                technik: technik,
+            }
+        );
+        */
+    };
+
     //TABLE CONFIGURATION
 
     loadTableSmall = () => {
