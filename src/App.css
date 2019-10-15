@@ -11,6 +11,7 @@
   border-radius: 6px;
   overflow-x: hidden;
   height: 900px;
+  overflow-y: hidden;
  }
 
 .productView {
@@ -19,7 +20,7 @@
     width: 600px;
     height: 500px;
     margin-left: 451px;
-    bottom: 750px;
+    bottom: 1560px;
 }
 
 .tourView {
@@ -27,7 +28,7 @@
     width: 600px;
     height: 1100px;
     margin-left: 451px;
-    bottom: 720px;
+    bottom: 460px;
 }
 
 .background_black {
@@ -52,10 +53,9 @@
     }
 
 .summary {
-  top: 400px;
-  width: 300px;
   padding: 15px 10px 10px 10px;
-  line-height: 5px;
+  line-height: 2px;
+  color: #0096d0;
 }
 
 .lineSpacing {
@@ -172,6 +172,9 @@ h4 {
     border: 3px solid #fff;
     overflow-x: hidden;
     overflow-y: hidden;
+    border-top: 10px solid transparent;
+    border-left: 10px solid red;
+    border-bottom: 5px solid transparent;
 }
 
 .btn-1a:hover, .btn-1a:active {
