@@ -32,10 +32,10 @@ class Kabel extends React.Component {
             <>
                 <button id="kabel" className="btn btn-1 btn-1e" onClick={this.onOpenModal}>Kabel</button>
                 <Modal open={this.state.open} onClose={this.onCloseModal} center>
-                <video autoPlay="true" height="300" width="500" controls playsinline="false">
+                <video autoPlay={false} height="300" width="500" controls playsinline="false">
                 <source src={kabel_video} type="video/mp4"/>
                 </video>
-                <h2>Kabelrücken</h2>
+                <h2>Kabelrücken für Relingsystem</h2>
                 <div>
                 <button id='mit' className="btn btn-2 btn-2a" onClick={this.handlingKabelRueckenMit}> Mit Kabelrücken </button>
                 <button id="ohne" className="btn btn-2 btn-2a" onClick={this.handlingKabelRueckenOhne}> Ohne Kabelrücken </button>

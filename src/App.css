@@ -6,11 +6,11 @@
   background: #E8E8E8;
   position: relative;
   width: 1650px;
-  margin: 20px auto;
+  margin: 15px auto;
   box-shadow: 13px 10px #F0F0F0;
   border-radius: 6px;
   overflow-x: hidden;
-  height: 1000px;
+  height: 900px;
  }
 
 .productView {
