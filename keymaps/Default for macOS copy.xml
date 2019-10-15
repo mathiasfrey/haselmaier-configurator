@@ -1,8 +1,15 @@
 <keymap version="1" name="Default for macOS copy" parent="Mac OS X 10.5+">
+  <action id="CompareTwoFiles" />
+  <action id="Diff.ShowDiff" />
+  <action id="EditorDuplicate" />
+  <action id="FileChooser.GotoDesktop" />
   <action id="GotoDeclaration">
-    <keyboard-shortcut first-keystroke="meta b" />
     <mouse-shortcut keystroke="meta button1" />
     <mouse-shortcut keystroke="button2" />
+  </action>
+  <action id="GotoDeclarationOnly">
     <keyboard-shortcut first-keystroke="meta d" />
   </action>
+  <action id="SendEOF" />
+  <action id="openAssertEqualsDiff" />
 </keymap>
