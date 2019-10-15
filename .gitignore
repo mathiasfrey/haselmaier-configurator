@@ -11,6 +11,12 @@
 # production
 /build
 
+# mac
+/_mac
+/codestyles
+/keymaps
+
+
 # idea
 ./idea
 
@@ -20,6 +26,12 @@
 .env.development.local
 .env.test.local
 .env.production.local
+.code.styles.schemes.xml
+colors.scheme.xml
+debugger.xml
+filetypes.xml
+find.xml
+ide.general.xml
 
 npm-debug.log*
 yarn-debug.log*

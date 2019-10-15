@@ -60,7 +60,7 @@ class Monitor extends React.Component {
         <button className="btn btn-1 btn-1e" onClick={this.onOpenModal}>Monitortragsystem</button>
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
             <h2> Monitortragsystem </h2>
-         <video autoPlay="true" height="300" width="500" controls playsinline="false">
+         <video autoPlay={false} height="300" width="500" controls playsinline="false">
          <source src={monitor_video} type="video/mp4"/>
          </video>
         <h2> 1-reihig oder 2-reihig? </h2>
