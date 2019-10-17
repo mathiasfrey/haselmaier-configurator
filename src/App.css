@@ -1,16 +1,18 @@
+
 .App {
   text-align: center;
 }
 
 .configurator {
   background: #E8E8E8;
+    /*position relative!*/
   position: relative;
-  width: 1650px;
+  width: 80%;
   margin: 15px auto;
   box-shadow: 13px 10px #F0F0F0;
   border-radius: 6px;
-  overflow-x: hidden;
-  height: 900px;
+  height: 90%;
+  left: 0;
   overflow-y: hidden;
  }
 
@@ -19,17 +21,32 @@
     background: rgba(4, 4, 4, 0.33);
     width: 600px;
     height: 500px;
-    margin-left: 451px;
     bottom: 1560px;
 }
 
+/*.example {
+  .mobile-only {
+    @media (min-width: 768px){
+      display: none;
+    }
+  }
+  .desktop-only {
+    @media (max-width: 767px){
+      display: none;
+    }
+  }
+}*/
+
+
+
 .tourView {
-    position: relative;
-    width: 600px;
-    height: 1100px;
-    margin-left: 451px;
-    bottom: 460px;
+        position: relative;
+        width: 600px;
+        height: 1100px;
+        margin-left: 451px;
+        bottom: 460px;
 }
+
 
 .background_black {
     background-color: #000000;
@@ -97,6 +114,7 @@ h4 {
 }
 
 .current_state {
+    position: relative;
     padding-left: 1200px;
 }
 
@@ -266,40 +284,7 @@ h4 {
     -webkit-font-smoothing: antialiased;
 }
 
-#buttonboxback {
-    width: 150px;
-    height: 40px;
-    background-color: rgba(0, 0, 139, 0.53);
-    position: relative;
-    margin-left: 40px;
-    border-radius: 5px;
-}
 
-#buttonboxback:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: -17px;
-    border-style: solid;
-    border-width: 20px 20px 20px 0;
-    border-color: transparent darkblue transparent transparent;
-}
-
-#buttonboxback > a {
-    display: block;
-    text-decoration: none;
-    text-align: center;
-    color: #fff;
-    font: bold 18px/40px Sans-Serif;
-}
-
-#buttonboxback:hover {
-    background-color: lightblue;
-}
-
-#buttonboxback:hover:before {
-    border-right-color: lightblue;
-}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -323,3 +308,17 @@ h4 {
     transform: rotate(360deg);
   }
 }
+
+@media (max-width: 1000px) {
+    .tourView {
+        margin-left: 30px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .current_state {
+        padding-left: 200px;
+    }
+
+}
+
