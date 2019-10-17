@@ -31,7 +31,7 @@ class Height extends React.Component {
     render() {
         return (
         <>
-        <button className="btn btn-1 btn-1e" onClick={this.onOpenModal}>Höhenverstellbar</button>
+        <button className="btn btn-1 btn-1e" onClick={this.onOpenModal}>3. Höhenverstellbar</button>
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
         <h2>Höhenverstellbar</h2>
         <video autoPlay={false} height="300" width="500" controls playsInline="false">

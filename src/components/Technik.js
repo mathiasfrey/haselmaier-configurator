@@ -68,7 +68,7 @@ class Technik extends React.Component {
     render() {
         return (
         <>
-        <button className="btn btn-1 btn-1e" onClick={this.onOpenModal}>Technik</button>
+        <button className="btn btn-1 btn-1e" onClick={this.onOpenModal}>6. Technik</button>
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
         <h2>Technik Integration</h2>
         <video autoPlay={false} height="300" width="500" controls playsInline="false">

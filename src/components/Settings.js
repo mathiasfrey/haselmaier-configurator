@@ -29,23 +29,6 @@ const imagesPath = {
 
 
 
-export const rows = {
-    0: '1 - Reihig',
-    1: '2 - Reihig',
-};
-
-export const sides = {
-    0: 'Linksseitig',
-    1: 'Rechtsseitig',
-    2: 'Links- und rechtsseitig',
-    3: 'Ohne Technikintegration',
-};
-
-export const container = {
-    0: 'Mit Ladencontainer',
-    1: 'Ohne Ladencontainer',
-};
-
 class Settings extends React.Component {
     constructor(props) {
         super(props);
@@ -74,6 +57,127 @@ class Settings extends React.Component {
         };
         this.initialState = this.state
     }
+
+    //Code2State
+
+    code2state = (code) => {
+
+        // parse product code
+        // example: TTV.SRE-HV1EVMKLOL
+        // var (table, monitorSystem, monitorCount, height, blende, technik);
+        // x.match(/TTV\./)
+
+        // step by step match and replace from LTR
+        if (code.match(/TTV\./)) {
+            // ok => matches, valid TTV code
+        } else {
+            return false;
+        }
+        code = code.replace(/TTV\./, '');
+        console.log(code, 'TTV gone');
+
+        // code table
+        const tableRegex = /[SML]/;
+        if (code.match(tableRegex)) {
+        } else {
+            return false;
+        }
+        code = code.replace(tableRegex, '');
+        console.log(code, 'M gone');
+
+        /*var myString = "something format_abc";
+        var myRegexp = /(?:^|\s)format_(.*?)(?:\s|$)/g;
+        var match = myRegexp.exec(myString);
+        console.log(match[1]); // abc*/
+
+        /*var myString = "something format_abc";
+        var myRegexp = /(?:^|\s)format_(.*?)(?:\s|$)/g;
+        match = myRegexp.exec(myString);
+        while (match != null) {
+            // matched text: match[0]
+            // match start: match.index
+            // capturing group n: match[n]
+            console.log(match[0])
+            match = myRegexp.exec(myString);
+        }*/
+
+        /*const monitorSystemsRegex = /[OHSTRE]/;
+        let match2 = monitorSystemsRegex.exec(code);
+        while (match2 != null) {
+            console.log(match2[0]);
+            match2 = monitorSystemsRegex.exec(code);
+        }
+        code = code.replace(match2[0], '');
+        console.log(code);*/
+
+        // code Monitor Systems
+        const monitorSystemsRegex = /[OHSTRE]/;
+        /*const testRegex = monitorSystemsRegex.exec(code);
+        console.log(testRegex);*/
+        const array = [...code.matchAll(monitorSystemsRegex)];
+        console.log(array[0]);
+        console.log(array[1]);
+        //const monitorSystems = monitorSystemsRegex.exec(code);
+        code = code.replace(monitorSystemsRegex, '');
+        console.log(code);
+
+
+
+        /*
+        TTV.MOHHV1EVMKLOL
+         */
+        //code Monitor Count
+        /*const monitorCountRegex = /[12]/;
+        if (code.match(monitorCountRegex)) {
+            const monitorCount = code.match(monitorCountRegex)[0];
+        } else {
+            return false;
+        }
+        //console.log(code);
+
+        //code Height
+        const heightRegex = /[EV]/;
+        if (code.match(heightRegex)) {
+            const height = code.match(heightRegex)[0];
+        } else {
+            return false;
+        }
+        //console.log(code);
+
+        //code Blende
+        const blendeRegex = /[KVMKOK]/;
+        if (code.match(blendeRegex)) {
+            const blende = code.match(heightRegex)[0];
+        } else {
+            return false;
+        }
+        //console.log(code);
+
+        //code Technik
+        const technikRegex = /[LRBOTLCOL]/;
+        if (code.match(technikRegex)) {
+            const technik = code.match(heightRegex)[0];
+        } else {
+            return false;
+        }
+        //console.log(code);
+
+
+        // result =>
+        /*
+
+        this.setState(
+            {
+                table: table,
+                monitorSystem: monitorSystem,
+                monitorCount: monitorCount,
+                height: height,
+                blende: blende,
+                technik: technik,
+            }
+        );
+        */
+    };
 
     //TABLE CONFIGURATION
 
@@ -109,7 +213,7 @@ class Settings extends React.Component {
 
     monitorSystemRelingHV = () => {
         this.setState({chosenMonitorSize: 'RELING-HV'});
-        this.setState({productCodeOfMonitor: 'RE-HV'})
+        this.setState({productCodeOfMonitor: 'REHV'})
     };
 
     monitorSystemReling = () => {
@@ -120,14 +224,14 @@ class Settings extends React.Component {
     monitorOneRow = () => {
         this.setState({chosenTablePic: Array});
         this.setState({chosenMonitorPic: imagesPath.monitorOneRow});
-        this.setState({chosenMonitorRow: rows[0]});
+        this.setState({chosenMonitorRow: '1-reihig'});
         this.setState({productCodeOfMonitorRow: '1'})
     };
 
     monitorTwoRow = () => {
         this.setState({chosenTablePic: Array});
         this.setState({chosenMonitorPic: imagesPath.monitorTwoRow});
-        this.setState({chosenMonitorRow: rows[1]});
+        this.setState({chosenMonitorRow: '2-reihig'});
         this.setState({productCodeOfMonitorRow: '2'})
     };
 
@@ -213,6 +317,7 @@ class Settings extends React.Component {
     render() {
       return (
             <>
+                {this.code2state('TTV.MOHTV1EVMKLOL')}
                 <div className="padding-left">
                 <h2>Konfigurieren Sie Ihren Leitstellentisch </h2>
                 </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import intro from '../../assets/intro_video.mp4'
+import intro from '../assets/intro_video.mp4'
 import Modal from 'react-responsive-modal'
 
 

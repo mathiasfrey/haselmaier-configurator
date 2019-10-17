@@ -1,9 +1,9 @@
 import React from 'react';
-import Intro from "./Tour/Intro";
+import Intro from "./Intro";
+
 
 
 class Product extends React.Component {
-
 
 
     render() {
@@ -11,10 +11,13 @@ class Product extends React.Component {
         <>
         <div className="tourView">
         <Intro />
-        {this.props.chosenTablePic}
-        {this.props.chosenMonitorPic}
-        {this.props.chosenHeightPic}
+            {this.props.chosenTablePic}
+            {this.props.chosenMonitorPic}
+            {this.props.chosenHeightPic}
         </div>
+        <h2> Ihr Productcode </h2>
+        {this.props.productCodeOfTable + this.props.productCodeOfMonitor + this.props.productCodeOfMonitorRow + this.props.productCodeOfHeight +
+         this.props.productCodeOfBlende + this.props.productCodeOfKabel + this.props.productCodeOfTechnik + this.props.productCodeOfContainer}
         </>
     )
     }
