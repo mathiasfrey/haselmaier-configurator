@@ -47,22 +47,35 @@ class Monitor extends React.Component {
     handlingMonitorRowOne = () => {
         this.props.monitorOneRow();
     };
-
     handlingMonitorRowTwo = () => {
         this.props.monitorTwoRow();
     };
-
+    handlingMonitorThree = () => {
+        this.props.monitorThree();
+    };
+    handlingMonitorFour = () => {
+        this.props.monitorFour();
+    };
+    handlingMonitorFive = () => {
+        this.props.monitorFive();
+    };
 
 
     render() {
         return (
         <>
-        <button className="btn btn-1 btn-1e" onClick={this.onOpenModal}>2. Monitortragsystem</button>
+        <button className="btn btn-1 btn-1e" onClick={this.onOpenModal}>3. Monitortragsystem</button>
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
-            <h2> Monitortragsystem </h2>
+        <h2> Monitortragsystem </h2>
          <video autoPlay={false} height="300" width="500" controls playsinline="false">
          <source src={monitor_video} type="video/mp4"/>
          </video>
+        <h2> Anzahl der Monitore </h2>
+        <div>
+        <button className="btn btn-2 btn-2a" onClick={this.handlingMonitorThree}> 3 Monitore </button>
+        <button className="btn btn-2 btn-2a" onClick={this.handlingMonitorFour}> 4 Monitore </button>
+        <button className="btn btn-2 btn-2a" onClick={this.handlingMonitorFive}> 5 Monitore </button>
+        </div>
         <h2> 1-reihig oder 2-reihig? </h2>
         <div>
         <button className="btn btn-2 btn-2a" onClick={this.handlingMonitorRowOne}> 1 - Reihig </button>

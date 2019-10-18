@@ -18,12 +18,12 @@ const imagesPath = {
   small_table: <img src={table} height="500" width="600" alt="ref"/>,
   middle_table: <img src={table} height="500" width="600" alt="ref"/>,
   large_table: <img src={table} height="500" width="600" alt="ref"/>,
-    //Monitor
-  monitorOneRow: <img src={table_four_monitors} height="500" width="600" alt="ref"/>,
-  monitorTwoRow: <img src={table_eight_monitors} height="500" width="600" alt="ref"/>,
     //Height
   eco: <img src={table_black_eight_monitors} height="500" width="600" alt="ref"/>,
   vario: <img src={table_black_eight_monitors} height="500" width="600" alt="ref"/>,
+    //Monitor
+  monitorOneRow: <img src={table_four_monitors} height="500" width="600" alt="ref"/>,
+  monitorTwoRow: <img src={table_eight_monitors} height="500" width="600" alt="ref"/>,
 
 };
 
@@ -45,9 +45,10 @@ class Settings extends React.Component {
         input: String,
         chosenTable: String,
         chosenTablePic: Array,
-        chosenMonitorSize: Number,
+        chosenMonitorSystem: Number,
         chosenMonitorPic: Array,
         chosenMonitorRow: Number,
+        chosenMonitorNumber: Number,
         chosenHeightSetting: String,
         chosenHeightPic: Array,
         chosenBlende: String,
@@ -99,13 +100,13 @@ class Settings extends React.Component {
 
 
         //code Monitor Count
-        const monitorCountRegex = /[12]/;
-        if (code.match(monitorCountRegex)) {
-            const monitorCount = code.match(monitorCountRegex[0])
+        const monitorRowRegex = /[12]/;
+        if (code.match(monitorRowRegex)) {
+            const monitorRow = code.match(monitorRowRegex[0])
         } else {
             return false;
         }
-        code = code.replace(monitorCountRegex, '');
+        code = code.replace(monitorRowRegex, '');
         console.log(code);
 
         //code Height
@@ -135,13 +136,9 @@ class Settings extends React.Component {
         } else {
             return false;
         }
-        code = code.replace(technikRegex, '')
+        code = code.replace(technikRegex, '');
         console.log(code);
-
-
-        // result =>
-        /*
-
+/*
         this.setState(
             {
                 table: table,
@@ -151,69 +148,39 @@ class Settings extends React.Component {
                 blende: blende,
                 technik: technik,
             }
-        );
-        */
+        );*/
     };
 
     //TABLE CONFIGURATION
 
     loadTableSmall = () => {
+        this.setState({chosenMonitorPic: Array});
+        this.setState({chosenHeightPic: Array});
         this.setState({chosenTablePic: imagesPath.small_table});
         this.setState({chosenTable: 'S' });
         this.setState({productCodeOfTable: 'TTV.S'})
     };
 
     loadTableMiddle = () => {
+        this.setState({chosenMonitorPic: Array});
+        this.setState({chosenHeightPic: Array});
         this.setState({chosenTablePic: imagesPath.middle_table});
         this.setState({chosenTable: 'M'});
         this.setState({productCodeOfTable: 'TTV.M'})
     };
 
     loadTableLarge = () => {
+        this.setState({chosenMonitorPic: Array});
+        this.setState({chosenHeightPic: Array});
         this.setState({chosenTablePic: imagesPath.large_table});
         this.setState({chosenTable: 'L'});
         this.setState({productCodeOfTable: 'TTV.L'})
     };
 
-    //MONITOR CONFIGURATION
-
-    monitorSystemWithout = () => {
-        this.setState({chosenMonitorSize: 'OHNE'});
-        this.setState({productCodeOfMonitor: 'OH'})
-    };
-
-    monitorSystemStativ = () => {
-        this.setState({chosenMonitorSize: 'STATIV'});
-        this.setState({productCodeOfMonitor: 'ST'})
-    };
-
-    monitorSystemRelingHV = () => {
-        this.setState({chosenMonitorSize: 'RELING-HV'});
-        this.setState({productCodeOfMonitor: 'REHV'})
-    };
-
-    monitorSystemReling = () => {
-        this.setState({chosenMonitorSize: 'RELING'});
-        this.setState({productCodeOfMonitor: 'RE'})
-    };
-
-    monitorOneRow = () => {
-        this.setState({chosenTablePic: Array});
-        this.setState({chosenMonitorPic: imagesPath.monitorOneRow});
-        this.setState({chosenMonitorRow: '1-reihig'});
-        this.setState({productCodeOfMonitorRow: '1'})
-    };
-
-    monitorTwoRow = () => {
-        this.setState({chosenTablePic: Array});
-        this.setState({chosenMonitorPic: imagesPath.monitorTwoRow});
-        this.setState({chosenMonitorRow: '2-reihig'});
-        this.setState({productCodeOfMonitorRow: '2'})
-    };
-
     //HEIGHT CONFIGURATION
 
     heightSettingEco = () => {
+        this.setState({chosenTablePic: Array});
         this.setState({chosenMonitorPic: Array});
         this.setState({chosenHeightPic: imagesPath.eco});
         this.setState({chosenHeightSetting: 'ECO'});
@@ -221,10 +188,76 @@ class Settings extends React.Component {
     };
 
     heightSettingVario = () => {
+        this.setState({chosenTablePic: Array});
         this.setState({chosenMonitorPic: Array});
         this.setState({chosenHeightPic: imagesPath.vario});
         this.setState({chosenHeightSetting: 'VARIO'});
         this.setState({productCodeOfHeight: 'V'});
+    };
+
+    //MONITOR CONFIGURATION
+
+    //Monitor Systems
+
+    monitorSystemWithout = () => {
+        this.setState({chosenTablePic: Array});
+        this.setState({chosenHeightPic: Array});
+        this.setState({chosenMonitorSystem: 'OHNE'});
+        this.setState({productCodeOfMonitor: 'OH'})
+    };
+
+    monitorSystemStativ = () => {
+        this.setState({chosenTablePic: Array});
+        this.setState({chosenHeightPic: Array});
+        this.setState({chosenMonitorSystem: 'STATIV'});
+        this.setState({productCodeOfMonitor: 'ST'})
+    };
+
+    monitorSystemRelingHV = () => {
+        this.setState({chosenTablePic: Array});
+        this.setState({chosenHeightPic: Array});
+        this.setState({chosenMonitorSystem: 'RELING-HV'});
+        this.setState({productCodeOfMonitor: 'REHV'})
+    };
+
+    monitorSystemReling = () => {
+        this.setState({chosenTablePic: Array});
+        this.setState({chosenHeightPic: Array});
+        this.setState({chosenMonitorSystem: 'RELING'});
+        this.setState({productCodeOfMonitor: 'RE'})
+    };
+
+    // Monitor Rows
+
+    monitorOneRow = () => {
+        this.setState({chosenHeightPic: Array});
+        this.setState({chosenTablePic: Array});
+        this.setState({chosenMonitorPic: imagesPath.monitorOneRow});
+        this.setState({chosenMonitorRow: '1-reihig'});
+        this.setState({productCodeOfMonitorRow: '1'})
+    };
+
+    monitorTwoRow = () => {
+        this.setState({chosenHeightPic: Array});
+        this.setState({chosenTablePic: Array});
+        this.setState({chosenMonitorPic: imagesPath.monitorTwoRow});
+        this.setState({chosenMonitorRow: '2-reihig'});
+        this.setState({productCodeOfMonitorRow: '2'})
+    };
+
+    // Monitor Count
+
+    monitorThree = () => {
+        this.setState({chosenTablePic: Array});
+        this.setState({chosenMonitorNumber: '3'})
+    };
+    monitorFour = () => {
+        this.setState({chosenTablePic: Array});
+        this.setState({chosenMonitorNumber: '4'})
+    };
+    monitorFive = () => {
+        this.setState({chosenTablePic: Array});
+        this.setState({chosenMonitorNumber: '5'})
     };
 
     //BLEND CONFIGURATION
@@ -293,7 +326,6 @@ class Settings extends React.Component {
     render() {
       return (
             <>
-                {this.code2state('TTV.LR2T')}
                 <div className="padding-left">
                 <h2>Konfigurieren Sie Ihren Leitstellentisch </h2>
                 </div>
@@ -315,6 +347,10 @@ class Settings extends React.Component {
                 middleTable={this.loadTableMiddle}
                 largeTable={this.loadTableLarge}
                 />
+                <Height
+                heightSettingEco={this.heightSettingEco}
+                heightSettingVario={this.heightSettingVario}
+                />
                 <Monitor
                 monitorSystemWithout={this.monitorSystemWithout}
                 monitorSystemStativ={this.monitorSystemStativ}
@@ -322,10 +358,9 @@ class Settings extends React.Component {
                 monitorSystemReling={this.monitorSystemReling}
                 monitorOneRow={this.monitorOneRow}
                 monitorTwoRow={this.monitorTwoRow}
-                />
-                <Height
-                heightSettingEco={this.heightSettingEco}
-                heightSettingVario={this.heightSettingVario}
+                monitorThree={this.monitorThree}
+                monitorFour={this.monitorFour}
+                monitorFive={this.monitorFive}
                 />
                 <Blende
                 chosenBlendeKeinen={this.chosenBlendeKeinen}
@@ -345,8 +380,9 @@ class Settings extends React.Component {
                 />
                 <Summary
                 chosenTable={this.state.chosenTable}
-                chosenMonitorSize={this.state.chosenMonitorSize}
+                chosenMonitorSystem={this.state.chosenMonitorSystem}
                 chosenMonitorRow={this.state.chosenMonitorRow}
+                chosenMonitorNumber={this.state.chosenMonitorNumber}
                 chosenServerSize={this.state.chosenHeightSetting}
                 chosenBlende={this.state.chosenBlende}
                 chosenKabelRuecken={this.state.chosenKabelRuecken}

@@ -14,7 +14,8 @@ class Summary extends React.Component {
                 <h5>  - {this.props.chosenTable} </h5>
                 <h6> Monitor Einstellung</h6>
                 <h5>  - {this.props.chosenMonitorRow} </h5>
-                <h5>  - {this.props.chosenMonitorSize} </h5>
+                <h5>  - {this.props.chosenMonitorSystem} </h5>
+                <h5> - {this.props.chosenMonitorNumber} Monitore</h5>
                 <h6> Höhenverstellbar </h6>
                 <h5>  - {this.props.chosenServerSize} </h5>
                 <h6> Gewünschte Blendeneinstellung </h6>
