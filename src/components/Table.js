@@ -36,7 +36,7 @@ class Table extends Component {
     render() {
         return (
         <>
-        <button className="btn btn-1 btn-1e" onClick={this.onOpenModal}>1. Tisch</button>
+        <button className="navBtn" onClick={this.onOpenModal}>1. Tisch</button>
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
         <h2>Wähle deine Tischgröße</h2>
         <video autoPlay="true" height="300" width="500" controls playsinline="false">

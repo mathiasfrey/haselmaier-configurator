@@ -64,7 +64,7 @@ class Monitor extends React.Component {
     render() {
         return (
         <>
-        <button className="btn btn-1 btn-1e" onClick={this.onOpenModal}>3. Monitortragsystem</button>
+        <button className="navBtn" onClick={this.onOpenModal}>3. Monitortragsystem</button>
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
         <h2> Monitortragsystem </h2>
          <video autoPlay={false} height="300" width="500" controls playsinline="false">

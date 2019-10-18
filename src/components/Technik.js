@@ -5,6 +5,7 @@ import technik_video from '../assets/technik_video.mp4';
 class Technik extends React.Component {
     state = {
         open: false,
+        disabled: true,
     };
 
     onOpenModal = () => {
@@ -41,7 +42,7 @@ class Technik extends React.Component {
 
     };
     handlingWithoutTechnik = () => {
-        this.setState({ open: false });
+        this.setState({ open: true });
         this.props.chosenTechnikOhne();
         document.getElementById('ohne').disabled = false;
         document.getElementById('laden').disabled = false;
@@ -51,24 +52,20 @@ class Technik extends React.Component {
     handlingWithContainer = () => {
         this.setState({ open: false });
         this.props.chosenTechnikContainerMit()
+        document.getElementById('laden').disabled = false;
     };
     handlingWithoutContainer = () => {
-        this.setState({open: false});
+        this.setState({ open: false });
         this.props.chosenTechnikContainerOhne()
+        document.getElementById('ohne').disabled = false;
     };
 
-    /*disableBtn = () => {
-        document.getElementById('laden').disabled = true;
-        document.getElementById('laden').style.color = 'gray';
-        document.getElementById('ohne').disabled = true;
-        document.getElementById('ohne').style.color = 'gray';
-    };*/
 
 
     render() {
         return (
         <>
-        <button className="btn btn-1 btn-1e" onClick={this.onOpenModal}>6. Technik</button>
+        <button className="navBtn" onClick={this.onOpenModal}>6. Technik</button>
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
         <h2>Technik Integration</h2>
         <video autoPlay={false} height="300" width="500" controls playsInline="false">
@@ -83,8 +80,8 @@ class Technik extends React.Component {
         </div>
         <h2> Treffen Sie Ihre Auswahl </h2>
         <div>
-        <button id='laden' className="btn btn-2 btn-2a" onClick={this.handlingWithContainer}> Mit Ladencontainer </button>
-        <button id='ohne' className="btn btn-2 btn-2a" onClick={this.handlingWithoutContainer}> Ohne Ladencontainer </button>
+        <button id='laden' className="btn btn-2 btn-2a" onClick={this.handlingWithContainer} disabled={false}> Mit Ladencontainer </button>
+        <button id='ohne' className="btn btn-2 btn-2a" onClick={this.handlingWithoutContainer} disabled={false}> Ohne Ladencontainer </button>
         </div>
         </Modal>
         </>

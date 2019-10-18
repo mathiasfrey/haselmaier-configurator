@@ -341,51 +341,65 @@ class Settings extends React.Component {
 
                 <div className="settings">
 
-                    <button className="navBtn done">DONE</button>
+                    <button className="navBtn done">START</button>
                     <div className="divider done"></div>
-                    <button className="navBtn">undone</button>
+                    <button className="navBtn">
+                        <Table
+                            smallTable={this.loadTableSmall}
+                            middleTable={this.loadTableMiddle}
+                            largeTable={this.loadTableLarge}
+                        />
+                    </button>
+                    <div className="divider"></div>
+                    <button className="navBtn">
+                        <Height
+                            heightSettingEco={this.heightSettingEco}
+                            heightSettingVario={this.heightSettingVario}
+                        />
+
+                    </button>
+                    <div className="divider"></div>
+                    <button className="navBtn">
+                         <Monitor
+                            monitorSystemWithout={this.monitorSystemWithout}
+                            monitorSystemStativ={this.monitorSystemStativ}
+                            monitorSystemRelingHV={this.monitorSystemRelingHV}
+                            monitorSystemReling={this.monitorSystemReling}
+                            monitorOneRow={this.monitorOneRow}
+                            monitorTwoRow={this.monitorTwoRow}
+                            monitorThree={this.monitorThree}
+                            monitorFour={this.monitorFour}
+                            monitorFive={this.monitorFive}
+                         />
+                    </button>
+                    <div className="divider"></div>
+                            <button className="navBtn">
+                            <Blende
+                            chosenBlendeKeinen={this.chosenBlendeKeinen}
+                            chosenBlendeVoll={this.chosenBlendeVoll}
+                            />
+                            </button>
+                    <div className="divider"></div>
+                            <button className="navBtn">
+                            <Kabel
+                            chosenKabelRueckenMit={this.chosenKabelRueckenMit}
+                            chosenKabelRueckenOhne={this.chosenKabelRueckenOhne}
+                            />
+                            </button>
+                    <div className="divider"></div>
+                            <button className="navBtn">
+                             <Technik
+                            chosenTechnikLinks={this.chosenTechnikLinks}
+                            chosenTechnikRechts={this.chosenTechnikRechts}
+                            chosenTechnikBeide={this.chosenTechnikBeide}
+                            chosenTechnikOhne={this.chosenTechnikOhne}
+                            chosenTechnikContainerMit={this.chosenTechnikContainerMit}
+                            chosenTechnikContainerOhne={this.chosenTechnikContainerOhne}
+                            />
+                            </button>
                     <div className="divider"></div>
                     <button className="navBtn">disabled</button>
                 </div>
-
-                <Table
-                smallTable={this.loadTableSmall}
-                middleTable={this.loadTableMiddle}
-                largeTable={this.loadTableLarge}
-                />
-                <Height
-                heightSettingEco={this.heightSettingEco}
-                heightSettingVario={this.heightSettingVario}
-                />
-                <Monitor
-                monitorSystemWithout={this.monitorSystemWithout}
-                monitorSystemStativ={this.monitorSystemStativ}
-                monitorSystemRelingHV={this.monitorSystemRelingHV}
-                monitorSystemReling={this.monitorSystemReling}
-                monitorOneRow={this.monitorOneRow}
-                monitorTwoRow={this.monitorTwoRow}
-                monitorThree={this.monitorThree}
-                monitorFour={this.monitorFour}
-                monitorFive={this.monitorFive}
-                />
-                <Blende
-                chosenBlendeKeinen={this.chosenBlendeKeinen}
-                chosenBlendeVoll={this.chosenBlendeVoll}
-                />
-                <Kabel
-                chosenKabelRueckenMit={this.chosenKabelRueckenMit}
-                chosenKabelRueckenOhne={this.chosenKabelRueckenOhne}
-                />
-                <Technik
-                chosenTechnikLinks={this.chosenTechnikLinks}
-                chosenTechnikRechts={this.chosenTechnikRechts}
-                chosenTechnikBeide={this.chosenTechnikBeide}
-                chosenTechnikOhne={this.chosenTechnikOhne}
-                chosenTechnikContainerMit={this.chosenTechnikContainerMit}
-                chosenTechnikContainerOhne={this.chosenTechnikContainerOhne}
-                />
-
-
                 <Summary
                     chosenTable={this.state.chosenTable}
                     chosenMonitorSize={this.state.chosenMonitorSize}
