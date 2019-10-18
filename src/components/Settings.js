@@ -95,7 +95,7 @@ class Settings extends React.Component {
 
         // code table
         // TODO => function
-        tableRegex = /[SML]/;
+        var tableRegex = /[SML]/;
         if (code.match(tableRegex)) {
             table = code.match(tableRegex)[0];
         } else {
