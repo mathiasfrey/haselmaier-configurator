@@ -30,7 +30,7 @@ class Kabel extends React.Component {
     render() {
         return (
             <>
-                <button id="kabel" className="btn btn-1 btn-1e" onClick={this.onOpenModal}>Kabel</button>
+                <button id="kabel" className="btn btn-1 btn-1e" onClick={this.onOpenModal}>5. Kabel</button>
                 <Modal open={this.state.open} onClose={this.onCloseModal} center>
                 <video autoPlay={false} height="300" width="500" controls playsinline="false">
                 <source src={kabel_video} type="video/mp4"/>

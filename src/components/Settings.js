@@ -10,7 +10,7 @@ import table_eight_monitors from '../assets/table_white_eight_monitors.png'
 import table_four_monitors from '../assets/table_white_four_monitors.png'
 import table_black_eight_monitors from '../assets/table_black_eight_monitors.png'
 import Summary from "./Summary";
-import TourSetup from "./Tour/TourSetup";
+import Product from "./Product";
 
 
 const imagesPath = {
@@ -28,23 +28,6 @@ const imagesPath = {
 };
 
 
-
-export const rows = {
-    0: '1 - Reihig',
-    1: '2 - Reihig',
-};
-
-export const sides = {
-    0: 'Linksseitig',
-    1: 'Rechtsseitig',
-    2: 'Links- und rechtsseitig',
-    3: 'Ohne Technikintegration',
-};
-
-export const container = {
-    0: 'Mit Ladencontainer',
-    1: 'Ohne Ladencontainer',
-};
 
 class Settings extends React.Component {
     constructor(props) {
@@ -71,14 +54,13 @@ class Settings extends React.Component {
         chosenKabelRuecken: String,
         chosenTechnik: Number,
         chosenTechnikContainer: String,
-        chosenPowerboard: String,
-        chosenAssembler: String,
         };
         this.initialState = this.state
     }
 
+    //Code2State
+
     code2state = (code) => {
-        console.log(code);
 
         // parse product code
         // example: TTV.SRE-HV1EVMKLOL
@@ -89,23 +71,77 @@ class Settings extends React.Component {
         if (code.match(/TTV\./)) {
             // ok => matches, valid TTV code
         } else {
-            return 0;
+            return false;
         }
         code = code.replace(/TTV\./, '');
+        console.log(code);
 
         // code table
-        // TODO => function
-        var tableRegex = /[SML]/;
+        const tableRegex = /[SML]/;
         if (code.match(tableRegex)) {
-            table = code.match(tableRegex)[0];
+            const table = code.match(tableRegex[0])
         } else {
             return false;
         }
         code = code.replace(tableRegex, '');
+        console.log(code);
 
-        // result => 
-        /* 
-        
+
+        // code Monitor Systems
+        const monitorSystemsRegex = /[OSRH]/;
+        if (code.match(monitorSystemsRegex)) {
+            const monitorSystems = code.match(monitorSystemsRegex[0])
+        } else {
+            return false;
+        }
+        code = code.replace(monitorSystemsRegex, '');
+        console.log(code);
+
+
+        //code Monitor Count
+        const monitorCountRegex = /[12]/;
+        if (code.match(monitorCountRegex)) {
+            const monitorCount = code.match(monitorCountRegex[0])
+        } else {
+            return false;
+        }
+        code = code.replace(monitorCountRegex, '');
+        console.log(code);
+
+        //code Height
+        const heightRegex = /[EV]/;
+        if (code.match(heightRegex)) {
+            const height = code.match(heightRegex)[0];
+        } else {
+            return false;
+        }
+        code = code.replace(heightRegex, '');
+        console.log(code);
+
+        //code Blende
+        const blendeRegex = /[KMFN]/;
+        if (code.match(blendeRegex)) {
+            const blende = code.match(heightRegex)[0];
+        } else {
+            return false;
+        }
+        code = code.replace(blendeRegex, '');
+        console.log(code);
+
+        //code Technik
+        const technikRegex = /[DGBJCX]/;
+        if (code.match(technikRegex)) {
+            const technik = code.match(heightRegex)[0];
+        } else {
+            return false;
+        }
+        code = code.replace(technikRegex, '')
+        console.log(code);
+
+
+        // result =>
+        /*
+
         this.setState(
             {
                 table: table,
@@ -153,7 +189,7 @@ class Settings extends React.Component {
 
     monitorSystemRelingHV = () => {
         this.setState({chosenMonitorSize: 'RELING-HV'});
-        this.setState({productCodeOfMonitor: 'RE-HV'})
+        this.setState({productCodeOfMonitor: 'REHV'})
     };
 
     monitorSystemReling = () => {
@@ -164,14 +200,14 @@ class Settings extends React.Component {
     monitorOneRow = () => {
         this.setState({chosenTablePic: Array});
         this.setState({chosenMonitorPic: imagesPath.monitorOneRow});
-        this.setState({chosenMonitorRow: rows[0]});
+        this.setState({chosenMonitorRow: '1-reihig'});
         this.setState({productCodeOfMonitorRow: '1'})
     };
 
     monitorTwoRow = () => {
         this.setState({chosenTablePic: Array});
         this.setState({chosenMonitorPic: imagesPath.monitorTwoRow});
-        this.setState({chosenMonitorRow: rows[1]});
+        this.setState({chosenMonitorRow: '2-reihig'});
         this.setState({productCodeOfMonitorRow: '2'})
     };
 
@@ -257,6 +293,7 @@ class Settings extends React.Component {
     render() {
       return (
             <>
+                {this.code2state('TTV.LR2T')}
                 <div className="padding-left">
                 <h2>Konfigurieren Sie Ihren Leitstellentisch </h2>
                 </div>
@@ -316,7 +353,7 @@ class Settings extends React.Component {
                 chosenTechnik={this.state.chosenTechnik}
                 chosenContainer={this.state.chosenTechnikContainer}
                 />
-                <TourSetup
+                <Product
                 chosenTablePic={this.state.chosenTablePic}
                 chosenMonitorPic={this.state.chosenMonitorPic}
                 chosenHeightPic={this.state.chosenHeightPic}

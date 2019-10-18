@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactSwipe from 'react-swipe';
-import Intro from '../Tour/Intro';
+import Intro from '../Intro';
 
 let reactSwipeEl;
 

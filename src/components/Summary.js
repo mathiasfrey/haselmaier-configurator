@@ -8,7 +8,7 @@ class Summary extends React.Component {
 
         return (
             <>
-            <div className="current_state top">
+            <div className="current_state summary">
                 <h4> Mein Tisch (current state) </h4>
                 <h6> Tischgröße </h6>
                 <h5>  - {this.props.chosenTable} </h5>

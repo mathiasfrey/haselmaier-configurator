@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
 }
@@ -5,12 +6,14 @@
 .configurator {
   background: #e8e8e8;
   position: relative;
-  width: 1650px;
+  width: 80%;
   margin: 15px auto;
   box-shadow: 13px 10px #F0F0F0;
   border-radius: 6px;
+  height: 50%;
+  left: 0;
+  overflow-y: hidden;
   overflow-x: hidden;
-  height: 900px;
  }
 
 .productView {
@@ -18,17 +21,15 @@
     background: rgba(4, 4, 4, 0.33);
     width: 600px;
     height: 500px;
-    margin-left: 451px;
-    bottom: 750px;
+    bottom: 1560px;
 }
 
 .tourView {
-    position: relative;
-    width: 600px;
-    height: 1100px;
-    margin-left: 451px;
-    bottom: 720px;
+    position: absolute;
+    margin-left: 30%;
+    top: 38%;
 }
+
 
 .background_black {
     background-color: #000000;
@@ -52,10 +53,9 @@
     }
 
 .summary {
-  top: 400px;
-  width: 300px;
   padding: 15px 10px 10px 10px;
-  line-height: 5px;
+  line-height: 2px;
+  color: #0096d0;
 }
 
 .lineSpacing {
@@ -87,18 +87,19 @@ h4 {
 
 .settings {
   font-size: 1.2em;
-  padding: 0px 10px 5px 10px;
+  padding: 0 10px 5px 10px;
   border-bottom: solid 2px #EEEEEE;
   line-height: 1.2em;
 }
 
 .current_state {
-    padding-left: 1200px;
+    position: relative;
+    right: 0;
 }
 
 .top {
     position: relative;
-    padding-top: 8px;
+    padding-top: 2px;
     padding-bottom: 5px;
 }
 
@@ -106,12 +107,12 @@ h4 {
   padding-left: 40px;}
     .reset {
         position: relative;
-        left: 1200px;
+        left: 80%;
         bottom: 70px;
     }
     .input {
         position: relative;
-        left: 900px;
+        left: 60%;
         bottom: 40px;
     }
 
@@ -168,6 +169,9 @@ h4 {
     border: 3px solid #fff;
     overflow-x: hidden;
     overflow-y: hidden;
+    border-top: 10px solid transparent;
+    border-left: 10px solid red;
+    border-bottom: 5px solid transparent;
 }
 
 .btn-1a:hover, .btn-1a:active {
@@ -259,40 +263,7 @@ h4 {
     -webkit-font-smoothing: antialiased;
 }
 
-#buttonboxback {
-    width: 150px;
-    height: 40px;
-    background-color: rgba(0, 0, 139, 0.53);
-    position: relative;
-    margin-left: 40px;
-    border-radius: 5px;
-}
 
-#buttonboxback:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: -17px;
-    border-style: solid;
-    border-width: 20px 20px 20px 0;
-    border-color: transparent darkblue transparent transparent;
-}
-
-#buttonboxback > a {
-    display: block;
-    text-decoration: none;
-    text-align: center;
-    color: #fff;
-    font: bold 18px/40px Sans-Serif;
-}
-
-#buttonboxback:hover {
-    background-color: lightblue;
-}
-
-#buttonboxback:hover:before {
-    border-right-color: lightblue;
-}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -316,3 +287,36 @@ h4 {
     transform: rotate(360deg);
   }
 }
+
+@media (max-width: 1450px) {
+    .configurator {
+        width: 100%;
+    }
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    video {
+        width: 100%;
+        height: auto;
+    }
+    .tourView {
+        position: relative;
+        margin-left: 0;
+        bottom: 0;
+    }
+    .current_state {
+        padding-left: 20px;
+    }
+    .reset {
+        left: 0;
+        top: 5px;
+        padding-left: 10px;
+    }
+    .input {
+        left: 0;
+        top: 3px;
+    }
+
+}
+
