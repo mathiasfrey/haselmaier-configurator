@@ -294,6 +294,13 @@ h4 {
 }
 
 @media (max-width: 1450px) {
+    .configurator {
+        width: 100%;
+    }
+    img {
+        max-width: 100%;
+        height: auto;
+    }
     .tourView {
         position: relative;
         margin-left: 30px;
