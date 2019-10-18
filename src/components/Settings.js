@@ -293,23 +293,28 @@ class Settings extends React.Component {
     render() {
       return (
             <>
-                {this.code2state('TTV.LR2T')}
-                <div className="padding-left">
-                <h2>Konfigurieren Sie Ihren Leitstellentisch </h2>
+
+                <div className="productcode">
+                    <div className="padding-left input">
+                        <form>
+                            <label>
+                                TTV-Code eingeben:
+                                <input type="text" placeholder="TTV." name="name"/>
+                            </label>
+                            <input type="submit" value="Anzeigen" />
+                        </form>
+                    </div>
                 </div>
-                <div className="padding-left input">
-                    <form>
-                        <label>
-                            TTV-Code eingeben:
-                            <input type="text" placeholder="TTV." name="name"/>
-                        </label>
-                        <input type="submit" value="Anzeigen" />
-                    </form>
-                </div>
-                <div className="padding-left reset">
-                <button className="btn btn-1 btn-1a" onClick={this.handleReset}>RESET</button>
-                </div>
+
                 <div className="settings">
+
+                    <button className="navBtn done">DONE</button>
+                    <div className="divider done"></div>
+                    <button className="navBtn">undone</button>
+                    <div className="divider"></div>
+                    <button className="navBtn">disabled</button>
+                </div>
+
                 <Table
                 smallTable={this.loadTableSmall}
                 middleTable={this.loadTableMiddle}
@@ -343,31 +348,33 @@ class Settings extends React.Component {
                 chosenTechnikContainerMit={this.chosenTechnikContainerMit}
                 chosenTechnikContainerOhne={this.chosenTechnikContainerOhne}
                 />
+
+
                 <Summary
-                chosenTable={this.state.chosenTable}
-                chosenMonitorSize={this.state.chosenMonitorSize}
-                chosenMonitorRow={this.state.chosenMonitorRow}
-                chosenServerSize={this.state.chosenHeightSetting}
-                chosenBlende={this.state.chosenBlende}
-                chosenKabelRuecken={this.state.chosenKabelRuecken}
-                chosenTechnik={this.state.chosenTechnik}
-                chosenContainer={this.state.chosenTechnikContainer}
-                />
+                    chosenTable={this.state.chosenTable}
+                    chosenMonitorSize={this.state.chosenMonitorSize}
+                    chosenMonitorRow={this.state.chosenMonitorRow}
+                    chosenServerSize={this.state.chosenHeightSetting}
+                    chosenBlende={this.state.chosenBlende}
+                    chosenKabelRuecken={this.state.chosenKabelRuecken}
+                    chosenTechnik={this.state.chosenTechnik}
+                    chosenContainer={this.state.chosenTechnikContainer}
+                    />
                 <Product
-                chosenTablePic={this.state.chosenTablePic}
-                chosenMonitorPic={this.state.chosenMonitorPic}
-                chosenHeightPic={this.state.chosenHeightPic}
-                productCodeOfTable={this.state.productCodeOfTable}
-                productCodeOfMonitor={this.state.productCodeOfMonitor}
-                productCodeOfMonitorRow={this.state.productCodeOfMonitorRow}
-                productCodeOfHeight={this.state.productCodeOfHeight}
-                productCodeOfBlende={this.state.productCodeOfBlende}
-                productCodeOfKabel={this.state.productCodeOfKabel}
-                productCodeOfTechnik={this.state.productCodeOfTechnik}
-                productCodeOfContainer={this.state.productCodeOfContainer}
+                    chosenTablePic={this.state.chosenTablePic}
+                    chosenMonitorPic={this.state.chosenMonitorPic}
+                    chosenHeightPic={this.state.chosenHeightPic}
+                    productCodeOfTable={this.state.productCodeOfTable}
+                    productCodeOfMonitor={this.state.productCodeOfMonitor}
+                    productCodeOfMonitorRow={this.state.productCodeOfMonitorRow}
+                    productCodeOfHeight={this.state.productCodeOfHeight}
+                    productCodeOfBlende={this.state.productCodeOfBlende}
+                    productCodeOfKabel={this.state.productCodeOfKabel}
+                    productCodeOfTechnik={this.state.productCodeOfTechnik}
+                    productCodeOfContainer={this.state.productCodeOfContainer}
 
                 />
-                </div>
+
             </>
        )
 }
