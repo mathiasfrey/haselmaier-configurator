@@ -26,7 +26,7 @@ class TourSetup extends React.Component {
             {this.props.chosenHeightPic}
         </div>
         <div>
-            <h2> Ihr Productcode </h2>
+            <h2> Ihr TTV-Code </h2>
             {this.props.productCodeOfTable + this.props.productCodeOfMonitor + this.props.productCodeOfMonitorRow + this.props.productCodeOfHeight +
             this.props.productCodeOfBlende + this.props.productCodeOfKabel + this.props.productCodeOfTechnik + this.props.productCodeOfContainer}
         </div>

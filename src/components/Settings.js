@@ -332,10 +332,10 @@ class Settings extends React.Component {
                 <div className="padding-left input">
                     <form>
                         <label>
-                            Productcode:
-                            <input type="text" name="name"/>
+                            TTV-Code eingeben:
+                            <input type="text" placeholder="TTV." name="name"/>
                         </label>
-                        <input type="submit" value="Submit" />
+                        <input type="submit" value="Anzeigen" />
                     </form>
                 </div>
                 <div className="padding-left reset">

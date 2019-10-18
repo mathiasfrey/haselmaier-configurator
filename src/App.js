@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Header from './components/Header';
-import './App.css';
+import './App.scss';
 import Settings from './components/Settings';
 
 
@@ -13,7 +13,7 @@ class App extends Component{
   return (
       <div className="configurator">
           <Header
-          title="Leitstellen Konfigurator TTV"
+          title="Der Haselmaier Leitstellen Konfigurator"
           />
           <Settings />
       </div>
