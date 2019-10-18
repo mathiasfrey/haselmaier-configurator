@@ -9,8 +9,8 @@ class Product extends React.Component {
     render() {
        return(
         <>
-        <div className="tourView">
         <Intro />
+        <div className="tourView">
             {this.props.chosenTablePic}
             {this.props.chosenMonitorPic}
             {this.props.chosenHeightPic}

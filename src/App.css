@@ -11,9 +11,10 @@
   margin: 15px auto;
   box-shadow: 13px 10px #F0F0F0;
   border-radius: 6px;
-  height: 90%;
+  height: 50%;
   left: 0;
   overflow-y: hidden;
+  overflow-x: hidden;
  }
 
 .productView {
@@ -24,14 +25,10 @@
     bottom: 1560px;
 }
 
-
-
 .tourView {
-        position: relative;
-        width: 600px;
-        height: 1100px;
-        margin-left: 451px;
-        bottom: 460px;
+    position: absolute;
+    margin-left: 30%;
+    top: 38%;
 }
 
 
@@ -95,19 +92,19 @@ h4 {
 
 .settings {
   font-size: 1.2em;
-  padding: 0px 10px 5px 10px;
+  padding: 0 10px 5px 10px;
   border-bottom: solid 2px #EEEEEE;
   line-height: 1.2em;
 }
 
 .current_state {
     position: relative;
-    padding-left: 1200px;
+    right: 0;
 }
 
 .top {
     position: relative;
-    padding-top: 8px;
+    padding-top: 2px;
     padding-bottom: 5px;
 }
 
@@ -115,12 +112,12 @@ h4 {
   padding-left: 40px;}
     .reset {
         position: relative;
-        left: 1200px;
+        left: 80%;
         bottom: 70px;
     }
     .input {
         position: relative;
-        left: 900px;
+        left: 60%;
         bottom: 40px;
     }
 
@@ -296,15 +293,33 @@ h4 {
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1450px) {
     .tourView {
+        position: relative;
         margin-left: 30px;
+        bottom: 0;
     }
-}
-
-@media (max-width: 1000px) {
     .current_state {
-        padding-left: 200px;
+        padding-left: 50px;
+    }
+    /*.reset {
+        position: relative;
+        left: 80%;
+        bottom: 70px;
+    }*/
+    /*.input {
+        position: relative;
+        left: 60%;
+        bottom: 40px;
+    }*/
+    .reset {
+        left: 0;
+        top: 5px;
+        padding-left: 10px;
+    }
+    .input {
+        left: 0;
+        top: 3px;
     }
 
 }
