@@ -3,7 +3,7 @@
 }
 
 .configurator {
-  background: #E8E8E8;
+  background: #e8e8e8;
   position: relative;
   width: 1650px;
   margin: 15px auto;
@@ -69,20 +69,16 @@
 }
 
 
+/* HEADER */
 header {
   color: #ffffff;
-  text-align: center;
   display: flex;
   align-items: center;
   background-color: rgb(209,0,25);
-  font: 15px "Roboto Light", sans-serif;
   border-bottom: solid 2px #e1edf6;
 }
-
 header h1 {
   flex-grow: 1;
-  font-weight: bold;
-  font: 30px "Roboto Light", sans-serif;
 }
 
 h4 {
