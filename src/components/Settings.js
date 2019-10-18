@@ -74,66 +74,39 @@ class Settings extends React.Component {
             return false;
         }
         code = code.replace(/TTV\./, '');
-        console.log(code, 'TTV gone');
+        console.log(code);
 
         // code table
         const tableRegex = /[SML]/;
         if (code.match(tableRegex)) {
+            const table = code.match(tableRegex[0])
         } else {
             return false;
         }
         code = code.replace(tableRegex, '');
-        console.log(code, 'M gone');
+        console.log(code);
 
-        /*var myString = "something format_abc";
-        var myRegexp = /(?:^|\s)format_(.*?)(?:\s|$)/g;
-        var match = myRegexp.exec(myString);
-        console.log(match[1]); // abc*/
-
-        /*var myString = "something format_abc";
-        var myRegexp = /(?:^|\s)format_(.*?)(?:\s|$)/g;
-        match = myRegexp.exec(myString);
-        while (match != null) {
-            // matched text: match[0]
-            // match start: match.index
-            // capturing group n: match[n]
-            console.log(match[0])
-            match = myRegexp.exec(myString);
-        }*/
-
-        /*const monitorSystemsRegex = /[OHSTRE]/;
-        let match2 = monitorSystemsRegex.exec(code);
-        while (match2 != null) {
-            console.log(match2[0]);
-            match2 = monitorSystemsRegex.exec(code);
-        }
-        code = code.replace(match2[0], '');
-        console.log(code);*/
 
         // code Monitor Systems
-        const monitorSystemsRegex = /[OHSTRE]/;
-        /*const testRegex = monitorSystemsRegex.exec(code);
-        console.log(testRegex);*/
-        const array = [...code.matchAll(monitorSystemsRegex)];
-        console.log(array[0]);
-        console.log(array[1]);
-        //const monitorSystems = monitorSystemsRegex.exec(code);
+        const monitorSystemsRegex = /[OSRH]/;
+        if (code.match(monitorSystemsRegex)) {
+            const monitorSystems = code.match(monitorSystemsRegex[0])
+        } else {
+            return false;
+        }
         code = code.replace(monitorSystemsRegex, '');
         console.log(code);
 
 
-
-        /*
-        TTV.MOHHV1EVMKLOL
-         */
         //code Monitor Count
-        /*const monitorCountRegex = /[12]/;
+        const monitorCountRegex = /[12]/;
         if (code.match(monitorCountRegex)) {
-            const monitorCount = code.match(monitorCountRegex)[0];
+            const monitorCount = code.match(monitorCountRegex[0])
         } else {
             return false;
         }
-        //console.log(code);
+        code = code.replace(monitorCountRegex, '');
+        console.log(code);
 
         //code Height
         const heightRegex = /[EV]/;
@@ -142,25 +115,28 @@ class Settings extends React.Component {
         } else {
             return false;
         }
-        //console.log(code);
+        code = code.replace(heightRegex, '');
+        console.log(code);
 
         //code Blende
-        const blendeRegex = /[KVMKOK]/;
+        const blendeRegex = /[KMFN]/;
         if (code.match(blendeRegex)) {
             const blende = code.match(heightRegex)[0];
         } else {
             return false;
         }
-        //console.log(code);
+        code = code.replace(blendeRegex, '');
+        console.log(code);
 
         //code Technik
-        const technikRegex = /[LRBOTLCOL]/;
+        const technikRegex = /[DGBJCX]/;
         if (code.match(technikRegex)) {
             const technik = code.match(heightRegex)[0];
         } else {
             return false;
         }
-        //console.log(code);
+        code = code.replace(technikRegex, '')
+        console.log(code);
 
 
         // result =>
@@ -317,7 +293,7 @@ class Settings extends React.Component {
     render() {
       return (
             <>
-                {this.code2state('TTV.MOHTV1EVMKLOL')}
+                {this.code2state('TTV.LR2T')}
                 <div className="padding-left">
                 <h2>Konfigurieren Sie Ihren Leitstellentisch </h2>
                 </div>

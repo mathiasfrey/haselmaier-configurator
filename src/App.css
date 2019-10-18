@@ -313,16 +313,6 @@ h4 {
     .current_state {
         padding-left: 20px;
     }
-    /*.reset {
-        position: relative;
-        left: 80%;
-        bottom: 70px;
-    }*/
-    /*.input {
-        position: relative;
-        left: 60%;
-        bottom: 40px;
-    }*/
     .reset {
         left: 0;
         top: 5px;
