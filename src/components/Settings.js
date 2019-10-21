@@ -159,6 +159,7 @@ class Settings extends React.Component {
         this.setState({chosenTablePic: imagesPath.small_table});
         this.setState({chosenTable: 'S' });
         this.setState({productCodeOfTable: 'TTV.S'})
+
     };
 
     loadTableMiddle = () => {
@@ -315,6 +316,18 @@ class Settings extends React.Component {
         this.setState({productCodeOfContainer: 'OL'})
     };
 
+    //Product Code
+    generateProductCode = () => {
+        this.setState({productCode: this.state.productCodeOfTable + this.state.productCodeOfMonitor +
+        this.state.productCodeOfMonitorRow +
+        this.state.productCodeOfHeight +
+        this.state.productCodeOfBlende +
+        this.state.productCodeOfKabel +
+        this.state.productCodeOfTechnik +
+        this.state.productCodeOfContainer});
+        console.log(this.state.productCode)
+    };
+
     //RESET
 
     handleReset = () => {
@@ -340,7 +353,6 @@ class Settings extends React.Component {
                 </div>
 
                 <div className="settings">
-
                     <button className="navBtn done">START</button>
                     <div className="divider done"></div>
                     <button className="navBtn">
@@ -400,6 +412,7 @@ class Settings extends React.Component {
                     <div className="divider"></div>
                     <button className="navBtn">disabled</button>
                 </div>
+                <div className="summary">
                 <Summary
                     chosenTable={this.state.chosenTable}
                     chosenMonitorSize={this.state.chosenMonitorSize}
@@ -410,6 +423,7 @@ class Settings extends React.Component {
                     chosenTechnik={this.state.chosenTechnik}
                     chosenContainer={this.state.chosenTechnikContainer}
                     />
+                </div>
                 <Product
                     chosenTablePic={this.state.chosenTablePic}
                     chosenMonitorPic={this.state.chosenMonitorPic}
@@ -422,7 +436,7 @@ class Settings extends React.Component {
                     productCodeOfKabel={this.state.productCodeOfKabel}
                     productCodeOfTechnik={this.state.productCodeOfTechnik}
                     productCodeOfContainer={this.state.productCodeOfContainer}
-
+                    generateProductCode={this.generateProductCode}
                 />
 
             </>

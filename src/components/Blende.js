@@ -34,7 +34,7 @@ class Blende extends Component {
         <>
         <button id="blende" className="navBtn" onClick={this.onOpenModal}>4. Blende</button>
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
-        <video autoPlay={false} height="300" width="500" controls playsinline="false">
+        <video autoPlay={false} height="300" width="500" controls playsinline={false}>
         <source src={blende_video} type="video/mp4"/>
         </video>
         <h2>Gewünschte Blendeneinstellung</h2>

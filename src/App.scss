@@ -21,11 +21,29 @@ $margin-small: 15px;
     .tourView {
         position: relative;
         margin-left: 0;
-        bottom: 0;
     }
     .current_state {
         padding-left: 20px;
     }
+
+
+
+   /* .productcode {
+    // top right within header
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    margin: $margin-small;
+    color: white;
+
+    }*/
+
+   /* .navBtn {
+        min-width: 120px;
+        margin: 0;
+        border: none;
+*/
     // .reset {
     //     left: 0;
     //     top: 5px;
@@ -51,17 +69,14 @@ $margin-small: 15px;
  }
 
 .productView {
-    position: relative;
-    background: rgba(4, 4, 4, 0.33);
-    width: 600px;
-    height: 500px;
-    bottom: 1560px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
 }
 
 .tourView {
     position: relative;
     margin-left: 30%;
-    top: 10%;
 }
 
 
@@ -87,7 +102,8 @@ $margin-small: 15px;
     }
 
 .summary {
-  padding: 15px 10px 10px 10px;
+  position: absolute;
+  padding: 0 20px 10px 10px;
   line-height: 2px;
   color: #0096d0;
 }
