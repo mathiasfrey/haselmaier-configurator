@@ -273,12 +273,12 @@ class Settings extends React.Component {
         this.setState({productCodeOfBlende: 'V'})
     };
 
-    chosenKabelRueckenMit = () => {
+    chosenKabelRueckenMit = (props) => {
         this.setState({chosenKabelRuecken: 'MIT Kabelrücken'});
         this.setState({productCodeOfKabel: 'MK'})
     };
 
-    chosenKabelRueckenOhne = () => {
+    chosenKabelRueckenOhne = (props) => {
         this.setState({chosenKabelRuecken: 'OHNE Kabelrücken'});
         this.setState({productCodeOfKabel: 'OK'})
     };
@@ -317,16 +317,6 @@ class Settings extends React.Component {
     };
 
     //Product Code
-    generateProductCode = () => {
-        this.setState({productCode: this.state.productCodeOfTable + this.state.productCodeOfMonitor +
-        this.state.productCodeOfMonitorRow +
-        this.state.productCodeOfHeight +
-        this.state.productCodeOfBlende +
-        this.state.productCodeOfKabel +
-        this.state.productCodeOfTechnik +
-        this.state.productCodeOfContainer});
-        console.log(this.state.productCode)
-    };
 
     //RESET
 
@@ -339,7 +329,6 @@ class Settings extends React.Component {
     render() {
       return (
             <>
-
                 <div className="productcode">
                     <div className="padding-left input">
                         <form>
@@ -436,9 +425,7 @@ class Settings extends React.Component {
                     productCodeOfKabel={this.state.productCodeOfKabel}
                     productCodeOfTechnik={this.state.productCodeOfTechnik}
                     productCodeOfContainer={this.state.productCodeOfContainer}
-                    generateProductCode={this.generateProductCode}
                 />
-
             </>
        )
 }

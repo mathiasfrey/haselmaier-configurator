@@ -40,7 +40,7 @@ class Table extends Component {
         <button className="navBtn" onClick={this.onOpenModal}>1. Tisch</button>
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
         <h2>Wähle deine Tischgröße</h2>
-        <video autoPlay={true} height="300" width="500" controls playsinline={false}>
+        <video autoPlay={false} height="300" width="500" controls playsinline={false}>
         <source src={tisch_video} type="video/mp4"/>
         </video>
         <button className="btn btn-2 btn-2a" onClick={this.handlingSmallTable}> KLEIN (bis zu 3 Monitore) </button>
