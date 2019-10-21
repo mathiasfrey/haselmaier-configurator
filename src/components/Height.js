@@ -34,7 +34,7 @@ class Height extends React.Component {
         <button className="navBtn" onClick={this.onOpenModal}>2. Höhenverstellbar</button>
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
         <h2>Höhenverstellbar</h2>
-        <video autoPlay={false} height="300" width="500" controls playsInline="false">
+        <video autoPlay={false} height="300" width="500" controls playsInline={false}>
         <source src={hv_video} type="video/mp4"/>
         </video>
         <h2>Treffen Sie Ihre Auswahl</h2>

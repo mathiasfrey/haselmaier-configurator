@@ -59,9 +59,9 @@ $margin-small: 15px;
 }
 
 .tourView {
-    position: absolute;
+    position: relative;
     margin-left: 30%;
-    top: 38%;
+    top: 10%;
 }
 
 
@@ -128,7 +128,7 @@ h4 {
 
 .settings {
     height: 40px;
-    width:100%;
+    width: 100%;
     background:  $light-grey;
     display: flex;
 

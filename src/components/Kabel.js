@@ -32,7 +32,7 @@ class Kabel extends React.Component {
             <>
                 <button id="kabel" className="navBtn" onClick={this.onOpenModal}>5. Kabel</button>
                 <Modal open={this.state.open} onClose={this.onCloseModal} center>
-                <video autoPlay={false} height="300" width="500" controls playsinline="false">
+                <video autoPlay={false} height="300" width="500" controls playsinline={false}>
                 <source src={kabel_video} type="video/mp4"/>
                 </video>
                 <h2>Kabelrücken für Relingsystem</h2>

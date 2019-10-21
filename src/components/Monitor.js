@@ -32,14 +32,14 @@ class Monitor extends React.Component {
     handlingMonitorSystemRelingHv = () => {
         this.setState({ open: false });
         this.props.monitorSystemRelingHV();
-        document.getElementById('kabel').style.color = '#A9A9A9';
+        document.getElementById('kabel').style.color = '#050505';
         document.getElementById('kabel').disabled = false;
     };
 
     handlingMonitorSystemReling = () => {
         this.setState({ open: false });
         this.props.monitorSystemReling();
-        document.getElementById('kabel').style.color = '#A9A9A9';
+        document.getElementById('kabel').style.color = '#050505';
         document.getElementById('kabel').disabled = false;
 
     };
@@ -67,7 +67,7 @@ class Monitor extends React.Component {
         <button className="navBtn" onClick={this.onOpenModal}>3. Monitortragsystem</button>
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
         <h2> Monitortragsystem </h2>
-         <video autoPlay={false} height="300" width="500" controls playsinline="false">
+         <video autoPlay={false} height="300" width="500" controls playsinline={false}>
          <source src={monitor_video} type="video/mp4"/>
          </video>
         <h2> Anzahl der Monitore </h2>
