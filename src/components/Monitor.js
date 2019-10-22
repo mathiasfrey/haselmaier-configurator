@@ -17,6 +17,7 @@ class Monitor extends React.Component {
     };
 
     handleMonitorSystem = (system) => {
+        this.setState({open: false});
         if (system === 'OHNE') {
             this.props.monitorSystemWithout();
         } else if (system === 'STATIV') {
