@@ -17,14 +17,13 @@ class Height extends React.Component {
     this.setState({ open: false });
     };
 
-    handlingHeightECO = () => {
-        this.setState({ open: false });
-        this.props.heightSettingEco();
-    };
-
-    handlingHeightVARIO = () => {
-        this.setState({ open: false });
-        this.props.heightSettingVario();
+    handleHeight = (height) => {
+        this.setState({ open: false});
+        if (height === 'ECO') {
+            this.props.heightSettingEco();
+        } else {
+            this.props.heightSettingVario();
+        }
     };
 
 
@@ -39,8 +38,8 @@ class Height extends React.Component {
         </video>
         <h2>Treffen Sie Ihre Auswahl</h2>
         <div>
-        <button className="btn btn-2 btn-2a" onClick={this.handlingHeightECO}> ECO </button>
-        <button className="btn btn-2 btn-2a" onClick={this.handlingHeightVARIO}> VARIO </button>
+        <button className="btn btn-2 btn-2a" onClick={() =>this.handleHeight('ECO')}> ECO </button>
+        <button className="btn btn-2 btn-2a" onClick={() => this.handleHeight('VARIO')}> VARIO </button>
         </div>
         </Modal>
         </>

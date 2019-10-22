@@ -16,14 +16,13 @@ class Kabel extends React.Component {
         this.setState({ open: false });
     };
 
-    handlingKabelRueckenMit = () => {
-        this.setState({open: false });
-        this.props.chosenKabelRueckenMit()
-    };
-
-    handlingKabelRueckenOhne = () => {
+    handleCable = (cable) => {
         this.setState({open: false});
-        this.props.chosenKabelRueckenOhne()
+        if (cable === 'Mit') {
+            this.props.chosenKabelRueckenMit();
+        } else if (cable === 'Ohne') {
+            this.props.chosenKabelRueckenOhne();
+        }
     };
 
 
@@ -37,8 +36,8 @@ class Kabel extends React.Component {
                 </video>
                 <h2>Kabelrücken für Relingsystem</h2>
                 <div>
-                <button id='mit' className="btn btn-2 btn-2a" onClick={this.handlingKabelRueckenMit}> Mit Kabelrücken </button>
-                <button id="ohne" className="btn btn-2 btn-2a" onClick={this.handlingKabelRueckenOhne}> Ohne Kabelrücken </button>
+                <button id='mit' className="btn btn-2 btn-2a" onClick={() => this.handleCable('Mit')}> Mit Kabelrücken </button>
+                <button id="ohne" className="btn btn-2 btn-2a" onClick={() => this.handleCable('Ohne')}> Ohne Kabelrücken </button>
                 </div>
                 </Modal>
             </>

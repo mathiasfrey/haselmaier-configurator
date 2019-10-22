@@ -6,8 +6,8 @@ class Table extends Component {
 
     state = {
         open: false,
+        disabled: false,
     };
-
 
     onOpenModal = () =>  {
         this.setState({ open: true });
@@ -17,21 +17,15 @@ class Table extends Component {
         this.setState({ open: false });
     };
 
-
-    handlingSmallTable = () => {
-        this.props.smallTable();
-        this.setState({ open: false });
-    };
-
-    handlingMiddleTable = () => {
-        this.props.middleTable();
-        this.setState({ open: false });
-    };
-
-    handlingLargeTable = () => {
-        this.props.largeTable();
-        this.setState({ open: false });
-
+    handleTable = (size) => {
+        this.setState({open: false});
+        if (size === 'S') {
+            this.props.smallTable();
+        } else if (size === 'M') {
+            this.props.middleTable();
+        } else {
+            this.props.largeTable();
+        }
     };
 
     render() {
@@ -43,10 +37,9 @@ class Table extends Component {
         <video autoPlay={false} height="300" width="500" controls playsinline={false}>
         <source src={tisch_video} type="video/mp4"/>
         </video>
-        <button className="btn btn-2 btn-2a" onClick={this.handlingSmallTable}> KLEIN (bis zu 3 Monitore) </button>
-        <button className="btn btn-2 btn-2a" onClick={this.handlingMiddleTable}> MITTEL (bis zu 4 Monitore) </button>
-        <button className="btn btn-2 btn-2a" onClick={this.handlingLargeTable}> GROß (bis zu Monitore) </button>
-        {this.checkStateOfTable}
+        <button className="btn btn-2 btn-2a" onClick={() => this.handleTable('S')}> KLEIN (bis zu 3 Monitore) </button>
+        <button className="btn btn-2 btn-2a" onClick={() => this.handleTable('M')}> MITTEL (bis zu 4 Monitore) </button>
+        <button className="btn btn-2 btn-2a" onClick={() => this.handleTable('L')}> GROß (bis zu Monitore) </button>
         </Modal>
 
         </>
