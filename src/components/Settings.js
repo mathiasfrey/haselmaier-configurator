@@ -33,18 +33,6 @@ class Settings extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-        //Product Code
-        productCodeOfTable: String,
-        productCodeOfMonitor: String,
-        productCodeOfMonitorRow: String,
-        productCodeOfHeight: String,
-        productCodeOfBlende: String,
-        productCodeOfKabel: String,
-        productCodeOfTechnik: String,
-        productCodeOfContainer: String,
-        productCode: String,
-        //Input Value for TTV
-        input: String,
         // Users select
         chosenTable: String,
         chosenTablePic: Array,
@@ -327,10 +315,110 @@ class Settings extends React.Component {
         this.setState(this.initialState)
     };
 
+    handleTable = () => {
+        return (
+             <Table
+                 smallTable={this.loadTableSmall}
+                 middleTable={this.loadTableMiddle}
+                 largeTable={this.loadTableLarge}>
+            </Table>
+        )
+    };
+
+    handleMonitor = () => {
+        return (
+             <Monitor
+                 monitorSystemWithout={this.monitorSystemWithout}
+                 monitorSystemStativ={this.monitorSystemStativ}
+                 monitorSystemRelingHV={this.monitorSystemRelingHV}
+                 monitorSystemReling={this.monitorSystemReling}
+                 monitorOneRow={this.monitorOneRow}
+                 monitorTwoRow={this.monitorTwoRow}
+                 monitorThree={this.monitorThree}
+                 monitorFour={this.monitorFour}
+                 monitorFive={this.monitorFive}
+                 table={this.state.chosenTable}
+             >
+             </Monitor>
+        )
+    };
+
+    handleHeight = () => {
+        return (
+            <Height
+                heightSettingEco={this.heightSettingEco}
+                heightSettingVario={this.heightSettingVario}
+            />
+        )
+    };
+
+    handleBlende = () => {
+        return (
+            <Blende
+                chosenBlendeKeinen={this.chosenBlendeKeinen}
+                chosenBlendeVoll={this.chosenBlendeVoll}
+            />
+        )
+    };
+
+    handleKabel = () => {
+        return (
+            <Kabel
+                chosenKabelRueckenMit={this.chosenKabelRueckenMit}
+                chosenKabelRueckenOhne={this.chosenKabelRueckenOhne}
+            />
+        )
+    };
+
+    handleTechnik = () => {
+        return (
+            <Technik
+                chosenTechnikLinks={this.chosenTechnikLinks}
+                chosenTechnikRechts={this.chosenTechnikRechts}
+                chosenTechnikBeide={this.chosenTechnikBeide}
+                chosenTechnikOhne={this.chosenTechnikOhne}
+                chosenTechnikContainerMit={this.chosenTechnikContainerMit}
+                chosenTechnikContainerOhne={this.chosenTechnikContainerOhne}
+            />
+        )
+    };
+
+    handleSummary = () => {
+        return (
+            <Summary
+                    chosenTable={this.state.chosenTable}
+                    chosenMonitorNumber={this.state.chosenMonitorNumber}
+                    chosenMonitorRow={this.state.chosenMonitorRow}
+                    chosenMonitorSystem={this.state.chosenMonitorSystem}
+                    chosenHeight={this.state.chosenHeightSetting}
+                    chosenBlende={this.state.chosenBlende}
+                    chosenKabelRuecken={this.state.chosenKabelRuecken}
+                    chosenTechnik={this.state.chosenTechnik}
+                    chosenContainer={this.state.chosenTechnikContainer}
+            />
+        )
+    };
+
+    handleProduct = () => {
+        return (
+            <Product
+                    chosenTablePic={this.state.chosenTablePic}
+                    chosenMonitorPic={this.state.chosenMonitorPic}
+                    chosenHeightPic={this.state.chosenHeightPic}
+                    productCodeOfTable={this.state.productCodeOfTable}
+                    productCodeOfMonitor={this.state.productCodeOfMonitor}
+                    productCodeOfMonitorRow={this.state.productCodeOfMonitorRow}
+                    productCodeOfHeight={this.state.productCodeOfHeight}
+                    productCodeOfBlende={this.state.productCodeOfBlende}
+                    productCodeOfKabel={this.state.productCodeOfKabel}
+                    productCodeOfTechnik={this.state.productCodeOfTechnik}
+                    productCodeOfContainer={this.state.productCodeOfContainer}
+                />
+        )
+    }
 
 
     render() {
-
         console.log(this.state);
       return (
             <>
@@ -350,91 +438,38 @@ class Settings extends React.Component {
                     <button className="navBtn done">START</button>
                     <div className="divider done"></div>
                     <button className="navBtn">
-                        <Table
-                            smallTable={this.loadTableSmall}
-                            middleTable={this.loadTableMiddle}
-                            largeTable={this.loadTableLarge}>
-
-                        </Table>
+                        {this.handleTable()}
                     </button>
                     <div className="divider"></div>
                     <button className="navBtn">
-                        <Height
-                            heightSettingEco={this.heightSettingEco}
-                            heightSettingVario={this.heightSettingVario}
-                        />
-
+                        {this.handleHeight()}
                     </button>
                     <div className="divider"></div>
                     <button className="navBtn">
-                         <Monitor
-                            monitorSystemWithout={this.monitorSystemWithout}
-                            monitorSystemStativ={this.monitorSystemStativ}
-                            monitorSystemRelingHV={this.monitorSystemRelingHV}
-                            monitorSystemReling={this.monitorSystemReling}
-                            monitorOneRow={this.monitorOneRow}
-                            monitorTwoRow={this.monitorTwoRow}
-                            monitorThree={this.monitorThree}
-                            monitorFour={this.monitorFour}
-                            monitorFive={this.monitorFive}
-                            table={this.state.chosenTable}
-                         >
-                         </Monitor>
+                        {this.handleMonitor()}
                     </button>
                     <div className="divider"></div>
-                            <button className="navBtn">
-                            <Blende
-                            chosenBlendeKeinen={this.chosenBlendeKeinen}
-                            chosenBlendeVoll={this.chosenBlendeVoll}
-                            />
-                            </button>
+                    <button className="navBtn">
+                        {this.handleBlende()}
+                    </button>
                     <div className="divider"></div>
-                            <button className="navBtn">
-                            <Kabel
-                            chosenKabelRueckenMit={this.chosenKabelRueckenMit}
-                            chosenKabelRueckenOhne={this.chosenKabelRueckenOhne}
-                            />
-                            </button>
+                    <button className="navBtn">
+                        {this.handleKabel()}
+                    </button>
                     <div className="divider"></div>
-                            <button className="navBtn">
-                             <Technik
-                            chosenTechnikLinks={this.chosenTechnikLinks}
-                            chosenTechnikRechts={this.chosenTechnikRechts}
-                            chosenTechnikBeide={this.chosenTechnikBeide}
-                            chosenTechnikOhne={this.chosenTechnikOhne}
-                            chosenTechnikContainerMit={this.chosenTechnikContainerMit}
-                            chosenTechnikContainerOhne={this.chosenTechnikContainerOhne}
-                            />
-                            </button>
+                    <button className="navBtn">
+                        {this.handleTechnik()}
+                    </button>
                     <div className="divider"></div>
                     <button className="navBtn">disabled</button>
                 </div>
                 <div className="summary">
-                <Summary
-                    chosenTable={this.state.chosenTable}
-                    chosenMonitorNumber={this.state.chosenMonitorNumber}
-                    chosenMonitorRow={this.state.chosenMonitorRow}
-                    chosenMonitorSystem={this.state.chosenMonitorSystem}
-                    chosenHeight={this.state.chosenHeightSetting}
-                    chosenBlende={this.state.chosenBlende}
-                    chosenKabelRuecken={this.state.chosenKabelRuecken}
-                    chosenTechnik={this.state.chosenTechnik}
-                    chosenContainer={this.state.chosenTechnikContainer}
-                    />
+                    {this.handleSummary()}
                 </div>
-                <Product
-                    chosenTablePic={this.state.chosenTablePic}
-                    chosenMonitorPic={this.state.chosenMonitorPic}
-                    chosenHeightPic={this.state.chosenHeightPic}
-                    productCodeOfTable={this.state.productCodeOfTable}
-                    productCodeOfMonitor={this.state.productCodeOfMonitor}
-                    productCodeOfMonitorRow={this.state.productCodeOfMonitorRow}
-                    productCodeOfHeight={this.state.productCodeOfHeight}
-                    productCodeOfBlende={this.state.productCodeOfBlende}
-                    productCodeOfKabel={this.state.productCodeOfKabel}
-                    productCodeOfTechnik={this.state.productCodeOfTechnik}
-                    productCodeOfContainer={this.state.productCodeOfContainer}
-                />
+                <div className="tourView">
+                    {this.handleProduct()}
+                </div>
+
             </>
        )
 }

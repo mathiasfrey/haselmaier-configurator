@@ -85,7 +85,6 @@ class Monitor extends React.Component {
             {this.renderMonitorButton(3)}
             {this.renderMonitorButton(4)}
             {this.renderMonitorButton(5)}
-            <hr/>
         </div>
         <h2> 1-reihig oder 2-reihig? </h2>
         <div>
