@@ -11,6 +11,7 @@ import table_four_monitors from '../assets/table_white_four_monitors.png'
 import table_black_eight_monitors from '../assets/table_black_eight_monitors.png'
 import Summary from "./Summary";
 import Product from "./Product";
+import ProductCodeForm from './ProductCodeForm';
 
 
 const imagesPath = {
@@ -33,122 +34,169 @@ class Settings extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-        productCodeOfTable: String,
-        productCodeOfMonitor: String,
-        productCodeOfMonitorRow: String,
-        productCodeOfHeight: String,
-        productCodeOfBlende: String,
-        productCodeOfKabel: String,
-        productCodeOfTechnik: String,
-        productCodeOfContainer: String,
-        productCode: String,
-        input: String,
-        chosenTable: String,
-        chosenTablePic: Array,
-        chosenMonitorSystem: Number,
-        chosenMonitorPic: Array,
-        chosenMonitorRow: Number,
-        chosenMonitorNumber: Number,
-        chosenHeightSetting: String,
-        chosenHeightPic: Array,
-        chosenBlende: String,
-        chosenKabelRuecken: String,
-        chosenTechnik: Number,
-        chosenTechnikContainer: String,
+            productCodeOfTable: String,
+            productCodeOfMonitor: String,
+            productCodeOfMonitorRow: String,
+            productCodeOfHeight: String,
+            productCodeOfBlende: String,
+            productCodeOfKabel: String,
+            productCodeOfTechnik: String,
+            productCodeOfContainer: String,
+            productCode: String,
+            input: String,
+            chosenTable: String,
+            chosenTablePic: Array,
+            chosenMonitorSystem: Number,
+            chosenMonitorPic: Array,
+            chosenMonitorRow: Number,
+            chosenMonitorNumber: Number,
+            chosenHeightSetting: String,
+            chosenHeightPic: Array,
+            chosenBlende: String,
+            chosenKabelRuecken: String,
+            chosenTechnik: Number,
+            chosenTechnikContainer: String,
         };
         this.initialState = this.state
     }
 
     //Code2State
 
+
     code2state = (code) => {
+        function codeAlertError(originalCode) {
+            alert('Es tut uns leid, <' + originalCode + '> scheint kein gültiger TTV-Code zu sein.');
+        }
+        function matchTTV(code) {
+            if (code.match(/TTV\./)) {
+                // ok => matches, valid TTV code
+                return {
+                    'remainder': code.replace(/TTV\./, '')
+                };
+            }
+            return false;
+        }
+        function matchTable(code) {
+            // code table
+            const tableRegex = /[SML]/;
+            if (code.match(tableRegex)) {
+                const table = code.match(tableRegex)[0];
+                return {
+                    'table': table,
+                    'remainder': code.replace(tableRegex, '')
+                };
+            } 
+            return false;
+
+        }
+        function matchMonitorSystem(code) {
+            // code Monitor Systems
+            const monitorSystemsRegex = /[OSRH]/;
+            if (code.match(monitorSystemsRegex)) {
+                const monitorSystem = code.match(monitorSystemsRegex)[0];
+                return {
+                    'monitorSystem': monitorSystem,
+                    'remainder': code.replace(monitorSystemsRegex, '')
+                };
+            }
+            
+            return false;
+        }
+        function matchMonitorCnt(code) {
+            //code Monitor Count
+            const monitorRowRegex = /[12]/;
+            if (code.match(monitorRowRegex)) {
+                const monitorRow = code.match(monitorRowRegex)[0];
+                return {
+                    'monitorCnt': monitorRow,
+                    'remainder': code.replace(monitorRowRegex, '')
+                }
+            }
+            return false;
+        }
+    
+        var originalCode = code;
+        var rv; // return value
+        var table, monitorSystem, monitorCnt; // , height, blende, technik;
 
         // parse product code
         // example: TTV.SRE-HV1EVMKLOL
-        // var (table, monitorSystem, monitorCount, height, blende, technik);
-        // x.match(/TTV\./)
-
         // step by step match and replace from LTR
-        if (code.match(/TTV\./)) {
-            // ok => matches, valid TTV code
-        } else {
+
+        rv = matchTTV(code);
+        if (rv === false) {
+            codeAlertError(originalCode);
             return false;
         }
-        code = code.replace(/TTV\./, '');
-        console.log(code);
 
-        // code table
-        const tableRegex = /[SML]/;
-        if (code.match(tableRegex)) {
-            const table = code.match(tableRegex[0])
-        } else {
+        rv = matchTable(rv.remainder);
+        if (rv === false) {
+            codeAlertError(originalCode);
             return false;
         }
-        code = code.replace(tableRegex, '');
-        console.log(code);
-
-
-        // code Monitor Systems
-        const monitorSystemsRegex = /[OSRH]/;
-        if (code.match(monitorSystemsRegex)) {
-            const monitorSystems = code.match(monitorSystemsRegex[0])
-        } else {
+        table = rv.table;
+        
+        rv = matchMonitorSystem(rv.remainder);
+        if (rv === false) {
+            codeAlertError(originalCode);
             return false;
         }
-        code = code.replace(monitorSystemsRegex, '');
-        console.log(code);
+        monitorSystem = rv.monitorSystem;
 
 
-        //code Monitor Count
-        const monitorRowRegex = /[12]/;
-        if (code.match(monitorRowRegex)) {
-            const monitorRow = code.match(monitorRowRegex[0])
-        } else {
+        rv = matchMonitorCnt(rv.remainder);
+        if (rv === false) {
+            codeAlertError(originalCode);
             return false;
         }
-        code = code.replace(monitorRowRegex, '');
-        console.log(code);
+        monitorCnt = rv.monitorCnt;
 
-        //code Height
-        const heightRegex = /[EV]/;
-        if (code.match(heightRegex)) {
-            const height = code.match(heightRegex)[0];
-        } else {
-            return false;
-        }
-        code = code.replace(heightRegex, '');
-        console.log(code);
+        // //code Height
+        // const heightRegex = /[EV]/;
+        // if (code.match(heightRegex)) {
+        //     const height = code.match(heightRegex)[0];
+        // } else {
+        //     return false;
+        // }
+        // code = code.replace(heightRegex, '');
+        // console.log(code);
 
-        //code Blende
-        const blendeRegex = /[KMFN]/;
-        if (code.match(blendeRegex)) {
-            const blende = code.match(heightRegex)[0];
-        } else {
-            return false;
-        }
-        code = code.replace(blendeRegex, '');
-        console.log(code);
+        // //code Blende
+        // const blendeRegex = /[KMFN]/;
+        // if (code.match(blendeRegex)) {
+        //     const blende = code.match(heightRegex)[0];
+        // } else {
+        //     return false;
+        // }
+        // code = code.replace(blendeRegex, '');
+        // console.log(code);
 
-        //code Technik
-        const technikRegex = /[DGBJCX]/;
-        if (code.match(technikRegex)) {
-            const technik = code.match(heightRegex)[0];
-        } else {
-            return false;
-        }
-        code = code.replace(technikRegex, '');
-        console.log(code);
-/*
+        // //code Technik
+        // const technikRegex = /[DGBJCX]/;
+        // if (code.match(technikRegex)) {
+        //     const technik = code.match(heightRegex)[0];
+        // } else {
+        //     return false;
+        // }
+        // code = code.replace(technikRegex, '');
+        // console.log(code);
+        
+        
         this.setState(
             {
-                table: table,
-                monitorSystem: monitorSystem,
-                monitorCount: monitorCount,
-                height: height,
-                blende: blende,
-                technik: technik,
+                chosenTable: table,
+                chosenMonitorSystem: monitorSystem,
+                chosenMonitorNumber: monitorCnt,
+                // table: table,
+                // monitorSystem: monitorSystem,
+                // monitorCount: monitorCnt,
+                // height: height,
+                // blende: blende,
+                // technik: technik,
             }
-        );*/
+        );
+        console.log('UPDATED from code2state');
+        // this.forceUpdate();
     };
 
     //TABLE CONFIGURATION
@@ -331,13 +379,9 @@ class Settings extends React.Component {
             <>
                 <div className="productcode">
                     <div className="padding-left input">
-                        <form>
-                            <label>
-                                TTV-Code eingeben:
-                                <input type="text" placeholder="TTV." name="name"/>
-                            </label>
-                            <input type="submit" value="Anzeigen" />
-                        </form>
+                        <ProductCodeForm
+                            callback={this.code2state}
+                        />
                     </div>
                 </div>
 
