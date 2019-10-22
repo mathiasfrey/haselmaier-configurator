@@ -16,41 +16,27 @@ class Technik extends React.Component {
     this.setState({ open: false });
     };
 
-    handlingTechnikLeft = () => {
-        this.setState({ open: true });
-        this.props.chosenTechnikLinks();
-        this.setState({disabled: false});
-        document.getElementById('laden').style.color = '#F5F5F5';
-        document.getElementById('ohne').style.color = '#F5F5F5';
+    handleTechnik = (technik) => {
+        if (technik === 'Links') {
+            this.props.chosenTechnikLinks();
+            this.setState({disabled: false})
+        } else if (technik === 'Rechts') {
+            this.props.chosenTechnikRechts();
+            this.setState({disabled: false})
+        } else if (technik === 'Beide') {
+            this.props.chosenTechnikBeide();
+            this.setState({disabled: true})
+        } else {
+            this.props.chosenTechnikOhne();
+        }
     };
-    handlingTechnikRight = () => {
-        this.setState({ open: true });
-        this.props.chosenTechnikRechts();
-        this.setState({disabled: false});
-        document.getElementById('laden').style.color = '#F5F5F5';
-        document.getElementById('ohne').style.color = '#F5F5F5';
-    };
-    handlingTechnikBoth = () => {
-        this.setState({ open: true });
-        this.props.chosenTechnikBeide();
-        this.setState({disabled: true});
-        document.getElementById('laden').style.color = '#D8D8D8';
-        document.getElementById('ohne').style.color = '#D8D8D8';
 
-    };
-    handlingWithoutTechnik = () => {
-        this.setState({ open: true });
-        this.props.chosenTechnikOhne();
-        document.getElementById('laden').style.color = '#F5F5F5';
-        document.getElementById('ohne').style.color = '#F5F5F5';
-    };
-    handlingWithContainer = () => {
-        this.setState({ open: false });
-        this.props.chosenTechnikContainerMit()
-    };
-    handlingWithoutContainer = () => {
-        this.setState({ open: false });
-        this.props.chosenTechnikContainerOhne()
+    handleContainer = (container) => {
+        if (container === 'Mit') {
+            this.props.chosenTechnikContainerMit();
+        } else if (container === 'Ohne') {
+            this.props.chosenTechnikContainerOhne();
+        }
     };
 
 
@@ -66,15 +52,15 @@ class Technik extends React.Component {
         </video>
         <h2> Treffen Sie Ihre Auswahl </h2>
         <div>
-        <button className="btn btn-2 btn-2a" onClick={this.handlingTechnikLeft}> Linksseitig </button>
-        <button className="btn btn-2 btn-2a" onClick={this.handlingTechnikRight}> Rechtsseitig </button>
-        <button className="btn btn-2 btn-2a" onClick={this.handlingTechnikBoth}> Beidseitig </button>
-        <button className="btn btn-2 btn-2a" onClick={this.handlingWithoutTechnik}> Ohne </button>
+        <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnik('Links')}> Linksseitig </button>
+        <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnik('Rechts')}> Rechtsseitig </button>
+        <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnik('Beide')}> Beidseitig </button>
+        <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnik('Ohne')}> Ohne </button>
         </div>
         <h2> Treffen Sie Ihre Auswahl </h2>
         <div>
-        <button id='laden' className="btn btn-2 btn-2a" onClick={this.handlingWithContainer} disabled={this.state.disabled}> Mit Ladencontainer </button>
-        <button id='ohne' className="btn btn-2 btn-2a" onClick={this.handlingWithoutContainer} disabled={this.state.disabled}> Ohne Ladencontainer </button>
+        <button id='laden' className="btn btn-2 btn-2a" onClick={() => this.handleContainer('Mit')} disabled={this.state.disabled}> Mit Ladencontainer </button>
+        <button id='ohne' className="btn btn-2 btn-2a" onClick={() => this.handleContainer('Ohne')} disabled={this.state.disabled}> Ohne Ladencontainer </button>
         </div>
         </Modal>
         </>

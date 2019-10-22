@@ -17,14 +17,13 @@ class Blende extends Component {
     this.setState({ open: false });
     };
 
-    handlingBlendeOhne = () => {
-        this.setState({ open: false });
-        this.props.chosenBlendeKeinen()
-    };
-
-    handlingBlendeVoll = () => {
-        this.setState({ open: false });
-        this.props.chosenBlendeVoll()
+    handleBlende = (blende) => {
+        this.setState({ open: false});
+        if (blende === 'Keinen') {
+            this.props.chosenBlendeKeinen();
+        } else if (blende === 'Voller') {
+            this.props.chosenBlendeVoll();
+        }
     };
 
 
@@ -39,8 +38,8 @@ class Blende extends Component {
         </video>
         <h2>Gewünschte Blendeneinstellung</h2>
         <div>
-        <button className="btn btn-2 btn-2a" onClick={this.handlingBlendeOhne}> Keinen </button>
-        <button className="btn btn-2 btn-2a" onClick={this.handlingBlendeVoll}> Voller Blendschutz </button>
+        <button className="btn btn-2 btn-2a" onClick={() => this.handleBlende('Keinen')}> Keinen </button>
+        <button className="btn btn-2 btn-2a" onClick={() => this.handleBlende('Voller')}> Voller Blendschutz </button>
         </div>
         </Modal>
         </>

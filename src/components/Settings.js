@@ -33,6 +33,7 @@ class Settings extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+        //Product Code
         productCodeOfTable: String,
         productCodeOfMonitor: String,
         productCodeOfMonitorRow: String,
@@ -42,7 +43,9 @@ class Settings extends React.Component {
         productCodeOfTechnik: String,
         productCodeOfContainer: String,
         productCode: String,
+        //Input Value for TTV
         input: String,
+        // Users select
         chosenTable: String,
         chosenTablePic: Array,
         chosenMonitorSystem: Number,
@@ -55,6 +58,7 @@ class Settings extends React.Component {
         chosenKabelRuecken: String,
         chosenTechnik: Number,
         chosenTechnikContainer: String,
+        disabled: false,
         };
         this.initialState = this.state
     }
@@ -158,8 +162,7 @@ class Settings extends React.Component {
         this.setState({chosenHeightPic: Array});
         this.setState({chosenTablePic: imagesPath.small_table});
         this.setState({chosenTable: 'S' });
-        this.setState({productCodeOfTable: 'TTV.S'})
-
+        this.setState({productCodeOfTable: 'TTV.S'});
     };
 
     loadTableMiddle = () => {
@@ -273,12 +276,12 @@ class Settings extends React.Component {
         this.setState({productCodeOfBlende: 'V'})
     };
 
-    chosenKabelRueckenMit = (props) => {
+    chosenKabelRueckenMit = () => {
         this.setState({chosenKabelRuecken: 'MIT Kabelrücken'});
         this.setState({productCodeOfKabel: 'MK'})
     };
 
-    chosenKabelRueckenOhne = (props) => {
+    chosenKabelRueckenOhne = () => {
         this.setState({chosenKabelRuecken: 'OHNE Kabelrücken'});
         this.setState({productCodeOfKabel: 'OK'})
     };
@@ -327,6 +330,8 @@ class Settings extends React.Component {
 
 
     render() {
+
+        console.log(this.state);
       return (
             <>
                 <div className="productcode">
@@ -348,8 +353,9 @@ class Settings extends React.Component {
                         <Table
                             smallTable={this.loadTableSmall}
                             middleTable={this.loadTableMiddle}
-                            largeTable={this.loadTableLarge}
-                        />
+                            largeTable={this.loadTableLarge}>
+
+                        </Table>
                     </button>
                     <div className="divider"></div>
                     <button className="navBtn">
@@ -371,7 +377,9 @@ class Settings extends React.Component {
                             monitorThree={this.monitorThree}
                             monitorFour={this.monitorFour}
                             monitorFive={this.monitorFive}
-                         />
+                            table={this.state.chosenTable}
+                         >
+                         </Monitor>
                     </button>
                     <div className="divider"></div>
                             <button className="navBtn">
@@ -404,9 +412,10 @@ class Settings extends React.Component {
                 <div className="summary">
                 <Summary
                     chosenTable={this.state.chosenTable}
-                    chosenMonitorSize={this.state.chosenMonitorSize}
+                    chosenMonitorNumber={this.state.chosenMonitorNumber}
                     chosenMonitorRow={this.state.chosenMonitorRow}
-                    chosenServerSize={this.state.chosenHeightSetting}
+                    chosenMonitorSystem={this.state.chosenMonitorSystem}
+                    chosenHeight={this.state.chosenHeightSetting}
                     chosenBlende={this.state.chosenBlende}
                     chosenKabelRuecken={this.state.chosenKabelRuecken}
                     chosenTechnik={this.state.chosenTechnik}
