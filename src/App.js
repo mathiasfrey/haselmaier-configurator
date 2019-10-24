@@ -7,8 +7,6 @@ import Settings from './components/Settings';
 
 class App extends Component{
 
-
-
   render() {
   return (
       <div className="configurator">

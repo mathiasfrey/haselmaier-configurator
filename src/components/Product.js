@@ -1,8 +1,6 @@
 import React from 'react';
 import Intro from "./Intro";
 
-
-
 class Product extends React.Component {
 
 
@@ -17,8 +15,8 @@ class Product extends React.Component {
         </div>
         <div className="productView">
         <h2> Ihr Productcode </h2>
-        {this.props.productCodeOfTable + this.props.productCodeOfMonitor + this.props.productCodeOfMonitorRow + this.props.productCodeOfHeight +
-         this.props.productCodeOfBlende + this.props.productCodeOfKabel + this.props.productCodeOfTechnik + this.props.productCodeOfContainer}
+        TTV.{this.props.productCodeOfTable + this.props.productCodeOfHeight}.{this.props.productCodeOfSystem + this.props.productCodeOfRow + this.props.productCodeOfNumber}.{this.props.productCodeOfBlende}.
+            {this.props.productCodeOfKabel}.{this.props.productCodeOfTechnik + this.props.productCodeOfContainer}
         </div>
         </>
     )

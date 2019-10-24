@@ -1,12 +1,18 @@
-import React, {Component} from 'react';
+import React from 'react';
 import tisch_video from '../assets/tisch_video.mp4';
 import Modal from "react-responsive-modal";
+import table from '../assets/table_white.png';
 
-class Table extends Component {
+const tableImages = {
+    small_table: <img src={table} height="200" width="300" alt="ref"/>,
+    middle_table: <img src={table} height="200" width="300" alt="ref"/>,
+    large_table: <img src={table} height="200" width="300" alt="ref"/>
+};
+
+class Table extends React.PureComponent {
 
     state = {
         open: false,
-        disabled: false,
     };
 
     onOpenModal = () =>  {
@@ -28,6 +34,21 @@ class Table extends Component {
         }
     };
 
+
+    loadTable = (size) => {
+        switch (size) {
+            case 'S':
+                return tableImages.small_table;
+            case 'M':
+                return tableImages.middle_table;
+            case 'L':
+                return tableImages.middle_table;
+            default:
+                return tableImages.small_table;
+        }
+    };
+
+
     render() {
         return (
         <>
@@ -37,11 +58,19 @@ class Table extends Component {
         <video autoPlay={false} height="300" width="500" controls playsinline={false}>
         <source src={tisch_video} type="video/mp4"/>
         </video>
-        <button className="btn btn-2 btn-2a" onClick={() => this.handleTable('S')}> KLEIN (bis zu 3 Monitore) </button>
-        <button className="btn btn-2 btn-2a" onClick={() => this.handleTable('M')}> MITTEL (bis zu 4 Monitore) </button>
-        <button className="btn btn-2 btn-2a" onClick={() => this.handleTable('L')}> GROß (bis zu Monitore) </button>
+            <div>
+            {this.loadTable('S')}
+            <button className="btn btn-2 btn-2a" onClick={() => this.handleTable('S')}> KLEIN (bis zu 3 Monitore) </button>
+            </div>
+            <div>
+            {this.loadTable('M')}
+            <button className="btn btn-2 btn-2a" onClick={() => this.handleTable('M')}> MITTEL (bis zu 4 Monitore) </button>
+            </div>
+            <div>
+            {this.loadTable('L')}
+            <button className="btn btn-2 btn-2a" onClick={() => this.handleTable('L')}> GROß (bis zu Monitore) </button>
+            </div>
         </Modal>
-
         </>
         )
     }

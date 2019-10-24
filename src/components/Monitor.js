@@ -19,12 +19,16 @@ class Monitor extends React.Component {
     handleMonitorSystem = (system) => {
         this.setState({open: false});
         if (system === 'OHNE') {
+            document.getElementById('kabel').disabled = true;
             this.props.monitorSystemWithout();
         } else if (system === 'STATIV') {
+            document.getElementById('kabel').disabled = true;
             this.props.monitorSystemStativ();
         } else if (system === 'RELING: OHNE HV') {
+            document.getElementById('kabel').disabled = false;
             this.props.monitorSystemReling();
         } else {
+            document.getElementById('kabel').disabled = false;
             this.props.monitorSystemRelingHV();
         }
     };
@@ -70,8 +74,6 @@ class Monitor extends React.Component {
     }
 
     render() {
-
-        console.log(this.props.table);
 
         return (
         <>

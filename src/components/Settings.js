@@ -6,7 +6,6 @@ import Height from "./Height";
 import Technik from "./Technik";
 import Kabel from "./Kabel";
 import table from '../assets/table_white.png'
-//import test from '../assets/test.png'
 import table_eight_monitors from '../assets/table_white_eight_monitors.png'
 import table_four_monitors from '../assets/table_white_four_monitors.png'
 import table_black_eight_monitors from '../assets/table_black_eight_monitors.png'
@@ -15,7 +14,7 @@ import Product from "./Product";
 import ProductCodeForm from './ProductCodeForm';
 
 
-const imagesPath = {
+export const imagesPath = {
     //Table
   small_table: <img src={table} height="500" width="600" alt="ref"/>,
   middle_table: <img src={table} height="500" width="600" alt="ref"/>,
@@ -26,6 +25,9 @@ const imagesPath = {
     //Monitor
   monitorOneRow: <img src={table_four_monitors} height="500" width="600" alt="ref"/>,
   monitorTwoRow: <img src={table_eight_monitors} height="500" width="600" alt="ref"/>,
+    //Blende
+  ohne_blende: <img src={table_four_monitors} height="500" width="600" alt="ref"/>,
+  mit_blende: <img src={table_four_monitors} height="500" width="600" alt="ref"/>,
 
 };
 
@@ -39,14 +41,19 @@ class Settings extends React.Component {
         chosenTable: String,
         chosenTablePic: Array,
         chosenMonitorSystem: Number,
-        chosenMonitorPic: Array,
+        chosenMonitorSystemPic: Array,
         chosenMonitorRow: Number,
+        chosenMonitorRowPic: Array,
         chosenMonitorNumber: Number,
-        chosenHeightSetting: String,
+        chosenMonitorNumberPic: Array,
+        chosenHeight: String,
         chosenHeightPic: Array,
         chosenBlende: String,
-        chosenKabelRuecken: String,
+        chosenBlendePic: Array,
+        chosenKabel: String,
+        chosenKabelPic: Array,
         chosenTechnik: Number,
+        chosenTechnikPic: Array,
         chosenTechnikContainer: String,
         disabled: false,
         };
@@ -88,15 +95,42 @@ class Settings extends React.Component {
                 };
             } 
             return false;
-
         }
+
+        /*function matchHeight(code) {
+            const heightRegex = /[EV]/;
+            if (code.match(heightRegex)) {
+                const height = code.match(heightRegex)[0];
+                if (height === 'E') {
+                    heightPic = imagesPath.eco;
+                } else {
+                    heightPic = imagesPath.vario;
+                }
+                return {
+                    'height': height,
+                    'heightPic': heightPic,
+                    'remainder': code.replace(heightRegex, '')
+                }
+            }
+            return false;
+        }*/
+
         function matchMonitorSystem(code) {
-            // code Monitor Systems
             const monitorSystemsRegex = /[OSRH]/;
             if (code.match(monitorSystemsRegex)) {
                 const monitorSystem = code.match(monitorSystemsRegex)[0];
+                if (monitorSystem === 'S') {
+                    monitorSystemPic = imagesPath.small_table;
+                } else if (monitorSystem === 'O') {
+                    monitorSystemPic = imagesPath.middle_table;
+                } else if (monitorSystem === 'R') {
+                    monitorSystemPic = imagesPath.large_table;
+                } else if (monitorSystem === 'H') {
+                    monitorSystemPic = null;
+                }
                 return {
                     'monitorSystem': monitorSystem,
+                    'monitorSystemPic': 'monitorSystemPic',
                     'remainder': code.replace(monitorSystemsRegex, '')
                 };
             }
@@ -109,25 +143,107 @@ class Settings extends React.Component {
             if (code.match(monitorRowRegex)) {
                 const monitorRow = code.match(monitorRowRegex)[0];
                 if (monitorRow === '1') {
-                    monitorPic = imagesPath.monitorOneRow;
+                    monitorRowPic = imagesPath.monitorOneRow;
                 } else {
-                    monitorPic = imagesPath.monitorTwoRow;
+                    monitorRowPic = imagesPath.monitorTwoRow;
                 }
                 return {
-                    'monitorCnt': monitorRow,
-                    'monitorPic': monitorPic,
+                    'monitorRow': monitorRow,
+                    'monitorRowPic': monitorRowPic,
                     'remainder': code.replace(monitorRowRegex, '')
                 }
             }
             return false;
         }
+
+        /*function matchMonitorCount(code) {
+            const monitorCountRegex = /[345]/;
+            if (code.match(monitorCountRegex)) {
+                const monitorCount = code.match(monitorCountRegex)[0];
+                if (monitorCount === '1') {
+                    monitorCountPic = null;
+                } else if (monitorCount === '2') {
+                    monitorCountPic = null;
+                } else if (monitorCount === '3') {
+                    monitorCountPic = null;
+                } else if (monitorCount === '4') {
+                    monitorCountPic = null;
+                } else {
+                    monitorCountPic = null;
+                }
+                return {
+                    'monitorCount': monitorCount,
+                    'monitorCountPic': monitorCountPic,
+                    'remainder': code.replace(monitorCountRegex, '')
+                }
+            }
+            return false;
+        }*/
+
+
+       /* function matchBlende(code) {
+            const blendeRegex = /[XB]/;
+            if (code.match(blendeRegex)) {
+                const blende = code.match(blendeRegex)[0];
+                if (blende === 'X') {
+                    blendePic = null;
+                } else {
+                    blendePic = null;
+                }
+                return {
+                    'blende': blende,
+                    'blendePic': blendePic,
+                    'remainder': code.replace(blendeRegex, '')
+                }
+            }
+            return false;
+        }*/
+
+        /*function matchKabel(code) {
+            const kabelRegex = /[KX]/;
+            if (code.match(kabelRegex)) {
+                const kabel = code.match(kabelRegex)[0];
+                if (blende === 'K') {
+                    kabelPic = null;
+                } else {
+                    kabelPic = null;
+                }
+                return {
+                    'kabel': kabel,
+                    'kabelPic': kabelPic,
+                    'remainder': code.replace(kabelRegex, '')
+                }
+            }
+            return false;
+        }*/
+
+       /* function matchTechnik(code) {
+            const technikRegex = /[LRBOCX]/;
+            if (code.match(technikRegex)) {
+                const technik = code.match(technikRegex)[0];
+                if (technik === 'K') {
+                    technikPic = null;
+                } else {
+                    technikPic = null;
+                }
+                return {
+                    'technik': technik,
+                    'technikPic': technikPic,
+                    'remainder': code.replace(technikRegex, '')
+                }
+            }
+            return false;
+        }*/
+
+
     
         var originalCode = code;
         var rv; // return value
-        var table, monitorSystem, monitorCnt, tablePic, monitorPic; // , height, blende, technik;
+        var table, tablePic, monitorSystem, monitorSystemPic, monitorRow, monitorRowPic,
+            monitorCount, monitorCountPic, kabel, kabelPic,
+            height, heightPic, blende, blendePic, technik, technikPic;
 
         // parse product code
-        // example: TTV.SRE-HV1EVMKLOL
         // step by step match and replace from LTR
 
         rv = matchTTV(code);
@@ -150,6 +266,7 @@ class Settings extends React.Component {
             return false;
         }
         monitorSystem = rv.monitorSystem;
+        monitorSystemPic = rv.monitorSystemPic;
 
 
         rv = matchMonitorRow(rv.remainder);
@@ -157,47 +274,68 @@ class Settings extends React.Component {
             codeAlertError(originalCode);
             return false;
         }
-        monitorCnt = rv.monitorCnt;
-        monitorPic = rv.monitorPic;
+        monitorRow = rv.monitorRow;
+        monitorRowPic = rv.monitorRowPic;
 
-        // //code Height
-        // const heightRegex = /[EV]/;
-        // if (code.match(heightRegex)) {
-        //     const height = code.match(heightRegex)[0];
-        // } else {
-        //     return false;
-        // }
-        // code = code.replace(heightRegex, '');
-        // console.log(code);
+        //rv = matchMonitorCount(rv.remainder);
+        if (rv === false) {
+            codeAlertError(originalCode);
+            return false;
+        }
+        monitorCount = rv.monitorCount;
+        monitorCountPic = rv.monitorCountPic;
 
-        // //code Blende
-        // const blendeRegex = /[KMFN]/;
-        // if (code.match(blendeRegex)) {
-        //     const blende = code.match(heightRegex)[0];
-        // } else {
-        //     return false;
-        // }
-        // code = code.replace(blendeRegex, '');
-        // console.log(code);
 
-        // //code Technik
-        // const technikRegex = /[DGBJCX]/;
-        // if (code.match(technikRegex)) {
-        //     const technik = code.match(heightRegex)[0];
-        // } else {
-        //     return false;
-        // }
-        // code = code.replace(technikRegex, '');
-        // console.log(code);
-        
-        
+        //rv = matchHeight(rv.remainder);
+        if (rv === false) {
+            codeAlertError(originalCode);
+            return false;
+        }
+        height = rv.height;
+        heightPic = rv.heightPic;
+
+        //rv = matchBlende(rv.remainder);
+        if (rv === false) {
+            codeAlertError(originalCode);
+            return false;
+        }
+        blende = rv.blende;
+        blendePic = rv.blendePic;
+
+        //rv = matchKabel(rv.remainder);
+        if (rv === false) {
+            codeAlertError(originalCode);
+            return false;
+        }
+        kabel = rv.kabel;
+        kabelPic = rv.kabelPic;
+
+        //rv = matchTechnik(rv.remainder);
+        if (rv === false) {
+            codeAlertError(originalCode);
+            return false;
+        }
+        technik = rv.technik;
+        technikPic = rv.technikPic;
+
+
         this.setState(
             {
                 chosenTable: table,
                 chosenTablePic: tablePic,
+                chosenHeight: height,
+                chosenHeightPic: heightPic,
+                chosenBlende: blende,
+                chosenBlendePic: blendePic,
                 chosenMonitorSystem: monitorSystem,
-                chosenMonitorRow: monitorCnt,
-                chosenMonitorPic: monitorPic,
+                chosenMonitorSystemPic: monitorSystemPic,
+                chosenMonitorRow: monitorRow,
+                chosenMonitorRowPic: monitorRowPic,
+                chosenMonitorCount: monitorCount,
+                chosenMonitorCountPic: monitorCountPic,
+                chosenKabel: kabel,
+                chosenKabelPic: kabelPic,
+                chosenTechnik: technik,
                 // table: table,
                 // monitorSystem: monitorSystem,
                 // monitorCount: monitorCnt,
@@ -216,7 +354,8 @@ class Settings extends React.Component {
         this.setState({chosenMonitorPic: Array});
         this.setState({chosenHeightPic: Array});
         this.setState({chosenTablePic: imagesPath.small_table});
-        this.setState({chosenTable: 'S' });
+        this.setState({chosenTable: 'S'});
+        this.setState({productCodeOfTable: 'S'})
     };
 
     loadTableMiddle = () => {
@@ -224,6 +363,7 @@ class Settings extends React.Component {
         this.setState({chosenHeightPic: Array});
         this.setState({chosenTablePic: imagesPath.middle_table});
         this.setState({chosenTable: 'M'});
+        this.setState({productCodeOfTable: 'M'})
     };
 
     loadTableLarge = () => {
@@ -231,6 +371,7 @@ class Settings extends React.Component {
         this.setState({chosenHeightPic: Array});
         this.setState({chosenTablePic: imagesPath.large_table});
         this.setState({chosenTable: 'L'});
+        this.setState({productCodeOfTable: 'L'})
     };
 
     //HEIGHT CONFIGURATION
@@ -239,17 +380,17 @@ class Settings extends React.Component {
         this.setState({chosenTablePic: Array});
         this.setState({chosenMonitorPic: Array});
         this.setState({chosenHeightPic: imagesPath.eco});
-        this.setState({chosenHeightSetting: 'ECO'});
+        this.setState({chosenHeight: 'ECO'});
+        this.setState({productCodeOfHeight: 'E'})
     };
 
     heightSettingVario = () => {
         this.setState({chosenTablePic: Array});
         this.setState({chosenMonitorPic: Array});
         this.setState({chosenHeightPic: imagesPath.vario});
-        this.setState({chosenHeightSetting: 'VARIO'});
+        this.setState({chosenHeight: 'VARIO'});
+        this.setState({productCodeOfHeight: 'V'})
     };
-
-    //MONITOR CONFIGURATION
 
     //Monitor Systems
 
@@ -257,24 +398,29 @@ class Settings extends React.Component {
         this.setState({chosenTablePic: Array});
         this.setState({chosenHeightPic: Array});
         this.setState({chosenMonitorSystem: 'OHNE'});
+        this.setState({productCodeOfSystem: 'O'})
     };
 
     monitorSystemStativ = () => {
         this.setState({chosenTablePic: Array});
         this.setState({chosenHeightPic: Array});
         this.setState({chosenMonitorSystem: 'STATIV'});
+        this.setState({productCodeOfSystem: 'S'})
     };
 
     monitorSystemRelingHV = () => {
         this.setState({chosenTablePic: Array});
         this.setState({chosenHeightPic: Array});
         this.setState({chosenMonitorSystem: 'RELING-HV'});
+        this.setState({productCodeOfSystem: 'H'})
     };
 
     monitorSystemReling = () => {
         this.setState({chosenTablePic: Array});
         this.setState({chosenHeightPic: Array});
         this.setState({chosenMonitorSystem: 'RELING'});
+        this.setState({productCodeOfSystem: 'R'})
+
     };
 
     // Monitor Rows
@@ -284,6 +430,7 @@ class Settings extends React.Component {
         this.setState({chosenTablePic: Array});
         this.setState({chosenMonitorPic: imagesPath.monitorOneRow});
         this.setState({chosenMonitorRow: '1-reihig'});
+        this.setState({productCodeOfRow: '1'})
     };
 
     monitorTwoRow = () => {
@@ -291,39 +438,51 @@ class Settings extends React.Component {
         this.setState({chosenTablePic: Array});
         this.setState({chosenMonitorPic: imagesPath.monitorTwoRow});
         this.setState({chosenMonitorRow: '2-reihig'});
+        this.setState({productCodeOfRow: '2'})
     };
 
     // Monitor Count
 
     monitorThree = () => {
         this.setState({chosenTablePic: Array});
-        this.setState({chosenMonitorNumber: '3'})
+        this.setState({chosenMonitorNumber: '3'});
+        this.setState({productCodeOfNumber: '3'})
     };
     monitorFour = () => {
         this.setState({chosenTablePic: Array});
-        this.setState({chosenMonitorNumber: '4'})
+        this.setState({chosenMonitorNumber: '4'});
+        this.setState({productCodeOfNumber: '4'})
     };
     monitorFive = () => {
         this.setState({chosenTablePic: Array});
-        this.setState({chosenMonitorNumber: '5'})
+        this.setState({chosenMonitorNumber: '5'});
+        this.setState({productCodeOfRow: '5'})
     };
 
     //BLEND CONFIGURATION
 
     chosenBlendeKeinen = () => {
         this.setState({chosenBlende: 'KEINEN'});
+        this.setState({chosenBlendePic: imagesPath.ohne_blende});
+        this.setState({productCodeOfBlende: 'X'})
     };
 
     chosenBlendeVoll = () => {
         this.setState({chosenBlende: 'VOLL'});
+        this.setState({chosenBlendePic: imagesPath.mit_blende});
+        this.setState({productCodeOfBlende: 'B'})
     };
 
+    // KABEL CONFIGURATION
+
     chosenKabelRueckenMit = () => {
-        this.setState({chosenKabelRuecken: 'MIT Kabelrücken'});
+        this.setState({chosenKabel: 'MIT Kabelrücken'});
+        this.setState({productCodeOfKabel: 'K'})
     };
 
     chosenKabelRueckenOhne = () => {
-        this.setState({chosenKabelRuecken: 'OHNE Kabelrücken'});
+        this.setState({chosenKabel: 'OHNE Kabelrücken'});
+        this.setState({productCodeOfKabel: 'X'})
     };
 
 
@@ -331,26 +490,32 @@ class Settings extends React.Component {
 
     chosenTechnikLinks = () => {
         this.setState({chosenTechnik: 'Linksseitig'});
+        this.setState({productCodeOfTechnik: 'L'})
     };
 
     chosenTechnikRechts = () => {
         this.setState({chosenTechnik: 'Rechtsseitig'});
+        this.setState({productCodeOfTechnik: 'R'})
     };
 
     chosenTechnikBeide = () => {
         this.setState({chosenTechnik: 'Links und Rechtsseitig'});
+        this.setState({productCodeOfTechnik: 'B'})
     };
 
     chosenTechnikOhne = () => {
         this.setState({chosenTechnik: 'Ohne Technikintegration'});
+        this.setState({productCodeOfTechnik: 'O'})
     };
 
     chosenTechnikContainerMit = () => {
         this.setState({chosenTechnikContainer: 'Mit Ladencontainer'});
+        this.setState({productCodeOfContainer: 'C'})
     };
 
     chosenTechnikContainerOhne = () => {
         this.setState({chosenTechnikContainer: 'Ohne Ladencontainer'});
+        this.setState({productCodeOfContainer: 'X'})
     };
 
     //Product Code
@@ -436,9 +601,9 @@ class Settings extends React.Component {
                     chosenMonitorNumber={this.state.chosenMonitorNumber}
                     chosenMonitorRow={this.state.chosenMonitorRow}
                     chosenMonitorSystem={this.state.chosenMonitorSystem}
-                    chosenHeight={this.state.chosenHeightSetting}
+                    chosenHeight={this.state.chosenHeight}
                     chosenBlende={this.state.chosenBlende}
-                    chosenKabelRuecken={this.state.chosenKabelRuecken}
+                    chosenKabel={this.state.chosenKabel}
                     chosenTechnik={this.state.chosenTechnik}
                     chosenContainer={this.state.chosenTechnikContainer}
             />
@@ -452,20 +617,21 @@ class Settings extends React.Component {
                     chosenMonitorPic={this.state.chosenMonitorPic}
                     chosenHeightPic={this.state.chosenHeightPic}
                     productCodeOfTable={this.state.productCodeOfTable}
-                    productCodeOfMonitor={this.state.productCodeOfMonitor}
-                    productCodeOfMonitorRow={this.state.productCodeOfMonitorRow}
+                    productCodeOfSystem={this.state.productCodeOfSystem}
+                    productCodeOfRow={this.state.productCodeOfRow}
+                    productCodeOfNumber={this.state.productCodeOfNumber}
                     productCodeOfHeight={this.state.productCodeOfHeight}
                     productCodeOfBlende={this.state.productCodeOfBlende}
                     productCodeOfKabel={this.state.productCodeOfKabel}
                     productCodeOfTechnik={this.state.productCodeOfTechnik}
                     productCodeOfContainer={this.state.productCodeOfContainer}
                 />
+
         )
     }
 
 
     render() {
-        console.log(this.state);
       return (
             <>
                 <div className="productcode">
@@ -475,7 +641,6 @@ class Settings extends React.Component {
                         />
                     </div>
                 </div>
-
                 <div className="settings">
                     <button className="navBtn done">START</button>
                     <div className="divider done"></div>
@@ -505,7 +670,7 @@ class Settings extends React.Component {
                     <div className="divider"></div>
                     <button className="navBtn">disabled</button>
                 </div>
-                <div className="summary">
+               <div className="summary">
                     {this.handleSummary()}
                 </div>
                 <div className="tourView">

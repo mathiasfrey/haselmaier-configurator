@@ -25,17 +25,20 @@ class Technik extends React.Component {
             this.setState({disabled: false})
         } else if (technik === 'Beide') {
             this.props.chosenTechnikBeide();
-            this.setState({disabled: true})
+            this.setState({open: false})
         } else {
             this.props.chosenTechnikOhne();
+            this.setState({open: false})
         }
     };
 
     handleContainer = (container) => {
         if (container === 'Mit') {
             this.props.chosenTechnikContainerMit();
+            this.setState({open: false})
         } else if (container === 'Ohne') {
             this.props.chosenTechnikContainerOhne();
+            this.setState({open: false})
         }
     };
 
