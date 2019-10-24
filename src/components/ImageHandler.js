@@ -3,6 +3,8 @@ import table from '../assets/table_white.png'
 import table_eight_monitors from '../assets/table_white_eight_monitors.png'
 import table_four_monitors from '../assets/table_white_four_monitors.png'
 import table_black_eight_monitors from '../assets/table_black_eight_monitors.png'
+import four_monitor from '../assets/notable_white_four_monitors.png'
+import eight_monitor from '../assets/notable_white_eight_monitors.png'
 
 export const ModalImagesPath = {
     //Table
@@ -15,6 +17,10 @@ export const ModalImagesPath = {
     //Monitor
   monitorOneRow: <img src={table_four_monitors} height="200" width="300" alt="ref"/>,
   monitorTwoRow: <img src={table_eight_monitors} height="200" width="300" alt="ref"/>,
+
+  four_monitor: <img src={four_monitor} height="200" width="300" alt="ref"/>,
+  eight_monitor: <img src={eight_monitor} height="200" width="300" alt="ref"/>,
+
     //Blende
   ohne_blende: <img src={table_four_monitors} height="200" width="300" alt="ref"/>,
   mit_blende: <img src={table_four_monitors} height="200" width="300" alt="ref"/>,

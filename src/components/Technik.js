@@ -25,7 +25,7 @@ class Technik extends React.Component {
             this.setState({disabled: false})
         } else if (technik === 'Beide') {
             this.props.chosenTechnikBeide();
-            this.setState({open: false})
+            this.setState({open: true})
         } else {
             this.props.chosenTechnikOhne();
             this.setState({open: false})

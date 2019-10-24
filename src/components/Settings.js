@@ -40,6 +40,8 @@ class Settings extends React.Component {
         // Users select
         chosenTable: String,
         chosenTablePic: Array,
+        chosenMonitor: String,
+        chosenMonitorPic: Array,
         chosenMonitorSystem: Number,
         chosenMonitorSystemPic: Array,
         chosenMonitorRow: Number,
@@ -84,7 +86,7 @@ class Settings extends React.Component {
                 if (table === 'S') {
                     tablePic = imagesPath.small_table;
                 } else if (table === 'M') {
-                    tablePic = imagesPath.middle_table;
+                    tablePic = imagesPath.mit_blende;
                 } else {
                     tablePic = imagesPath.large_table;
                 }
@@ -115,41 +117,41 @@ class Settings extends React.Component {
             return false;
         }*/
 
-        function matchMonitorSystem(code) {
+        /*function matchMonitorSystem(code) {
             const monitorSystemsRegex = /[OSRH]/;
             if (code.match(monitorSystemsRegex)) {
                 const monitorSystem = code.match(monitorSystemsRegex)[0];
                 if (monitorSystem === 'S') {
-                    monitorSystemPic = imagesPath.small_table;
+                    monitor = imagesPath.small_table;
                 } else if (monitorSystem === 'O') {
-                    monitorSystemPic = imagesPath.middle_table;
+                    monitor = imagesPath.middle_table;
                 } else if (monitorSystem === 'R') {
-                    monitorSystemPic = imagesPath.large_table;
+                    monitor = imagesPath.large_table;
                 } else if (monitorSystem === 'H') {
-                    monitorSystemPic = null;
+                    monitor = null;
                 }
                 return {
-                    'monitorSystem': monitorSystem,
+                    'monitor': monitorSystem,
                     'monitorSystemPic': 'monitorSystemPic',
                     'remainder': code.replace(monitorSystemsRegex, '')
                 };
             }
             
             return false;
-        }
+        }*/
         function matchMonitorRow(code) {
             //code Monitor Row
             const monitorRowRegex = /[12]/;
             if (code.match(monitorRowRegex)) {
-                const monitorRow = code.match(monitorRowRegex)[0];
-                if (monitorRow === '1') {
-                    monitorRowPic = imagesPath.monitorOneRow;
+                const monitor = code.match(monitorRowRegex)[0];
+                if (monitor === '1') {
+                    monitorPic = imagesPath.monitorOneRow;
                 } else {
-                    monitorRowPic = imagesPath.monitorTwoRow;
+                    monitorPic = imagesPath.monitorTwoRow;
                 }
                 return {
-                    'monitorRow': monitorRow,
-                    'monitorRowPic': monitorRowPic,
+                    'monitor': monitor,
+                    'monitorPic': monitorPic,
                     'remainder': code.replace(monitorRowRegex, '')
                 }
             }
@@ -239,9 +241,7 @@ class Settings extends React.Component {
     
         var originalCode = code;
         var rv; // return value
-        var table, tablePic, monitorSystem, monitorSystemPic, monitorRow, monitorRowPic,
-            monitorCount, monitorCountPic, kabel, kabelPic,
-            height, heightPic, blende, blendePic, technik, technikPic;
+        var table, tablePic, monitor, monitorPic;
 
         // parse product code
         // step by step match and replace from LTR
@@ -259,14 +259,13 @@ class Settings extends React.Component {
         }
         table = rv.table;
         tablePic = rv.tablePic;
-        
-        rv = matchMonitorSystem(rv.remainder);
+
+       /* rv = matchMonitorSystem(rv.remainder);
         if (rv === false) {
             codeAlertError(originalCode);
             return false;
         }
-        monitorSystem = rv.monitorSystem;
-        monitorSystemPic = rv.monitorSystemPic;
+        monitor = rv.monitor;*/
 
 
         rv = matchMonitorRow(rv.remainder);
@@ -274,20 +273,20 @@ class Settings extends React.Component {
             codeAlertError(originalCode);
             return false;
         }
-        monitorRow = rv.monitorRow;
-        monitorRowPic = rv.monitorRowPic;
+        monitor = rv.monitor;
+        monitorPic = rv.monitorPic;
 
         //rv = matchMonitorCount(rv.remainder);
-        if (rv === false) {
+       /* if (rv === false) {
             codeAlertError(originalCode);
             return false;
         }
         monitorCount = rv.monitorCount;
-        monitorCountPic = rv.monitorCountPic;
+        monitorCountPic = rv.monitorCountPic;*/
 
 
         //rv = matchHeight(rv.remainder);
-        if (rv === false) {
+        /*if (rv === false) {
             codeAlertError(originalCode);
             return false;
         }
@@ -316,36 +315,17 @@ class Settings extends React.Component {
             return false;
         }
         technik = rv.technik;
-        technikPic = rv.technikPic;
+        technikPic = rv.technikPic;*/
 
 
         this.setState(
             {
                 chosenTable: table,
                 chosenTablePic: tablePic,
-                chosenHeight: height,
-                chosenHeightPic: heightPic,
-                chosenBlende: blende,
-                chosenBlendePic: blendePic,
-                chosenMonitorSystem: monitorSystem,
-                chosenMonitorSystemPic: monitorSystemPic,
-                chosenMonitorRow: monitorRow,
-                chosenMonitorRowPic: monitorRowPic,
-                chosenMonitorCount: monitorCount,
-                chosenMonitorCountPic: monitorCountPic,
-                chosenKabel: kabel,
-                chosenKabelPic: kabelPic,
-                chosenTechnik: technik,
-                // table: table,
-                // monitorSystem: monitorSystem,
-                // monitorCount: monitorCnt,
-                // height: height,
-                // blende: blende,
-                // technik: technik,
+                chosenMonitor: monitor,
+                chosenMonitorPic: monitorPic,
             }
         );
-        console.log('UPDATED from code2state');
-        // this.forceUpdate();
     };
 
     //TABLE CONFIGURATION
@@ -379,7 +359,7 @@ class Settings extends React.Component {
     heightSettingEco = () => {
         this.setState({chosenTablePic: Array});
         this.setState({chosenMonitorPic: Array});
-        this.setState({chosenHeightPic: imagesPath.eco});
+        this.setState({chosenHeightPic: imagesPath.small_table});
         this.setState({chosenHeight: 'ECO'});
         this.setState({productCodeOfHeight: 'E'})
     };
@@ -387,7 +367,7 @@ class Settings extends React.Component {
     heightSettingVario = () => {
         this.setState({chosenTablePic: Array});
         this.setState({chosenMonitorPic: Array});
-        this.setState({chosenHeightPic: imagesPath.vario});
+        this.setState({chosenHeightPic: imagesPath.small_table});
         this.setState({chosenHeight: 'VARIO'});
         this.setState({productCodeOfHeight: 'V'})
     };

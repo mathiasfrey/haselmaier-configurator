@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-responsive-modal';
 import hv_video from '../assets/hv_video.mp4';
+import {ModalImagesPath} from "./ImageHandler";
 
 
 class Height extends React.Component {
@@ -26,6 +27,15 @@ class Height extends React.Component {
         }
     };
 
+    loadHeight = (height) => {
+        switch (height) {
+            case 'ECO':
+                return ModalImagesPath.small_table;
+            case 'VARIO':
+                return ModalImagesPath.small_table;
+        }
+    };
+
 
     render() {
         return (
@@ -36,11 +46,14 @@ class Height extends React.Component {
         <video autoPlay={false} height="300" width="500" controls playsInline={false}>
         <source src={hv_video} type="video/mp4"/>
         </video>
-        <h2>Treffen Sie Ihre Auswahl</h2>
-        <div>
-        <button className="btn btn-2 btn-2a" onClick={() =>this.handleHeight('ECO')}> ECO </button>
-        <button className="btn btn-2 btn-2a" onClick={() => this.handleHeight('VARIO')}> VARIO </button>
-        </div>
+            <div>
+            {this.loadHeight('ECO')}
+            <button className="btn btn-2 btn-2a" onClick={() => this.handleHeight('ECO')}> ECO </button>
+            </div>
+            <div>
+            {this.loadHeight('VARIO')}
+            <button className="btn btn-2 btn-2a" onClick={() => this.handleHeight('VARIO')}> VARIO </button>
+            </div>
         </Modal>
         </>
         )

@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-responsive-modal';
 import monitor_video from '../assets/monitor_video.mp4';
+import {ModalImagesPath} from "./ImageHandler";
 
 class Monitor extends React.Component {
 
@@ -73,6 +74,15 @@ class Monitor extends React.Component {
         );
     }
 
+    loadMonitor = (images) => {
+        switch (images) {
+            case 1:
+                return ModalImagesPath.four_monitor;
+            case 2:
+                return ModalImagesPath.eight_monitor;
+        }
+    };
+
     render() {
 
         return (
@@ -89,9 +99,13 @@ class Monitor extends React.Component {
             {this.renderMonitorButton(4)}
             {this.renderMonitorButton(5)}
         </div>
-        <h2> 1-reihig oder 2-reihig? </h2>
         <div>
+        <h2> 1-reihig oder 2-reihig? </h2>
+        {this.loadMonitor(1)}
         <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorImageRow(1)}> 1 - Reihig </button>
+        </div>
+        <div>
+        {this.loadMonitor(2)}
         <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorImageRow(2)}> 2 - Reihig </button>
         </div>
         <h2>Monitorsystem</h2>
