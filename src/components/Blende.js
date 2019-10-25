@@ -39,7 +39,7 @@ class Blende extends Component {
         ></div>
 
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
-        <video autoPlay={false} height="300" width="500" controls playsinline={false}>
+        <video autoPlay={false} height="300" width="500" controls playsInline={false}>
         <source src={blende_video} type="video/mp4"/>
         </video>
         <h2>Gewünschte Blendeneinstellung</h2>

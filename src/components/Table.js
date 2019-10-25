@@ -61,7 +61,7 @@ class Table extends React.PureComponent {
 
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
         <h2>Wähle deine Tischgröße</h2>
-        <video autoPlay={false} height="300" width="500" controls playsinline={false}>
+        <video autoPlay={false} height="300" width="500" controls playsInline={false}>
         <source src={tisch_video} type="video/mp4"/>
         </video>
             <div>

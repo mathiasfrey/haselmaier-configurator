@@ -522,24 +522,11 @@ class Settings extends React.Component {
         )
     };
 
-    handleProduct = () => {
+    handleProduct() {
         return (
-            <Product
-                    chosenTablePic={this.state.chosenTablePic}
-                    chosenMonitorPic={this.state.chosenMonitorPic}
-                    chosenHeightPic={this.state.chosenHeightPic}
-                    productCodeOfTable={this.state.productCodeOfTable}
-                    productCodeOfSystem={this.state.productCodeOfSystem}
-                    productCodeOfRow={this.state.productCodeOfRow}
-                    productCodeOfNumber={this.state.productCodeOfNumber}
-                    productCodeOfHeight={this.state.productCodeOfHeight}
-                    productCodeOfBlende={this.state.productCodeOfBlende}
-                    productCodeOfKabel={this.state.productCodeOfKabel}
-                    productCodeOfTechnik={this.state.productCodeOfTechnik}
-                    productCodeOfContainer={this.state.productCodeOfContainer}
-                />
+<></>
 
-        )
+        );
     }
 
 
@@ -614,7 +601,20 @@ class Settings extends React.Component {
                     {this.handleSummary()}
                 </div>
                 <div className="tourView">
-                    {this.handleProduct()}
+                    <Product
+                        chosenTablePic={this.state.chosenTablePic}
+                        chosenMonitorPic={this.state.chosenMonitorPic}
+                        chosenHeightPic={this.state.chosenHeightPic}
+                        productCodeOfTable={this.state.productCodeOfTable}
+                        productCodeOfSystem={this.state.productCodeOfSystem}
+                        productCodeOfRow={this.state.productCodeOfRow}
+                        productCodeOfNumber={this.state.productCodeOfNumber}
+                        productCodeOfHeight={this.state.productCodeOfHeight}
+                        productCodeOfBlende={this.state.productCodeOfBlende}
+                        productCodeOfKabel={this.state.productCodeOfKabel}
+                        productCodeOfTechnik={this.state.productCodeOfTechnik}
+                        productCodeOfContainer={this.state.productCodeOfContainer}
+                    />
                 </div>
 
             </>

@@ -17,12 +17,12 @@ class Intro extends React.Component {
     render() {
         return (
             <div>
-            <Modal open={this.state.open} onClose={this.onCloseModal} center>
-                <h2> Unser TTV </h2>
-            <video autoPlay={false} height="450" width="600" controls>
-            <source src={intro} type="video/mp4"/>
-            </video>
-            </Modal>
+                <Modal open={this.state.open} onClose={this.onCloseModal} center>
+                    <h2> Unser TTV </h2>
+                    <video autoPlay={false} height="450" width="600" controls>
+                        <source src={intro} type="video/mp4"/>
+                    </video>
+                </Modal>
             </div>
         )
     }

@@ -31,7 +31,8 @@ class Height extends React.Component {
         switch (height) {
             case 'ECO':
                 return ModalImagesPath.small_table;
-            case 'VARIO':
+            // case 'VARIO':
+            default:
                 return ModalImagesPath.small_table;
         }
     };

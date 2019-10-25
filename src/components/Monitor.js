@@ -81,7 +81,8 @@ class Monitor extends React.Component {
         switch (images) {
             case 1:
                 return ModalImagesPath.four_monitor;
-            case 2:
+            // case 2:
+            default:
                 return ModalImagesPath.eight_monitor;
         }
     };
@@ -99,7 +100,7 @@ class Monitor extends React.Component {
 
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
         <h2> Monitortragsystem </h2>
-         <video autoPlay={false} height="300" width="500" controls playsinline={false}>
+         <video autoPlay={false} height="300" width="500" controls playsInline={false}>
          <source src={monitor_video} type="video/mp4"/>
          </video>
         <h2> Anzahl der Monitore </h2>
