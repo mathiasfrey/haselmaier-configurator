@@ -172,7 +172,7 @@ h4 {
     //     transition: all 0.3s;        
     }
     .navBtn.done {
-        background: red;
+        background: $hasel-red;
         margin-left: -8px; // some overflow to have nice red background
         padding-left: 16px;
     }
@@ -204,7 +204,7 @@ h4 {
         transform: translateY(-50%);
     } 
     .divider.done {
-        border-left: 8px solid red !important;
+        border-left: 8px solid $hasel-red !important;
     }
     .divider.done:after {
         border:none !important;
@@ -401,3 +401,14 @@ h4 {
 // .App-link {
 //   color: #61dafb;
 // }
+
+#code > div.code {
+    padding: 10px;
+    font-weight: bold;
+    color: #fff;
+    size: $font-large;
+    background: $hasel-red;
+    border: 1px solid darken($hasel-red, 5);
+    border-radius: 15px;
+    width: 10em;
+}

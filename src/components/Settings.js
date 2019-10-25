@@ -11,8 +11,9 @@ import table_four_monitors from '../assets/table_white_four_monitors.png'
 import table_black_eight_monitors from '../assets/table_black_eight_monitors.png'
 import Summary from "./Summary";
 import Product from "./Product";
-import ProductCodeForm from './ProductCodeForm';
 
+import ProductCodeForm from './ProductCodeForm';
+import ProductCode from './ProductCode';
 
 export const imagesPath = {
     //Table
@@ -59,7 +60,7 @@ class Settings extends React.Component {
         // chosenTechnikContainer: String,
         // disabled: false,
         };
-        this.initialState = this.state
+        //this.initialState = this.state
     }
 
     //Code2State
@@ -335,7 +336,7 @@ class Settings extends React.Component {
         this.setState({chosenHeightPic: Array});
         this.setState({chosenTablePic: imagesPath.small_table});
         this.setState({chosenTable: 'S'});
-        this.setState({productCodeOfTable: 'S'})
+
     };
 
     loadTableMiddle = () => {
@@ -343,7 +344,7 @@ class Settings extends React.Component {
         this.setState({chosenHeightPic: Array});
         this.setState({chosenTablePic: imagesPath.middle_table});
         this.setState({chosenTable: 'M'});
-        this.setState({productCodeOfTable: 'M'})
+
     };
 
     loadTableLarge = () => {
@@ -351,7 +352,7 @@ class Settings extends React.Component {
         this.setState({chosenHeightPic: Array});
         this.setState({chosenTablePic: imagesPath.large_table});
         this.setState({chosenTable: 'L'});
-        this.setState({productCodeOfTable: 'L'})
+
     };
 
     //HEIGHT CONFIGURATION
@@ -605,15 +606,10 @@ class Settings extends React.Component {
                         chosenTablePic={this.state.chosenTablePic}
                         chosenMonitorPic={this.state.chosenMonitorPic}
                         chosenHeightPic={this.state.chosenHeightPic}
-                        productCodeOfTable={this.state.productCodeOfTable}
-                        productCodeOfSystem={this.state.productCodeOfSystem}
-                        productCodeOfRow={this.state.productCodeOfRow}
-                        productCodeOfNumber={this.state.productCodeOfNumber}
-                        productCodeOfHeight={this.state.productCodeOfHeight}
-                        productCodeOfBlende={this.state.productCodeOfBlende}
-                        productCodeOfKabel={this.state.productCodeOfKabel}
-                        productCodeOfTechnik={this.state.productCodeOfTechnik}
-                        productCodeOfContainer={this.state.productCodeOfContainer}
+                    />
+
+                    <ProductCode
+                        table={this.state.chosenTable}
                     />
                 </div>
 
