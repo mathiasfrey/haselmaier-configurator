@@ -173,6 +173,8 @@ h4 {
     }
     .navBtn.done {
         background: red;
+        margin-left: -8px; // some overflow to have nice red background
+        padding-left: 16px;
     }
     .navBtn.done:before {
         // content: '✅';
