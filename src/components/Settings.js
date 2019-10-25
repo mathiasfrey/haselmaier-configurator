@@ -37,27 +37,27 @@ class Settings extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-        // Users select
-        chosenTable: String,
-        chosenTablePic: Array,
-        chosenMonitor: String,
-        chosenMonitorPic: Array,
-        chosenMonitorSystem: Number,
-        chosenMonitorSystemPic: Array,
-        chosenMonitorRow: Number,
-        chosenMonitorRowPic: Array,
-        chosenMonitorNumber: Number,
-        chosenMonitorNumberPic: Array,
-        chosenHeight: String,
-        chosenHeightPic: Array,
-        chosenBlende: String,
-        chosenBlendePic: Array,
-        chosenKabel: String,
-        chosenKabelPic: Array,
-        chosenTechnik: Number,
-        chosenTechnikPic: Array,
-        chosenTechnikContainer: String,
-        disabled: false,
+        // // Users select
+        // chosenTable: String,
+        // chosenTablePic: Array,
+        // chosenMonitor: String,
+        // chosenMonitorPic: Array,
+        // chosenMonitorSystem: Number,
+        // chosenMonitorSystemPic: Array,
+        // chosenMonitorRow: Number,
+        // chosenMonitorRowPic: Array,
+        // chosenMonitorNumber: Number,
+        // chosenMonitorNumberPic: Array,
+        // chosenHeight: String,
+        // chosenHeightPic: Array,
+        // chosenBlende: String,
+        // chosenBlendePic: Array,
+        // chosenKabel: String,
+        // chosenKabelPic: Array,
+        // chosenTechnik: Number,
+        // chosenTechnikPic: Array,
+        // chosenTechnikContainer: String,
+        // disabled: false,
         };
         this.initialState = this.state
     }
@@ -506,16 +506,6 @@ class Settings extends React.Component {
         this.setState(this.initialState)
     };
 
-    handleTable = () => {
-        return (
-             <Table
-                 smallTable={this.loadTableSmall}
-                 middleTable={this.loadTableMiddle}
-                 largeTable={this.loadTableLarge}>
-            </Table>
-        )
-    };
-
     handleMonitor = () => {
         return (
              <Monitor
@@ -612,6 +602,7 @@ class Settings extends React.Component {
 
 
     render() {
+
       return (
             <>
                 <div className="productcode">
@@ -624,31 +615,33 @@ class Settings extends React.Component {
                 <div className="settings">
                     <button className="navBtn done">START</button>
                     <div className="divider done"></div>
-                    <button className="navBtn">
-                        {this.handleTable()}
-                    </button>
+
+                    <Table
+                        smallTable={this.loadTableSmall}
+                        middleTable={this.loadTableMiddle}
+                        largeTable={this.loadTableLarge}
+                        chosen={this.state.chosenTable}
+                    />
+
+                    {this.handleHeight()}
+
                     <div className="divider"></div>
-                    <button className="navBtn">
-                        {this.handleHeight()}
-                    </button>
+
+                    {this.handleMonitor()}
+
                     <div className="divider"></div>
-                    <button className="navBtn">
-                        {this.handleMonitor()}
-                    </button>
+
+                    {this.handleBlende()}
+
                     <div className="divider"></div>
-                    <button className="navBtn">
-                        {this.handleBlende()}
-                    </button>
+
+                    {this.handleKabel()}
+
                     <div className="divider"></div>
-                    <button className="navBtn">
-                        {this.handleKabel()}
-                    </button>
-                    <div className="divider"></div>
-                    <button className="navBtn">
-                        {this.handleTechnik()}
-                    </button>
-                    <div className="divider"></div>
-                    <button className="navBtn">disabled</button>
+                    
+                    {this.handleTechnik()}
+                    
+
                 </div>
                <div className="summary">
                     {this.handleSummary()}
