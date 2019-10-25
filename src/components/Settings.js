@@ -506,64 +506,6 @@ class Settings extends React.Component {
         this.setState(this.initialState)
     };
 
-    handleMonitor = () => {
-        return (
-             <Monitor
-                 monitorSystemWithout={this.monitorSystemWithout}
-                 monitorSystemStativ={this.monitorSystemStativ}
-                 monitorSystemRelingHV={this.monitorSystemRelingHV}
-                 monitorSystemReling={this.monitorSystemReling}
-                 monitorOneRow={this.monitorOneRow}
-                 monitorTwoRow={this.monitorTwoRow}
-                 monitorThree={this.monitorThree}
-                 monitorFour={this.monitorFour}
-                 monitorFive={this.monitorFive}
-                 table={this.state.chosenTable}
-             >
-             </Monitor>
-        )
-    };
-
-    handleHeight = () => {
-        return (
-            <Height
-                heightSettingEco={this.heightSettingEco}
-                heightSettingVario={this.heightSettingVario}
-            />
-        )
-    };
-
-    handleBlende = () => {
-        return (
-            <Blende
-                chosenBlendeKeinen={this.chosenBlendeKeinen}
-                chosenBlendeVoll={this.chosenBlendeVoll}
-            />
-        )
-    };
-
-    handleKabel = () => {
-        return (
-            <Kabel
-                chosenKabelRueckenMit={this.chosenKabelRueckenMit}
-                chosenKabelRueckenOhne={this.chosenKabelRueckenOhne}
-            />
-        )
-    };
-
-    handleTechnik = () => {
-        return (
-            <Technik
-                chosenTechnikLinks={this.chosenTechnikLinks}
-                chosenTechnikRechts={this.chosenTechnikRechts}
-                chosenTechnikBeide={this.chosenTechnikBeide}
-                chosenTechnikOhne={this.chosenTechnikOhne}
-                chosenTechnikContainerMit={this.chosenTechnikContainerMit}
-                chosenTechnikContainerOhne={this.chosenTechnikContainerOhne}
-            />
-        )
-    };
-
     handleSummary = () => {
         return (
             <Summary
@@ -613,8 +555,8 @@ class Settings extends React.Component {
                     </div>
                 </div>
                 <div className="settings">
-                    <button className="navBtn done">START</button>
-                    <div className="divider done"></div>
+                    {/* <button className="navBtn done">START</button>
+                    <div className="divider done"></div> */}
 
                     <Table
                         smallTable={this.loadTableSmall}
@@ -623,23 +565,48 @@ class Settings extends React.Component {
                         chosen={this.state.chosenTable}
                     />
 
-                    {this.handleHeight()}
+                    <Height
+                        heightSettingEco={this.heightSettingEco}
+                        heightSettingVario={this.heightSettingVario}
+                        chosen={this.state.chosenHeight}
+                    />
 
-                    <div className="divider"></div>
+                    <Monitor
+                        monitorSystemWithout={this.monitorSystemWithout}
+                        monitorSystemStativ={this.monitorSystemStativ}
+                        monitorSystemRelingHV={this.monitorSystemRelingHV}
+                        monitorSystemReling={this.monitorSystemReling}
+                        monitorOneRow={this.monitorOneRow}
+                        monitorTwoRow={this.monitorTwoRow}
+                        monitorThree={this.monitorThree}
+                        monitorFour={this.monitorFour}
+                        monitorFive={this.monitorFive}
+                        table={this.state.chosenTable}
+                        chosen={this.state.chosenMonitorSystem} /* this is probably a hack: in case the system is chosen highlight monitor */
+                    >
+                    </Monitor>
 
-                    {this.handleMonitor()}
+                    <Blende
+                        chosenBlendeKeinen={this.chosenBlendeKeinen}
+                        chosenBlendeVoll={this.chosenBlendeVoll}
+                        chosen={this.state.chosenBlende}
+                    />
 
-                    <div className="divider"></div>
-
-                    {this.handleBlende()}
-
-                    <div className="divider"></div>
-
-                    {this.handleKabel()}
-
-                    <div className="divider"></div>
+                    <Kabel
+                        chosenKabelRueckenMit={this.chosenKabelRueckenMit}
+                        chosenKabelRueckenOhne={this.chosenKabelRueckenOhne}
+                        chosen={this.state.chosenKabel}
+                    />
                     
-                    {this.handleTechnik()}
+                    <Technik
+                        chosenTechnikLinks={this.chosenTechnikLinks}
+                        chosenTechnikRechts={this.chosenTechnikRechts}
+                        chosenTechnikBeide={this.chosenTechnikBeide}
+                        chosenTechnikOhne={this.chosenTechnikOhne}
+                        chosenTechnikContainerMit={this.chosenTechnikContainerMit}
+                        chosenTechnikContainerOhne={this.chosenTechnikContainerOhne}
+                        chosen={this.chosenTechnik}
+                    />
                     
 
                 </div>

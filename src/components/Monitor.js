@@ -20,17 +20,20 @@ class Monitor extends React.Component {
     handleMonitorSystem = (system) => {
         this.setState({open: false});
         if (system === 'OHNE') {
-            document.getElementById('kabel').disabled = true;
-            this.props.monitorSystemWithout();
+            // URGENT FIX: This is an anti-pattern!
+            // a React application has a single state
+            // the DOM is our ouztput and not a parallel means of storage
+            // document.getElementById('kabel').disabled = true;
+            // this.props.monitorSystemWithout();
         } else if (system === 'STATIV') {
-            document.getElementById('kabel').disabled = true;
-            this.props.monitorSystemStativ();
+            // document.getElementById('kabel').disabled = true;
+            // this.props.monitorSystemStativ();
         } else if (system === 'RELING: OHNE HV') {
-            document.getElementById('kabel').disabled = false;
-            this.props.monitorSystemReling();
+            // document.getElementById('kabel').disabled = false;
+            // this.props.monitorSystemReling();
         } else {
-            document.getElementById('kabel').disabled = false;
-            this.props.monitorSystemRelingHV();
+            // document.getElementById('kabel').disabled = false;
+            // this.props.monitorSystemRelingHV();
         }
     };
 
@@ -87,7 +90,13 @@ class Monitor extends React.Component {
 
         return (
         <>
-        <button className="navBtn" onClick={this.onOpenModal}>3. Monitortragsystem</button>
+        <button
+            className={ 'navBtn ' + (this.props.chosen && 'done')}
+            onClick={this.onOpenModal}>3. Monitortragsystem</button>
+        <div
+            className={ 'divider ' + (this.props.chosen && 'done')}
+        ></div>
+
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
         <h2> Monitortragsystem </h2>
          <video autoPlay={false} height="300" width="500" controls playsinline={false}>

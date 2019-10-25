@@ -29,7 +29,13 @@ class Kabel extends React.Component {
     render() {
         return (
             <>
-                <button id="kabel" className="navBtn" onClick={this.onOpenModal}>5. Kabel</button>
+                <button
+                    className={ 'navBtn ' + (this.props.chosen && 'done')}
+                    onClick={this.onOpenModal}>5. Kabel</button>
+                <div
+                    className={ 'divider ' + (this.props.chosen && 'done')}
+                ></div>
+
                 <Modal open={this.state.open} onClose={this.onCloseModal} center>
                 <video autoPlay={false} height="300" width="500" controls playsinline={false}>
                 <source src={kabel_video} type="video/mp4"/>

@@ -31,7 +31,13 @@ class Blende extends Component {
     render() {
         return (
         <>
-        <button id="blende" className="navBtn" onClick={this.onOpenModal}>4. Blende</button>
+        <button
+            className={ 'navBtn ' + (this.props.chosen && 'done')}
+            onClick={this.onOpenModal}>4. Blende</button>
+        <div
+            className={ 'divider ' + (this.props.chosen && 'done')}
+        ></div>
+
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
         <video autoPlay={false} height="300" width="500" controls playsinline={false}>
         <source src={blende_video} type="video/mp4"/>

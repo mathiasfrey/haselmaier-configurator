@@ -47,7 +47,14 @@ class Technik extends React.Component {
     render() {
         return (
         <>
-        <button className="navBtn" onClick={this.onOpenModal}>6. Technik</button>
+
+        <button
+            className={ 'navBtn ' + (this.props.chosen && 'done')}
+            onClick={this.onOpenModal}>6. Technik</button>
+        <div
+            className={ 'divider ' + (this.props.chosen && 'done')}
+        ></div>
+
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
         <h2>Technik Integration</h2>
         <video autoPlay={false} height="300" width="500" controls playsInline={false}>
