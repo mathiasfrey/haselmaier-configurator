@@ -11,7 +11,7 @@ import table_four_monitors from '../assets/table_white_four_monitors.png'
 import table_black_eight_monitors from '../assets/table_black_eight_monitors.png'
 import Summary from "./Summary";
 import Product from "./Product";
-
+import ProductDisplay from "./ProductDisplay";
 import ProductCodeForm from './ProductCodeForm';
 import ProductCode from './ProductCode';
 
@@ -606,6 +606,10 @@ class Settings extends React.Component {
                         chosenTablePic={this.state.chosenTablePic}
                         chosenMonitorPic={this.state.chosenMonitorPic}
                         chosenHeightPic={this.state.chosenHeightPic}
+                    />
+
+                    <ProductDisplay
+                        table={this.state.chosenTable}
                     />
 
                     <ProductCode
