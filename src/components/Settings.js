@@ -38,29 +38,7 @@ class Settings extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-        // // Users select
-        // chosenTable: String,
-        // chosenTablePic: Array,
-        // chosenMonitor: String,
-        // chosenMonitorPic: Array,
-        // chosenMonitorSystem: Number,
-        // chosenMonitorSystemPic: Array,
-        // chosenMonitorRow: Number,
-        // chosenMonitorRowPic: Array,
-        // chosenMonitorNumber: Number,
-        // chosenMonitorNumberPic: Array,
-        // chosenHeight: String,
-        // chosenHeightPic: Array,
-        // chosenBlende: String,
-        // chosenBlendePic: Array,
-        // chosenKabel: String,
-        // chosenKabelPic: Array,
-        // chosenTechnik: Number,
-        // chosenTechnikPic: Array,
-        // chosenTechnikContainer: String,
-        // disabled: false,
         };
-        //this.initialState = this.state
     }
 
     //Code2State
@@ -84,16 +62,9 @@ class Settings extends React.Component {
             const tableRegex = /[SML]/;
             if (code.match(tableRegex)) {
                 const table = code.match(tableRegex)[0];
-                if (table === 'S') {
-                    tablePic = imagesPath.small_table;
-                } else if (table === 'M') {
-                    tablePic = imagesPath.mit_blende;
-                } else {
-                    tablePic = imagesPath.large_table;
-                }
+
                 return {
                     'table': table,
-                    'tablePic': tablePic,
                     'remainder': code.replace(tableRegex, '')
                 };
             } 
@@ -145,14 +116,9 @@ class Settings extends React.Component {
             const monitorRowRegex = /[12]/;
             if (code.match(monitorRowRegex)) {
                 const monitor = code.match(monitorRowRegex)[0];
-                if (monitor === '1') {
-                    monitorPic = imagesPath.monitorOneRow;
-                } else {
-                    monitorPic = imagesPath.monitorTwoRow;
-                }
+
                 return {
                     'monitor': monitor,
-                    'monitorPic': monitorPic,
                     'remainder': code.replace(monitorRowRegex, '')
                 }
             }
@@ -242,7 +208,7 @@ class Settings extends React.Component {
     
         var originalCode = code;
         var rv; // return value
-        var table, tablePic, monitor, monitorPic;
+        var table, monitor;
 
         // parse product code
         // step by step match and replace from LTR
@@ -259,7 +225,6 @@ class Settings extends React.Component {
             return false;
         }
         table = rv.table;
-        tablePic = rv.tablePic;
 
        /* rv = matchMonitorSystem(rv.remainder);
         if (rv === false) {
@@ -275,7 +240,6 @@ class Settings extends React.Component {
             return false;
         }
         monitor = rv.monitor;
-        monitorPic = rv.monitorPic;
 
         //rv = matchMonitorCount(rv.remainder);
        /* if (rv === false) {
@@ -319,40 +283,21 @@ class Settings extends React.Component {
         technikPic = rv.technikPic;*/
 
 
+        // 9 values will be set
         this.setState(
             {
                 chosenTable: table,
-                chosenTablePic: tablePic,
+                // chosenTablePic: tablePic,
                 chosenMonitor: monitor,
-                chosenMonitorPic: monitorPic,
+                // chosenMonitorPic: monitorPic,
             }
         );
     };
 
     //TABLE CONFIGURATION
 
-    loadTableSmall = () => {
-        this.setState({chosenMonitorPic: Array});
-        this.setState({chosenHeightPic: Array});
-        this.setState({chosenTablePic: imagesPath.small_table});
-        this.setState({chosenTable: 'S'});
-
-    };
-
-    loadTableMiddle = () => {
-        this.setState({chosenMonitorPic: Array});
-        this.setState({chosenHeightPic: Array});
-        this.setState({chosenTablePic: imagesPath.middle_table});
-        this.setState({chosenTable: 'M'});
-
-    };
-
-    loadTableLarge = () => {
-        this.setState({chosenMonitorPic: Array});
-        this.setState({chosenHeightPic: Array});
-        this.setState({chosenTablePic: imagesPath.large_table});
-        this.setState({chosenTable: 'L'});
-
+    setTableState = (size) => {
+        this.setState({chosenTable: size});
     };
 
     //HEIGHT CONFIGURATION
@@ -504,7 +449,7 @@ class Settings extends React.Component {
     //RESET
 
     handleReset = () => {
-        this.setState(this.initialState)
+        this.setState({})
     };
 
     handleSummary = () => {
@@ -547,9 +492,7 @@ class Settings extends React.Component {
                     <div className="divider done"></div> */}
 
                     <Table
-                        smallTable={this.loadTableSmall}
-                        middleTable={this.loadTableMiddle}
-                        largeTable={this.loadTableLarge}
+                        callback={this.setTableState}
                         chosen={this.state.chosenTable}
                     />
 
