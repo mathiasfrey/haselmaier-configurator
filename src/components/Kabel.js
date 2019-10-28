@@ -16,14 +16,13 @@ class Kabel extends React.Component {
         this.setState({ open: false });
     };
 
-    handleCable = (cable) => {
+    handleCable = (cable, system) => {
         this.setState({open: false});
-        if (cable === 'Mit') {
-            this.props.chosenKabelRueckenMit();
-        } else if (cable === 'Ohne') {
-            this.props.chosenKabelRueckenOhne();
-        }
+        this.props.callback(cable);
+
     };
+
+
 
 
     render() {
@@ -31,8 +30,7 @@ class Kabel extends React.Component {
             <>
                 <button
                     className={ 'navBtn ' + (this.props.chosen && 'done')}
-                    onClick={this.onOpenModal}
-                    disabled>5. Kabel</button>
+                    onClick={this.onOpenModal}>5. Kabel</button>
                 <div
                     className={ 'divider ' + (this.props.chosen && 'done')}
                 ></div>

@@ -3,7 +3,6 @@ import Modal from 'react-responsive-modal';
 import blende_video from '../assets/blende_video.mp4';
 
 
-
 class Blende extends Component {
     state = {
         open: false,
@@ -19,11 +18,7 @@ class Blende extends Component {
 
     handleBlende = (blende) => {
         this.setState({ open: false});
-        if (blende === 'Keinen') {
-            this.props.chosenBlendeKeinen();
-        } else if (blende === 'Voller') {
-            this.props.chosenBlendeVoll();
-        }
+        this.props.callback(blende)
     };
 
 

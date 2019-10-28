@@ -9,12 +9,25 @@ class ProductCode extends React.PureComponent {
 
     generate_code() {
         return 'TTV.' +
-            this.props.table
+            this.props.table +
+            this.props.height +
+            this.props.monitorRow +
+            this.props.monitorCount +
+            this.props.monitorSystem +
+            this.props.blende +
+            this.props.cable +
+            this.props.technikSide +
+            this.props.technikContainer
+
         ;
     }
     render() {
         // nothing unless FULLY filled out
-        if (! this.props.table) {
+        if (! this.props.table || ! this.props.height || ! this.props.monitorRow ||
+            ! this.props.monitorCount || ! this.props.monitorSystem ||
+            ! this.props.blende || ! this.props.cable ||
+            ! this.props.technikSide || ! this.props.technikContainer
+        ) {
             return null;
         }
 

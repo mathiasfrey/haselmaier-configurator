@@ -5,32 +5,11 @@ import Blende from "./Blende";
 import Height from "./Height";
 import Technik from "./Technik";
 import Kabel from "./Kabel";
-import table from '../assets/table_white.png'
-import table_eight_monitors from '../assets/table_white_eight_monitors.png'
-import table_four_monitors from '../assets/table_white_four_monitors.png'
-import table_black_eight_monitors from '../assets/table_black_eight_monitors.png'
 import Summary from "./Summary";
-import Product from "./Product";
 import ProductDisplay from "./ProductDisplay";
 import ProductCodeForm from './ProductCodeForm';
 import ProductCode from './ProductCode';
 
-export const imagesPath = {
-    //Table
-  small_table: <img src={table} height="500" width="600" alt="ref"/>,
-  middle_table: <img src={table} height="500" width="600" alt="ref"/>,
-  large_table: <img src={table} height="500" width="600" alt="ref"/>,
-    //Height
-  eco: <img src={table_black_eight_monitors} height="500" width="600" alt="ref"/>,
-  vario: <img src={table_black_eight_monitors} height="500" width="600" alt="ref"/>,
-    //Monitor
-  monitorOneRow: <img src={table_four_monitors} height="500" width="600" alt="ref"/>,
-  monitorTwoRow: <img src={table_eight_monitors} height="500" width="600" alt="ref"/>,
-    //Blende
-  ohne_blende: <img src={table_four_monitors} height="500" width="600" alt="ref"/>,
-  mit_blende: <img src={table_four_monitors} height="500" width="600" alt="ref"/>,
-
-};
 
 
 
@@ -71,23 +50,17 @@ class Settings extends React.Component {
             return false;
         }
 
-        /*function matchHeight(code) {
+        function matchHeight(code) {
             const heightRegex = /[EV]/;
             if (code.match(heightRegex)) {
                 const height = code.match(heightRegex)[0];
-                if (height === 'E') {
-                    heightPic = imagesPath.eco;
-                } else {
-                    heightPic = imagesPath.vario;
-                }
                 return {
                     'height': height,
-                    'heightPic': heightPic,
                     'remainder': code.replace(heightRegex, '')
                 }
             }
             return false;
-        }*/
+        }
 
         /*function matchMonitorSystem(code) {
             const monitorSystemsRegex = /[OSRH]/;
@@ -208,7 +181,7 @@ class Settings extends React.Component {
     
         var originalCode = code;
         var rv; // return value
-        var table, monitor;
+        var table, height, monitor;
 
         // parse product code
         // step by step match and replace from LTR
@@ -250,32 +223,31 @@ class Settings extends React.Component {
         monitorCountPic = rv.monitorCountPic;*/
 
 
-        //rv = matchHeight(rv.remainder);
-        /*if (rv === false) {
+        rv = matchHeight(rv.remainder);
+        if (rv === false) {
             codeAlertError(originalCode);
             return false;
         }
         height = rv.height;
-        heightPic = rv.heightPic;
 
-        //rv = matchBlende(rv.remainder);
+        /*//rv = matchBlende(rv.remainder);
         if (rv === false) {
             codeAlertError(originalCode);
             return false;
         }
         blende = rv.blende;
-        blendePic = rv.blendePic;
+        blendePic = rv.blendePic;*/
 
         //rv = matchKabel(rv.remainder);
-        if (rv === false) {
+        /*if (rv === false) {
             codeAlertError(originalCode);
             return false;
         }
         kabel = rv.kabel;
-        kabelPic = rv.kabelPic;
+        kabelPic = rv.kabelPic;*/
 
         //rv = matchTechnik(rv.remainder);
-        if (rv === false) {
+        /*if (rv === false) {
             codeAlertError(originalCode);
             return false;
         }
@@ -287,6 +259,7 @@ class Settings extends React.Component {
         this.setState(
             {
                 chosenTable: table,
+                chosenHeight: height,
                 // chosenTablePic: tablePic,
                 chosenMonitor: monitor,
                 // chosenMonitorPic: monitorPic,
@@ -302,143 +275,49 @@ class Settings extends React.Component {
 
     //HEIGHT CONFIGURATION
 
-    heightSettingEco = () => {
-        this.setState({chosenTablePic: Array});
-        this.setState({chosenMonitorPic: Array});
-        this.setState({chosenHeightPic: imagesPath.small_table});
-        this.setState({chosenHeight: 'ECO'});
-        this.setState({productCodeOfHeight: 'E'})
+    setHeightState = (height) => {
+        this.setState({chosenHeight: height});
     };
 
-    heightSettingVario = () => {
-        this.setState({chosenTablePic: Array});
-        this.setState({chosenMonitorPic: Array});
-        this.setState({chosenHeightPic: imagesPath.small_table});
-        this.setState({chosenHeight: 'VARIO'});
-        this.setState({productCodeOfHeight: 'V'})
+    //MONITOR CONFIGURATION
+
+    setMonitorSystemState = (system) => {
+        this.setState({chosenMonitorSystem: system});
     };
 
-    //Monitor Systems
-
-    monitorSystemWithout = () => {
-        this.setState({chosenTablePic: Array});
-        this.setState({chosenHeightPic: Array});
-        this.setState({chosenMonitorSystem: 'OHNE'});
-        this.setState({productCodeOfSystem: 'O'})
+    setMonitorRowState = (row) => {
+        this.setState({chosenMonitorRow: row});
     };
 
-    monitorSystemStativ = () => {
-        this.setState({chosenTablePic: Array});
-        this.setState({chosenHeightPic: Array});
-        this.setState({chosenMonitorSystem: 'STATIV'});
-        this.setState({productCodeOfSystem: 'S'})
-    };
-
-    monitorSystemRelingHV = () => {
-        this.setState({chosenTablePic: Array});
-        this.setState({chosenHeightPic: Array});
-        this.setState({chosenMonitorSystem: 'RELING-HV'});
-        this.setState({productCodeOfSystem: 'H'})
-    };
-
-    monitorSystemReling = () => {
-        this.setState({chosenTablePic: Array});
-        this.setState({chosenHeightPic: Array});
-        this.setState({chosenMonitorSystem: 'RELING'});
-        this.setState({productCodeOfSystem: 'R'})
-
-    };
-
-    // Monitor Rows
-
-    monitorOneRow = () => {
-        this.setState({chosenHeightPic: Array});
-        this.setState({chosenTablePic: Array});
-        this.setState({chosenMonitorPic: imagesPath.monitorOneRow});
-        this.setState({chosenMonitorRow: '1-reihig'});
-        this.setState({productCodeOfRow: '1'})
-    };
-
-    monitorTwoRow = () => {
-        this.setState({chosenHeightPic: Array});
-        this.setState({chosenTablePic: Array});
-        this.setState({chosenMonitorPic: imagesPath.monitorTwoRow});
-        this.setState({chosenMonitorRow: '2-reihig'});
-        this.setState({productCodeOfRow: '2'})
-    };
-
-    // Monitor Count
-
-    monitorThree = () => {
-        this.setState({chosenTablePic: Array});
-        this.setState({chosenMonitorNumber: '3'});
-        this.setState({productCodeOfNumber: '3'})
-    };
-    monitorFour = () => {
-        this.setState({chosenTablePic: Array});
-        this.setState({chosenMonitorNumber: '4'});
-        this.setState({productCodeOfNumber: '4'})
-    };
-    monitorFive = () => {
-        this.setState({chosenTablePic: Array});
-        this.setState({chosenMonitorNumber: '5'});
-        this.setState({productCodeOfRow: '5'})
+    setMonitorCountState = (count) => {
+        this.setState({chosenMonitorCount: count})
     };
 
     //BLEND CONFIGURATION
 
-    chosenBlendeKeinen = () => {
-        this.setState({chosenBlende: 'KEINEN'});
-        this.setState({chosenBlendePic: imagesPath.ohne_blende});
-        this.setState({productCodeOfBlende: 'X'})
+    setBlendeState = (blende) => {
+        this.setState({chosenBlende: blende});
     };
 
-    chosenBlendeVoll = () => {
-        this.setState({chosenBlende: 'VOLL'});
-        this.setState({chosenBlendePic: imagesPath.mit_blende});
-        this.setState({productCodeOfBlende: 'B'})
-    };
 
     // KABEL CONFIGURATION
 
-    setKabelState = (code) => {
-        this.setState({chosenKabel: code});
+    setKabelState = (kabel) => {
+        this.setState({chosenKabel: kabel});
     };
 
 
     //TECHNIK CONFIGURATION
 
-    chosenTechnikLinks = () => {
-        this.setState({chosenTechnik: 'Linksseitig'});
-        this.setState({productCodeOfTechnik: 'L'})
+    setChosenTechnikSidesState = (sides) => {
+        this.setState({chosenTechnikSide: sides});
     };
 
-    chosenTechnikRechts = () => {
-        this.setState({chosenTechnik: 'Rechtsseitig'});
-        this.setState({productCodeOfTechnik: 'R'})
+
+    setChosenTechnikContainerState = (container) => {
+        this.setState({chosenTechnikContainer: container})
     };
 
-    chosenTechnikBeide = () => {
-        this.setState({chosenTechnik: 'Links und Rechtsseitig'});
-        this.setState({productCodeOfTechnik: 'B'})
-    };
-
-    chosenTechnikOhne = () => {
-        this.setState({chosenTechnik: 'Ohne Technikintegration'});
-        this.setState({productCodeOfTechnik: 'O'})
-    };
-
-    chosenTechnikContainerMit = () => {
-        this.setState({chosenTechnikContainer: 'Mit Ladencontainer'});
-        this.setState({productCodeOfContainer: 'C'})
-    };
-
-    chosenTechnikContainerOhne = () => {
-        this.setState({chosenTechnikContainer: 'Ohne Ladencontainer'});
-        this.setState({productCodeOfContainer: 'X'})
-    };
-
-    //Product Code
 
     //RESET
 
@@ -450,14 +329,14 @@ class Settings extends React.Component {
         return (
             <Summary
                     chosenTable={this.state.chosenTable}
-                    chosenMonitorNumber={this.state.chosenMonitorNumber}
+                    chosenMonitorCount={this.state.chosenMonitorCount}
                     chosenMonitorRow={this.state.chosenMonitorRow}
                     chosenMonitorSystem={this.state.chosenMonitorSystem}
                     chosenHeight={this.state.chosenHeight}
                     chosenBlende={this.state.chosenBlende}
                     chosenKabel={this.state.chosenKabel}
-                    chosenTechnik={this.state.chosenTechnik}
-                    chosenContainer={this.state.chosenTechnikContainer}
+                    chosenTechnikSide={this.state.chosenTechnikSide}
+                    chosenTechnikContainer={this.state.chosenTechnikContainer}
             />
         )
     };
@@ -491,29 +370,19 @@ class Settings extends React.Component {
                     />
 
                     <Height
-                        heightSettingEco={this.heightSettingEco}
-                        heightSettingVario={this.heightSettingVario}
+                        callback={this.setHeightState}
                         chosen={this.state.chosenHeight}
                     />
 
                     <Monitor
-                        monitorSystemWithout={this.monitorSystemWithout}
-                        monitorSystemStativ={this.monitorSystemStativ}
-                        monitorSystemRelingHV={this.monitorSystemRelingHV}
-                        monitorSystemReling={this.monitorSystemReling}
-                        monitorOneRow={this.monitorOneRow}
-                        monitorTwoRow={this.monitorTwoRow}
-                        monitorThree={this.monitorThree}
-                        monitorFour={this.monitorFour}
-                        monitorFive={this.monitorFive}
-                        table={this.state.chosenTable}
+                        callbackSystem={this.setMonitorSystemState}
+                        callbackRow={this.setMonitorRowState}
+                        callbackCount={this.setMonitorCountState}
+                        tableDependency={this.state.chosenTable} // Dependency for choosing the monitor size
                         chosen={this.state.chosenMonitorSystem} /* this is probably a hack: in case the system is chosen highlight monitor */
-                    >
-                    </Monitor>
-
+                    />
                     <Blende
-                        chosenBlendeKeinen={this.chosenBlendeKeinen}
-                        chosenBlendeVoll={this.chosenBlendeVoll}
+                        callback={this.setBlendeState}
                         chosen={this.state.chosenBlende}
                     />
 
@@ -525,33 +394,36 @@ class Settings extends React.Component {
                     />
                     
                     <Technik
-                        chosenTechnikLinks={this.chosenTechnikLinks}
-                        chosenTechnikRechts={this.chosenTechnikRechts}
-                        chosenTechnikBeide={this.chosenTechnikBeide}
-                        chosenTechnikOhne={this.chosenTechnikOhne}
-                        chosenTechnikContainerMit={this.chosenTechnikContainerMit}
-                        chosenTechnikContainerOhne={this.chosenTechnikContainerOhne}
-                        chosen={this.chosenTechnik}
+                        callbackSide={this.setChosenTechnikSidesState}
+                        callbackContainer={this.setChosenTechnikContainerState}
+                        chosen={this.state.chosenTechnik}
                     />
-                    
-
                 </div>
                <div className="summary">
                     {this.handleSummary()}
                 </div>
                 <div className="tourView">
-                    <Product
-                        chosenTablePic={this.state.chosenTablePic}
-                        chosenMonitorPic={this.state.chosenMonitorPic}
-                        chosenHeightPic={this.state.chosenHeightPic}
-                    />
-
                     <ProductDisplay
                         table={this.state.chosenTable}
+                        height={this.state.chosenHeight}
+                        monitorRow={this.state.chosenMonitorRow}
+                        monitorCount={this.state.chosenMonitorCount}
+                        monitorSystem={this.state.chosenMonitorSystem}
+                        blende={this.state.chosenBlende}
+                        cable={this.state.chosenKabel}
+                        technikSide={this.state.chosenTechnikSide}
+                        technikContainer={this.state.chosenTechnikContainer}
                     />
-
                     <ProductCode
                         table={this.state.chosenTable}
+                        height={this.state.chosenHeight}
+                        monitorRow={this.state.chosenMonitorRow}
+                        monitorCount={this.state.chosenMonitorCount}
+                        monitorSystem={this.state.chosenMonitorSystem}
+                        blende={this.state.chosenBlende}
+                        cable={this.state.chosenKabel}
+                        technikSide={this.state.chosenTechnikSide}
+                        technikContainer={this.state.chosenTechnikContainer}
                     />
                 </div>
 

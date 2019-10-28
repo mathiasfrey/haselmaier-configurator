@@ -5,7 +5,7 @@ import technik_video from '../assets/technik_video.mp4';
 class Technik extends React.Component {
     state = {
         open: false,
-        disabled: true,
+        disabled: false,
     };
 
     onOpenModal = () => {
@@ -16,30 +16,13 @@ class Technik extends React.Component {
     this.setState({ open: false });
     };
 
-    handleTechnik = (technik) => {
-        if (technik === 'Links') {
-            this.props.chosenTechnikLinks();
-            this.setState({disabled: false})
-        } else if (technik === 'Rechts') {
-            this.props.chosenTechnikRechts();
-            this.setState({disabled: false})
-        } else if (technik === 'Beide') {
-            this.props.chosenTechnikBeide();
-            this.setState({open: true})
-        } else {
-            this.props.chosenTechnikOhne();
-            this.setState({open: false})
-        }
+    handleTechnikSide = (sides) => {
+        this.props.callbackSide(sides);
     };
 
+
     handleContainer = (container) => {
-        if (container === 'Mit') {
-            this.props.chosenTechnikContainerMit();
-            this.setState({open: false})
-        } else if (container === 'Ohne') {
-            this.props.chosenTechnikContainerOhne();
-            this.setState({open: false})
-        }
+        this.props.callbackContainer(container);
     };
 
 
@@ -62,10 +45,10 @@ class Technik extends React.Component {
         </video>
         <h2> Treffen Sie Ihre Auswahl </h2>
         <div>
-        <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnik('Links')}> Linksseitig </button>
-        <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnik('Rechts')}> Rechtsseitig </button>
-        <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnik('Beide')}> Beidseitig </button>
-        <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnik('Ohne')}> Ohne </button>
+        <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnikSide('Links')}> Linksseitig </button>
+        <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnikSide('Rechts')}> Rechtsseitig </button>
+        <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnikSide('Beide')}> Beidseitig </button>
+        <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnikSide('Ohne')}> Ohne </button>
         </div>
         <h2> Treffen Sie Ihre Auswahl </h2>
         <div>
