@@ -29,9 +29,7 @@ class Blende extends Component {
         <button
             className={ 'navBtn ' + (this.props.chosen && 'done')}
             onClick={this.onOpenModal}>4. Blende</button>
-        <div
-            className={ 'divider ' + (this.props.chosen && 'done')}
-        ></div>
+        <div className={'divider ' + (this.props.chosen && 'done')} />
 
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
         <video autoPlay={false} height="300" width="500" controls playsInline={false}>
@@ -39,8 +37,8 @@ class Blende extends Component {
         </video>
         <h2>Gewünschte Blendeneinstellung</h2>
         <div>
-        <button className="btn btn-2 btn-2a" onClick={() => this.handleBlende('Keinen')}> Keinen </button>
-        <button className="btn btn-2 btn-2a" onClick={() => this.handleBlende('Voller')}> Voller Blendschutz </button>
+            <button className="btn btn-2 btn-2a" onClick={() => this.handleBlende('K')}> Keinen </button>
+            <button className="btn btn-2 btn-2a" onClick={() => this.handleBlende('V')}> Voller Blendschutz </button>
         </div>
         </Modal>
         </>

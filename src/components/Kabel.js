@@ -16,13 +16,11 @@ class Kabel extends React.Component {
         this.setState({ open: false });
     };
 
-    handleCable = (cable, system) => {
+    handleCable = (cable) => {
         this.setState({open: false});
         this.props.callback(cable);
 
     };
-
-
 
 
     render() {
@@ -32,17 +30,16 @@ class Kabel extends React.Component {
                     className={ 'navBtn ' + (this.props.chosen && 'done')}
                     onClick={this.onOpenModal}>5. Kabel</button>
                 <div
-                    className={ 'divider ' + (this.props.chosen && 'done')}
-                ></div>
-
+                className={'divider ' + (this.props.chosen && 'done')}
+                />
                 <Modal open={this.state.open} onClose={this.onCloseModal} center>
                 <video autoPlay={false} height="300" width="500" controls playsInline={false}>
                 <source src={kabel_video} type="video/mp4"/>
                 </video>
                 <h2>Kabelrücken für Relingsystem</h2>
                 <div>
-                <button id='mit' className="btn btn-2 btn-2a" onClick={() => this.handleCable('Mit')}> Mit Kabelrücken </button>
-                <button id="ohne" className="btn btn-2 btn-2a" onClick={() => this.handleCable('Ohne')}> Ohne Kabelrücken </button>
+                    <button id='mit' className="btn btn-2 btn-2a" onClick={() => this.handleCable('M')}> Mit Kabelrücken </button>
+                    <button id="ohne" className="btn btn-2 btn-2a" onClick={() => this.handleCable('O')}> Ohne Kabelrücken </button>
                 </div>
                 </Modal>
             </>

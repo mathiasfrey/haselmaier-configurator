@@ -37,7 +37,6 @@ class Settings extends React.Component {
             return false;
         }
         function matchTable(code) {
-            // code table
             const tableRegex = /[SML]/;
             if (code.match(tableRegex)) {
                 const table = code.match(tableRegex)[0];
@@ -62,126 +61,97 @@ class Settings extends React.Component {
             return false;
         }
 
-        /*function matchMonitorSystem(code) {
+        function matchMonitorSystem(code) {
             const monitorSystemsRegex = /[OSRH]/;
             if (code.match(monitorSystemsRegex)) {
                 const monitorSystem = code.match(monitorSystemsRegex)[0];
-                if (monitorSystem === 'S') {
-                    monitor = imagesPath.small_table;
-                } else if (monitorSystem === 'O') {
-                    monitor = imagesPath.middle_table;
-                } else if (monitorSystem === 'R') {
-                    monitor = imagesPath.large_table;
-                } else if (monitorSystem === 'H') {
-                    monitor = null;
-                }
                 return {
-                    'monitor': monitorSystem,
-                    'monitorSystemPic': 'monitorSystemPic',
+                    'monitorSystem': monitorSystem,
                     'remainder': code.replace(monitorSystemsRegex, '')
                 };
             }
             
             return false;
-        }*/
+        }
         function matchMonitorRow(code) {
-            //code Monitor Row
             const monitorRowRegex = /[12]/;
             if (code.match(monitorRowRegex)) {
-                const monitor = code.match(monitorRowRegex)[0];
+                const monitorRow = code.match(monitorRowRegex)[0];
 
                 return {
-                    'monitor': monitor,
+                    'monitorRow': monitorRow,
                     'remainder': code.replace(monitorRowRegex, '')
                 }
             }
             return false;
         }
 
-        /*function matchMonitorCount(code) {
+        function matchMonitorCount(code) {
             const monitorCountRegex = /[345]/;
             if (code.match(monitorCountRegex)) {
                 const monitorCount = code.match(monitorCountRegex)[0];
-                if (monitorCount === '1') {
-                    monitorCountPic = null;
-                } else if (monitorCount === '2') {
-                    monitorCountPic = null;
-                } else if (monitorCount === '3') {
-                    monitorCountPic = null;
-                } else if (monitorCount === '4') {
-                    monitorCountPic = null;
-                } else {
-                    monitorCountPic = null;
-                }
                 return {
                     'monitorCount': monitorCount,
-                    'monitorCountPic': monitorCountPic,
                     'remainder': code.replace(monitorCountRegex, '')
                 }
             }
             return false;
-        }*/
+        }
 
 
-       /* function matchBlende(code) {
-            const blendeRegex = /[XB]/;
+       function matchBlende(code) {
+            const blendeRegex = /[KV]/;
             if (code.match(blendeRegex)) {
                 const blende = code.match(blendeRegex)[0];
-                if (blende === 'X') {
-                    blendePic = null;
-                } else {
-                    blendePic = null;
-                }
                 return {
                     'blende': blende,
-                    'blendePic': blendePic,
                     'remainder': code.replace(blendeRegex, '')
                 }
             }
             return false;
-        }*/
+        }
 
-        /*function matchKabel(code) {
-            const kabelRegex = /[KX]/;
+        function matchKabel(code) {
+            const kabelRegex = /[MO]/;
             if (code.match(kabelRegex)) {
                 const kabel = code.match(kabelRegex)[0];
-                if (blende === 'K') {
-                    kabelPic = null;
-                } else {
-                    kabelPic = null;
-                }
                 return {
                     'kabel': kabel,
-                    'kabelPic': kabelPic,
                     'remainder': code.replace(kabelRegex, '')
                 }
             }
             return false;
-        }*/
+        }
 
-       /* function matchTechnik(code) {
-            const technikRegex = /[LRBOCX]/;
+       function matchTechnikSide(code) {
+            const technikRegex = /[LRBO]/;
             if (code.match(technikRegex)) {
-                const technik = code.match(technikRegex)[0];
-                if (technik === 'K') {
-                    technikPic = null;
-                } else {
-                    technikPic = null;
-                }
+                const technikSide = code.match(technikRegex)[0];
                 return {
-                    'technik': technik,
-                    'technikPic': technikPic,
+                    'technikSide': technikSide,
                     'remainder': code.replace(technikRegex, '')
                 }
             }
             return false;
-        }*/
+        }
+
+       function matchTechnikContainer(code) {
+            const technikRegex = /[MO]/;
+            if (code.match(technikRegex)) {
+                const technikContainer = code.match(technikRegex)[0];
+                return {
+                    'technikContainer': technikContainer,
+                    'remainder': code.replace(technikRegex, '')
+                }
+            }
+            return false;
+        }
 
 
     
         var originalCode = code;
         var rv; // return value
-        var table, height, monitor;
+        var table, height, monitorRow, monitorSystem, monitorCount, blende, kabel, technikSide, technikContainer;
 
         // parse product code
         // step by step match and replace from LTR
@@ -199,28 +169,26 @@ class Settings extends React.Component {
         }
         table = rv.table;
 
-       /* rv = matchMonitorSystem(rv.remainder);
-        if (rv === false) {
-            codeAlertError(originalCode);
-            return false;
-        }
-        monitor = rv.monitor;*/
-
-
         rv = matchMonitorRow(rv.remainder);
         if (rv === false) {
             codeAlertError(originalCode);
             return false;
         }
-        monitor = rv.monitor;
+        monitorRow = rv.monitorRow;
 
-        //rv = matchMonitorCount(rv.remainder);
-       /* if (rv === false) {
+        rv = matchMonitorSystem(rv.remainder);
+        if (rv === false) {
+            codeAlertError(originalCode);
+            return false;
+        }
+        monitorSystem = rv.monitorSystem;
+
+        rv = matchMonitorCount(rv.remainder);
+        if (rv === false) {
             codeAlertError(originalCode);
             return false;
         }
         monitorCount = rv.monitorCount;
-        monitorCountPic = rv.monitorCountPic;*/
 
 
         rv = matchHeight(rv.remainder);
@@ -230,29 +198,34 @@ class Settings extends React.Component {
         }
         height = rv.height;
 
-        /*//rv = matchBlende(rv.remainder);
+        rv = matchBlende(rv.remainder);
         if (rv === false) {
             codeAlertError(originalCode);
             return false;
         }
         blende = rv.blende;
-        blendePic = rv.blendePic;*/
 
-        //rv = matchKabel(rv.remainder);
-        /*if (rv === false) {
+        rv = matchKabel(rv.remainder);
+        if (rv === false) {
             codeAlertError(originalCode);
             return false;
         }
         kabel = rv.kabel;
-        kabelPic = rv.kabelPic;*/
 
-        //rv = matchTechnik(rv.remainder);
-        /*if (rv === false) {
+        rv = matchTechnikSide(rv.remainder);
+        if (rv === false) {
             codeAlertError(originalCode);
             return false;
         }
-        technik = rv.technik;
-        technikPic = rv.technikPic;*/
+        technikSide = rv.technikSide;
+
+        rv = matchTechnikContainer(rv.remainder);
+        if (rv === false) {
+            codeAlertError(originalCode);
+            return false;
+        }
+        technikContainer = rv.technikContainer;
+
 
 
         // 9 values will be set
@@ -260,9 +233,14 @@ class Settings extends React.Component {
             {
                 chosenTable: table,
                 chosenHeight: height,
-                // chosenTablePic: tablePic,
-                chosenMonitor: monitor,
-                // chosenMonitorPic: monitorPic,
+                chosenMonitorRow: monitorRow,
+                chosenMonitorSystem: monitorSystem,
+                chosenMonitorCount: monitorCount,
+                chosenBlende: blende,
+                chosenKabel: kabel,
+                chosenTechnikSide: technikSide,
+                chosenTechnikContainer: technikContainer
+
             }
         );
     };
@@ -396,7 +374,8 @@ class Settings extends React.Component {
                     <Technik
                         callbackSide={this.setChosenTechnikSidesState}
                         callbackContainer={this.setChosenTechnikContainerState}
-                        chosen={this.state.chosenTechnik}
+                        chosenSide={this.state.chosenTechnikSide}
+                        chosenContainer={this.state.chosenTechnikContainer}
                     />
                 </div>
                <div className="summary">

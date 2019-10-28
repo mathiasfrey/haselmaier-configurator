@@ -75,9 +75,7 @@ class Monitor extends React.Component {
         <button
             className={ 'navBtn ' + (this.props.chosen && 'done')}
             onClick={this.onOpenModal}>3. Monitortragsystem</button>
-        <div
-    className={'divider ' + (this.props.chosen && 'done')}
-    />
+        <div className={'divider ' + (this.props.chosen && 'done')} />
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
         <h2> Monitortragsystem </h2>
             <video autoPlay={false} height="300" width="500" controls playsInline={false}>
@@ -98,10 +96,10 @@ class Monitor extends React.Component {
         </div>
         <h2>Monitorsystem</h2>
         <div>
-            <button id="ohne" className="btn btn-2 btn-2a" onClick={() => this.handleMonitorSystem('OHNE')}>1. OHNE </button>
-            <button id="stativ" className="btn btn-2 btn-2a" onClick={() => this.handleMonitorSystem('STATIV')}> 2. STATIVSYSTEM </button>
-            <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorSystem('RELING:OHNE HV')}>3. RELING: OHNE HV </button>
-            <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorSystem('RELING:MIT HV')}> 4. RELING: MIT HV </button>
+            <button id="ohne" className="btn btn-2 btn-2a" onClick={() => this.handleMonitorSystem('O')}>1. OHNE </button>
+            <button id="stativ" className="btn btn-2 btn-2a" onClick={() => this.handleMonitorSystem('S')}> 2. STATIVSYSTEM </button>
+            <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorSystem('R')}>3. RELING: OHNE HV </button>
+            <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorSystem('H')}> 4. RELING: MIT HV </button>
         </div>
         </Modal>
         </>

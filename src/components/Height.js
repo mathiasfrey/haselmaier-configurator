@@ -29,19 +29,17 @@ class Height extends React.Component {
         <button
             className={ 'navBtn ' + (this.props.chosen && 'done')}
             onClick={this.onOpenModal}>2. Höhenverstellbar</button>
-        <div
-            className={ 'divider ' + (this.props.chosen && 'done')}
-        ></div>
+        <div className={'divider ' + (this.props.chosen && 'done')} />
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
         <h2>Höhenverstellbar</h2>
         <video autoPlay={false} height="300" width="500" controls playsInline={false}>
         <source src={hv_video} type="video/mp4"/>
         </video>
             <div>
-            <button className="btn btn-2 btn-2a" onClick={() => this.handleHeight('ECO')}> ECO </button>
+                <button className="btn btn-2 btn-2a" onClick={() => this.handleHeight('E')}> ECO </button>
             </div>
             <div>
-            <button className="btn btn-2 btn-2a" onClick={() => this.handleHeight('VARIO')}> VARIO </button>
+                <button className="btn btn-2 btn-2a" onClick={() => this.handleHeight('V')}> VARIO </button>
             </div>
         </Modal>
         </>

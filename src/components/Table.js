@@ -28,9 +28,7 @@ class Table extends React.PureComponent {
         <button
             className={ 'navBtn ' + (this.props.chosen && 'done')}
             onClick={this.onOpenModal}>1. Tisch</button>
-        <div
-            className={ 'divider ' + (this.props.chosen && 'done')}
-        ></div>
+        <div className={'divider ' + (this.props.chosen && 'done')}/>
 
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
         <h2>Wähle deine Tischgröße</h2>
