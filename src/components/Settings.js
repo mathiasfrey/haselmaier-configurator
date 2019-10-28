@@ -401,14 +401,8 @@ class Settings extends React.Component {
 
     // KABEL CONFIGURATION
 
-    chosenKabelRueckenMit = () => {
-        this.setState({chosenKabel: 'MIT Kabelrücken'});
-        this.setState({productCodeOfKabel: 'K'})
-    };
-
-    chosenKabelRueckenOhne = () => {
-        this.setState({chosenKabel: 'OHNE Kabelrücken'});
-        this.setState({productCodeOfKabel: 'X'})
+    setKabelState = (code) => {
+        this.setState({chosenKabel: code});
     };
 
 
@@ -524,8 +518,9 @@ class Settings extends React.Component {
                     />
 
                     <Kabel
-                        chosenKabelRueckenMit={this.chosenKabelRueckenMit}
-                        chosenKabelRueckenOhne={this.chosenKabelRueckenOhne}
+                        monitorDependency={['R', 'H'].includes(this.chosenMonitorSystem)} // only active if R or H
+                        navDependency={! isNaN(this.chosenBlende)} // true if blende is chosen
+                        callback={this.setKabelState}
                         chosen={this.state.chosenKabel}
                     />
                     

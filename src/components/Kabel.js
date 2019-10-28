@@ -31,7 +31,8 @@ class Kabel extends React.Component {
             <>
                 <button
                     className={ 'navBtn ' + (this.props.chosen && 'done')}
-                    onClick={this.onOpenModal}>5. Kabel</button>
+                    onClick={this.onOpenModal}
+                    disabled>5. Kabel</button>
                 <div
                     className={ 'divider ' + (this.props.chosen && 'done')}
                 ></div>
