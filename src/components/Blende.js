@@ -6,6 +6,7 @@ import blende_video from '../assets/blende_video.mp4';
 class Blende extends Component {
     state = {
         open: false,
+        disable: false
     };
 
     onOpenModal = () => {
@@ -36,9 +37,10 @@ class Blende extends Component {
         <source src={blende_video} type="video/mp4"/>
         </video>
         <h2>Gewünschte Blendeneinstellung</h2>
+            {this.checkMonitor}
         <div>
-            <button className="btn btn-2 btn-2a" onClick={() => this.handleBlende('K')}> Keinen </button>
-            <button className="btn btn-2 btn-2a" onClick={() => this.handleBlende('V')}> Voller Blendschutz </button>
+            <button className="btn btn-2 btn-2a" onClick={() => this.handleBlende('K')} disabled={this.state.disable}> Keinen </button>
+            <button className="btn btn-2 btn-2a" onClick={() => this.handleBlende('V')} disabled={this.state.disable}> Voller Blendschutz </button>
         </div>
         </Modal>
         </>

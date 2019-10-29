@@ -1,6 +1,7 @@
 import React from 'react';
 import tisch_video from '../assets/tisch_video.mp4';
 import Modal from "react-responsive-modal";
+import {ModalImagesPath} from "./PreviewImageHandler";
 
 class Table extends React.PureComponent {
 
@@ -21,6 +22,22 @@ class Table extends React.PureComponent {
         this.props.callback(size);
     };
 
+
+    loadPreviewImages = (images) => {
+        switch (images) {
+            case 'S':
+                return ModalImagesPath.small_table;
+            case 'M':
+                return ModalImagesPath.middle_table;
+            case 'L':
+                return ModalImagesPath.large_table;
+            default:
+                return ModalImagesPath.small_table
+        }
+
+    };
+
+
     render() {
 
         return (
@@ -36,14 +53,17 @@ class Table extends React.PureComponent {
         <source src={tisch_video} type="video/mp4"/>
         </video>
             <div>
+                {this.loadPreviewImages('S')}
                 <button className="btn btn-2 btn-2a" onClick={() => this.handleTable('S')}> KLEIN (bis zu 3 Monitore) </button>
             </div>
 
             <div>
+                {this.loadPreviewImages('M')}
                 <button className="btn btn-2 btn-2a" onClick={() => this.handleTable('M')}> MITTEL (bis zu 4 Monitore) </button>
             </div>
             
             <div>
+                {this.loadPreviewImages('L')}
                 <button className="btn btn-2 btn-2a" onClick={() => this.handleTable('L')}> GROß (bis zu Monitore) </button>
             </div>
         </Modal>

@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-responsive-modal';
 import monitor_video from '../assets/monitor_video.mp4';
+import {ModalImagesPath} from "./PreviewImageHandler";
 
 class Monitor extends React.Component {
 
@@ -37,15 +38,15 @@ class Monitor extends React.Component {
         }*/
     };
 
-    handleMonitorCount = (count) => {
+    /*handleMonitorCount = (count) => {
         this.props.callbackCount(count);
-    };
+    };*/
 
     handleMonitorRow = (row) => {
         this.props.callbackRow(row);
     };
 
-    renderMonitorButton(count) {
+    /*renderMonitorButton(count) {
 
         var disabled = false;
 
@@ -65,7 +66,26 @@ class Monitor extends React.Component {
                 disabled={disabled}
             > {count} Monitore </button>
         );
-    }
+    }*/
+
+    loadPreviewImages = (images) => {
+        switch(images) {
+            case 'reling':
+                return ModalImagesPath.reling;
+            case 'stativ':
+                return ModalImagesPath.stativ;
+            case 'reling_hv':
+                return ModalImagesPath.reling_hv;
+            case 'ohne':
+                return ModalImagesPath.small_table;
+            case 'one_row':
+                return ModalImagesPath.one_row;
+            case 'two_row':
+                return ModalImagesPath.two_row;
+            default:
+                return ModalImagesPath.stativ
+        }
+    };
 
 
     render() {
@@ -81,24 +101,36 @@ class Monitor extends React.Component {
             <video autoPlay={false} height="300" width="500" controls playsInline={false}>
                 <source src={monitor_video} type="video/mp4"/>
             </video>
-        <h2> Anzahl der Monitore </h2>
+        {/*<h2> Anzahl der Monitore </h2>*/}
         <div>
-            {this.renderMonitorButton(3)}
+            {/*{this.renderMonitorButton(3)}
             {this.renderMonitorButton(4)}
-            {this.renderMonitorButton(5)}
+            {this.renderMonitorButton(5)}*/}
         </div>
         <div>
         <h2> 1-reihig oder 2-reihig? </h2>
+            {this.loadPreviewImages('one_row')}
             <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorRow(1)}> 1 - Reihig </button>
         </div>
         <div>
+            {this.loadPreviewImages('two_row')}
             <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorRow(2)}> 2 - Reihig </button>
         </div>
         <h2>Monitorsystem</h2>
         <div>
-            <button id="ohne" className="btn btn-2 btn-2a" onClick={() => this.handleMonitorSystem('O')}>1. OHNE </button>
-            <button id="stativ" className="btn btn-2 btn-2a" onClick={() => this.handleMonitorSystem('S')}> 2. STATIVSYSTEM </button>
+            {this.loadPreviewImages('ohne')}
+            <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorSystem('O')}>1. OHNE </button>
+        </div>
+        <div>
+            {this.loadPreviewImages('stativ')}
+            <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorSystem('S')}> 2. STATIVSYSTEM </button>
+        </div>
+        <div>
+            {this.loadPreviewImages('reling')}
             <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorSystem('R')}>3. RELING: OHNE HV </button>
+        </div>
+        <div>
+            {this.loadPreviewImages('reling_hv')}
             <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorSystem('H')}> 4. RELING: MIT HV </button>
         </div>
         </Modal>

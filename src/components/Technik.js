@@ -17,10 +17,7 @@ class Technik extends React.Component {
     };
 
     handleTechnikSide = (sides) => {
-        if (this.props.callbackSide(sides) === 'B') {
-        } else {
-            this.props.callbackSide(sides);
-        }
+        this.props.callbackSide(sides)
     };
 
 
@@ -36,7 +33,7 @@ class Technik extends React.Component {
 
         <button
             className={ 'navBtn ' + (this.props.chosen && 'done')}
-            onClick={this.onOpenModal}>6. Technik</button>
+            onClick={this.onOpenModal}>5. Technik</button>
         <div className={'divider ' + (this.props.chosen && 'done')} />
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
         <h2>Technik Integration</h2>
@@ -45,8 +42,7 @@ class Technik extends React.Component {
         </video>
         <h2> Treffen Sie Ihre Auswahl </h2>
         <div>
-            <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnikSide('L')}> Linksseitig </button>
-            <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnikSide('R')}> Rechtsseitig </button>
+            <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnikSide('E')}> Einseitig </button>
             <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnikSide('B')}> Beidseitig </button>
             <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnikSide('O')}> Ohne </button>
         </div>

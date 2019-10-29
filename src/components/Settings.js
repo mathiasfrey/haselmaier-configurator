@@ -4,13 +4,11 @@ import Monitor from "./Monitor";
 import Blende from "./Blende";
 import Height from "./Height";
 import Technik from "./Technik";
-import Kabel from "./Kabel";
+// import Kabel from "./Kabel";
 import Summary from "./Summary";
 import ProductDisplay from "./ProductDisplay";
 import ProductCodeForm from './ProductCodeForm';
 import ProductCode from './ProductCode';
-
-
 
 
 class Settings extends React.Component {
@@ -86,7 +84,7 @@ class Settings extends React.Component {
             return false;
         }
 
-        function matchMonitorCount(code) {
+       /* function matchMonitorCount(code) {
             const monitorCountRegex = /[345]/;
             if (code.match(monitorCountRegex)) {
                 const monitorCount = code.match(monitorCountRegex)[0];
@@ -96,7 +94,7 @@ class Settings extends React.Component {
                 }
             }
             return false;
-        }
+        }*/
 
 
        function matchBlende(code) {
@@ -111,7 +109,7 @@ class Settings extends React.Component {
             return false;
         }
 
-        function matchKabel(code) {
+       /* function matchKabel(code) {
             const kabelRegex = /[MO]/;
             if (code.match(kabelRegex)) {
                 const kabel = code.match(kabelRegex)[0];
@@ -121,10 +119,10 @@ class Settings extends React.Component {
                 }
             }
             return false;
-        }
+        }*/
 
        function matchTechnikSide(code) {
-            const technikRegex = /[LRBO]/;
+            const technikRegex = /[EBO]/;
             if (code.match(technikRegex)) {
                 const technikSide = code.match(technikRegex)[0];
                 return {
@@ -151,7 +149,8 @@ class Settings extends React.Component {
     
         var originalCode = code;
         var rv; // return value
-        var table, height, monitorRow, monitorSystem, monitorCount, blende, kabel, technikSide, technikContainer;
+        var table, height, monitorRow, monitorSystem,/*monitorCount*/
+        blende, /*kabel*/ technikSide, technikContainer;
 
         // parse product code
         // step by step match and replace from LTR
@@ -183,12 +182,12 @@ class Settings extends React.Component {
         }
         monitorSystem = rv.monitorSystem;
 
-        rv = matchMonitorCount(rv.remainder);
+        /*rv = matchMonitorCount(rv.remainder);
         if (rv === false) {
             codeAlertError(originalCode);
             return false;
         }
-        monitorCount = rv.monitorCount;
+        monitorCount = rv.monitorCount;*/
 
 
         rv = matchHeight(rv.remainder);
@@ -205,12 +204,12 @@ class Settings extends React.Component {
         }
         blende = rv.blende;
 
-        rv = matchKabel(rv.remainder);
+       /* rv = matchKabel(rv.remainder);
         if (rv === false) {
             codeAlertError(originalCode);
             return false;
         }
-        kabel = rv.kabel;
+        kabel = rv.kabel;*/
 
         rv = matchTechnikSide(rv.remainder);
         if (rv === false) {
@@ -226,8 +225,6 @@ class Settings extends React.Component {
         }
         technikContainer = rv.technikContainer;
 
-
-
         // 9 values will be set
         this.setState(
             {
@@ -235,9 +232,9 @@ class Settings extends React.Component {
                 chosenHeight: height,
                 chosenMonitorRow: monitorRow,
                 chosenMonitorSystem: monitorSystem,
-                chosenMonitorCount: monitorCount,
+                // chosenMonitorCount: monitorCount,
                 chosenBlende: blende,
-                chosenKabel: kabel,
+                // chosenKabel: kabel,
                 chosenTechnikSide: technikSide,
                 chosenTechnikContainer: technikContainer
 
@@ -267,9 +264,9 @@ class Settings extends React.Component {
         this.setState({chosenMonitorRow: row});
     };
 
-    setMonitorCountState = (count) => {
+    /*setMonitorCountState = (count) => {
         this.setState({chosenMonitorCount: count})
-    };
+    };*/
 
     //BLEND CONFIGURATION
 
@@ -280,9 +277,9 @@ class Settings extends React.Component {
 
     // KABEL CONFIGURATION
 
-    setKabelState = (kabel) => {
+   /* setKabelState = (kabel) => {
         this.setState({chosenKabel: kabel});
-    };
+    };*/
 
 
     //TECHNIK CONFIGURATION
@@ -355,21 +352,23 @@ class Settings extends React.Component {
                     <Monitor
                         callbackSystem={this.setMonitorSystemState}
                         callbackRow={this.setMonitorRowState}
-                        callbackCount={this.setMonitorCountState}
+                        callbackBlende={this.setBlendeState}
+                        // callbackCount={this.setMonitorCountState}
                         tableDependency={this.state.chosenTable} // Dependency for choosing the monitor size
                         chosen={this.state.chosenMonitorSystem} /* this is probably a hack: in case the system is chosen highlight monitor */
                     />
                     <Blende
+                        monitorDependency={this.state.chosenMonitorSystem}
                         callback={this.setBlendeState}
                         chosen={this.state.chosenBlende}
                     />
 
-                    <Kabel
+                   {/* <Kabel
                         monitorDependency={['R', 'H'].includes(this.chosenMonitorSystem)} // only active if R or H
                         navDependency={! isNaN(this.chosenBlende)} // true if blende is chosen
                         callback={this.setKabelState}
                         chosen={this.state.chosenKabel}
-                    />
+                    />*/}
                     
                     <Technik
                         callbackSide={this.setChosenTechnikSidesState}
@@ -389,7 +388,7 @@ class Settings extends React.Component {
                         monitorCount={this.state.chosenMonitorCount}
                         monitorSystem={this.state.chosenMonitorSystem}
                         blende={this.state.chosenBlende}
-                        cable={this.state.chosenKabel}
+                        // cable={this.state.chosenKabel}
                         technikSide={this.state.chosenTechnikSide}
                         technikContainer={this.state.chosenTechnikContainer}
                     />
@@ -400,7 +399,7 @@ class Settings extends React.Component {
                         monitorCount={this.state.chosenMonitorCount}
                         monitorSystem={this.state.chosenMonitorSystem}
                         blende={this.state.chosenBlende}
-                        cable={this.state.chosenKabel}
+                        // cable={this.state.chosenKabel}
                         technikSide={this.state.chosenTechnikSide}
                         technikContainer={this.state.chosenTechnikContainer}
                     />
