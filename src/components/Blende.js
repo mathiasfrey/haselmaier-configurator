@@ -39,8 +39,8 @@ class Blende extends Component {
         <h2>Gewünschte Blendeneinstellung</h2>
             {this.checkMonitor}
         <div>
-            <button className="btn btn-2 btn-2a" onClick={() => this.handleBlende('K')} disabled={this.state.disable}> Keinen </button>
-            <button className="btn btn-2 btn-2a" onClick={() => this.handleBlende('V')} disabled={this.state.disable}> Voller Blendschutz </button>
+            <button className="btn btn-2 btn-2a" onClick={() => this.handleBlende('X')} disabled={this.state.disable}> Keinen </button>
+            <button className="btn btn-2 btn-2a" onClick={() => this.handleBlende('B')} disabled={this.state.disable}> Voller Blendschutz </button>
         </div>
         </Modal>
         </>

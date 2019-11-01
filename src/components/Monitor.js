@@ -119,7 +119,7 @@ class Monitor extends React.Component {
         <h2>Monitorsystem</h2>
         <div>
             {this.loadPreviewImages('ohne')}
-            <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorSystem('O')}>1. OHNE </button>
+            <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorSystem('X')}>1. OHNE </button>
         </div>
         <div>
             {this.loadPreviewImages('stativ')}
@@ -127,7 +127,7 @@ class Monitor extends React.Component {
         </div>
         <div>
             {this.loadPreviewImages('reling')}
-            <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorSystem('R')}>3. RELING: OHNE HV </button>
+            <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorSystem('F')}>3. RELING: OHNE HV </button>
         </div>
         <div>
             {this.loadPreviewImages('reling_hv')}

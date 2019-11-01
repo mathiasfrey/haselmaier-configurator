@@ -59,19 +59,7 @@ class Settings extends React.Component {
             return false;
         }
 
-        function matchMonitorSystem(code) {
-            const monitorSystemsRegex = /[OSRH]/;
-            if (code.match(monitorSystemsRegex)) {
-                const monitorSystem = code.match(monitorSystemsRegex)[0];
-                return {
-                    'monitorSystem': monitorSystem,
-                    'remainder': code.replace(monitorSystemsRegex, '')
-                };
-            }
-            
-            return false;
-        }
-        function matchMonitorRow(code) {
+          function matchMonitorRow(code) {
             const monitorRowRegex = /[12]/;
             if (code.match(monitorRowRegex)) {
                 const monitorRow = code.match(monitorRowRegex)[0];
@@ -83,6 +71,20 @@ class Settings extends React.Component {
             }
             return false;
         }
+
+        function matchMonitorSystem(code) {
+            const monitorSystemsRegex = /[XFHS]/;
+            if (code.match(monitorSystemsRegex)) {
+                const monitorSystem = code.match(monitorSystemsRegex)[0];
+                return {
+                    'monitorSystem': monitorSystem,
+                    'remainder': code.replace(monitorSystemsRegex, '')
+                };
+            }
+            
+            return false;
+        }
+
 
        /* function matchMonitorCount(code) {
             const monitorCountRegex = /[345]/;
@@ -98,7 +100,7 @@ class Settings extends React.Component {
 
 
        function matchBlende(code) {
-            const blendeRegex = /[KV]/;
+            const blendeRegex = /[XB]/;
             if (code.match(blendeRegex)) {
                 const blende = code.match(blendeRegex)[0];
                 return {
@@ -122,7 +124,7 @@ class Settings extends React.Component {
         }*/
 
        function matchTechnikSide(code) {
-            const technikRegex = /[EBO]/;
+            const technikRegex = /[XEB]/;
             if (code.match(technikRegex)) {
                 const technikSide = code.match(technikRegex)[0];
                 return {
@@ -134,7 +136,7 @@ class Settings extends React.Component {
         }
 
        function matchTechnikContainer(code) {
-            const technikRegex = /[MO]/;
+            const technikRegex = /[XL]/;
             if (code.match(technikRegex)) {
                 const technikContainer = code.match(technikRegex)[0];
                 return {
@@ -168,6 +170,13 @@ class Settings extends React.Component {
         }
         table = rv.table;
 
+        rv = matchHeight(rv.remainder);
+        if (rv === false) {
+            codeAlertError(originalCode);
+            return false;
+        }
+        height = rv.height;
+
         rv = matchMonitorRow(rv.remainder);
         if (rv === false) {
             codeAlertError(originalCode);
@@ -188,14 +197,6 @@ class Settings extends React.Component {
             return false;
         }
         monitorCount = rv.monitorCount;*/
-
-
-        rv = matchHeight(rv.remainder);
-        if (rv === false) {
-            codeAlertError(originalCode);
-            return false;
-        }
-        height = rv.height;
 
         rv = matchBlende(rv.remainder);
         if (rv === false) {

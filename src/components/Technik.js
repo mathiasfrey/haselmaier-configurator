@@ -44,12 +44,12 @@ class Technik extends React.Component {
         <div>
             <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnikSide('E')}> Einseitig </button>
             <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnikSide('B')}> Beidseitig </button>
-            <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnikSide('O')}> Ohne </button>
+            <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnikSide('X')}> Ohne </button>
         </div>
         <h2> Treffen Sie Ihre Auswahl </h2>
         <div>
-            <button className="btn btn-2 btn-2a" onClick={() => this.handleContainer('M')} disabled={this.state.disabled}> Mit Ladencontainer </button>
-            <button className="btn btn-2 btn-2a" onClick={() => this.handleContainer('O')} disabled={this.state.disabled}> Ohne Ladencontainer </button>
+            <button className="btn btn-2 btn-2a" onClick={() => this.handleContainer('L')} disabled={this.state.disabled}> Mit Ladencontainer </button>
+            <button className="btn btn-2 btn-2a" onClick={() => this.handleContainer('X')} disabled={this.state.disabled}> Ohne Ladencontainer </button>
         </div>
         </Modal>
         </>
