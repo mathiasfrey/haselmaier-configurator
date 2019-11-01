@@ -23,6 +23,7 @@ class Technik extends React.Component {
 
     handleContainer = (container) => {
         this.props.callbackContainer(container);
+        this.setState({ open: false })
     };
 
 
