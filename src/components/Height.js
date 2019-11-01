@@ -25,11 +25,11 @@ class Height extends React.Component {
     loadPreviewImages = (images) => {
         switch (images) {
             case 'E':
-                return ModalImagesPath.small_table;
+                return ModalImagesPath.eco;
             case 'V':
-                return ModalImagesPath.small_table;
+                return ModalImagesPath.vario;
             default:
-                return ModalImagesPath.small_table
+                return ModalImagesPath.eco
         }
 
     };

@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-responsive-modal';
 import technik_video from '../assets/technik_video.mp4';
+import {ModalImagesPath} from "./PreviewImageHandler";
 
 class Technik extends React.Component {
     state = {
@@ -26,6 +27,23 @@ class Technik extends React.Component {
         this.setState({ open: false })
     };
 
+    loadPreviewImage = (image) => {
+        switch (image) {
+            case 'E':
+                return ModalImagesPath.einseitig;
+            case 'B':
+                return ModalImagesPath.beidseitig;
+            case 'XSide':
+                return ModalImagesPath.two_row;
+            case 'L':
+                return ModalImagesPath.mit_container;
+            case 'XContainer':
+                return ModalImagesPath.ohne_container
+            default:
+                return ModalImagesPath.two_row;
+        }
+    };
+
 
 
     render() {
@@ -43,14 +61,25 @@ class Technik extends React.Component {
         </video>
         <h2> Treffen Sie Ihre Auswahl </h2>
         <div>
+            {this.loadPreviewImage('E')}
             <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnikSide('E')}> Einseitig </button>
+        </div>
+        <div>
+            {this.loadPreviewImage('B')}
             <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnikSide('B')}> Beidseitig </button>
+        </div>
+        <div>
+            {this.loadPreviewImage('XSide')}
             <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnikSide('X')}> Ohne </button>
         </div>
         <h2> Treffen Sie Ihre Auswahl </h2>
         <div>
-            <button className="btn btn-2 btn-2a" onClick={() => this.handleContainer('L')} disabled={this.state.disabled}> Mit Ladencontainer </button>
-            <button className="btn btn-2 btn-2a" onClick={() => this.handleContainer('X')} disabled={this.state.disabled}> Ohne Ladencontainer </button>
+            {this.loadPreviewImage('L')}
+            <button className="btn btn-2 btn-2a" onClick={() => this.handleContainer('L')}> Mit Ladencontainer </button>
+        </div>
+        <div>
+            {this.loadPreviewImage('XContainer')}
+            <button className="btn btn-2 btn-2a" onClick={() => this.handleContainer('X')} > Ohne Ladencontainer </button>
         </div>
         </Modal>
         </>
