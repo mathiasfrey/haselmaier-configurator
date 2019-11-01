@@ -7,7 +7,7 @@ class Summary extends React.Component {
 
     render() {
         return (
-            <div className="current_state summary">
+            <div>
             <h3> Mein Tisch </h3>
             <br />
             <h6> Tischgröße </h6>

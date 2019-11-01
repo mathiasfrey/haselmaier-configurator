@@ -330,7 +330,7 @@ class Settings extends React.Component {
       return (
             <>
                 <div className="productcode">
-                    <div className="padding-left input">
+                    <div>
                         <ProductCodeForm
                             callback={this.code2state}
                         />
