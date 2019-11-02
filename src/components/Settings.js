@@ -386,7 +386,7 @@ class Settings extends React.Component {
                         table={this.state.chosenTable}
                         height={this.state.chosenHeight}
                         monitorRow={this.state.chosenMonitorRow}
-                        monitorCount={this.state.chosenMonitorCount}
+                        //monitorCount={this.state.chosenMonitorCount}
                         monitorSystem={this.state.chosenMonitorSystem}
                         blende={this.state.chosenBlende}
                         // cable={this.state.chosenKabel}

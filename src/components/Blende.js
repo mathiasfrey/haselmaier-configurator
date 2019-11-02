@@ -19,8 +19,8 @@ class Blende extends Component {
     };
 
     handleBlende = (blende) => {
-        this.setState({ open: false});
         this.props.callback(blende)
+        this.setState({ open: false});
     };
 
     loadPreviewImage = (image) => {
