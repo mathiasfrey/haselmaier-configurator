@@ -24,8 +24,19 @@ class Technik extends React.Component {
 
     handleContainer = (container) => {
         this.props.callbackContainer(container);
-        this.setState({ open: false })
+        // this.setState({ open: false })
     };
+
+    renderContainerButton(container) {
+        var disabled = false;
+        if (this.props.chosenSide === 'B') {
+            disabled = true;
+        }
+        return (
+            <button className="btn btn-2 btn-2a"
+            onClick={() => this.handleContainer(container)} disabled={disabled}> {container} Container </button>
+        )
+    }
 
     loadPreviewImage = (image) => {
         switch (image) {
@@ -43,7 +54,6 @@ class Technik extends React.Component {
                 return ModalImagesPath.two_row;
         }
     };
-
 
 
     render() {
@@ -75,11 +85,11 @@ class Technik extends React.Component {
         <h2> Treffen Sie Ihre Auswahl </h2>
         <div>
             {this.loadPreviewImage('L')}
-            <button className="btn btn-2 btn-2a" onClick={() => this.handleContainer('L')}> Mit Ladencontainer </button>
+            {this.renderContainerButton('L')}
         </div>
         <div>
             {this.loadPreviewImage('XContainer')}
-            <button className="btn btn-2 btn-2a" onClick={() => this.handleContainer('X')} > Ohne Ladencontainer </button>
+            {this.renderContainerButton('X')}
         </div>
         </Modal>
         </>
