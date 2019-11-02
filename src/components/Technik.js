@@ -6,7 +6,6 @@ import {ModalImagesPath} from "./PreviewImageHandler";
 class Technik extends React.Component {
     state = {
         open: false,
-        disabled: false,
     };
 
     onOpenModal = () => {
@@ -23,8 +22,13 @@ class Technik extends React.Component {
 
 
     handleContainer = (container) => {
-        this.props.callbackContainer(container);
-        // this.setState({ open: false })
+        if (this.props.chosenSide != null) {
+           this.props.callbackContainer(container);
+           this.setState({ open: false })
+        } else {
+            alert('Please choose your side first 🌟 ')
+        }
+
     };
 
     renderContainerButton(container) {
