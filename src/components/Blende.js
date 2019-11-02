@@ -26,12 +26,32 @@ class Blende extends Component {
     loadPreviewImage = (image) => {
         switch (image) {
             case 'X':
-                return ModalImagesPath.ohne_blende
+                return ModalImagesPath.ohne_blende;
             case 'B':
-                return ModalImagesPath.mit_blende
+                return ModalImagesPath.mit_blende;
             default:
                 return ModalImagesPath.ohne_blende
         }
+    };
+
+    renderBlendeButton = () => {
+
+        var disabled = false;
+
+        if (this.props.monitorDependency === 'X') {
+            disabled = true;
+        } else if (this.props.monitorDependency === 'S') {
+            disabled = true;
+        }
+
+        return (
+            <>
+              <button
+            className={ 'navBtn ' + (this.props.chosen && 'done')}
+            onClick={this.onOpenModal} disabled={disabled}>4. Blende</button>
+                <div className={'divider ' + (this.props.chosen && 'done')} />
+            </>
+        )
     };
 
 
@@ -39,11 +59,7 @@ class Blende extends Component {
     render() {
         return (
         <>
-        <button
-            className={ 'navBtn ' + (this.props.chosen && 'done')}
-            onClick={this.onOpenModal}>4. Blende</button>
-        <div className={'divider ' + (this.props.chosen && 'done')} />
-
+        {this.renderBlendeButton()}
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
         <video autoPlay={false} height="300" width="500" controls playsInline={false}>
         <source src={blende_video} type="video/mp4"/>
