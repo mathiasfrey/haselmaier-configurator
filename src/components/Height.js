@@ -31,16 +31,29 @@ class Height extends React.Component {
             default:
                 return ModalImagesPath.eco
         }
+    };
 
+    renderHeightButton = () => {
+        var disabled = true;
+        if (this.props.navDependencyTable != null) {
+            disabled = false
+        } else {
+            disabled = true
+        }
+        return (
+            <>
+            <button
+            className={ 'navBtn ' + (this.props.chosen && 'done')}
+            onClick={this.onOpenModal} disabled={disabled}>2. Höhenverstellbar</button>
+            <div className={'divider ' + (this.props.chosen && 'done')} />
+            </>
+        )
     };
 
     render() {
         return (
         <>
-        <button
-            className={ 'navBtn ' + (this.props.chosen && 'done')}
-            onClick={this.onOpenModal}>2. Höhenverstellbar</button>
-        <div className={'divider ' + (this.props.chosen && 'done')} />
+       {this.renderHeightButton()}
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
         <h2>Höhenverstellbar</h2>
         <video autoPlay={false} height="300" width="500" controls playsInline={false}>

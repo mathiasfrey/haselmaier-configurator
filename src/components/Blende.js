@@ -19,7 +19,7 @@ class Blende extends Component {
     };
 
     handleBlende = (blende) => {
-        this.props.callback(blende)
+        this.props.callback(blende);
         this.setState({ open: false});
     };
 
@@ -36,8 +36,10 @@ class Blende extends Component {
 
     renderBlendeButton = () => {
 
-        var disabled = false;
-
+        var disabled = true;
+        if (this.props.monitorDependency != null) {
+            disabled = false
+        }
         if (this.props.monitorDependency === 'X') {
             disabled = true;
         } else if (this.props.monitorDependency === 'S') {
@@ -46,10 +48,10 @@ class Blende extends Component {
 
         return (
             <>
-              <button
+            <button
             className={ 'navBtn ' + (this.props.chosen && 'done')}
             onClick={this.onOpenModal} disabled={disabled}>4. Blende</button>
-                <div className={'divider ' + (this.props.chosen && 'done')} />
+            <div className={'divider ' + (this.props.chosen && 'done')} />
             </>
         )
     };

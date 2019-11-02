@@ -346,11 +346,13 @@ class Settings extends React.Component {
                     />
 
                     <Height
+                        navDependencyTable={this.state.chosenTable}
                         callback={this.setHeightState}
                         chosen={this.state.chosenHeight}
                     />
 
                     <Monitor
+                        navDependencyHeight={this.state.chosenHeight}
                         callbackSystem={this.setMonitorSystemState}
                         callbackRow={this.setMonitorRowState}
                         callbackBlende={this.setBlendeState}
@@ -372,6 +374,7 @@ class Settings extends React.Component {
                     />*/}
                     
                     <Technik
+                        navDependencyBlende={this.state.chosenBlende}
                         callbackSide={this.setChosenTechnikSidesState}
                         callbackContainer={this.setChosenTechnikContainerState}
                         chosenSide={this.state.chosenTechnikSide}

@@ -87,15 +87,29 @@ class Monitor extends React.Component {
         }
     };
 
+    renderMonitorButton = () => {
+        var disabled = true;
+        if (this.props.navDependencyHeight != null) {
+            disabled = false
+        } else {
+            disabled = true
+        }
+        return (
+            <>
+             <button
+            className={ 'navBtn ' + (this.props.chosen && 'done')}
+            onClick={this.onOpenModal} disabled={disabled}>3. Monitortragsystem</button>
+            <div className={'divider ' + (this.props.chosen && 'done')} />
+        </>
+        )
+    };
+
 
     render() {
 
         return (
         <>
-        <button
-            className={ 'navBtn ' + (this.props.chosen && 'done')}
-            onClick={this.onOpenModal}>3. Monitortragsystem</button>
-        <div className={'divider ' + (this.props.chosen && 'done')} />
+        {this.renderMonitorButton()}
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
         <h2> Monitortragsystem </h2>
             <video autoPlay={false} height="300" width="500" controls playsInline={false}>
