@@ -374,6 +374,7 @@ class Settings extends React.Component {
                     />*/}
                     
                     <Technik
+                        navDependencyMonitor={this.state.chosenMonitorSystem}
                         navDependencyBlende={this.state.chosenBlende}
                         callbackSide={this.setChosenTechnikSidesState}
                         callbackContainer={this.setChosenTechnikContainerState}
