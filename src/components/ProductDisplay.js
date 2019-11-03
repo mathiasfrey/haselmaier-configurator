@@ -1,8 +1,8 @@
 import React from 'react';
 import table from '../assets/TTV/TTV.ME/TTV.MEXXXXXXX.jpg'
-import reling from '../assets/TTV/RAILING_STATIV/1RRF.jpg'
+import reling from '../assets/TTV/TTV.MV/TTV.MV2RRFXXX.jpg'
 import stativ from '../assets/TTV/RAILING_STATIV/1RST.jpg'
-import reling_hv from '../assets/TTV/RAILING_STATIV/1RRH.jpg'
+import reling_hv from '../assets/TTV/TTV.MV/TTV.MV2RRHXXX.jpg'
 import one_row from '../assets/TTV/TTV.MV/TTV.MV1RRFXXX.jpg'
 import two_row from '../assets/TTV/TTV.ME/TTV.ME2RSTXXX.jpg'
 import ohne_blende from '../assets/TTV/TTV.MV/TTV.MV1RRFXBX.jpg'
@@ -62,18 +62,16 @@ class ProductDisplay extends React.PureComponent {
             )
         }
         //MONITOR
-        if (this.props.monitorRow === '1') {
+        if (this.props.monitorRow === 1) {
             return (
                 <img src={one_row} alt="" height={600} width={900} />
             )
-        } else if (this.props.monitorRow === '2') {
+        } else if (this.props.monitorRow === 2) {
             return (
                 <img src={two_row} alt="" height={600} width={900} />
             )
         } else if (this.props.monitorSystem === 'X') {
-            return (
-                <img src={table} alt="" height={600} width={900} />
-            )
+            return null
         } else if (this.props.monitorSystem === 'S') {
             return (
                 <img src={stativ} alt="" height={600} width={900} />
