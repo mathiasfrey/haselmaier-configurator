@@ -17,7 +17,20 @@ class Technik extends React.Component {
     };
 
     handleTechnikSide = (sides) => {
-        this.props.callbackSide(sides)
+        if (sides === 'E' || sides === 'X') {
+            this.props.callbackSide(sides)
+        } else {
+            this.props.callbackSide(sides);
+            this.setContainerState('X');
+            this.setState({open: false})
+
+        }
+
+    };
+
+    // Set Container State to 'X' (default status when choosing TechnikSide: B) - Fixed Length of ProductCode
+    setContainerState = (container) => {
+        this.props.callbackContainer(container)
     };
 
 
@@ -72,7 +85,7 @@ class Technik extends React.Component {
             <button
             className={ 'navBtn ' + (this.props.chosenSide && 'done')}
             onClick={this.onOpenModal} disabled={disabled}>5. Technik</button>
-            <div className={'divider ' + (this.props.chosen && 'done')} />
+            <div className={'divider ' + (this.props.chosenSide && 'done')} />
             </>
         )
     };

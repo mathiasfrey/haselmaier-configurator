@@ -18,8 +18,23 @@ class Monitor extends React.Component {
     };
 
     handleMonitorSystem = (system) => {
-        this.setState({open: false});
-        this.props.callbackSystem(system);
+
+        if (this.props.chosenRow != null) {
+            if (system === 'F' || system === 'H') {
+               this.props.callbackSystem(system);
+               this.setState({open: false})
+            } else {
+                this.props.callbackSystem(system);
+                this.setBlendeState('X');
+                this.setState({open: false})
+            }
+        } else {
+            alert('Please choose a row 🌟')
+        }
+
+
+
+
         /*if (system === 'OHNE') {
             // URGENT FIX: This is an anti-pattern!
             // a React application has a single state
@@ -36,6 +51,12 @@ class Monitor extends React.Component {
             // document.getElementById('kabel').disabled = false;
             // this.props.monitorSystemRelingHV();
         }*/
+    };
+
+
+    // Set Blende State to 'X' (default status when choosing MonitorSystem: S or X) - Fixed Length of ProductCode
+    setBlendeState = (blende) => {
+        this.props.blendeState(blende)
     };
 
     /*handleMonitorCount = (count) => {

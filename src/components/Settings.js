@@ -317,14 +317,6 @@ class Settings extends React.Component {
         )
     };
 
-    handleProduct() {
-        return (
-<></>
-
-        );
-    }
-
-
     render() {
 
       return (
@@ -355,10 +347,11 @@ class Settings extends React.Component {
                         navDependencyHeight={this.state.chosenHeight}
                         callbackSystem={this.setMonitorSystemState}
                         callbackRow={this.setMonitorRowState}
-                        callbackBlende={this.setBlendeState}
+                        blendeState={this.setBlendeState}
                         // callbackCount={this.setMonitorCountState}
                         tableDependency={this.state.chosenTable} // Dependency for choosing the monitor size
                         chosen={this.state.chosenMonitorSystem} /* this is probably a hack: in case the system is chosen highlight monitor */
+                        chosenRow={this.state.chosenMonitorRow}
                     />
                     <Blende
                         monitorDependency={this.state.chosenMonitorSystem}
