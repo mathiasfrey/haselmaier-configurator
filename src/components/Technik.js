@@ -8,6 +8,9 @@ class Technik extends React.Component {
         open: false,
     };
 
+
+
+
     onOpenModal = () => {
     this.setState({ open: true });
     };
@@ -45,9 +48,11 @@ class Technik extends React.Component {
     };
 
     renderContainerButton(container) {
-        var disabled = false;
+        var disabled = true;
         if (this.props.chosenSide === 'B') {
             disabled = true;
+        } else {
+            disabled = false;
         }
         return (
             <button className="btn btn-2 btn-2a"
@@ -76,11 +81,7 @@ class Technik extends React.Component {
         var disabled = true;
         if (this.props.navDependencyBlende == null) {
             disabled = true
-        } else if (this.props.navDependencyBlende != null || this.props.navDependencyMonitor != null) {
-            disabled = false
-        } else {
-            disabled = true
-        }
+        } else disabled = false;
 
         return (
             <>

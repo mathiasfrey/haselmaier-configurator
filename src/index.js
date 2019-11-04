@@ -4,13 +4,13 @@ import { Route, BrowserRouter as Router } from 'react-router-dom'
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import Video from "./components/Video";
+
+
 
 const routing = (
   <Router>
     <div>
       <Route path="/" component={App} />
-      <Route path="/video" component={Video} />
     </div>
   </Router>
 );
