@@ -74,7 +74,9 @@ class Technik extends React.Component {
 
     renderTechnikButton = () => {
         var disabled = true;
-        if (this.props.navDependencyBlende != null || this.props.navDependencyMonitor != null) {
+        if (this.props.navDependencyBlende == null) {
+            disabled = true
+        } else if (this.props.navDependencyBlende != null || this.props.navDependencyMonitor != null) {
             disabled = false
         } else {
             disabled = true
@@ -83,9 +85,9 @@ class Technik extends React.Component {
         return (
             <>
             <button
-            className={ 'navBtn ' + (this.props.chosenSide && 'done')}
+            className={ 'navBtn ' + (this.props.chosenSide && this.props.chosenContainer && 'done')}
             onClick={this.onOpenModal} disabled={disabled}>5. Technik</button>
-            <div className={'divider ' + (this.props.chosenSide && 'done')} />
+            <div className={'divider ' + (this.props.chosenSide && this.props.chosenContainer && 'done')} />
             </>
         )
     };
