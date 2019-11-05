@@ -32,6 +32,7 @@ $margin-small: 15px;
 }
 
 
+
 .background_black {
     background-color: #000000;
     text-align: center;
@@ -59,6 +60,12 @@ $margin-small: 15px;
   padding: 0 20px 10px 10px;
   line-height: 2px;
   color: #0096d0;
+}
+
+.navigation {
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }
 
 .lineSpacing {
@@ -395,6 +402,10 @@ h4 {
         position: relative;
         left: 0;
         bottom: 0;
+    }
+
+    .navigation {
+        left: 0;
     }
 
 

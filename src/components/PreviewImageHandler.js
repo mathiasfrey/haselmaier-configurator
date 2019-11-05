@@ -1,5 +1,6 @@
 import React from 'react';
-import table from '../assets/TTV/TTV.ME/TTV.MEXXXXXXX.jpg'
+import table_small from '../assets/TTV/TTV.ME/TTV.MEXXXXXXX.jpg'
+import table_large from '../assets/TTV/TTV.LE/TTV.LEXXXXXXX.jpg'
 import reling from '../assets/TTV/RAILING_STATIV/1RRF.jpg'
 import stativ from '../assets/TTV/RAILING_STATIV/1RST.jpg'
 import reling_hv from '../assets/TTV/RAILING_STATIV/1RRH.jpg'
@@ -11,26 +12,22 @@ import einseitig from '../assets/TTV/TTV.ME/TTV.ME1RRHBEX.jpg'
 import beidseitig from '../assets/TTV/TTV.ME/TTV.ME1RRHBBX.jpg'
 import mit_container from '../assets/TTV/TTV.ME/TTV.ME1RRHXXL.jpg'
 import ohne_container from '../assets/TTV/TTV.ME/TTV.ME1RRHXXX.jpg'
-import four_monitor from '../assets/notable_white_four_monitors.png'
-import eight_monitor from '../assets/notable_white_eight_monitors.png'
+
 
 export const ModalImagesPath = {
     //Table
-  small_table: <img src={table} height="150" width="250" alt="ref"/>,
-  middle_table: <img src={table} height="150" width="250" alt="ref"/>,
-  large_table: <img src={table} height="150" width="250" alt="ref"/>,
+  small_table: <img src={table_small} height="150" width="250" alt="ref"/>,
+  middle_table: <img src={table_small} height="150" width="250" alt="ref"/>,
+  large_table: <img src={table_large} height="150" width="250" alt="ref"/>,
     //Height
-  eco: <img src={table} height="150" width="250" alt="ref"/>,
-  vario: <img src={table} height="150" width="250" alt="ref"/>,
+  eco: <img src={table_small} height="150" width="250" alt="ref"/>,
+  vario: <img src={table_small} height="150" width="250" alt="ref"/>,
     //Monitor
   reling: <img src={reling} height="150" width="250" alt="ref"/>,
   stativ: <img src={stativ} height="150" width="250" alt="ref"/>,
   reling_hv: <img src={reling_hv} height="150" width="250" alt="ref"/>,
   two_row: <img src={two_row} height="150" width="250" alt="ref"/>,
   one_row: <img src={one_row} height="150" width="205" alt="ref"/>,
-
-  four_monitor: <img src={four_monitor} height="150" width="250" alt="ref"/>,
-  eight_monitor: <img src={eight_monitor} height="150" width="250" alt="ref"/>,
     //Blende
   ohne_blende: <img src={ohne_blende} height="150" width="250" alt="ref"/>,
   mit_blende: <img src={mit_blende} height="150" width="250" alt="ref"/>,

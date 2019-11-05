@@ -9,6 +9,7 @@ import Summary from "./Summary";
 import ProductDisplay from "./ProductDisplay";
 import ProductCodeForm from './ProductCodeForm';
 import ProductCode from './ProductCode';
+import Navigation from "./Navigation";
 
 
 class Settings extends React.Component {
@@ -301,24 +302,7 @@ class Settings extends React.Component {
         this.setState({})
     };
 
-    handleSummary = () => {
-        return (
-            <Summary
-                    chosenTable={this.state.chosenTable}
-                    chosenMonitorCount={this.state.chosenMonitorCount}
-                    chosenMonitorRow={this.state.chosenMonitorRow}
-                    chosenMonitorSystem={this.state.chosenMonitorSystem}
-                    chosenHeight={this.state.chosenHeight}
-                    chosenBlende={this.state.chosenBlende}
-                    chosenKabel={this.state.chosenKabel}
-                    chosenTechnikSide={this.state.chosenTechnikSide}
-                    chosenTechnikContainer={this.state.chosenTechnikContainer}
-            />
-        )
-    };
-
     render() {
-
       return (
             <>
                 <div className="productcode">
@@ -376,7 +360,17 @@ class Settings extends React.Component {
                     />
                 </div>
                <div className="summary">
-                    {this.handleSummary()}
+                    <Summary
+                        chosenTable={this.state.chosenTable}
+                        chosenMonitorCount={this.state.chosenMonitorCount}
+                        chosenMonitorRow={this.state.chosenMonitorRow}
+                        chosenMonitorSystem={this.state.chosenMonitorSystem}
+                        chosenHeight={this.state.chosenHeight}
+                        chosenBlende={this.state.chosenBlende}
+                        chosenKabel={this.state.chosenKabel}
+                        chosenTechnikSide={this.state.chosenTechnikSide}
+                        chosenTechnikContainer={this.state.chosenTechnikContainer}
+                    />
                 </div>
                 <div className="tourView">
                     <ProductDisplay
@@ -394,13 +388,16 @@ class Settings extends React.Component {
                         table={this.state.chosenTable}
                         height={this.state.chosenHeight}
                         monitorRow={this.state.chosenMonitorRow}
-                        monitorCount={this.state.chosenMonitorCount}
+                        //monitorCount={this.state.chosenMonitorCount}
                         monitorSystem={this.state.chosenMonitorSystem}
                         blende={this.state.chosenBlende}
                         // cable={this.state.chosenKabel}
                         technikSide={this.state.chosenTechnikSide}
                         technikContainer={this.state.chosenTechnikContainer}
                     />
+                </div>
+                <div className="navigation">
+                    <Navigation />
                 </div>
 
             </>
