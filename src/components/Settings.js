@@ -396,9 +396,9 @@ class Settings extends React.Component {
                         technikContainer={this.state.chosenTechnikContainer}
                     />
                 </div>
-                <div className="navigation">
+                {/*<div className="navigation">
                     <Navigation />
-                </div>
+                </div>*/}
 
             </>
        )
