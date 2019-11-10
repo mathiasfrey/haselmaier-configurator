@@ -33,14 +33,14 @@ class ProductCode extends React.PureComponent {
 
         return (
             <div id="code">
-                <h1>Ihr Produkt Code</h1>
+                <h1>Produkt-Code</h1>
                 <div className="code">
                 {code}
                 </div>
 
                 <h2>Mail</h2>
                 <a  target="_new"
-                    href={'mailto:haselmaier@haselmaier.at?subject=Konfigurator Code: ' + code}>Mail</a>
+                    href={'mailto:haselmaier@haselmaier.at?subject=Konfigurator Code: ' + code}>haselmaier@haselmaier.at</a>
             </div>
         );
     }

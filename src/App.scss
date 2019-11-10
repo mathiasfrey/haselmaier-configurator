@@ -84,6 +84,10 @@ header h1 {
   margin-left: $margin-large;
   flex-grow: 1;
 }
+header img {
+  height: $font-large; // image not higher than text
+  margin-left: $font-large;
+}
 
 .productcode {
     // top right within header

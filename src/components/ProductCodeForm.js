@@ -29,7 +29,7 @@ class ProductCodeForm extends React.PureComponent {
                         onChange={this.handleChange}
                     />
                 </label>
-                <input type="submit" value="Anzeigen" />
+                <input type="submit" value="Konfiguration laden" />
             </form>
         );
     }

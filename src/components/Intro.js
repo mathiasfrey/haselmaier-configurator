@@ -18,7 +18,7 @@ class Intro extends React.Component {
         return (
             <div>
                 <Modal open={this.state.open} onClose={this.onCloseModal} center>
-                    <h2> Unser TTV </h2>
+                    <h2>Wählen Sie Ihren TTV.</h2>
                     <video autoPlay={false} height="450" width="600" controls>
                         <source src={intro} type="video/mp4"/>
                     </video>

@@ -117,7 +117,7 @@ class ProductDisplay extends React.PureComponent {
     render() {
         return (
             <div>
-                <h1>Produkt</h1>
+                <h1>Ihre Leitstelle</h1>
                 {this.renderImage()}
             </div>
         );
