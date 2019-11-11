@@ -3,10 +3,10 @@ import React from 'react';
 
 class Summary extends React.Component {
 
-    constructor(props) {
+    /*constructor(props) {
         super(props);
         // this.myRef = React.createRef()
-    }
+    }*/
 
     loadTable = () => {
         if (this.props.chosenTable != null) {

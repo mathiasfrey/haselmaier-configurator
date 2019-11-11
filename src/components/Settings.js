@@ -9,14 +9,15 @@ import Summary from "./Summary";
 import ProductDisplay from "./ProductDisplay";
 import ProductCodeForm from './ProductCodeForm';
 import ProductCode from './ProductCode';
-import Navigation from "./Navigation";
 
 
 class Settings extends React.Component {
     constructor(props) {
         super(props);
+        this.myRef = React.createRef();
         this.state = {
         };
+
     }
 
     //Code2State
@@ -295,12 +296,14 @@ class Settings extends React.Component {
         this.setState({chosenTechnikContainer: container})
     };
 
+    // NEXT CONFIGURATION
 
-    //RESET
-
-    handleReset = () => {
-        this.setState({})
+    handleClick = () => {
+        var node = this.myRef.current;
+        node.style.cssText = "color: blue; border: 1px solid black";
     };
+
+
 
     render() {
       return (
@@ -313,14 +316,12 @@ class Settings extends React.Component {
                     </div>
                 </div>
                 <div className="settings">
-                    {/* <button className="navBtn done">START</button>
-                    <div className="divider done"></div> */}
-
+                    <button ref={this.myRef} aria-hidden={true}>
                     <Table
                         callback={this.setTableState}
                         chosen={this.state.chosenTable}
                     />
-
+                    </button>
                     <Height
                         navDependencyTable={this.state.chosenTable}
                         callback={this.setHeightState}
@@ -395,6 +396,11 @@ class Settings extends React.Component {
                         technikSide={this.state.chosenTechnikSide}
                         technikContainer={this.state.chosenTechnikContainer}
                     />
+                </div>
+                <div className="navigation">
+                 <button className="btn btn-1" onClick={this.handleClick}>
+                    Next
+                </button>
                 </div>
                 {/*<div className="navigation">
                     <Navigation />
