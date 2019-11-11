@@ -6,6 +6,22 @@ $font-large: 24px;
 $margin-large: 30px;
 $margin-small: 15px;
 
+.navbar-default {
+	border-color: rgb(209,0,25);
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+	background-color: rgb(209,0,25);
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+	background-color: rgb(209,0,25);
+}
+.navbar-default .navbar-toggle {
+	border-color: rgb(209,0,25);
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+	background-color: rgb(209,0,25);
+}
+
 
 
 .App {
@@ -57,13 +73,13 @@ $margin-small: 15px;
 .summary {
   position: absolute;
   right: 0;
-  padding: 0 20px 10px 10px;
+  padding: 0 20px 10px 40px;
   line-height: 2px;
-  color: #0096d0;
+  color: #050505;
 }
 
 .navigation {
-    position: fixed;
+    position: center;
     left: 0;
     bottom: 0;
 }
@@ -208,9 +224,6 @@ h4 {
 //     left: 800px;
 // }
 
-.white {
-    color: white;
-}
 
 .btn {
     margin: 0;
@@ -299,10 +312,10 @@ h4 {
 }
 
 .btn-2 {
-    background: #a9a9a9;
+    background: #efefef;
     display: inline-block;
-    color: #fff;
-    box-shadow: 0 7px #d2d1d1;
+    color: #000;
+    box-shadow: 0 7px #cecece;
     -webkit-transition: none;
     -moz-transition: none;
     transition: none;

@@ -313,7 +313,7 @@ class Settings extends React.Component {
             node.click()
         } else if (this.state.chosenHeight == null) {
             nodeHeight.click()
-        } else if (this.state.chosenMonitorSystem == null) {
+        } else if (this.state.chosenMonitorRow == null) {
             nodeMonitor.click()
         } else if (this.state.chosenMonitorSystem === "F" || "H") {
             nodeBlende.click()
