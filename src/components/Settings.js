@@ -304,7 +304,6 @@ class Settings extends React.Component {
     };
 
 
-
     render() {
       return (
             <>
@@ -315,13 +314,11 @@ class Settings extends React.Component {
                         />
                     </div>
                 </div>
-                <div className="settings">
-                    <button ref={this.myRef} aria-hidden={true}>
+                <div className="settings" ref={this.myRef}>
                     <Table
                         callback={this.setTableState}
                         chosen={this.state.chosenTable}
                     />
-                    </button>
                     <Height
                         navDependencyTable={this.state.chosenTable}
                         callback={this.setHeightState}
