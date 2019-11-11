@@ -48,7 +48,7 @@ class Blende extends Component {
 
         return (
             <>
-            <button
+            <button ref={this.props.blendeRef}
             className={ 'navBtn ' + (this.props.chosen && 'done')}
             onClick={this.onOpenModal} disabled={disabled}>4. Blende</button>
             <div className={'divider ' + (this.props.chosen && 'done')} />

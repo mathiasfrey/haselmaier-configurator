@@ -14,10 +14,12 @@ import ProductCode from './ProductCode';
 class Settings extends React.Component {
     constructor(props) {
         super(props);
-        this.myRef = React.createRef();
-        this.state = {
-        };
-
+        this.state =
+            this.tableRef = React.createRef();
+            this.heightRef = React.createRef();
+            this.monitorRef = React.createRef();
+            this.blendeRef = React.createRef();
+            this.technikRef = React.createRef();
     }
 
     //Code2State
@@ -299,10 +301,26 @@ class Settings extends React.Component {
     // NEXT CONFIGURATION
 
     handleClick = () => {
-        var node = this.myRef.current;
-        node.style.cssText = "color: blue; border: 1px solid black";
-    };
+        var node = this.tableRef.current;
+        var nodeHeight = this.heightRef.current;
+        var nodeMonitor = this.monitorRef.current;
+        var nodeBlende = this.blendeRef.current;
+        var nodeTechnik = this.technikRef.current;
+        node.innerhtml = "Next";
+        if (this.state.chosenHeight == null) {
+            nodeHeight.click()
+        } else if (this.state.chosenMonitorSystem == null) {
+            nodeMonitor.click()
+        } else if (this.state.chosenMonitorSystem === "F" || "H") {
+            nodeBlende.click()
+        } else if (this.state.chosenMonitorSystem === "X" || "S") {
+            nodeTechnik.click()
+        } else if (this.state.chosenBlende == null) {
+            nodeBlende.click()
+        }
 
+
+    };
 
     render() {
       return (
@@ -314,18 +332,20 @@ class Settings extends React.Component {
                         />
                     </div>
                 </div>
-                <div className="settings" ref={this.myRef}>
+                <div className="settings">
                     <Table
+                        tableRef={this.tableRef}
                         callback={this.setTableState}
-                        chosen={this.state.chosenTable}
+                        chosenTable={this.state.chosenTable}
                     />
                     <Height
+                        heightRef={this.heightRef}
                         navDependencyTable={this.state.chosenTable}
                         callback={this.setHeightState}
                         chosen={this.state.chosenHeight}
                     />
-
                     <Monitor
+                        monitorRef={this.monitorRef}
                         navDependencyHeight={this.state.chosenHeight}
                         callbackSystem={this.setMonitorSystemState}
                         callbackRow={this.setMonitorRowState}
@@ -336,6 +356,7 @@ class Settings extends React.Component {
                         chosenRow={this.state.chosenMonitorRow}
                     />
                     <Blende
+                        blendeRef={this.blendeRef}
                         monitorDependency={this.state.chosenMonitorSystem}
                         callback={this.setBlendeState}
                         chosen={this.state.chosenBlende}
@@ -349,6 +370,7 @@ class Settings extends React.Component {
                     />*/}
                     
                     <Technik
+                        technikRef={this.technikRef}
                         navDependencyMonitor={this.state.chosenMonitorSystem}
                         navDependencyBlende={this.state.chosenBlende}
                         callbackSide={this.setChosenTechnikSidesState}
@@ -396,7 +418,7 @@ class Settings extends React.Component {
                 </div>
                 <div className="navigation">
                  <button className="btn btn-1" onClick={this.handleClick}>
-                    Next
+                    START
                 </button>
                 </div>
                 {/*<div className="navigation">

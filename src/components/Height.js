@@ -42,7 +42,7 @@ class Height extends React.Component {
         }
         return (
             <>
-            <button
+            <button ref={this.props.heightRef}
             className={ 'navBtn ' + (this.props.chosen && 'done')}
             onClick={this.onOpenModal} disabled={disabled}>2. Höhenverstellbar</button>
             <div className={'divider ' + (this.props.chosen && 'done')} />

@@ -85,7 +85,7 @@ class Technik extends React.Component {
 
         return (
             <>
-            <button
+            <button ref={this.props.technikRef}
             className={ 'navBtn ' + (this.props.chosenSide && this.props.chosenContainer && 'done')}
             onClick={this.onOpenModal} disabled={disabled}>5. Technik</button>
             <div className={'divider ' + (this.props.chosenSide && this.props.chosenContainer && 'done')} />

@@ -117,7 +117,7 @@ class Monitor extends React.Component {
         }
         return (
             <>
-             <button
+            <button ref={this.props.monitorRef}
             className={ 'navBtn ' + (this.props.chosen && 'done')}
             onClick={this.onOpenModal} disabled={disabled}>3. Monitortragsystem</button>
             <div className={'divider ' + (this.props.chosen && 'done')} />
@@ -127,7 +127,6 @@ class Monitor extends React.Component {
 
 
     render() {
-
         return (
         <>
         {this.renderMonitorButton()}
