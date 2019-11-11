@@ -4,7 +4,7 @@ import logo from '../assets/hasel-logo.png';
 const Header = (props) => {
     return (
         <header>
-            <img src={logo}/>
+            <img src={logo} alt="logo"/>
             <h1><strong>{props.title}</strong></h1>
         </header>
     )
