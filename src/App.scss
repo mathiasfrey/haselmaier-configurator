@@ -63,8 +63,8 @@ $margin-small: 15px;
 }
 
 .navigation {
-    position: absolute;
-    right: 0;
+    position: fixed;
+    left: 0;
     bottom: 0;
 }
 
@@ -295,7 +295,7 @@ h4 {
 }
 
 .btn-2a {
-    border-radius: 0px 0px 0px 0px;
+    border-radius: 0 0 0 0;
 }
 
 .btn-2 {

@@ -15,6 +15,7 @@ class Settings extends React.Component {
     constructor(props) {
         super(props);
         this.state =
+            this.buttonRef = React.createRef();
             this.tableRef = React.createRef();
             this.heightRef = React.createRef();
             this.monitorRef = React.createRef();
@@ -306,8 +307,11 @@ class Settings extends React.Component {
         var nodeMonitor = this.monitorRef.current;
         var nodeBlende = this.blendeRef.current;
         var nodeTechnik = this.technikRef.current;
-        node.innerhtml = "Next";
-        if (this.state.chosenHeight == null) {
+        var nodeButton = this.buttonRef.current;
+        nodeButton.innerHTML = "Next";
+        if (this.state.chosenTable == null) {
+            node.click()
+        } else if (this.state.chosenHeight == null) {
             nodeHeight.click()
         } else if (this.state.chosenMonitorSystem == null) {
             nodeMonitor.click()
@@ -315,8 +319,8 @@ class Settings extends React.Component {
             nodeBlende.click()
         } else if (this.state.chosenMonitorSystem === "X" || "S") {
             nodeTechnik.click()
-        } else if (this.state.chosenBlende == null) {
-            nodeBlende.click()
+        } else if (this.state.chosenBlende !== null) {
+            nodeTechnik.click()
         }
 
 
@@ -417,8 +421,8 @@ class Settings extends React.Component {
                     />
                 </div>
                 <div className="navigation">
-                 <button className="btn btn-1" onClick={this.handleClick}>
-                    START
+                 <button className="btn btn-1" onClick={this.handleClick} ref={this.buttonRef}>
+                    LOS GEHT'S
                 </button>
                 </div>
                 {/*<div className="navigation">
