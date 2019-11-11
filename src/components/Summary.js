@@ -1,8 +1,12 @@
 import React from 'react';
 
 
-
 class Summary extends React.Component {
+
+    constructor(props) {
+        super(props);
+        // this.myRef = React.createRef()
+    }
 
     loadTable = () => {
         if (this.props.chosenTable != null) {
@@ -78,9 +82,21 @@ class Summary extends React.Component {
                 {this.loadTechnik()}
             {/*<h5> - {this.props.chosenMonitorCount} Monitore</h5>*/}
             {/*<h5> - {this.props.chosenKabel} </h5>*/}
+            <div className="top">
+                {/*<div onClick={this.handleClick}>*/}
+                {/*<button ref={this.myRef}> NEXT </button>*/}
+                {/*</div>*/}
+            </div>
             </div>
         );
     }
+
+    /*handleClick = () => {
+        var node = this.myRef.current;
+        node.style.color = "blue"
+    }*/
+
+
 
 
 }
