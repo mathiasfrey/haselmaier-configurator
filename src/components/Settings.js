@@ -315,11 +315,9 @@ class Settings extends React.Component {
             nodeHeight.click()
         } else if (this.state.chosenMonitorRow == null) {
             nodeMonitor.click()
-        } else if (this.state.chosenMonitorSystem === "F" || "H") {
+        } else if (this.state.chosenBlende == null) {
             nodeBlende.click()
-        } else if (this.state.chosenMonitorSystem === "X" || "S") {
-            nodeTechnik.click()
-        } else if (this.state.chosenBlende !== null) {
+        } else if (this.state.chosenTechnik == null) {
             nodeTechnik.click()
         }
 
@@ -420,14 +418,12 @@ class Settings extends React.Component {
                         technikContainer={this.state.chosenTechnikContainer}
                     />
                 </div>
+                <br />
                 <div className="navigation">
                  <button className="btn btn-1" onClick={this.handleClick} ref={this.buttonRef}>
                     LOS GEHT'S
                 </button>
                 </div>
-                {/*<div className="navigation">
-                    <Navigation />
-                </div>*/}
 
             </>
        )
