@@ -317,10 +317,9 @@ class Settings extends React.Component {
             nodeMonitor.click()
         } else if (this.state.chosenBlende == null) {
             nodeBlende.click()
-        } else if (this.state.chosenTechnik == null) {
-            nodeTechnik.click()
+        } else if (this.state.chosenTechnikContainer == null) {
+            nodeTechnik.click();
         }
-
 
     };
 
@@ -420,8 +419,8 @@ class Settings extends React.Component {
                 </div>
                 <br />
                 <div className="navigation">
-                 <button className="btn btn-1" onClick={this.handleClick} ref={this.buttonRef}>
-                    LOS GEHT'S
+                 <button className="btn btn-1 nextBtn" onClick={this.handleClick} ref={this.buttonRef}>
+                    LOS GEHT'S ➤
                 </button>
                 </div>
 

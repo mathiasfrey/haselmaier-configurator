@@ -132,38 +132,33 @@ class Monitor extends React.Component {
         {this.renderMonitorButton()}
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
         <h2> Monitortragsystem </h2>
-            <video autoPlay={false} height="300" width="500" controls playsInline={false}>
-                <source src={monitor_video} type="video/mp4"/>
-            </video>
-        {/*<h2> Anzahl der Monitore </h2>*/}
-        <div>
-            {/*{this.renderMonitorButton(3)}
-            {this.renderMonitorButton(4)}
-            {this.renderMonitorButton(5)}*/}
-        </div>
-        <div>
+        <video autoPlay={false} height="300" width="500" controls playsInline={false}>
+             <source src={monitor_video} type="video/mp4"/>
+        </video>
+        <div className="row">
         <h2> 1-reihig oder 2-reihig? </h2>
             {this.loadPreviewImages('one_row')}
             <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorRow(1)}> 1 - Reihig </button>
-        </div>
-        <div>
             {this.loadPreviewImages('two_row')}
             <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorRow(2)}> 2 - Reihig </button>
         </div>
         <h2>Monitorsystem</h2>
-        <div>
+        <div className="column">
             {this.loadPreviewImages('ohne')}
             <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorSystem('X')}>1. OHNE </button>
         </div>
-        <div>
+            {/*<br />*/}
+        <div className="column">
             {this.loadPreviewImages('stativ')}
             <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorSystem('S')}> 2. STATIVSYSTEM </button>
         </div>
-        <div>
+            {/*<br />*/}
+        <div className="column">
             {this.loadPreviewImages('reling')}
             <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorSystem('F')}>3. RELING: OHNE HV </button>
         </div>
-        <div>
+            {/*<br />*/}
+        <div className="column">
             {this.loadPreviewImages('reling_hv')}
             <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorSystem('H')}> 4. RELING: MIT HV </button>
         </div>

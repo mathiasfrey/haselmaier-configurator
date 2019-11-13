@@ -59,13 +59,15 @@ class Height extends React.Component {
         <video autoPlay={false} height="300" width="500" controls playsInline={false}>
         <source src={hv_video} type="video/mp4"/>
         </video>
-            <div>
+            <div className="row">
+            <div className="column">
                 {this.loadPreviewImages('E')}
                 <button className="btn btn-2 btn-2a" onClick={() => this.handleHeight('E')}> ECO </button>
             </div>
-            <div>
+            <div className="column">
                 {this.loadPreviewImages('V')}
                 <button className="btn btn-2 btn-2a" onClick={() => this.handleHeight('V')}> VARIO </button>
+            </div>
             </div>
         </Modal>
         </>
