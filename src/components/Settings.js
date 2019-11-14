@@ -105,7 +105,7 @@ class Settings extends React.Component {
 
 
        function matchBlende(code) {
-            const blendeRegex = /[XB]/;
+           const blendeRegex = /[XB]/;
             if (code.match(blendeRegex)) {
                 const blende = code.match(blendeRegex)[0];
                 return {

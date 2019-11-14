@@ -1,17 +1,17 @@
 import React from 'react';
-import table_small from '../assets/TTV/TTV.ME/TTV.MEXXXXXXX.jpg'
-import table_large from '../assets/TTV/TTV.LE/TTV.LEXXXXXXX.jpg'
+import table_small from '../assets/TTV/TTV.ME/TTV.MEXXXXX.jpg'
+import table_large from '../assets/TTV/TTV.LE/TTV.LEXXXXX.jpg'
 import reling from '../assets/TTV/Systems/1RRF.jpg'
 import stativ from '../assets/TTV/Systems/Stativ 2.jpg'
 import reling_hv from '../assets/TTV/Systems/1RRH.jpg'
-import one_row from '../assets/TTV/TTV.MV/TTV.MV1RRFXXX.jpg'
-import two_row from '../assets/TTV/TTV.ME/TTV.ME2RSTXXX.jpg'
-import ohne_blende from '../assets/TTV/TTV.MV/TTV.MV1RRFXBX.jpg'
-import mit_blende from '../assets/TTV/TTV.MV/TTV.MV1RRFBBX.jpg'
-import einseitig from '../assets/TTV/TTV.ME/TTV.ME1RRHBEX.jpg'
-import beidseitig from '../assets/TTV/TTV.ME/TTV.ME1RRHBBX.jpg'
-import mit_container from '../assets/TTV/TTV.ME/TTV.ME1RRHXXL.jpg'
-import ohne_container from '../assets/TTV/TTV.ME/TTV.ME1RRHXXX.jpg'
+import one_row from '../assets/TTV/TTV.MV/TTV.MV1FXXX.jpg'
+import two_row from '../assets/TTV/TTV.ME/TTV.ME2SXXX.jpg'
+import ohne_blende from '../assets/TTV/TTV.MV/TTV.MV1FXBX.jpg'
+import mit_blende from '../assets/TTV/TTV.MV/TTV.MV1FBBX.jpg'
+import einseitig from '../assets/TTV/TTV.ME/TTV.ME1HBEX.jpg'
+import beidseitig from '../assets/TTV/TTV.ME/TTV.ME1HBBX.jpg'
+import mit_container from '../assets/TTV/TTV.ME/TTV.ME1HXXL.jpg'
+import ohne_container from '../assets/TTV/TTV.ME/TTV.ME1HXXX.jpg'
 
 
 export const ModalImagesPath = {
