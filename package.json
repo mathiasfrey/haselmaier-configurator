@@ -2,7 +2,7 @@
   "name": "haselmaier-configurator",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/configurator/",
+  "homepage": ".",
   "dependencies": {
     "bootstrap": "^4.3.1",
     "jquery": "^3.4.1",
@@ -27,7 +27,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "rsync -rvz -e 'ssh -p 12488' --progress build/* frey@5.132.191.98:/home/hasel/configurator/"
   },
   "eslintConfig": {
     "extends": "react-app"
