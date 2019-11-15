@@ -104,18 +104,20 @@ class Technik extends React.Component {
         <source src={technik_video} type="video/mp4"/>
         </video>
         <h2> Treffen Sie Ihre Auswahl </h2>
-        <div>
+            <div className="row">
+        <div className="column">
             {this.loadPreviewImage('E')}
             <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnikSide('E')}> Einseitig </button>
         </div>
-        <div>
+        <div className="column">
             {this.loadPreviewImage('B')}
             <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnikSide('B')}> Beidseitig </button>
         </div>
-        <div>
+        <div className="column">
             {this.loadPreviewImage('XSide')}
             <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnikSide('X')}> Ohne </button>
         </div>
+            </div>
         <h2> Treffen Sie Ihre Auswahl </h2>
         <div>
             {this.loadPreviewImage('L')}

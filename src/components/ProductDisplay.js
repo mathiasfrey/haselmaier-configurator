@@ -1,16 +1,19 @@
 import React from 'react';
-import table from '../assets/TTV/TTV.ME/TTV.MEXXXXXXX.jpg'
-import reling from '../assets/TTV/TTV.MV/TTV.MV2RRFXXX.jpg'
+import table_small from '../assets/TTV/TTV.SE/TTV.SEXXXXX.jpg'
+import table_middle from '../assets/TTV/TTV.ME/TTV.MEXXXXX.jpg'
+import table_large from '../assets/TTV/TTV.LE/TTV.LEXXXXX.jpg'
+import reling from '../assets/TTV/TTV.MV/TTV.MV2FXXX.jpg'
 import stativ from '../assets/TTV/RAILING_STATIV/1RST.jpg'
-import reling_hv from '../assets/TTV/TTV.MV/TTV.MV2RRHXXX.jpg'
-import one_row from '../assets/TTV/TTV.MV/TTV.MV1RRFXXX.jpg'
-import two_row from '../assets/TTV/TTV.ME/TTV.ME2RSTXXX.jpg'
-import ohne_blende from '../assets/TTV/TTV.MV/TTV.MV1RRFXBX.jpg'
-import mit_blende from '../assets/TTV/TTV.MV/TTV.MV1RRFBBX.jpg'
-import einseitig from '../assets/TTV/TTV.ME/TTV.ME1RRHBEX.jpg'
-import beidseitig from '../assets/TTV/TTV.ME/TTV.ME1RRHBBX.jpg'
-import mit_container from '../assets/TTV/TTV.ME/TTV.ME1RRHXXL.jpg'
-import ohne_container from '../assets/TTV/TTV.ME/TTV.ME1RRHXXX.jpg'
+import reling_hv from '../assets/TTV/TTV.MV/TTV.MV2HXXX.jpg'
+import one_row from '../assets/TTV/TTV.MV/TTV.MV1FXXX.jpg'
+import two_row from '../assets/TTV/TTV.ME/TTV.ME2SXXX.jpg'
+import ohne_blende from '../assets/TTV/TTV.MV/TTV.MV1FXBX.jpg'
+import mit_blende from '../assets/TTV/TTV.MV/TTV.MV1FBBX.jpg'
+import einseitig from '../assets/TTV/TTV.ME/TTV.ME1HBEX.jpg'
+import beidseitig from '../assets/TTV/TTV.ME/TTV.ME1HBBX.jpg'
+import mit_container from '../assets/TTV/TTV.ME/TTV.ME1HXXL.jpg'
+import ohne_container from '../assets/TTV/TTV.ME/TTV.ME1HXXX.jpg'
+
 
 class ProductDisplay extends React.PureComponent {
     // this component chooses the correct image
@@ -25,6 +28,7 @@ class ProductDisplay extends React.PureComponent {
     // kabel
     // technikSide
     // technikContainer
+
 
     renderImage() {
         // approach: choose the image from right to left; i.e. start with container and go left
@@ -89,26 +93,31 @@ class ProductDisplay extends React.PureComponent {
         //HEIGHT
         if (this.props.height === 'E') {
             return (
-                <img src={table} alt="" height={600} width={900} />
+                <img src={table_large} alt="" height={600} width={900} />
             )
         } else if (this.props.height === 'V') {
             return (
-                <img src={table} alt="" height={600} width={900} />
+                <img src={table_small} alt="" height={600} width={900} />
             )
         }
 
         //TABLE
         if (this.props.table === 'S') {
+            if (this.props.height === 'E') {
+                return (
+                <img src={table_small} alt="" height={600} width={900} />
+                );
+            }
             return (
-                <img src={table} alt="" height={600} width={900} />
+                <img src={table_small} alt="" height={600} width={900} />
             );
         } else if (this.props.table === 'M') {
             return (
-                <img src={table} alt="" height={600} width={900} />
+                <img src={table_middle} alt="" height={600} width={900} />
             )
         } else if (this.props.table === 'L') {
             return (
-                <img src={table} alt="" height={600} width={900} />
+                <img src={table_large} alt="" height={600} width={900} />
             )
         }
     }

@@ -53,19 +53,19 @@ class Table extends React.PureComponent {
         <video autoPlay={false} height="300" width="500" controls playsInline={false}>
         <source src={tisch_video} type="video/mp4"/>
         </video>
-            <div>
+            <div className="row">
+            <div className="column">
                 {this.loadPreviewImages('S')}
                 <button className="btn btn-2 btn-2a" onClick={() => this.handleTable('S')}> KLEIN (bis zu 3 Monitore) </button>
             </div>
-
-            <div>
+            <div className="column">
                 {this.loadPreviewImages('M')}
                 <button className="btn btn-2 btn-2a" onClick={() => this.handleTable('M')}> MITTEL (bis zu 4 Monitore) </button>
             </div>
-            
-            <div>
+            <div className="column">
                 {this.loadPreviewImages('L')}
                 <button className="btn btn-2 btn-2a" onClick={() => this.handleTable('L')}> GROß (bis zu Monitore) </button>
+            </div>
             </div>
         </Modal>
         </>

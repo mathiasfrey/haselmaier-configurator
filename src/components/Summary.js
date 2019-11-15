@@ -12,8 +12,7 @@ class Summary extends React.Component {
         if (this.props.chosenTable != null) {
             return (
                 <>
-            <h3> Mein Tisch </h3>
-            <br />
+
             <h6> Tischgröße </h6>
             <h5>  - {this.props.chosenTable} </h5>
             </>
@@ -69,12 +68,14 @@ class Summary extends React.Component {
                 </>
             )
         }
-    }
+    };
 
 
     render() {
         return (
             <div>
+                <h3> Konfiguration </h3>
+                <br />
                 {this.loadTable()}
                 {this.loadHeight()}
                 {this.loadMonitor()}
