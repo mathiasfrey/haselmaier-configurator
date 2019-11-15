@@ -308,7 +308,7 @@ class Settings extends React.Component {
         var nodeBlende = this.blendeRef.current;
         var nodeTechnik = this.technikRef.current;
         var nodeButton = this.buttonRef.current;
-        nodeButton.innerHTML = "Next";
+        // nodeButton.innerHTML = "Next";
         if (this.state.chosenTable == null) {
             node.click()
         } else if (this.state.chosenHeight == null) {
@@ -325,7 +325,7 @@ class Settings extends React.Component {
 
     render() {
       return (
-            <>
+            <div id="content-wrap">
                 <div className="productcode">
                     <div>
                         <ProductCodeForm
@@ -392,6 +392,17 @@ class Settings extends React.Component {
                         chosenTechnikSide={this.state.chosenTechnikSide}
                         chosenTechnikContainer={this.state.chosenTechnikContainer}
                     />
+                    <ProductCode
+                        table={this.state.chosenTable}
+                        height={this.state.chosenHeight}
+                        monitorRow={this.state.chosenMonitorRow}
+                        //monitorCount={this.state.chosenMonitorCount}
+                        monitorSystem={this.state.chosenMonitorSystem}
+                        blende={this.state.chosenBlende}
+                        // cable={this.state.chosenKabel}
+                        technikSide={this.state.chosenTechnikSide}
+                        technikContainer={this.state.chosenTechnikContainer}
+                    />
                 </div>
                 <div className="tourView">
                     <ProductDisplay
@@ -405,26 +416,17 @@ class Settings extends React.Component {
                         technikSide={this.state.chosenTechnikSide}
                         technikContainer={this.state.chosenTechnikContainer}
                     />
-                    <ProductCode
-                        table={this.state.chosenTable}
-                        height={this.state.chosenHeight}
-                        monitorRow={this.state.chosenMonitorRow}
-                        //monitorCount={this.state.chosenMonitorCount}
-                        monitorSystem={this.state.chosenMonitorSystem}
-                        blende={this.state.chosenBlende}
-                        // cable={this.state.chosenKabel}
-                        technikSide={this.state.chosenTechnikSide}
-                        technikContainer={this.state.chosenTechnikContainer}
-                    />
+
                 </div>
                 <br />
-                <div className="navigation">
-                 <button className="btn btn-1 nextBtn" onClick={this.handleClick} ref={this.buttonRef}>
-                    LOS GEHT'S ➤
-                </button>
+
+                <div className="footer-navigation">
+                    <button className="btn btn-1 nextBtn" onClick={this.handleClick} ref={this.buttonRef}>
+                        Nächster Schritt ➤
+                    </button>
                 </div>
 
-            </>
+            </div>
        )
 }
 

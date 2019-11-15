@@ -22,14 +22,18 @@ $margin-small: 15px;
 	background-color: rgb(209,0,25);
 }
 
-
+#root {
+    min-height: 100vh;
+}
 
 .App {
   text-align: center;
+
 }
 
 .configurator {
   width: 100%;
+
   margin: 0;
   left: 0;
   overflow-y: hidden;
@@ -71,12 +75,18 @@ $margin-small: 15px;
     }
 
 .summary {
+  
+    z-index: 2;
+  margin-top: 20px;
+
   position: absolute;
+  width: 300px;
   right: 400px;
-  padding: 0 20px 10px 10px;
+  padding: 0 20px 10px 20px;
   line-height: 2px;
-  color: #050505;
-  border: 3px solid gray;
+  color: #fff;
+
+  background: $hasel-grey;
 }
 
 
@@ -387,20 +397,40 @@ h4 {
 //   color: #61dafb;
 // }
 
-.navigation {
-    left: 0;
-    bottom: 0;
+#content-wrap {
+    padding-bottom: 4.5rem;    /* Footer height */
 }
 
-#code > div.code {
-    padding: 10px;
-    font-weight: bold;
-    color: #fff;
-    size: $font-large;
-    background: $hasel-red;
-    border: 1px solid darken($hasel-red, 5);
-    border-radius: 15px;
-    width: 15em;
+.footer-navigation {
+    // left: 0;
+    // bottom: 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem; 
+    background: $hasel-grey;
+    padding: 1rem;
+}
+
+#code {
+    padding-bottom: 2rem;
+    p {
+        margin-bottom: 2rem;
+    }
+    a {
+        color: white;
+        
+    }
+    div.code {
+        padding: 10px;
+        font-weight: bold;
+        color: #fff;
+        size: $font-large;
+        background: $hasel-red;
+        border: 1px solid darken($hasel-red, 5);
+        border-radius: 15px;
+        width: 15em;
+    }
 }
 
 .row {
@@ -443,11 +473,12 @@ h4 {
         position: relative;
         left: 0;
         bottom: 0;
+        padding-top: 20px;
     }
 
-    .navigation {
-        left: 0;
-    }
+    // .footer-navigation {
+    //     left: 0;
+    // }
 
     .row {
         display: table;

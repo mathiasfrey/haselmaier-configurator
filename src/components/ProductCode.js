@@ -39,6 +39,10 @@ class ProductCode extends React.PureComponent {
                 </div>
 
                 <h2>Mail</h2>
+
+                <p>
+                    Wünschen Sie ein Angebot?
+                </p>
                 <a  target="_new"
                     href={'mailto:haselmaier@haselmaier.at?subject=Konfigurator Code: ' + code}>haselmaier@haselmaier.at</a>
             </div>
