@@ -4,7 +4,6 @@ import Monitor from "./Monitor";
 import Blende from "./Blende";
 import Height from "./Height";
 import Technik from "./Technik";
-// import Kabel from "./Kabel";
 import Summary from "./Summary";
 import ProductDisplay from "./ProductDisplay";
 import ProductCodeForm from './ProductCodeForm';
@@ -64,18 +63,6 @@ class Settings extends React.Component {
             return false;
         }
 
-          function matchMonitorRow(code) {
-            const monitorRowRegex = /[12]/;
-            if (code.match(monitorRowRegex)) {
-                const monitorRow = code.match(monitorRowRegex)[0];
-
-                return {
-                    'monitorRow': monitorRow,
-                    'remainder': code.replace(monitorRowRegex, '')
-                }
-            }
-            return false;
-        }
 
         function matchMonitorSystem(code) {
             const monitorSystemsRegex = /[XFHS]/;
@@ -90,18 +77,19 @@ class Settings extends React.Component {
             return false;
         }
 
+        function matchMonitorRow(code) {
+            const monitorRowRegex = /[12]/;
+            if (code.match(monitorRowRegex)) {
+                const monitorRow = code.match(monitorRowRegex)[0];
 
-       /* function matchMonitorCount(code) {
-            const monitorCountRegex = /[345]/;
-            if (code.match(monitorCountRegex)) {
-                const monitorCount = code.match(monitorCountRegex)[0];
                 return {
-                    'monitorCount': monitorCount,
-                    'remainder': code.replace(monitorCountRegex, '')
+                    'monitorRow': monitorRow,
+                    'remainder': code.replace(monitorRowRegex, '')
                 }
             }
             return false;
-        }*/
+        }
+
 
 
        function matchBlende(code) {
@@ -115,18 +103,6 @@ class Settings extends React.Component {
             }
             return false;
         }
-
-       /* function matchKabel(code) {
-            const kabelRegex = /[MO]/;
-            if (code.match(kabelRegex)) {
-                const kabel = code.match(kabelRegex)[0];
-                return {
-                    'kabel': kabel,
-                    'remainder': code.replace(kabelRegex, '')
-                }
-            }
-            return false;
-        }*/
 
        function matchTechnikSide(code) {
             const technikRegex = /[XEB]/;
@@ -182,12 +158,6 @@ class Settings extends React.Component {
         }
         height = rv.height;
 
-        rv = matchMonitorRow(rv.remainder);
-        if (rv === false) {
-            codeAlertError(originalCode);
-            return false;
-        }
-        monitorRow = rv.monitorRow;
 
         rv = matchMonitorSystem(rv.remainder);
         if (rv === false) {
@@ -196,12 +166,13 @@ class Settings extends React.Component {
         }
         monitorSystem = rv.monitorSystem;
 
-        /*rv = matchMonitorCount(rv.remainder);
+        rv = matchMonitorRow(rv.remainder);
         if (rv === false) {
             codeAlertError(originalCode);
             return false;
         }
-        monitorCount = rv.monitorCount;*/
+        monitorRow = rv.monitorRow;
+
 
         rv = matchBlende(rv.remainder);
         if (rv === false) {
@@ -210,12 +181,6 @@ class Settings extends React.Component {
         }
         blende = rv.blende;
 
-       /* rv = matchKabel(rv.remainder);
-        if (rv === false) {
-            codeAlertError(originalCode);
-            return false;
-        }
-        kabel = rv.kabel;*/
 
         rv = matchTechnikSide(rv.remainder);
         if (rv === false) {
@@ -308,8 +273,10 @@ class Settings extends React.Component {
         var nodeBlende = this.blendeRef.current;
         var nodeTechnik = this.technikRef.current;
         var nodeButton = this.buttonRef.current;
-        // nodeButton.innerHTML = "Next";
-        if (this.state.chosenTable == null) {
+        nodeButton.innerHTML = "Nächster Schritt ➤";
+        if (this.state.chosenTechnikContainer) {
+            nodeButton.style.visibility = 'hidden'
+        } else if (this.state.chosenTable == null) {
             node.click()
         } else if (this.state.chosenHeight == null) {
             nodeHeight.click()
@@ -317,7 +284,7 @@ class Settings extends React.Component {
             nodeMonitor.click()
         } else if (this.state.chosenBlende == null) {
             nodeBlende.click()
-        } else if (this.state.chosenTechnikContainer == null) {
+        } else  {
             nodeTechnik.click();
         }
 
@@ -362,14 +329,6 @@ class Settings extends React.Component {
                         callback={this.setBlendeState}
                         chosen={this.state.chosenBlende}
                     />
-
-                   {/* <Kabel
-                        monitorDependency={['R', 'H'].includes(this.chosenMonitorSystem)} // only active if R or H
-                        navDependency={! isNaN(this.chosenBlende)} // true if blende is chosen
-                        callback={this.setKabelState}
-                        chosen={this.state.chosenKabel}
-                    />*/}
-                    
                     <Technik
                         technikRef={this.technikRef}
                         navDependencyMonitor={this.state.chosenMonitorSystem}
@@ -422,7 +381,7 @@ class Settings extends React.Component {
 
                 <div className="footer-navigation">
                     <button className="btn btn-1 nextBtn" onClick={this.handleClick} ref={this.buttonRef}>
-                        Nächster Schritt ➤
+                        Jetzt konfigurieren ➤
                     </button>
                 </div>
 

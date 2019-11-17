@@ -64,7 +64,7 @@ class Table extends React.PureComponent {
             </div>
             <div className="column">
                 {this.loadPreviewImages('L')}
-                <button className="btn btn-2 btn-2a" onClick={() => this.handleTable('L')}> GROß (bis zu Monitore) </button>
+                <button className="btn btn-2 btn-2a" onClick={() => this.handleTable('L')}> GROß (bis zu 5 Monitore) </button>
             </div>
             </div>
         </Modal>

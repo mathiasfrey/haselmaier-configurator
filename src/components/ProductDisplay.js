@@ -1,129 +1,856 @@
 import React from 'react';
-import table_small from '../assets/TTV/TTV.SE/TTV.SEXXXXX.jpg'
-import table_middle from '../assets/TTV/TTV.ME/TTV.MEXXXXX.jpg'
-import table_large from '../assets/TTV/TTV.LE/TTV.LEXXXXX.jpg'
-import reling from '../assets/TTV/TTV.MV/TTV.MV2FXXX.jpg'
-import stativ from '../assets/TTV/RAILING_STATIV/1RST.jpg'
-import reling_hv from '../assets/TTV/TTV.MV/TTV.MV2HXXX.jpg'
-import one_row from '../assets/TTV/TTV.MV/TTV.MV1FXXX.jpg'
-import two_row from '../assets/TTV/TTV.ME/TTV.ME2SXXX.jpg'
-import ohne_blende from '../assets/TTV/TTV.MV/TTV.MV1FXBX.jpg'
-import mit_blende from '../assets/TTV/TTV.MV/TTV.MV1FBBX.jpg'
-import einseitig from '../assets/TTV/TTV.ME/TTV.ME1HBEX.jpg'
-import beidseitig from '../assets/TTV/TTV.ME/TTV.ME1HBBX.jpg'
-import mit_container from '../assets/TTV/TTV.ME/TTV.ME1HXXL.jpg'
-import ohne_container from '../assets/TTV/TTV.ME/TTV.ME1HXXX.jpg'
+import {SE_SV_Images} from '../components/Images/SE_SV_Images'
+import {ME_MV_Images} from "./Images/ME_MV_Images";
+import {LE_LV_Images} from "./Images/LE_LV_Images";
+
 
 
 class ProductDisplay extends React.PureComponent {
-    // this component chooses the correct image
-    // it gets nothing but the variables (table, height, etc.)
-    // that make up the product code:
-    // table
-    // height
-    // monitorRow
-    // monitorCount
-    // monitorSystem
-    // blende
-    // kabel
-    // technikSide
-    // technikContainer
 
 
     renderImage() {
-        // approach: choose the image from right to left; i.e. start with container and go left
+        var table = this.props.table;
+        var height = this.props.height;
+        var monitorRow = this.props.monitorRow;
+        var monitorSystem = this.props.monitorSystem;
+        var blende = this.props.blende;
+        var technikSide = this.props.technikSide;
+        var technikContainer = this.props.technikContainer;
 
-        //CONTAINER
-         if (this.props.technikContainer === 'L') {
-            return (
-               <img src={mit_container} alt="" height={600} width={900} />
-            )
-        } else if (this.props.technikContainer === 'X') {
-            return (
-                <img src={ohne_container} alt="" height={600} width={900} />
-            )
+        // HANDLING OF 122 different Use Cases (including TTV.SE/TTV.SV)
+        if (technikContainer === 'X' && technikSide === 'B' && blende === 'B' && monitorSystem === 'F' && monitorRow === 1 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE1FBBX;
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'B' && monitorSystem === 'F' && monitorRow === 1 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE1FBBX;
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'B' && monitorSystem === 'F' && monitorRow === 1 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE1FBEL;
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'B' && monitorSystem === 'F' && monitorRow === 1 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE1FBEL;
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'B' && monitorSystem === 'F' && monitorRow === 1 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE1FBEX
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'B' && monitorSystem === 'F' && monitorRow === 1 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE1FBEX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'B' && monitorSystem === 'F' && monitorRow === 1 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE1FBXL
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'B' && monitorSystem === 'F' && monitorRow === 1 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE1FBXL
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'X' && monitorSystem === 'F' && monitorRow === 1 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE1FXBX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'X' && monitorSystem === 'F' && monitorRow === 1 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE1FXBX
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'X' && monitorSystem === 'F' && monitorRow === 1 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE1FXEL
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'X' && monitorSystem === 'F' && monitorRow === 1 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE1FXEL
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'X' && monitorSystem === 'F' && monitorRow === 1 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE1FXEX
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'X' && monitorSystem === 'F' && monitorRow === 1 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE1FXEX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'F' && monitorRow === 1 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE1FXXL
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'F' && monitorRow === 1 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE1FXXL
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'F' && monitorRow === 1 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE1FXXX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'F' && monitorRow === 1 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE1FXXX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'B' && monitorSystem === 'H' && monitorRow === 1 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE1HBBX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'B' && monitorSystem === 'H' && monitorRow === 1 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE1HBBX
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'B' && monitorSystem === 'H' && monitorRow === 1 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE1HBEL
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'B' && monitorSystem === 'H' && monitorRow === 1 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE1HBEL
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'B' && monitorSystem === 'H' && monitorRow === 1 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE1HBEX
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'B' && monitorSystem === 'H' && monitorRow === 1 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE1HBEX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'B' && monitorSystem === 'H' && monitorRow === 1 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE1HBXX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'B' && monitorSystem === 'H' && monitorRow === 1 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE1HBXX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'X' && monitorSystem === 'H' && monitorRow === 1 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE1HXBX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'X' && monitorSystem === 'H' && monitorRow === 1 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE1HXBX
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'X' && monitorSystem === 'H' && monitorRow === 1 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE1HXEL
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'X' && monitorSystem === 'H' && monitorRow === 1 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE1HXEL
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'X' && monitorSystem === 'H' && monitorRow === 1 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE1HXEX
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'X' && monitorSystem === 'H' && monitorRow === 1 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE1HXEX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'H' && monitorRow === 1 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE1HXXX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'H' && monitorRow === 1 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE1HXXX
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'B' && monitorSystem === 'S' && monitorRow === 1 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE1SBEL
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'B' && monitorSystem === 'S' && monitorRow === 1 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE1SBEL
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'B' && monitorSystem === 'S' && monitorRow === 1 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE1SBEX
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'B' && monitorSystem === 'S' && monitorRow === 1 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE1SBEX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'B' && monitorSystem === 'S' && monitorRow === 1 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE1SBXL
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'B' && monitorSystem === 'S' && monitorRow === 1 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE1SBXL
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'B' && monitorSystem === 'S' && monitorRow === 1 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE1SBXX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'B' && monitorSystem === 'S' && monitorRow === 1 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE1SBXX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE1SXBX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE1SXBX
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE1SXEL
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE1SXEL
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE1SXXL
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE1SXXL
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE1SXXX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE1SXXX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'B' && monitorSystem === 'F' && monitorRow === 2 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE2FBBX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'B' && monitorSystem === 'F' && monitorRow === 2 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE2FBBX
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'B' && monitorSystem === 'F' && monitorRow === 2 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE2FBEL
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'B' && monitorSystem === 'F' && monitorRow === 2 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE2FBEL
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'B' && monitorSystem === 'F' && monitorRow === 2 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE2FBEX
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'B' && monitorSystem === 'F' && monitorRow === 2 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE2FBEX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'B' && monitorSystem === 'F' && monitorRow === 2 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE2FBXX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'B' && monitorSystem === 'F' && monitorRow === 2 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE2FBXX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'X' && monitorSystem === 'F' && monitorRow === 2 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE2FXBX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'X' && monitorSystem === 'F' && monitorRow === 2 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE2FXBX
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'X' && monitorSystem === 'F' && monitorRow === 2 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE2FXEL
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'X' && monitorSystem === 'F' && monitorRow === 2 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE2FXEL
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'X' && monitorSystem === 'F' && monitorRow === 2 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE2FXEX
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'X' && monitorSystem === 'F' && monitorRow === 2 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE2FXEX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'F' && monitorRow === 2 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE2FXXL
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'F' && monitorRow === 2 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE2FXXL
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'F' && monitorRow === 2 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE2FXXX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'F' && monitorRow === 2 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE2FXXX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'B' && monitorSystem === 'H' && monitorRow === 2 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE2HBBX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'B' && monitorSystem === 'H' && monitorRow === 2 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE2HBBX
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'B' && monitorSystem === 'H' && monitorRow === 2 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE2HBEL
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'B' && monitorSystem === 'H' && monitorRow === 2 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE2HBEL
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'B' && monitorSystem === 'H' && monitorRow === 2 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE2HBEX
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'B' && monitorSystem === 'H' && monitorRow === 2 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE2HBEX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'B' && monitorSystem === 'H' && monitorRow === 2 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE2HBXL
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'B' && monitorSystem === 'H' && monitorRow === 2 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE2HBXL
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'B' && monitorSystem === 'H' && monitorRow === 2 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE2HBXX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'B' && monitorSystem === 'H' && monitorRow === 2 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE2HBXX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'X' && monitorSystem === 'H' && monitorRow === 2 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE2HXBX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'X' && monitorSystem === 'H' && monitorRow === 2 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE2HXBX
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'X' && monitorSystem === 'H' && monitorRow === 2 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE2HXEL
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'X' && monitorSystem === 'H' && monitorRow === 2 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE2HXEL
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'X' && monitorSystem === 'H' && monitorRow === 2 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE2HXEX
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'X' && monitorSystem === 'H' && monitorRow === 2 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE2HXEX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'H' && monitorRow === 2 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE2HXXL
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'H' && monitorRow === 2 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE2HXXL
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'H' && monitorRow === 2 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE2HXXX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'H' && monitorRow === 2 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE2HXXX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'B' && monitorSystem === 'S' && monitorRow === 2 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE2SBBX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'B' && monitorSystem === 'S' && monitorRow === 2 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE2SBBX
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'B' && monitorSystem === 'S' && monitorRow === 2 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE2SBEL
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'B' && monitorSystem === 'S' && monitorRow === 2 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE2SBEL
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'B' && monitorSystem === 'S' && monitorRow === 2 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE2SBEX
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'B' && monitorSystem === 'S' && monitorRow === 2 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE2SBEX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'B' && monitorSystem === 'S' && monitorRow === 2 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE2SBXL
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'B' && monitorSystem === 'S' && monitorRow === 2 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE2SBXL
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'B' && monitorSystem === 'S' && monitorRow === 2 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE2SBXX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'B' && monitorSystem === 'S' && monitorRow === 2 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE2SBXX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE2SXBX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE2SXBX
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE2SXEL
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE2SXEL
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE2SXEX
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE2SXEX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE2SXXL
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE2SXXL
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE2SXXX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE2SXXX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE1SXXL
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE1SXXL
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE1FBBX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE1FBBX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE1SXXL
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE1SXXL
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE1HBBX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE1HBBX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE1SXXX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE1SXXX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'E' && table === 'S') {
+            return SE_SV_Images.SE2SXXX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'V' && table === 'S') {
+            return SE_SV_Images.SE2SXXX
         }
 
-         //TECHNIK
-        if (this.props.technikSide === 'E') {
-            return (
-               <img src={einseitig} alt="" height={600} width={900} />
-            )
-        } else if (this.props.technikSide === 'B') {
-            return (
-                <img src={beidseitig} alt="" height={600} width={900} />
-            )
+
+
+        //HANDLING OF ANOTHER 122 USE CASES (including ME_MV)
+        else if (technikContainer === 'X' && technikSide === 'B' && blende === 'B' && monitorSystem === 'F' && monitorRow === 1 && height === 'E' && table === 'M') {
+            return LE_LV_Images.ME1FBBX;
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'B' && monitorSystem === 'F' && monitorRow === 1 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME1FBBX;
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'B' && monitorSystem === 'F' && monitorRow === 1 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME1FBEL;
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'B' && monitorSystem === 'F' && monitorRow === 1 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME1FBEL;
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'B' && monitorSystem === 'F' && monitorRow === 1 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME1FBXL
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'B' && monitorSystem === 'F' && monitorRow === 1 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME1FBXL
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'X' && monitorSystem === 'F' && monitorRow === 1 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME1FXBX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'X' && monitorSystem === 'F' && monitorRow === 1 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME1FXBX
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'X' && monitorSystem === 'F' && monitorRow === 1 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME1FXEL
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'X' && monitorSystem === 'F' && monitorRow === 1 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME1FXEL
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'X' && monitorSystem === 'F' && monitorRow === 1 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME1FXEX
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'X' && monitorSystem === 'F' && monitorRow === 1 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME1FXEX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'F' && monitorRow === 1 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME1FXXL
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'F' && monitorRow === 1 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME1FXXL
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'F' && monitorRow === 1 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME1FXXX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'F' && monitorRow === 1 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME1FXXX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'B' && monitorSystem === 'H' && monitorRow === 1 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME1HBBX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'B' && monitorSystem === 'H' && monitorRow === 1 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME1HBBX
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'B' && monitorSystem === 'H' && monitorRow === 1 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME1HBEL
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'B' && monitorSystem === 'H' && monitorRow === 1 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME1HBEL
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'B' && monitorSystem === 'H' && monitorRow === 1 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME1HBEX
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'B' && monitorSystem === 'H' && monitorRow === 1 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME1HBEX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'B' && monitorSystem === 'H' && monitorRow === 1 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME1HBXX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'B' && monitorSystem === 'H' && monitorRow === 1 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME1HBXX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'X' && monitorSystem === 'H' && monitorRow === 1 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME1HXBX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'X' && monitorSystem === 'H' && monitorRow === 1 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME1HXBX
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'X' && monitorSystem === 'H' && monitorRow === 1 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME1HXEL
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'X' && monitorSystem === 'H' && monitorRow === 1 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME1HXEL
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'X' && monitorSystem === 'H' && monitorRow === 1 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME1HXEX
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'X' && monitorSystem === 'H' && monitorRow === 1 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME1HXEX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'H' && monitorRow === 1 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME1HXXX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'H' && monitorRow === 1 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME1HXXX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME1SXBX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME1SXBX
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME1SXEL
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME1SXEL
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME1SXXL
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME1SXXL
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME1SXXX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME1SXXX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'B' && monitorSystem === 'F' && monitorRow === 2 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME2FBBX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'B' && monitorSystem === 'F' && monitorRow === 2 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME2FBBX
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'B' && monitorSystem === 'F' && monitorRow === 2 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME2FBEL
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'B' && monitorSystem === 'F' && monitorRow === 2 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME2FBEL
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'B' && monitorSystem === 'F' && monitorRow === 2 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME2FBEX
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'B' && monitorSystem === 'F' && monitorRow === 2 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME2FBEX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'B' && monitorSystem === 'F' && monitorRow === 2 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME2FBXX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'B' && monitorSystem === 'F' && monitorRow === 2 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME2FBXX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'X' && monitorSystem === 'F' && monitorRow === 2 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME2FXBX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'X' && monitorSystem === 'F' && monitorRow === 2 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME2FXBX
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'X' && monitorSystem === 'F' && monitorRow === 2 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME2FXEL
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'X' && monitorSystem === 'F' && monitorRow === 2 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME2FXEL
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'X' && monitorSystem === 'F' && monitorRow === 2 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME2FXEX
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'X' && monitorSystem === 'F' && monitorRow === 2 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME2FXEX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'F' && monitorRow === 2 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME2FXXL
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'F' && monitorRow === 2 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME2FXXL
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'F' && monitorRow === 2 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME2FXXX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'F' && monitorRow === 2 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME2FXXX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'B' && monitorSystem === 'H' && monitorRow === 2 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME2HBBX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'B' && monitorSystem === 'H' && monitorRow === 2 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME2HBBX
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'B' && monitorSystem === 'H' && monitorRow === 2 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME2HBEL
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'B' && monitorSystem === 'H' && monitorRow === 2 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME2HBEL
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'B' && monitorSystem === 'H' && monitorRow === 2 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME2HBEX
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'B' && monitorSystem === 'H' && monitorRow === 2 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME2HBEX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'B' && monitorSystem === 'H' && monitorRow === 2 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME2HBXL
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'B' && monitorSystem === 'H' && monitorRow === 2 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME2HBXL
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'B' && monitorSystem === 'H' && monitorRow === 2 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME2HBXX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'B' && monitorSystem === 'H' && monitorRow === 2 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME2HBXX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'X' && monitorSystem === 'H' && monitorRow === 2 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME2HXBX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'X' && monitorSystem === 'H' && monitorRow === 2 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME2HXBX
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'X' && monitorSystem === 'H' && monitorRow === 2 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME2HXEL
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'X' && monitorSystem === 'H' && monitorRow === 2 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME2HXEL
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'X' && monitorSystem === 'H' && monitorRow === 2 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME2HXEX
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'X' && monitorSystem === 'H' && monitorRow === 2 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME2HXEX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'H' && monitorRow === 2 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME2HXXL
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'H' && monitorRow === 2 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME2HXXL
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'H' && monitorRow === 2 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME2HXXX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'H' && monitorRow === 2 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME2HXXX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME2SXBX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME2SXBX
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME2SXEL
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME2SXEL
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME2SXEX
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME2SXEX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME2SXXL
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME2SXXL
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME2SXXX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME2SXXX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME1SXXL
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME1SXXL
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME1FBBX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME1FBBX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME1SXXL
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME1SXXL
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME1HBBX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME1HBBX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME1SXXX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME1SXXX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'E' && table === 'M') {
+            return ME_MV_Images.ME2SXXX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'V' && table === 'M') {
+            return ME_MV_Images.ME2SXXX
         }
 
-        //BLENDE
-          if (this.props.blende === 'X') {
-            return (
-                <img src={ohne_blende} alt="" height={600} width={900} />
-            )
-        } else if (this.props.blende === 'B') {
-            return (
-                <img src={mit_blende} alt="" height={600} width={900} />
-            )
-        }
-        //MONITOR
-        if (this.props.monitorRow === 1) {
-            return (
-                <img src={one_row} alt="" height={600} width={900} />
-            )
-        } else if (this.props.monitorRow === 2) {
-            return (
-                <img src={two_row} alt="" height={600} width={900} />
-            )
-        } else if (this.props.monitorSystem === 'X') {
-            return null
-        } else if (this.props.monitorSystem === 'S') {
-            return (
-                <img src={stativ} alt="" height={600} width={900} />
-            )
-        } else if (this.props.monitorSystem === 'F') {
-            return (
-                <img src={reling} alt="" height={600} width={900} />
-            )
-        }
-        else if (this.props.monitorSystem === 'H') {
-            return (
-                <img src={reling_hv} alt="" height={600} width={900} />
-            )
-        }
-        //HEIGHT
-        if (this.props.height === 'E') {
-            return (
-                <img src={table_large} alt="" height={600} width={900} />
-            )
-        } else if (this.props.height === 'V') {
-            return (
-                <img src={table_small} alt="" height={600} width={900} />
-            )
+        //HANDLING OF ANOTHER 122 USE CASES (including LE_LV)
+
+
+        else if (technikContainer === 'X' && technikSide === 'B' && blende === 'B' && monitorSystem === 'F' && monitorRow === 1 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE1FBBX;
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'B' && monitorSystem === 'F' && monitorRow === 1 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE1FBBX;
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'B' && monitorSystem === 'F' && monitorRow === 1 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE1FBEL;
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'B' && monitorSystem === 'F' && monitorRow === 1 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE1FBEL;
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'B' && monitorSystem === 'F' && monitorRow === 1 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE1FBXL
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'B' && monitorSystem === 'F' && monitorRow === 1 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE1FBXL
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'X' && monitorSystem === 'F' && monitorRow === 1 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE1FXBX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'X' && monitorSystem === 'F' && monitorRow === 1 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE1FXBX
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'X' && monitorSystem === 'F' && monitorRow === 1 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE1FXEL
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'X' && monitorSystem === 'F' && monitorRow === 1 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE1FXEL
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'X' && monitorSystem === 'F' && monitorRow === 1 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE1FXEX
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'X' && monitorSystem === 'F' && monitorRow === 1 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE1FXEX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'F' && monitorRow === 1 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE1FXXL
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'F' && monitorRow === 1 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE1FXXL
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'F' && monitorRow === 1 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE1FXXX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'F' && monitorRow === 1 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE1FXXX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'B' && monitorSystem === 'H' && monitorRow === 1 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE1HBBX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'B' && monitorSystem === 'H' && monitorRow === 1 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE1HBBX
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'B' && monitorSystem === 'H' && monitorRow === 1 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE1HBEL
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'B' && monitorSystem === 'H' && monitorRow === 1 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE1HBEL
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'B' && monitorSystem === 'H' && monitorRow === 1 && height === 'E' && table === 'L') {
+            return LE_LV_Images.ME1HBEX
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'B' && monitorSystem === 'H' && monitorRow === 1 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE1HBEX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'B' && monitorSystem === 'H' && monitorRow === 1 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE1HBXX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'B' && monitorSystem === 'H' && monitorRow === 1 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE1HBXX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'X' && monitorSystem === 'H' && monitorRow === 1 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE1HXBX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'X' && monitorSystem === 'H' && monitorRow === 1 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE1HXBX
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'X' && monitorSystem === 'H' && monitorRow === 1 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE1HXEL
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'X' && monitorSystem === 'H' && monitorRow === 1 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE1HXEL
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'X' && monitorSystem === 'H' && monitorRow === 1 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE1HXEX
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'X' && monitorSystem === 'H' && monitorRow === 1 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE1HXEX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'H' && monitorRow === 1 && height === 'E' && table === 'l') {
+            return LE_LV_Images.LE1HXXX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'H' && monitorRow === 1 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE1HXXX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE1SXBX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE1SXBX
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE1SXEL
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE1SXEL
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE1SXXL
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE1SXXL
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE1SXXX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE1SXXX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'B' && monitorSystem === 'F' && monitorRow === 2 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE2FBBX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'B' && monitorSystem === 'F' && monitorRow === 2 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE2FBBX
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'B' && monitorSystem === 'F' && monitorRow === 2 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE2FBEL
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'B' && monitorSystem === 'F' && monitorRow === 2 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE2FBEL
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'B' && monitorSystem === 'F' && monitorRow === 2 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE2FBEX
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'B' && monitorSystem === 'F' && monitorRow === 2 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE2FBEX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'B' && monitorSystem === 'F' && monitorRow === 2 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE2FBXX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'B' && monitorSystem === 'F' && monitorRow === 2 && height === 'V' && table === 'L') {
+            return LE_LV_Images.ME2FBXX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'X' && monitorSystem === 'F' && monitorRow === 2 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE2FXBX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'X' && monitorSystem === 'F' && monitorRow === 2 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE2FXBX
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'X' && monitorSystem === 'F' && monitorRow === 2 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE2FXEL
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'X' && monitorSystem === 'F' && monitorRow === 2 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE2FXEL
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'X' && monitorSystem === 'F' && monitorRow === 2 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE2FXEX
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'X' && monitorSystem === 'F' && monitorRow === 2 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE2FXEX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'F' && monitorRow === 2 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE2FXXL
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'F' && monitorRow === 2 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE2FXXL
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'F' && monitorRow === 2 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE2FXXX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'F' && monitorRow === 2 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE2FXXX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'B' && monitorSystem === 'H' && monitorRow === 2 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE2HBBX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'B' && monitorSystem === 'H' && monitorRow === 2 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE2HBBX
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'B' && monitorSystem === 'H' && monitorRow === 2 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE2HBEL
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'B' && monitorSystem === 'H' && monitorRow === 2 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE2HBEL
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'B' && monitorSystem === 'H' && monitorRow === 2 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE2HBEX
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'B' && monitorSystem === 'H' && monitorRow === 2 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE2HBEX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'B' && monitorSystem === 'H' && monitorRow === 2 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE2HBXL
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'B' && monitorSystem === 'H' && monitorRow === 2 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE2HBXL
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'B' && monitorSystem === 'H' && monitorRow === 2 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE2HBXX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'B' && monitorSystem === 'H' && monitorRow === 2 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE2HBXX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'X' && monitorSystem === 'H' && monitorRow === 2 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE2HXBX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'X' && monitorSystem === 'H' && monitorRow === 2 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE2HXBX
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'X' && monitorSystem === 'H' && monitorRow === 2 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE2HXEL
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'X' && monitorSystem === 'H' && monitorRow === 2 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE2HXEL
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'X' && monitorSystem === 'H' && monitorRow === 2 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE2HXEX
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'X' && monitorSystem === 'H' && monitorRow === 2 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE2HXEX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'H' && monitorRow === 2 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE2HXXL
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'H' && monitorRow === 2 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE2HXXL
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'H' && monitorRow === 2 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE2HXXX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'H' && monitorRow === 2 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE2HXXX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE2SXBX
+        } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE2SXBX
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE2SXEL
+        } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE2SXEL
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE2SXEX
+        } else if (technikContainer === 'X' && technikSide === 'E' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE2SXEX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE2SXXL
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE2SXXL
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE2SXXX
+        } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE2SXXX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE1SXXL
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE1SXXL
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE1FBBX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE1FBBX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE1SXXL
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE1SXXL
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE1HBBX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE1HBBX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE1SXXX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE1SXXX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'E' && table === 'L') {
+            return LE_LV_Images.LE2SXXX
+        } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'V' && table === 'L') {
+            return LE_LV_Images.LE2SXXX
+            // HANDLING CASES WHILE CONFIGURING
+            // MONITOR SYSTEM for S
+
+        } else if (table === 'S' && height === 'E' && monitorRow === 1 && monitorSystem === 'X') {
+            return SE_SV_Images.SE1HXXX
+        } else if (table === 'S' && height === 'V' && monitorRow === 1 && monitorSystem === 'X') {
+            return SE_SV_Images.SE1HXXX
+
+        } else if (table === 'S' && height === 'E' && monitorRow === 1 && monitorSystem === 'S') {
+            return SE_SV_Images.SE1SXXX
+        } else if (table === 'S' && height === 'V' && monitorRow === 1 && monitorSystem === 'S') {
+            return SE_SV_Images.SE1SXXX
+
+        } else if (table === 'S' && height === 'E' && monitorRow === 1 && monitorSystem === 'F') {
+            return SE_SV_Images.SE1FXXX
+        } else if (table === 'S' && height === 'V' && monitorRow === 1 && monitorSystem === 'F') {
+            return SE_SV_Images.SE1FXXX
+
+        } else if (table === 'S' && height === 'E' && monitorRow === 1 && monitorSystem === 'H') {
+            return SE_SV_Images.SE1HXXX
+        } else if (table === 'S' && height === 'V' && monitorRow === 1 && monitorSystem === 'H') {
+            return SE_SV_Images.SE1HXXX
+
+        } else if (table === 'S' && height === 'E' && monitorRow === 2 && monitorSystem === 'X') {
+            return SE_SV_Images.SE2HXXX
+        } else if (table === 'S' && height === 'V' && monitorRow === 2 && monitorSystem === 'X') {
+            return SE_SV_Images.SE2HXXX
+
+        } else if (table === 'S' && height === 'V' && monitorRow === 2 && monitorSystem === 'S') {
+            return SE_SV_Images.SE2SXXX
+        } else if (table === 'S' && height === 'E' && monitorRow === 2 && monitorSystem === 'S') {
+            return SE_SV_Images.SE2SXXX
+
+        } else if (table === 'S' && height === 'V' && monitorRow === 2 && monitorSystem === 'F') {
+            return SE_SV_Images.SE2FXXX
+        } else if (table === 'S' && height === 'E' && monitorRow === 2 && monitorSystem === 'F') {
+            return SE_SV_Images.SE2FXXX
+
+        } else if (table === 'S' && height === 'E' && monitorRow === 2 && monitorSystem === 'H') {
+            return SE_SV_Images.SE2HXXX
+        } else if (table === 'S' && height === 'V' && monitorRow === 2 && monitorSystem === 'H') {
+            return SE_SV_Images.SE2HXXX
+
+            //MONITOR SYSTEM for M
+        } else if (table === 'M' && height === 'E' && monitorRow === 1 && monitorSystem === 'X') {
+            return ME_MV_Images.ME1HXXX
+        } else if (table === 'M' && height === 'V' && monitorRow === 1 && monitorSystem === 'X') {
+            return ME_MV_Images.ME1HXXX
+
+        } else if (table === 'M' && height === 'E' && monitorRow === 1 && monitorSystem === 'S') {
+            return ME_MV_Images.ME1SXXX
+        } else if (table === 'M' && height === 'V' && monitorRow === 1 && monitorSystem === 'S') {
+            return ME_MV_Images.ME1SXXX
+
+        } else if (table === 'M' && height === 'E' && monitorRow === 1 && monitorSystem === 'F') {
+            return ME_MV_Images.ME1FXXX
+        } else if (table === 'M' && height === 'V' && monitorRow === 1 && monitorSystem === 'F') {
+            return ME_MV_Images.ME1FXXX
+
+        } else if (table === 'M' && height === 'E' && monitorRow === 1 && monitorSystem === 'H') {
+            return ME_MV_Images.ME1HXXX
+        } else if (table === 'M' && height === 'V' && monitorRow === 1 && monitorSystem === 'H') {
+            return ME_MV_Images.ME1HXXX
+
+        } else if (table === 'M' && height === 'E' && monitorRow === 2 && monitorSystem === 'X') {
+            return ME_MV_Images.ME2HXXX
+        } else if (table === 'M' && height === 'V' && monitorRow === 2 && monitorSystem === 'X') {
+            return ME_MV_Images.ME2HXXX
+
+        } else if (table === 'M' && height === 'V' && monitorRow === 2 && monitorSystem === 'S') {
+            return ME_MV_Images.ME2SXXX
+        } else if (table === 'M' && height === 'E' && monitorRow === 2 && monitorSystem === 'S') {
+            return ME_MV_Images.ME2SXXX
+
+        } else if (table === 'M' && height === 'V' && monitorRow === 2 && monitorSystem === 'F') {
+            return ME_MV_Images.ME2FXXX
+        } else if (table === 'M' && height === 'E' && monitorRow === 2 && monitorSystem === 'F') {
+            return ME_MV_Images.ME2FXXX
+
+        } else if (table === 'M' && height === 'E' && monitorRow === 2 && monitorSystem === 'H') {
+            return ME_MV_Images.ME2HXXX
+        } else if (table === 'M' && height === 'V' && monitorRow === 2 && monitorSystem === 'H') {
+            return ME_MV_Images.ME2HXXX
         }
 
-        //TABLE
-        if (this.props.table === 'S') {
-            if (this.props.height === 'E') {
-                return (
-                <img src={table_small} alt="" height={600} width={900} />
-                );
-            }
-            return (
-                <img src={table_small} alt="" height={600} width={900} />
-            );
-        } else if (this.props.table === 'M') {
-            return (
-                <img src={table_middle} alt="" height={600} width={900} />
-            )
-        } else if (this.props.table === 'L') {
-            return (
-                <img src={table_large} alt="" height={600} width={900} />
-            )
+        // MONITOR SYSTEM for L
+
+        else if (table === 'L' && height === 'E' && monitorRow === 1 && monitorSystem === 'X') {
+            return LE_LV_Images.LE1HXXX
+        } else if (table === 'L' && height === 'V' && monitorRow === 1 && monitorSystem === 'X') {
+            return LE_LV_Images.LE1HXXX
+
+        } else if (table === 'L' && height === 'E' && monitorRow === 1 && monitorSystem === 'S') {
+            return LE_LV_Images.LE1SXXX
+        } else if (table === 'L' && height === 'V' && monitorRow === 1 && monitorSystem === 'S') {
+            return LE_LV_Images.LE1SXXX
+
+        } else if (table === 'L' && height === 'E' && monitorRow === 1 && monitorSystem === 'F') {
+            return LE_LV_Images.LE1FXXX
+        } else if (table === 'L' && height === 'V' && monitorRow === 1 && monitorSystem === 'F') {
+            return LE_LV_Images.LE1FXXX
+
+        } else if (table === 'L' && height === 'E' && monitorRow === 1 && monitorSystem === 'H') {
+            return LE_LV_Images.LE1HXXX
+        } else if (table === 'L' && height === 'V' && monitorRow === 1 && monitorSystem === 'H') {
+            return LE_LV_Images.LE1HXXX
+
+        } else if (table === 'L' && height === 'E' && monitorRow === 2 && monitorSystem === 'X') {
+            return LE_LV_Images.LE2HXXX
+        } else if (table === 'L' && height === 'V' && monitorRow === 2 && monitorSystem === 'X') {
+            return LE_LV_Images.LE2HXXX
+
+        } else if (table === 'L' && height === 'V' && monitorRow === 2 && monitorSystem === 'S') {
+            return LE_LV_Images.LE2SXXX
+        } else if (table === 'L' && height === 'E' && monitorRow === 2 && monitorSystem === 'S') {
+            return LE_LV_Images.LE2SXXX
+
+        } else if (table === 'L' && height === 'V' && monitorRow === 2 && monitorSystem === 'F') {
+            return LE_LV_Images.LE2FXXX
+        } else if (table === 'L' && height === 'E' && monitorRow === 2 && monitorSystem === 'F') {
+            return LE_LV_Images.LE2FXXX
+
+        } else if (table === 'L' && height === 'E' && monitorRow === 2 && monitorSystem === 'H') {
+            return LE_LV_Images.LE2HXXX
+        } else if (table === 'L' && height === 'V' && monitorRow === 2 && monitorSystem === 'H') {
+            return LE_LV_Images.LE2HXXX
         }
+
+        //MONITOR ROW
+        else if (table === 'S' && height === 'E' && monitorRow === 1) {
+            return SE_SV_Images.SE1HXXX
+        } else if (table === 'S' && height === 'V' && monitorRow === 1) {
+            return SE_SV_Images.SE1HXXX
+
+        } else if (table === 'M' && height === 'E' && monitorRow === 1) {
+            return ME_MV_Images.ME1SXXX
+        } else if (table === 'M' && height === 'V' && monitorRow === 1) {
+            return ME_MV_Images.ME1SXXX
+
+        } else if (table === 'L' && height === 'E' && monitorRow === 1) {
+            return LE_LV_Images.LE1SXXX
+        } else if (table === 'L' && height === 'V' && monitorRow === 1) {
+            return LE_LV_Images.LE1SXXX
+
+        } else if (table === 'S' && height === 'E' && monitorRow === 2) {
+            return SE_SV_Images.SE2HXXX
+        } else if (table === 'S' && height === 'V' && monitorRow === 2) {
+            return SE_SV_Images.SE2HXXX
+
+        } else if (table === 'M' && height === 'E' && monitorRow === 2) {
+            return ME_MV_Images.ME2SXXX
+        } else if (table === 'M' && height === 'V' && monitorRow === 2) {
+            return ME_MV_Images.ME2SXXX
+
+        } else if (table === 'L' && height === 'E' && monitorRow === 2) {
+            return LE_LV_Images.LE2SXXX
+        } else if (table === 'L' && height === 'V' && monitorRow === 2) {
+            return LE_LV_Images.LE2SXXX
+            //HEIGHT
+        } else if (table === 'S' && height === 'E') {
+            return SE_SV_Images.SEXXXXX
+        } else if (table === 'S' && height === 'V') {
+            return SE_SV_Images.SEXXXXX
+        } else if (table === 'M' && height === 'E') {
+            return ME_MV_Images.MEXXXXX
+        } else if (table === 'M' && height === 'V') {
+            return ME_MV_Images.MEXXXXX
+        } else if (table === 'L' && height === 'E') {
+            return LE_LV_Images.LEXXXXX
+        } else if (table === 'L' && height === 'V') {
+            return LE_LV_Images.LEXXXXX
+        } else if (table === 'L') {
+           return LE_LV_Images.LEXXXXX
+        } else if (table === 'M') {
+           return ME_MV_Images.MEXXXXX
+        } else if (table === 'S') {
+           return SE_SV_Images.SEXXXXX
+        }
+
     }
 
-
     render() {
+
         return (
             <div>
                 <h1>Ihre Leitstelle</h1>

@@ -10,6 +10,7 @@ class ProductCodeForm extends React.PureComponent {
     handleChange = (event) => {
         this.setState({ code: event.target.value });
     }
+
     handleSubmit = (event) => {
         // prevent the reload
         event.preventDefault();
