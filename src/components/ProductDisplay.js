@@ -455,10 +455,12 @@ class ProductDisplay extends React.PureComponent {
             return ME_MV_Images.ME1HBBX
         } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'V' && table === 'M') {
             return ME_MV_Images.ME1HBBX
+
         } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'E' && table === 'M') {
-            return ME_MV_Images.ME1SXXX
+            return ME_MV_Images.ME1SXXL
         } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 1 && height === 'V' && table === 'M') {
-            return ME_MV_Images.ME1SXXX
+            return ME_MV_Images.ME1SXXL
+
         } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'E' && table === 'M') {
             return ME_MV_Images.ME2SXXX
         } else if (technikContainer === 'X' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'V' && table === 'M') {

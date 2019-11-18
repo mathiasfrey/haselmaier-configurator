@@ -44,7 +44,7 @@ class ProductCode extends React.PureComponent {
                     Wünschen Sie ein Angebot?
                 </p>
                 <a  target="_new"
-                    href={'mailto:haselmaier@haselmaier.at?subject=Konfigurator Code: ' + code}>haselmaier@haselmaier.at</a>
+                    href={'mailto:l.haselmaier@haselmaier.at?subject=Konfigurator Code: ' + code}>l.haselmaier@haselmaier.at</a>
             </div>
         );
     }

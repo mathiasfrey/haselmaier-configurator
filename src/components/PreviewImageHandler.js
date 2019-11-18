@@ -1,6 +1,9 @@
 import React from 'react';
-import table_small from '../assets/TTV/TTV.ME/TTV.MEXXXXX.jpg'
+import table_small from '../assets/TTV/TTV.SE/TTV.SEXXXXX.jpg'
+import table_middle from '../assets/TTV/TTV.ME/TTV.MEXXXXX.jpg'
 import table_large from '../assets/TTV/TTV.LE/TTV.LEXXXXX.jpg'
+import eco from '../assets/TTV/Systems/ECO.jpg'
+import vario from '../assets/TTV/Systems/VARIO.jpg'
 import reling from '../assets/TTV/Systems/1RRF.jpg'
 import stativ from '../assets/TTV/Systems/Stativ 2.jpg'
 import reling_hv from '../assets/TTV/Systems/1RRH.jpg'
@@ -17,11 +20,11 @@ import ohne_container from '../assets/TTV/TTV.ME/TTV.ME1HXXX.jpg'
 export const ModalImagesPath = {
     //Table
   small_table: <img src={table_small} height="120" width="200" alt="ref"/>,
-  middle_table: <img src={table_small} height="120" width="200" alt="ref"/>,
+  middle_table: <img src={table_middle} height="120" width="200" alt="ref"/>,
   large_table: <img src={table_large} height="120" width="200" alt="ref"/>,
     //Height
-  eco: <img src={table_small} height="120" width="200" alt="ref"/>,
-  vario: <img src={table_small} height="120" width="200" alt="ref"/>,
+  eco: <img src={eco} height="120" width="200" alt="ref"/>,
+  vario: <img src={vario} height="120" width="200" alt="ref"/>,
     //Monitor
   reling: <img src={reling} height="120" width="200" alt="ref"/>,
   stativ: <img src={stativ} height="120" width="200" alt="ref"/>,

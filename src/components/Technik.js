@@ -42,7 +42,7 @@ class Technik extends React.Component {
            this.props.callbackContainer(container);
            this.setState({ open: false })
         } else {
-            alert('Please choose your side first 🌟 ')
+            alert('Bitte wählen Sie zuerst den Technikraum 🌟 ')
         }
 
     };
@@ -56,7 +56,7 @@ class Technik extends React.Component {
         }
         return (
             <button className="btn btn-2 btn-2a"
-            onClick={() => this.handleContainer(container)} disabled={disabled}> {container} Container </button>
+            onClick={() => this.handleContainer(container)} disabled={disabled}> {container}  </button>
         )
     }
 
@@ -103,7 +103,7 @@ class Technik extends React.Component {
         <video autoPlay={false} height="300" width="500" controls playsInline={false}>
         <source src={technik_video} type="video/mp4"/>
         </video>
-        <h2> Treffen Sie Ihre Auswahl </h2>
+        <h2> Auswahl Technikraum </h2>
             <div className="row">
         <div className="column">
             {this.loadPreviewImage('E')}
@@ -118,7 +118,7 @@ class Technik extends React.Component {
             <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnikSide('X')}> Ohne </button>
         </div>
             </div>
-        <h2> Treffen Sie Ihre Auswahl </h2>
+        <h2> Ladencontainer </h2>
         <div>
             {this.loadPreviewImage('L')}
             {this.renderContainerButton('L')}

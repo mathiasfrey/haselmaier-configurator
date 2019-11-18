@@ -65,7 +65,7 @@ class Settings extends React.Component {
 
 
         function matchMonitorSystem(code) {
-            const monitorSystemsRegex = /[XFHS]/;
+            const monitorSystemsRegex = /[FHS]/;
             if (code.match(monitorSystemsRegex)) {
                 const monitorSystem = code.match(monitorSystemsRegex)[0];
                 return {

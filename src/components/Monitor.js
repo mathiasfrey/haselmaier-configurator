@@ -29,7 +29,7 @@ class Monitor extends React.Component {
                 this.setState({open: false})
             }
         } else {
-            alert('Please choose a row 🌟')
+            alert('1-reihig oder 2-reihig? 🌟')
         }
 
 
@@ -143,24 +143,24 @@ class Monitor extends React.Component {
             <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorRow(2)}> 2 - Reihig </button>
         </div>
         <h2>Monitorsystem</h2>
-        <div className="column">
+        {/*<div className="column">
             {this.loadPreviewImages('ohne')}
             <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorSystem('X')}>1. OHNE </button>
-        </div>
+        </div>*/}
             {/*<br />*/}
         <div className="column">
             {this.loadPreviewImages('stativ')}
-            <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorSystem('S')}> 2. STATIVSYSTEM </button>
+            <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorSystem('S')}> 1. STATIVSYSTEM </button>
         </div>
             {/*<br />*/}
         <div className="column">
             {this.loadPreviewImages('reling')}
-            <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorSystem('F')}>3. RELING: OHNE HV </button>
+            <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorSystem('F')}>2. RELING: OHNE HV </button>
         </div>
             {/*<br />*/}
         <div className="column">
             {this.loadPreviewImages('reling_hv')}
-            <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorSystem('H')}> 4. RELING: MIT HV </button>
+            <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorSystem('H')}> 3. RELING: MIT HV </button>
         </div>
         </Modal>
         </>
