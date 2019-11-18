@@ -47,7 +47,7 @@ class Technik extends React.Component {
 
     };
 
-    renderContainerButton(container) {
+    renderContainerButton(container, text) {
         var disabled = true;
         if (this.props.chosenSide === 'B') {
             disabled = true;
@@ -56,7 +56,7 @@ class Technik extends React.Component {
         }
         return (
             <button className="btn btn-2 btn-2a"
-            onClick={() => this.handleContainer(container)} disabled={disabled}> {container}  </button>
+            onClick={() => this.handleContainer(container)} disabled={disabled}> {container} {text}  </button>
         )
     }
 
@@ -121,11 +121,11 @@ class Technik extends React.Component {
         <h2> Ladencontainer </h2>
         <div>
             {this.loadPreviewImage('L')}
-            {this.renderContainerButton('L')}
+            {this.renderContainerButton('L', '(Mit Ladencontainer)')}
         </div>
         <div>
             {this.loadPreviewImage('XContainer')}
-            {this.renderContainerButton('X')}
+            {this.renderContainerButton('X', '(Ohne Ladencontainer)')}
         </div>
         </Modal>
         </>

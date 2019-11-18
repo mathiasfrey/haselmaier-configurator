@@ -264,7 +264,7 @@ class ProductDisplay extends React.PureComponent {
 
         //HANDLING OF ANOTHER 122 USE CASES (including ME_MV)
         else if (technikContainer === 'X' && technikSide === 'B' && blende === 'B' && monitorSystem === 'F' && monitorRow === 1 && height === 'E' && table === 'M') {
-            return LE_LV_Images.ME1FBBX;
+            return ME_MV_Images.ME1FBBX;
         } else if (technikContainer === 'X' && technikSide === 'B' && blende === 'B' && monitorSystem === 'F' && monitorRow === 1 && height === 'V' && table === 'M') {
             return ME_MV_Images.ME1FBBX;
         } else if (technikContainer === 'L' && technikSide === 'E' && blende === 'B' && monitorSystem === 'F' && monitorRow === 1 && height === 'E' && table === 'M') {
@@ -671,9 +671,262 @@ class ProductDisplay extends React.PureComponent {
         } else if (technikContainer === 'L' && technikSide === 'X' && blende === 'X' && monitorSystem === 'S' && monitorRow === 2 && height === 'V' && table === 'L') {
             return LE_LV_Images.LE2SXXX
             // HANDLING CASES WHILE CONFIGURING
+
+             //BLENDE: B - table: S
+        } else if (table === 'S' && height === 'E' && monitorRow === 1 && monitorSystem === 'X' && blende === 'B') {
+            return SE_SV_Images.SE1HBXX
+        } else if (table === 'S' && height === 'V' && monitorRow === 1 && monitorSystem === 'X' && blende === 'B') {
+            return SE_SV_Images.SE1HBXX
+
+        } else if (table === 'S' && height === 'E' && monitorRow === 1 && monitorSystem === 'S' && blende === 'B') {
+            return SE_SV_Images.SE1HBXX
+        } else if (table === 'S' && height === 'V' && monitorRow === 1 && monitorSystem === 'S' && blende === 'B') {
+            return SE_SV_Images.SE1HBXX
+
+        } else if (table === 'S' && height === 'E' && monitorRow === 1 && monitorSystem === 'F' && blende === 'B') {
+            return SE_SV_Images.SE1FBXX
+        } else if (table === 'S' && height === 'V' && monitorRow === 1 && monitorSystem === 'F' && blende === 'B') {
+            return SE_SV_Images.SE1FBXX
+
+        } else if (table === 'S' && height === 'E' && monitorRow === 1 && monitorSystem === 'H' && blende === 'B') {
+            return SE_SV_Images.SE1HBXX
+        } else if (table === 'S' && height === 'V' && monitorRow === 1 && monitorSystem === 'H' && blende === 'B') {
+            return SE_SV_Images.SE1HBXX
+
+        } else if (table === 'S' && height === 'E' && monitorRow === 2 && monitorSystem === 'X' && blende === 'B') {
+            return SE_SV_Images.SE2HBXX
+        } else if (table === 'S' && height === 'V' && monitorRow === 2 && monitorSystem === 'X' && blende === 'B') {
+            return SE_SV_Images.SE2HBXX
+
+        } else if (table === 'S' && height === 'V' && monitorRow === 2 && monitorSystem === 'S' && blende === 'B') {
+            return SE_SV_Images.SE2HBXX
+        } else if (table === 'S' && height === 'E' && monitorRow === 2 && monitorSystem === 'S' && blende === 'B') {
+            return SE_SV_Images.SE2HBXX
+
+        } else if (table === 'S' && height === 'V' && monitorRow === 2 && monitorSystem === 'F' && blende === 'B') {
+            return SE_SV_Images.SE2FBXX
+        } else if (table === 'S' && height === 'E' && monitorRow === 2 && monitorSystem === 'F' && blende === 'B') {
+            return SE_SV_Images.SE2FBXX
+
+        } else if (table === 'S' && height === 'E' && monitorRow === 2 && monitorSystem === 'H' && blende === 'B') {
+            return SE_SV_Images.SE2HBXX
+        } else if (table === 'S' && height === 'V' && monitorRow === 2 && monitorSystem === 'H' && blende === 'B') {
+            return SE_SV_Images.SE2HBXX
+
+            //BLENDE: X - table: S
+        } else if (table === 'S' && height === 'E' && monitorRow === 1 && monitorSystem === 'X' && blende === 'X') {
+            return SE_SV_Images.SE1HBXX
+        } else if (table === 'S' && height === 'V' && monitorRow === 1 && monitorSystem === 'X' && blende === 'X') {
+            return SE_SV_Images.SE1HBXX
+
+        } else if (table === 'S' && height === 'E' && monitorRow === 1 && monitorSystem === 'S' && blende === 'X') {
+            return SE_SV_Images.SE1HBXX
+        } else if (table === 'S' && height === 'V' && monitorRow === 1 && monitorSystem === 'S' && blende === 'X') {
+            return SE_SV_Images.SE1HBXX
+
+        } else if (table === 'S' && height === 'E' && monitorRow === 1 && monitorSystem === 'F' && blende === 'X') {
+            return SE_SV_Images.SE1FBXX
+        } else if (table === 'S' && height === 'V' && monitorRow === 1 && monitorSystem === 'F' && blende === 'X') {
+            return SE_SV_Images.SE1FBXX
+
+        } else if (table === 'S' && height === 'E' && monitorRow === 1 && monitorSystem === 'H' && blende === 'X') {
+            return SE_SV_Images.SE1HBXX
+        } else if (table === 'S' && height === 'V' && monitorRow === 1 && monitorSystem === 'H' && blende === 'X') {
+            return SE_SV_Images.SE1HBXX
+
+        } else if (table === 'S' && height === 'E' && monitorRow === 2 && monitorSystem === 'X' && blende === 'X') {
+            return SE_SV_Images.SE2HBXX
+        } else if (table === 'S' && height === 'V' && monitorRow === 2 && monitorSystem === 'X' && blende === 'X') {
+            return SE_SV_Images.SE2HBXX
+
+        } else if (table === 'S' && height === 'V' && monitorRow === 2 && monitorSystem === 'S' && blende === 'X') {
+            return SE_SV_Images.SE2HBXX
+        } else if (table === 'S' && height === 'E' && monitorRow === 2 && monitorSystem === 'S' && blende === 'X') {
+            return SE_SV_Images.SE2HBXX
+
+        } else if (table === 'S' && height === 'V' && monitorRow === 2 && monitorSystem === 'F' && blende === 'X') {
+            return SE_SV_Images.SE2FBXX
+        } else if (table === 'S' && height === 'E' && monitorRow === 2 && monitorSystem === 'F' && blende === 'X') {
+            return SE_SV_Images.SE2FBXX
+
+        } else if (table === 'S' && height === 'E' && monitorRow === 2 && monitorSystem === 'H' && blende === 'X') {
+            return SE_SV_Images.SE2HBXX
+        } else if (table === 'S' && height === 'V' && monitorRow === 2 && monitorSystem === 'H' && blende === 'X') {
+            return SE_SV_Images.SE2HBXX
+
+
+            //BLENDE: B - table: M
+        } else if (table === 'M' && height === 'E' && monitorRow === 1 && monitorSystem === 'X' && blende === 'B') {
+            return ME_MV_Images.ME1HBXX
+        } else if (table === 'M' && height === 'V' && monitorRow === 1 && monitorSystem === 'X' && blende === 'B') {
+            return ME_MV_Images.ME1HBXX
+
+        } else if (table === 'M' && height === 'E' && monitorRow === 1 && monitorSystem === 'S' && blende === 'B') {
+            return ME_MV_Images.ME1HBXX //TODO: ME1SBXX, waiting for lukis pics
+        } else if (table === 'M' && height === 'V' && monitorRow === 1 && monitorSystem === 'S' && blende === 'B') {
+            return ME_MV_Images.ME1HBXX //TODO: ME1SBXX, waiting for lukis pics
+
+        } else if (table === 'M' && height === 'E' && monitorRow === 1 && monitorSystem === 'F' && blende === 'B') {
+            return ME_MV_Images.ME1FBXX
+        } else if (table === 'M' && height === 'V' && monitorRow === 1 && monitorSystem === 'F' && blende === 'B') {
+            return ME_MV_Images.ME1FBXX
+
+        } else if (table === 'M' && height === 'E' && monitorRow === 1 && monitorSystem === 'H' && blende === 'B') {
+            return ME_MV_Images.ME1HBXX
+        } else if (table === 'M' && height === 'V' && monitorRow === 1 && monitorSystem === 'H' && blende === 'B') {
+            return ME_MV_Images.ME1HBXX
+
+        } else if (table === 'M' && height === 'E' && monitorRow === 2 && monitorSystem === 'X' && blende === 'B') {
+            return ME_MV_Images.ME2HBXX
+        } else if (table === 'M' && height === 'V' && monitorRow === 2 && monitorSystem === 'X' && blende === 'B') {
+            return ME_MV_Images.ME2HBXX
+
+        } else if (table === 'M' && height === 'V' && monitorRow === 2 && monitorSystem === 'S' && blende === 'B') {
+            return ME_MV_Images.ME2HBXX //TODO: ME1SBXX, waiting for lukis pics
+        } else if (table === 'M' && height === 'E' && monitorRow === 2 && monitorSystem === 'S' && blende === 'B') {
+            return ME_MV_Images.ME2HBXX //TODO: ME1SBXX, waiting for lukis pics
+
+        } else if (table === 'M' && height === 'V' && monitorRow === 2 && monitorSystem === 'F' && blende === 'B') {
+            return ME_MV_Images.ME2FBXX
+        } else if (table === 'M' && height === 'E' && monitorRow === 2 && monitorSystem === 'F' && blende === 'B') {
+            return ME_MV_Images.ME2FBXX
+
+        } else if (table === 'M' && height === 'E' && monitorRow === 2 && monitorSystem === 'H' && blende === 'B') {
+            return ME_MV_Images.ME2HBXX
+        } else if (table === 'M' && height === 'V' && monitorRow === 2 && monitorSystem === 'H' && blende === 'B') {
+            return ME_MV_Images.ME2HBXX
+
+
+
+            //BLENDE: X - table: M
+
+        } else if (table === 'M' && height === 'E' && monitorRow === 1 && monitorSystem === 'X' && blende === 'X') {
+            return ME_MV_Images.ME1HXXX
+        } else if (table === 'M' && height === 'V' && monitorRow === 1 && monitorSystem === 'X' && blende === 'X') {
+            return ME_MV_Images.ME1HXXX
+
+        } else if (table === 'M' && height === 'E' && monitorRow === 1 && monitorSystem === 'S' && blende === 'X') {
+            return ME_MV_Images.ME1HXXX //TODO: ME1SBXX, waiting for lukis pics
+        } else if (table === 'M' && height === 'V' && monitorRow === 1 && monitorSystem === 'S' && blende === 'X') {
+            return ME_MV_Images.ME1HXXX //TODO: ME1SBXX, waiting for lukis pics
+
+        } else if (table === 'M' && height === 'E' && monitorRow === 1 && monitorSystem === 'F' && blende === 'X') {
+            return ME_MV_Images.ME1FXXX
+        } else if (table === 'M' && height === 'V' && monitorRow === 1 && monitorSystem === 'F' && blende === 'X') {
+            return ME_MV_Images.ME1FXXX
+
+        } else if (table === 'M' && height === 'E' && monitorRow === 1 && monitorSystem === 'H' && blende === 'X') {
+            return ME_MV_Images.ME1HXXX
+        } else if (table === 'M' && height === 'V' && monitorRow === 1 && monitorSystem === 'H' && blende === 'X') {
+            return ME_MV_Images.ME1HXXX
+
+        } else if (table === 'M' && height === 'E' && monitorRow === 2 && monitorSystem === 'X' && blende === 'X') {
+            return ME_MV_Images.ME2HXXX
+        } else if (table === 'M' && height === 'V' && monitorRow === 2 && monitorSystem === 'X' && blende === 'X') {
+            return ME_MV_Images.ME2HXXX
+
+        } else if (table === 'M' && height === 'V' && monitorRow === 2 && monitorSystem === 'S' && blende === 'X') {
+            return ME_MV_Images.ME2HXXX //ME2SBXX
+        } else if (table === 'M' && height === 'E' && monitorRow === 2 && monitorSystem === 'S' && blende === 'X') {
+            return ME_MV_Images.ME2HXXX //ME2SBXX
+
+        } else if (table === 'M' && height === 'V' && monitorRow === 2 && monitorSystem === 'F' && blende === 'X') {
+            return ME_MV_Images.ME2FXXX
+        } else if (table === 'M' && height === 'E' && monitorRow === 2 && monitorSystem === 'F' && blende === 'X') {
+            return ME_MV_Images.ME2FXXX
+
+        } else if (table === 'M' && height === 'E' && monitorRow === 2 && monitorSystem === 'H' && blende === 'X') {
+            return ME_MV_Images.ME2HBXX
+        } else if (table === 'M' && height === 'V' && monitorRow === 2 && monitorSystem === 'H' && blende === 'X') {
+            return ME_MV_Images.ME2HBXX
+
+            //BLENDE: B - table: L
+        } else if (table === 'L' && height === 'E' && monitorRow === 1 && monitorSystem === 'X' && blende === 'B') {
+            return LE_LV_Images.LE1HBXX
+        } else if (table === 'L' && height === 'V' && monitorRow === 1 && monitorSystem === 'X' && blende === 'B') {
+            return LE_LV_Images.LE1HBXX
+
+        } else if (table === 'L' && height === 'E' && monitorRow === 1 && monitorSystem === 'S' && blende === 'B') {
+            return LE_LV_Images.LE1SBXX
+        } else if (table === 'L' && height === 'V' && monitorRow === 1 && monitorSystem === 'S' && blende === 'B') {
+            return LE_LV_Images.LE1SBXX
+
+        } else if (table === 'L' && height === 'E' && monitorRow === 1 && monitorSystem === 'F' && blende === 'B') {
+            return LE_LV_Images.LE1FBXX
+        } else if (table === 'L' && height === 'V' && monitorRow === 1 && monitorSystem === 'F' && blende === 'B') {
+            return LE_LV_Images.LE1FBXX
+
+        } else if (table === 'L' && height === 'E' && monitorRow === 1 && monitorSystem === 'H' && blende === 'B') {
+            return LE_LV_Images.LE1HBXX
+        } else if (table === 'L' && height === 'V' && monitorRow === 1 && monitorSystem === 'H' && blende === 'B') {
+            return LE_LV_Images.LE1HBXX
+
+        } else if (table === 'L' && height === 'E' && monitorRow === 2 && monitorSystem === 'X' && blende === 'B') {
+            return LE_LV_Images.LE2HBXX
+        } else if (table === 'L' && height === 'V' && monitorRow === 2 && monitorSystem === 'X' && blende === 'B') {
+            return LE_LV_Images.LE2HBXX
+
+        } else if (table === 'L' && height === 'V' && monitorRow === 2 && monitorSystem === 'S' && blende === 'B') {
+            return LE_LV_Images.LE2SBXX
+        } else if (table === 'L' && height === 'E' && monitorRow === 2 && monitorSystem === 'S' && blende === 'B') {
+            return LE_LV_Images.LE2SBXX
+
+        } else if (table === 'L' && height === 'V' && monitorRow === 2 && monitorSystem === 'F' && blende === 'B') {
+            return LE_LV_Images.LE2FBXX
+        } else if (table === 'L' && height === 'E' && monitorRow === 2 && monitorSystem === 'F' && blende === 'B') {
+            return LE_LV_Images.LE2FBXX
+
+        } else if (table === 'L' && height === 'E' && monitorRow === 2 && monitorSystem === 'H' && blende === 'B') {
+            return LE_LV_Images.LE2HBXX
+        } else if (table === 'L' && height === 'V' && monitorRow === 2 && monitorSystem === 'H' && blende === 'B') {
+            return LE_LV_Images.LE2HBXX
+        }
+        //BLENDE: X - table: L, missing BLENDE: X
+        else if (table === 'L' && height === 'E' && monitorRow === 1 && monitorSystem === 'X' && blende === 'X') {
+            return LE_LV_Images.LE1HXXX
+        } else if (table === 'L' && height === 'V' && monitorRow === 1 && monitorSystem === 'X' && blende === 'X') {
+            return LE_LV_Images.LE1HXXX
+
+        } else if (table === 'L' && height === 'E' && monitorRow === 1 && monitorSystem === 'S' && blende === 'X') {
+            return LE_LV_Images.LE1SXXX
+        } else if (table === 'L' && height === 'V' && monitorRow === 1 && monitorSystem === 'S' && blende === 'X') {
+            return LE_LV_Images.LE1SXXX
+
+        } else if (table === 'L' && height === 'E' && monitorRow === 1 && monitorSystem === 'F' && blende === 'X') {
+            return LE_LV_Images.LE1FXXX
+        } else if (table === 'L' && height === 'V' && monitorRow === 1 && monitorSystem === 'F' && blende === 'X') {
+            return LE_LV_Images.LE1FXXX
+
+        } else if (table === 'L' && height === 'E' && monitorRow === 1 && monitorSystem === 'H' && blende === 'X') {
+            return LE_LV_Images.LE1HXXX
+        } else if (table === 'L' && height === 'V' && monitorRow === 1 && monitorSystem === 'H' && blende === 'X') {
+            return LE_LV_Images.LE1HXXX
+
+        } else if (table === 'L' && height === 'E' && monitorRow === 2 && monitorSystem === 'X' && blende === 'X') {
+            return LE_LV_Images.LE2HXXX
+        } else if (table === 'L' && height === 'V' && monitorRow === 2 && monitorSystem === 'X' && blende === 'X') {
+            return LE_LV_Images.LE2HXXX
+
+        } else if (table === 'L' && height === 'V' && monitorRow === 2 && monitorSystem === 'S' && blende === 'X') {
+            return LE_LV_Images.LE2SXXX
+        } else if (table === 'L' && height === 'E' && monitorRow === 2 && monitorSystem === 'S' && blende === 'X') {
+            return LE_LV_Images.LE2SXXX
+
+        } else if (table === 'L' && height === 'V' && monitorRow === 2 && monitorSystem === 'F' && blende === 'X') {
+            return LE_LV_Images.LE2FXXX
+        } else if (table === 'L' && height === 'E' && monitorRow === 2 && monitorSystem === 'F' && blende === 'X') {
+            return LE_LV_Images.LE2FXXX
+
+        } else if (table === 'L' && height === 'E' && monitorRow === 2 && monitorSystem === 'H' && blende === 'X') {
+            return LE_LV_Images.LE2HXXX
+        } else if (table === 'L' && height === 'V' && monitorRow === 2 && monitorSystem === 'H' && blende === 'X') {
+            return LE_LV_Images.LE2HXXX
+        }
+
+
             // MONITOR SYSTEM for S
 
-        } else if (table === 'S' && height === 'E' && monitorRow === 1 && monitorSystem === 'X') {
+        else if (table === 'S' && height === 'E' && monitorRow === 1 && monitorSystem === 'X') {
             return SE_SV_Images.SE1HXXX
         } else if (table === 'S' && height === 'V' && monitorRow === 1 && monitorSystem === 'X') {
             return SE_SV_Images.SE1HXXX

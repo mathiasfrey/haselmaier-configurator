@@ -11,7 +11,13 @@ class Blende extends Component {
     };
 
     onOpenModal = () => {
-    this.setState({ open: true });
+    if (this.props.monitorDependency === 'S') {
+        alert('Stativsystem gewählt, keine Blendeneinstellung möglich 😉')
+        this.setState({open: false})
+    } else {
+        this.setState({ open: true });
+    }
+
     };
 
     onCloseModal = () => {
@@ -40,11 +46,11 @@ class Blende extends Component {
         if (this.props.monitorDependency != null) {
             disabled = false
         }
-        if (this.props.monitorDependency === 'X') {
-            disabled = true;
+        /*if (this.props.monitorDependency === 'X') {
+            disabled = false;
         } else if (this.props.monitorDependency === 'S') {
-            disabled = true;
-        }
+            disabled = false;
+        }*/
 
         return (
             <>
