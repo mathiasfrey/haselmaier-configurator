@@ -55,8 +55,12 @@ class Technik extends React.Component {
             disabled = false;
         }
         return (
+            <>
             <button className="btn btn-2 btn-2a"
-            onClick={() => this.handleContainer(container)} disabled={disabled}> {container} {text}  </button>
+            onClick={() => this.handleContainer(container)} disabled={disabled}> {container} {text}
+            </button>
+            </>
+
         )
     }
 
@@ -106,25 +110,25 @@ class Technik extends React.Component {
         <h2> Auswahl Technikraum </h2>
             <div className="row">
         <div className="column">
-            {this.loadPreviewImage('E')}
+            <button className="border-white" onClick={() => this.handleTechnikSide('E')}>{this.loadPreviewImage('E')}</button>
             <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnikSide('E')}> Einseitig </button>
         </div>
         <div className="column">
-            {this.loadPreviewImage('B')}
+            <button className="border-white" onClick={() => this.handleTechnikSide('B')}>{this.loadPreviewImage('B')}</button>
             <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnikSide('B')}> Beidseitig </button>
         </div>
         <div className="column">
-            {this.loadPreviewImage('XSide')}
+            <button className="border-white" onClick={() => this.handleTechnikSide('X')}>{this.loadPreviewImage('XSide')}</button>
             <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnikSide('X')}> Ohne </button>
         </div>
             </div>
         <h2> Ladencontainer </h2>
         <div>
-            {this.loadPreviewImage('L')}
+            {this.loadPreviewImage('XContainer')}
             {this.renderContainerButton('L', '(Mit Ladencontainer)')}
         </div>
         <div>
-            {this.loadPreviewImage('XContainer')}
+            {this.loadPreviewImage('L')}
             {this.renderContainerButton('X', '(Ohne Ladencontainer)')}
         </div>
         </Modal>

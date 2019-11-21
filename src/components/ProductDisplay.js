@@ -715,44 +715,44 @@ class ProductDisplay extends React.PureComponent {
 
             //BLENDE: X - table: S
         } else if (table === 'S' && height === 'E' && monitorRow === 1 && monitorSystem === 'X' && blende === 'X') {
-            return SE_SV_Images.SE1HBXX
+            return SE_SV_Images.SE1HXXX
         } else if (table === 'S' && height === 'V' && monitorRow === 1 && monitorSystem === 'X' && blende === 'X') {
-            return SE_SV_Images.SE1HBXX
+            return SE_SV_Images.SE1HXXX
 
         } else if (table === 'S' && height === 'E' && monitorRow === 1 && monitorSystem === 'S' && blende === 'X') {
-            return SE_SV_Images.SE1HBXX
+            return SE_SV_Images.SE1HXXX
         } else if (table === 'S' && height === 'V' && monitorRow === 1 && monitorSystem === 'S' && blende === 'X') {
-            return SE_SV_Images.SE1HBXX
+            return SE_SV_Images.SE1HXXX
 
         } else if (table === 'S' && height === 'E' && monitorRow === 1 && monitorSystem === 'F' && blende === 'X') {
-            return SE_SV_Images.SE1FBXX
+            return SE_SV_Images.SE1FXXX
         } else if (table === 'S' && height === 'V' && monitorRow === 1 && monitorSystem === 'F' && blende === 'X') {
-            return SE_SV_Images.SE1FBXX
+            return SE_SV_Images.SE1FXXX
 
         } else if (table === 'S' && height === 'E' && monitorRow === 1 && monitorSystem === 'H' && blende === 'X') {
-            return SE_SV_Images.SE1HBXX
+            return SE_SV_Images.SE1HXXX
         } else if (table === 'S' && height === 'V' && monitorRow === 1 && monitorSystem === 'H' && blende === 'X') {
-            return SE_SV_Images.SE1HBXX
+            return SE_SV_Images.SE1HXXX
 
         } else if (table === 'S' && height === 'E' && monitorRow === 2 && monitorSystem === 'X' && blende === 'X') {
-            return SE_SV_Images.SE2HBXX
+            return SE_SV_Images.SE2HXXX
         } else if (table === 'S' && height === 'V' && monitorRow === 2 && monitorSystem === 'X' && blende === 'X') {
-            return SE_SV_Images.SE2HBXX
+            return SE_SV_Images.SE2HXXX
 
         } else if (table === 'S' && height === 'V' && monitorRow === 2 && monitorSystem === 'S' && blende === 'X') {
-            return SE_SV_Images.SE2HBXX
+            return SE_SV_Images.SE2HXXX
         } else if (table === 'S' && height === 'E' && monitorRow === 2 && monitorSystem === 'S' && blende === 'X') {
-            return SE_SV_Images.SE2HBXX
+            return SE_SV_Images.SE2HXXX
 
         } else if (table === 'S' && height === 'V' && monitorRow === 2 && monitorSystem === 'F' && blende === 'X') {
-            return SE_SV_Images.SE2FBXX
+            return SE_SV_Images.SE2FXXX
         } else if (table === 'S' && height === 'E' && monitorRow === 2 && monitorSystem === 'F' && blende === 'X') {
-            return SE_SV_Images.SE2FBXX
+            return SE_SV_Images.SE2FXXX
 
         } else if (table === 'S' && height === 'E' && monitorRow === 2 && monitorSystem === 'H' && blende === 'X') {
-            return SE_SV_Images.SE2HBXX
+            return SE_SV_Images.SE2HXXX
         } else if (table === 'S' && height === 'V' && monitorRow === 2 && monitorSystem === 'H' && blende === 'X') {
-            return SE_SV_Images.SE2HBXX
+            return SE_SV_Images.SE2HXXX
 
 
             //BLENDE: B - table: M

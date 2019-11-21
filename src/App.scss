@@ -80,6 +80,7 @@ input {
     z-index: 2;
   margin-top: 20px;
 
+box-shadow: 6px 2px #E0E0E0;
   position: absolute;
   width: 300px;
   right: 400px;
@@ -266,6 +267,10 @@ h4 {
   transform: translateY(3px);
 }
 
+.border-white {
+    border: white;
+}
+
 .btn:after {
     content: '';
     position: absolute;
@@ -330,7 +335,7 @@ h4 {
 }
 
 .btn-2 {
-    background: #efefef;
+    background: #ffffff;
     display: inline-block;
     color: #000;
     -webkit-transition: none;
@@ -449,7 +454,7 @@ h4 {
 }
 
 
-@media (max-width: 1450px) {
+@media (max-width: 1200px) {
     .configurator {
         width: 100%;
     }
@@ -476,6 +481,7 @@ h4 {
         bottom: 0;
     }
     .summary {
+        width: 100%;
         position: relative;
         left: 0;
         bottom: 0;

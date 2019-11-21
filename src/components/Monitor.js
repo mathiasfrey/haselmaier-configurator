@@ -137,9 +137,9 @@ class Monitor extends React.Component {
         </video>
         <div className="row">
         <h2> 1-reihig oder 2-reihig? </h2>
-            {this.loadPreviewImages('one_row')}
+            <button className="border-white" onClick={() => this.handleMonitorRow(1)}>{this.loadPreviewImages('one_row')}</button>
             <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorRow(1)}> 1 - Reihig </button>
-            {this.loadPreviewImages('two_row')}
+            <button className="border-white" onClick={() => this.handleMonitorRow(2)}>{this.loadPreviewImages('two_row')}</button>
             <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorRow(2)}> 2 - Reihig </button>
         </div>
         <h2>Monitorsystem</h2>
@@ -149,17 +149,15 @@ class Monitor extends React.Component {
         </div>*/}
             {/*<br />*/}
         <div className="column">
-            {this.loadPreviewImages('stativ')}
+            <button className="border-white" onClick={() => this.handleMonitorSystem('S')}>{this.loadPreviewImages('stativ')}</button>
             <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorSystem('S')}> 1. STATIVSYSTEM </button>
         </div>
-            {/*<br />*/}
         <div className="column">
-            {this.loadPreviewImages('reling')}
+            <button className="border-white" onClick={() => this.handleMonitorSystem('F')}>{this.loadPreviewImages('reling')}</button>
             <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorSystem('F')}>2. RELING: OHNE HV </button>
         </div>
-            {/*<br />*/}
         <div className="column">
-            {this.loadPreviewImages('reling_hv')}
+            <button className="border-white" onClick={() => this.handleMonitorSystem('H')}>{this.loadPreviewImages('reling_hv')}</button>
             <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorSystem('H')}> 3. RELING: MIT HV </button>
         </div>
         </Modal>
