@@ -73,13 +73,15 @@ class Blende extends Component {
         <source src={blende_video} type="video/mp4"/>
         </video>
         <h2>Blendeneinstellung</h2>
-        <div>
+        <div className="row">
+        <div className="column">
             <button className="border-white" onClick={() => this.handleBlende('X')}>{this.loadPreviewImage('X')}</button>
             <button className="btn btn-2 btn-2a" onClick={() => this.handleBlende('X')}> Keinen </button>
         </div>
-        <div>
+        <div className="column">
             <button className="border-white" onClick={() => this.handleBlende('B')}>{this.loadPreviewImage('B')}</button>
             <button className="btn btn-2 btn-2a" onClick={() => this.handleBlende('B')}> Voller Blendschutz </button>
+        </div>
         </div>
         </Modal>
         </>
