@@ -108,7 +108,7 @@ class Technik extends React.Component {
         <source src={technik_video} type="video/mp4"/>
         </video>
         <h2> Auswahl Technikraum </h2>
-            <div className="row">
+        <div className="row">
         <div className="column">
             <button className="border-white" onClick={() => this.handleTechnikSide('E')}>{this.loadPreviewImage('E')}</button>
             <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnikSide('E')}> Einseitig </button>
@@ -121,15 +121,17 @@ class Technik extends React.Component {
             <button className="border-white" onClick={() => this.handleTechnikSide('X')}>{this.loadPreviewImage('XSide')}</button>
             <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnikSide('X')}> Ohne </button>
         </div>
-            </div>
+       </div>
         <h2> Ladencontainer </h2>
-        <div>
+        <div className="row">
+        <div className="column">
             <button className="border-white" onClick={() => this.handleContainer('L')}>{this.loadPreviewImage('L')}</button>
             {this.renderContainerButton('L', '(Mit Ladencontainer)')}
         </div>
-        <div>
+        <div className="column">
             <button className="border-white" onClick={() => this.handleContainer('X')}>{this.loadPreviewImage('XContainer')}</button>
             {this.renderContainerButton('X', '(Ohne Ladencontainer)')}
+        </div>
         </div>
         </Modal>
         </>
