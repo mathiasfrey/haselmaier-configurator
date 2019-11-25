@@ -274,7 +274,8 @@ class Settings extends React.Component {
         var nodeTechnik = this.technikRef.current;
         var nodeButton = this.buttonRef.current;
         nodeButton.innerHTML = "Nächster Schritt ➤";
-        if (this.state.chosenTechnikContainer) {
+        if (this.state.chosenTechnikSide) {
+            nodeButton.click();
             nodeButton.style.visibility = 'hidden'
         } else if (this.state.chosenTable == null) {
             node.click()
@@ -287,6 +288,7 @@ class Settings extends React.Component {
         } else  {
             nodeTechnik.click();
         }
+
 
     };
 

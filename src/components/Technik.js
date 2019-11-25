@@ -124,11 +124,11 @@ class Technik extends React.Component {
             </div>
         <h2> Ladencontainer </h2>
         <div>
-            {this.loadPreviewImage('XContainer')}
+            <button className="border-white" onClick={() => this.handleContainer('L')}>{this.loadPreviewImage('L')}</button>
             {this.renderContainerButton('L', '(Mit Ladencontainer)')}
         </div>
         <div>
-            {this.loadPreviewImage('L')}
+            <button className="border-white" onClick={() => this.handleContainer('X')}>{this.loadPreviewImage('XContainer')}</button>
             {this.renderContainerButton('X', '(Ohne Ladencontainer)')}
         </div>
         </Modal>

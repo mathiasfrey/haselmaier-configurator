@@ -62,10 +62,12 @@ class Height extends React.Component {
             <div className="row">
             <div className="column">
                 <button className="border-white" onClick={() => this.handleHeight('E')}>{this.loadPreviewImages('E')}</button>
+                <br />
                 <button className="btn btn-2 btn-2a" onClick={() => this.handleHeight('E')}> ECO </button>
             </div>
             <div className="column">
                 <button className="border-white" onClick={() => this.handleHeight('V')}>{this.loadPreviewImages('V')}</button>
+                <br />
                 <button className="btn btn-2 btn-2a" onClick={() => this.handleHeight('V')}> VARIO </button>
             </div>
             </div>
