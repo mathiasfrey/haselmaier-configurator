@@ -135,12 +135,16 @@ class Monitor extends React.Component {
         <video autoPlay={false} height="300" width="500" controls playsInline={false}>
              <source src={monitor_video} type="video/mp4"/>
         </video>
-        <div className="row">
         <h2> 1-reihig oder 2-reihig? </h2>
+        <div className="row">
+        <div className="column">
             <button className="border-white" onClick={() => this.handleMonitorRow(1)}>{this.loadPreviewImages('one_row')}</button>
             <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorRow(1)}> 1 - Reihig </button>
+        </div>
+        <div className="column">
             <button className="border-white" onClick={() => this.handleMonitorRow(2)}>{this.loadPreviewImages('two_row')}</button>
             <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorRow(2)}> 2 - Reihig </button>
+        </div>
         </div>
         <h2>Monitorsystem</h2>
         {/*<div className="column">
