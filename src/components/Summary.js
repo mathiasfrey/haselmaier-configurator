@@ -73,7 +73,8 @@ class Summary extends React.Component {
 
     render() {
         return (
-            <div>
+            <>
+            <div className="configuration">
                 <h3> Konfiguration </h3>
                 <br />
                 {this.loadTable()}
@@ -83,12 +84,13 @@ class Summary extends React.Component {
                 {this.loadTechnik()}
             {/*<h5> - {this.props.chosenMonitorCount} Monitore</h5>*/}
             {/*<h5> - {this.props.chosenKabel} </h5>*/}
+            </div>
             <div className="top">
                 {/*<div onClick={this.handleClick}>*/}
                 {/*<button ref={this.myRef}> NEXT </button>*/}
                 {/*</div>*/}
             </div>
-            </div>
+            </>
         );
     }
 

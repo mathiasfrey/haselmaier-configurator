@@ -91,6 +91,12 @@ box-shadow: 6px 2px #E0E0E0;
   background: $hasel-grey;
 }
 
+.configuration {
+    color: #ffffff;
+    visibility: visible;
+
+}
+
 
 .lineSpacing {
     line-height: 2.0;
@@ -486,7 +492,13 @@ h4 {
         left: 0;
         bottom: 0;
         padding-top: 20px;
-        visibility: hidden;
+        visibility: visible;
+    }
+
+    .configuration {
+    color: #ffffff;
+    visibility: hidden;
+
     }
 
     // .footer-navigation {
