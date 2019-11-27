@@ -34,7 +34,7 @@ class ProductCode extends React.PureComponent {
         return (
             <div id="code">
                 <h1>Produkt-Code</h1>
-                <div className="code">
+                <div className="btn nextBtn">
                 {code}
                 </div>
 

@@ -266,6 +266,9 @@ class Settings extends React.Component {
 
     // NEXT CONFIGURATION
 
+
+
+
     handleClick = () => {
         var node = this.tableRef.current;
         var nodeHeight = this.heightRef.current;
@@ -275,8 +278,7 @@ class Settings extends React.Component {
         var nodeButton = this.buttonRef.current;
         nodeButton.innerHTML = "Nächster Schritt ➤";
         if (this.state.chosenTechnikSide) {
-            nodeButton.click();
-            nodeButton.style.visibility = 'hidden'
+            nodeButton.innerHTML = "Fertig";
         } else if (this.state.chosenTable == null) {
             node.click()
         } else if (this.state.chosenHeight == null) {
@@ -382,9 +384,11 @@ class Settings extends React.Component {
                 <br />
 
                 <div className="footer-navigation">
-                    <button className="btn btn-1 nextBtn" onClick={this.handleClick} ref={this.buttonRef}>
+                    <div id="start">
+                    <button className="startBtn" onClick={this.handleClick} ref={this.buttonRef}>
                         Jetzt konfigurieren ➤
                     </button>
+                    </div>
                 </div>
 
             </div>

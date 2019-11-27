@@ -294,6 +294,8 @@ h4 {
 .nextBtn {
     border: 1px solid $hasel-red;
     border-radius: 3px;
+    pointer-events: none;
+    background-color: #666666;
 }
 
 .btn-1e {
@@ -444,6 +446,29 @@ h4 {
         border-radius: 15px;
         width: 15em;
     }
+}
+
+.start {
+    padding-bottom: 2rem;
+
+    p {
+        margin-bottom: 2rem;
+    }
+
+    a {
+        color: white;
+
+    }
+}
+.startBtn {
+        padding: 10px;
+        font-weight: bold;
+        color: #fff;
+        size: $font-large;
+        background: $hasel-red;
+        border: 1px solid darken($hasel-red, 5);
+        border-radius: 15px;
+        width: 15em;
 }
 
 .row {

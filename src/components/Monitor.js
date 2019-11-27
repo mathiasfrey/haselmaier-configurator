@@ -32,25 +32,6 @@ class Monitor extends React.Component {
             alert('1-reihig oder 2-reihig? 🌟')
         }
 
-
-
-
-        /*if (system === 'OHNE') {
-            // URGENT FIX: This is an anti-pattern!
-            // a React application has a single state
-            // the DOM is our output and not a parallel means of storage
-            // document.getElementById('kabel').disabled = true;
-            // this.props.monitorSystemWithout();
-        } else if (system === 'STATIV') {
-            // document.getElementById('kabel').disabled = true;
-            // this.props.monitorSystemStativ();
-        } else if (system === 'RELING: OHNE HV') {
-            // document.getElementById('kabel').disabled = false;
-            // this.props.monitorSystemReling();
-        } else {
-            // document.getElementById('kabel').disabled = false;
-            // this.props.monitorSystemRelingHV();
-        }*/
     };
 
 
@@ -67,27 +48,6 @@ class Monitor extends React.Component {
         this.props.callbackRow(row);
     };
 
-    /*renderMonitorButton(count) {
-
-        var disabled = false;
-
-        if (this.props.tableDependency === 'S') {
-            if (count > 3) {
-                disabled = true;
-            }
-        } if (this.props.tableDependency === 'M') {
-            if (count > 4) {
-                disabled = true;
-            }
-        }
-        return (
-            <button
-                className="btn btn-2 btn-2a"
-                onClick={() => this.handleMonitorCount(count)}
-                disabled={disabled}
-            > {count} Monitore </button>
-        );
-    }*/
 
     loadPreviewImages = (images) => {
         switch(images) {
@@ -139,12 +99,12 @@ class Monitor extends React.Component {
         <div className="row">
          <h2> 1-reihig oder 2-reihig? </h2>
         <div className="column">
-            <button className="border-white" onClick={() => this.handleMonitorRow(1)}>{this.loadPreviewImages('one_row')}</button>
-            <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorRow(1)}> 1 - Reihig </button>
+            <button className="border-white" onClick={() => this.handleMonitorRow('1')}>{this.loadPreviewImages('one_row')}</button>
+            <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorRow('1')}> 1 - Reihig </button>
         </div>
         <div className="column">
-            <button className="border-white" onClick={() => this.handleMonitorRow(2)}>{this.loadPreviewImages('two_row')}</button>
-            <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorRow(2)}> 2 - Reihig </button>
+            <button className="border-white" onClick={() => this.handleMonitorRow('2')}>{this.loadPreviewImages('two_row')}</button>
+            <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorRow('2')}> 2 - Reihig </button>
         </div>
         </div>
         <h2>Monitorsystem</h2>
