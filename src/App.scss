@@ -477,7 +477,7 @@ h4 {
         margin-left: 0;
     }
     .settings {
-        visibility: hidden;
+        display: none;
     }
     .productcode {
         position: relative;
@@ -496,9 +496,8 @@ h4 {
     }
 
     .configuration {
-    color: #ffffff;
-    visibility: hidden;
-
+        color: #ffffff;
+        display: none;
     }
 
     // .footer-navigation {

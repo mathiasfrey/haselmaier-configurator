@@ -17,6 +17,9 @@ class ProductDisplay extends React.PureComponent {
         var technikSide = this.props.technikSide;
         var technikContainer = this.props.technikContainer;
 
+        /*let code = 'SE1FBBX';
+        return SE_SV_Images[code];*/
+
         // HANDLING OF 122 different Use Cases (including TTV.SE/TTV.SV)
         if (technikContainer === 'X' && technikSide === 'B' && blende === 'B' && monitorSystem === 'F' && monitorRow === 1 && height === 'E' && table === 'S') {
             return SE_SV_Images.SE1FBBX;
