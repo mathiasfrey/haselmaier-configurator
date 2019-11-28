@@ -267,8 +267,6 @@ class Settings extends React.Component {
     // NEXT CONFIGURATION
 
 
-
-
     handleClick = () => {
         var node = this.tableRef.current;
         var nodeHeight = this.heightRef.current;
@@ -277,9 +275,7 @@ class Settings extends React.Component {
         var nodeTechnik = this.technikRef.current;
         var nodeButton = this.buttonRef.current;
         nodeButton.innerHTML = "Nächster Schritt ➤";
-        if (this.state.chosenTechnikSide) {
-            nodeButton.innerHTML = "Fertig";
-        } else if (this.state.chosenTable == null) {
+        if (this.state.chosenTable == null) {
             node.click()
         } else if (this.state.chosenHeight == null) {
             nodeHeight.click()
@@ -287,10 +283,10 @@ class Settings extends React.Component {
             nodeMonitor.click()
         } else if (this.state.chosenBlende == null) {
             nodeBlende.click()
-        } else  {
+        } else if (this.state.chosenTechnikSide == null)  {
             nodeTechnik.click();
+            nodeButton.style.display = 'none'
         }
-
 
     };
 
