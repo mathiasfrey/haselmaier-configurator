@@ -462,7 +462,7 @@ h4 {
 }
 .startBtn {
         padding: 10px;
-        font-weight: bold;
+        font-weight: bolder;
         color: #fff;
         size: $font-large;
         background: $hasel-red;
@@ -482,6 +482,11 @@ h4 {
 
 .center {
     position: center;
+}
+
+
+video {
+    outline: none;
 }
 
 
