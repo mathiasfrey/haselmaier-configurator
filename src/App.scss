@@ -448,28 +448,39 @@ h4 {
     }
 }
 
-.start {
-    padding-bottom: 2rem;
 
-    p {
-        margin-bottom: 2rem;
-    }
-
-    a {
-        color: white;
-
-    }
-}
 .startBtn {
-        padding: 10px;
-        font-weight: bolder;
-        color: #fff;
-        size: $font-large;
-        background: $hasel-red;
-        border: 1px solid darken($hasel-red, 5);
-        border-radius: 15px;
-        width: 15em;
-        outline: none;
+    padding: 10px;
+    font-weight: bolder;
+    color: #fff;
+    size: $font-large;
+    background: $hasel-red;
+    border: 1px solid darken($hasel-red, 5);
+    border-radius: 15px;
+    width: 15em;
+    outline: none;
+}
+
+.backBtn {
+    padding: 10px;
+    font-weight: bolder;
+    color: $hasel-grey;
+    size: $font-large;
+    background: $light-grey;
+    border: 1px solid darken($hasel-grey, 5);
+    border-radius: 15px;
+    width: 15em;
+    outline: none;
+}
+
+.visible {
+    display: none;
+}
+
+.divideBtn {
+    width: 18px;
+    height: auto;
+    display: inline-block;
 }
 
 .row {
@@ -524,6 +535,10 @@ video {
         bottom: 0;
         padding-top: 20px;
         visibility: visible;
+    }
+
+    .visible {
+        display: inline;
     }
 
     .configuration {

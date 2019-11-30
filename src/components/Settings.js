@@ -14,6 +14,7 @@ class Settings extends React.Component {
     constructor(props) {
         super(props);
         this.state =
+            this.backBtnRef = React.createRef()
             this.buttonRef = React.createRef();
             this.tableRef = React.createRef();
             this.heightRef = React.createRef();
@@ -22,9 +23,8 @@ class Settings extends React.Component {
             this.technikRef = React.createRef();
     }
 
+
     //Code2State
-
-
     code2state = (code) => {
         function codeAlertError(originalCode) {
             alert('Es tut uns leid, <' + originalCode + '> scheint kein gültiger TTV-Code zu sein.');
@@ -268,12 +268,12 @@ class Settings extends React.Component {
 
 
     handleClick = () => {
-        var node = this.tableRef.current;
-        var nodeHeight = this.heightRef.current;
-        var nodeMonitor = this.monitorRef.current;
-        var nodeBlende = this.blendeRef.current;
-        var nodeTechnik = this.technikRef.current;
-        var nodeButton = this.buttonRef.current;
+        const node = this.tableRef.current;
+        const nodeHeight = this.heightRef.current;
+        const nodeMonitor = this.monitorRef.current;
+        const nodeBlende = this.blendeRef.current;
+        const nodeTechnik = this.technikRef.current;
+        const nodeButton = this.buttonRef.current;
         nodeButton.innerHTML = "Nächster Schritt ➤";
         if (this.state.chosenTable == null) {
             node.click()
@@ -288,6 +288,26 @@ class Settings extends React.Component {
             nodeButton.style.display = 'none'
         }
 
+    };
+
+    handleBack = () => {
+        const node = this.tableRef.current;
+        const nodeHeight = this.heightRef.current;
+        const nodeMonitor = this.monitorRef.current;
+        const nodeBlende = this.blendeRef.current;
+        const nodeTechnik = this.technikRef.current;
+
+        if (this.state.chosenTechnikSide != null) {
+            nodeTechnik.click()
+        } else if (this.state.chosenBlende != null) {
+            nodeBlende.click()
+        } else if (this.state.chosenMonitorRow != null) {
+            nodeMonitor.click()
+        } else if (this.state.chosenHeight != null) {
+            nodeHeight.click()
+        } else if (this.state.chosenTable != null)  {
+            node.click();
+        }
     };
 
     render() {
@@ -380,11 +400,15 @@ class Settings extends React.Component {
                 <br />
 
                 <div className="footer-navigation">
-                    <div id="start">
+                    <div className="visible">
+                    <button className="backBtn" onClick={this.handleBack} ref={this.backBtnRef}>
+                        Auswahl ändern
+                    </button>
+                    </div>
+                    <div className="divideBtn" />
                     <button className="startBtn" onClick={this.handleClick} ref={this.buttonRef}>
                         Jetzt konfigurieren ➤
                     </button>
-                    </div>
                 </div>
 
             </div>
