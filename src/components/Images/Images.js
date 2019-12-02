@@ -187,7 +187,7 @@ import LEXXXXX from '../../assets/TTV/TTV.LE/TTV.LEXXXXX.jpg'
 import nopic from './nopic.jpg'
 import starten from './Starten.png'
 
-export const SE_SV_Images = {
+export const Images = {
     SE1FBBX: <img src={SE1FBBX} alt="" height={600} width={900} />,
     SE1HBXL: <img src={SE1HBXL} alt="" height={600} width={900} />,
     SE1SXEL: <img src={SE1SXEL} alt="" height={600} width={900} />,

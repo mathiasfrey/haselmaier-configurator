@@ -1,5 +1,5 @@
 import React from 'react';
-import {SE_SV_Images} from '../components/Images/SE_SV_Images'
+import {Images} from './Images/Images'
 
 
 
@@ -7,12 +7,12 @@ class ProductDisplay extends React.PureComponent {
 
 
     renderImage(code) {
-        if (code in SE_SV_Images) {
-           return SE_SV_Images[code]
+        if (code in Images) {
+           return Images[code]
         } else if (code[0] === 'X') {
-           return SE_SV_Images.starten
+           return Images.starten
         } else {
-           return SE_SV_Images.nopic
+           return Images.nopic
         }
 
     }
