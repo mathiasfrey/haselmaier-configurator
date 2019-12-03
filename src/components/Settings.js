@@ -2,141 +2,416 @@ import React from 'react';
 import Table from "./Table";
 import Monitor from "./Monitor";
 import Blende from "./Blende";
-import Kabel from "./Kabel";
+import Height from "./Height";
 import Technik from "./Technik";
-import table_small from '../assets/table_small.jpg'
-import table_middle from '../assets/table_middle.jpeg'
-import table_large from '../assets/table_large.jpg'
 import Summary from "./Summary";
-
-
-const imagesPath = {
-  small_table: table_small,
-  middle_table: table_middle,
-  large_table: table_large,
-};
-
-export const sizeNumber = {
-    sizeOne: 1,
-    sizeTwo: 2,
-    sizeThree: 3,
-    sizeFour: 4,
-    sizeFive: 5,
-    sizeSix: 6,
-    sizeSeven: 7,
-    sizeEight: 8
-};
-
-export const decision = {
-    0: 'Yes',
-    1: 'No',
-};
+import ProductDisplay from "./ProductDisplay";
+import ProductCodeForm from './ProductCodeForm';
+import ProductCode from './ProductCode';
 
 
 class Settings extends React.Component {
-state = {
-        chosenTable: String,
-        chosenMonitorSize: Number,
-        priceOfMonitor: Number,
-        chosenKabelSize: Number,
-        chosenBlende: String,
-        chosenTechnik: String,
-        chosenPowerboard: String,
-        chosenAssembler: String,
+    constructor(props) {
+        super(props);
+        this.state =
+            this.backBtnRef = React.createRef()
+            this.buttonRef = React.createRef();
+            this.tableRef = React.createRef();
+            this.heightRef = React.createRef();
+            this.monitorRef = React.createRef();
+            this.blendeRef = React.createRef();
+            this.technikRef = React.createRef();
+    }
+
+
+    //Code2State
+    code2state = (code) => {
+        function codeAlertError(originalCode) {
+            alert('Es tut uns leid, <' + originalCode + '> scheint kein gültiger TTV-Code zu sein.');
+        }
+        function matchTTV(code) {
+            if (code.match(/TTV\./)) {
+                // ok => matches, valid TTV code
+                return {
+                    'remainder': code.replace(/TTV\./, '')
+                };
+            }
+            return false;
+        }
+        function matchTable(code) {
+            const tableRegex = /[SML]/;
+            if (code.match(tableRegex)) {
+                const table = code.match(tableRegex)[0];
+
+                return {
+                    'table': table,
+                    'remainder': code.replace(tableRegex, '')
+                };
+            } 
+            return false;
+        }
+
+        function matchHeight(code) {
+            const heightRegex = /[EV]/;
+            if (code.match(heightRegex)) {
+                const height = code.match(heightRegex)[0];
+                return {
+                    'height': height,
+                    'remainder': code.replace(heightRegex, '')
+                }
+            }
+            return false;
+        }
+
+
+        function matchMonitorSystem(code) {
+            const monitorSystemsRegex = /[FHS]/;
+            if (code.match(monitorSystemsRegex)) {
+                const monitorSystem = code.match(monitorSystemsRegex)[0];
+                return {
+                    'monitorSystem': monitorSystem,
+                    'remainder': code.replace(monitorSystemsRegex, '')
+                };
+            }
+            
+            return false;
+        }
+
+        function matchMonitorRow(code) {
+            const monitorRowRegex = /[12]/;
+            if (code.match(monitorRowRegex)) {
+                const monitorRow = code.match(monitorRowRegex)[0];
+
+                return {
+                    'monitorRow': monitorRow,
+                    'remainder': code.replace(monitorRowRegex, '')
+                }
+            }
+            return false;
+        }
+
+
+
+       function matchBlende(code) {
+           const blendeRegex = /[XB]/;
+            if (code.match(blendeRegex)) {
+                const blende = code.match(blendeRegex)[0];
+                return {
+                    'blende': blende,
+                    'remainder': code.replace(blendeRegex, '')
+                }
+            }
+            return false;
+        }
+
+       function matchTechnikSide(code) {
+            const technikRegex = /[XEB]/;
+            if (code.match(technikRegex)) {
+                const technikSide = code.match(technikRegex)[0];
+                return {
+                    'technikSide': technikSide,
+                    'remainder': code.replace(technikRegex, '')
+                }
+            }
+            return false;
+        }
+
+       function matchTechnikContainer(code) {
+            const technikRegex = /[XL]/;
+            if (code.match(technikRegex)) {
+                const technikContainer = code.match(technikRegex)[0];
+                return {
+                    'technikContainer': technikContainer,
+                    'remainder': code.replace(technikRegex, '')
+                }
+            }
+            return false;
+        }
+
+
+    
+        var originalCode = code;
+        var rv; // return value
+        var table, height, monitorRow, monitorSystem,/*monitorCount*/
+        blende, /*kabel*/ technikSide, technikContainer;
+
+        // parse product code
+        // step by step match and replace from LTR
+
+        rv = matchTTV(code);
+        if (rv === false) {
+            codeAlertError(originalCode);
+            return false;
+        }
+
+        rv = matchTable(rv.remainder);
+        if (rv === false) {
+            codeAlertError(originalCode);
+            return false;
+        }
+        table = rv.table;
+
+        rv = matchHeight(rv.remainder);
+        if (rv === false) {
+            codeAlertError(originalCode);
+            return false;
+        }
+        height = rv.height;
+
+
+        rv = matchMonitorSystem(rv.remainder);
+        if (rv === false) {
+            codeAlertError(originalCode);
+            return false;
+        }
+        monitorSystem = rv.monitorSystem;
+
+        rv = matchMonitorRow(rv.remainder);
+        if (rv === false) {
+            codeAlertError(originalCode);
+            return false;
+        }
+        monitorRow = rv.monitorRow;
+
+
+        rv = matchBlende(rv.remainder);
+        if (rv === false) {
+            codeAlertError(originalCode);
+            return false;
+        }
+        blende = rv.blende;
+
+
+        rv = matchTechnikSide(rv.remainder);
+        if (rv === false) {
+            codeAlertError(originalCode);
+            return false;
+        }
+        technikSide = rv.technikSide;
+
+        rv = matchTechnikContainer(rv.remainder);
+        if (rv === false) {
+            codeAlertError(originalCode);
+            return false;
+        }
+        technikContainer = rv.technikContainer;
+
+        // 9 values will be set
+        this.setState(
+            {
+                chosenTable: table,
+                chosenHeight: height,
+                chosenMonitorRow: monitorRow,
+                chosenMonitorSystem: monitorSystem,
+                // chosenMonitorCount: monitorCount,
+                chosenBlende: blende,
+                // chosenKabel: kabel,
+                chosenTechnikSide: technikSide,
+                chosenTechnikContainer: technikContainer
+
+            }
+        );
     };
-
-
 
     //TABLE CONFIGURATION
 
-    loadTableSmall = () => {
-        this.setState({chosenTable: 'S' });
-        const imageName = 'small_table';
-        return (
-        <div>
-            <img style={{maxWidth: '500px'}} src={imagesPath[imageName]} alt="image_small" />
-        </div>
-        )
-    };
-
-
-    loadTableMiddle = () => {
-        this.setState({chosenTable: 'M'});
-        const imageName = 'middle_table';
-        return (
-        <div>
-            <img style={{maxWidth: '500px'}} src={imagesPath[imageName]} alt="image_middle" />
-        </div>
-        )
-    };
-
-    loadTableLarge = () => {
-        this.setState({chosenTable: 'L'});
-        const imageName = 'large_table';
-        return (
-        <div>
-            <img style={{maxWidth: '500px'}} src={imagesPath[imageName]} alt="image_large" />
-        </div>
-        )
-    };
-
-    //MONITOR CONFIGURATION
-
-    monitorSize = (sizeNumber) => {
-        this.setState({chosenMonitorSize: sizeNumber});
-    };
-
-    //KABEL CONFIGURATION
-
-    KabelSize = (sizeNumber) => {
-        this.setState({chosenKabelSize: sizeNumber})
+    setTableState = (size) => {
+        this.setState({chosenTable: size});
     };
 
     //HEIGHT CONFIGURATION
 
-    chosenBlende = (decision) => {
-        this.setState({chosenBlende: decision})
+    setHeightState = (height) => {
+        this.setState({chosenHeight: height});
     };
 
-    //LIGHT CONFIGURATION
+    //MONITOR CONFIGURATION
 
-    chosenTechnik = (decision) => {
-        this.setState({chosenTechnik: decision})
+    setMonitorSystemState = (system) => {
+        this.setState({chosenMonitorSystem: system});
     };
+
+    setMonitorRowState = (row) => {
+        this.setState({chosenMonitorRow: row});
+    };
+
+    /*setMonitorCountState = (count) => {
+        this.setState({chosenMonitorCount: count})
+    };*/
+
+    //BLEND CONFIGURATION
+
+    setBlendeState = (blende) => {
+        this.setState({chosenBlende: blende});
+    };
+
+
+    // KABEL CONFIGURATION
+
+   /* setKabelState = (kabel) => {
+        this.setState({chosenKabel: kabel});
+    };*/
+
+
+    //TECHNIK CONFIGURATION
+
+    setChosenTechnikSidesState = (sides) => {
+        this.setState({chosenTechnikSide: sides});
+    };
+
+
+    setChosenTechnikContainerState = (container) => {
+        this.setState({chosenTechnikContainer: container})
+    };
+
+    // NEXT CONFIGURATION
+
+
+    handleClick = () => {
+        const node = this.tableRef.current;
+        const nodeHeight = this.heightRef.current;
+        const nodeMonitor = this.monitorRef.current;
+        const nodeBlende = this.blendeRef.current;
+        const nodeTechnik = this.technikRef.current;
+        const nodeButton = this.buttonRef.current;
+        nodeButton.innerHTML = "Nächster Schritt ➤";
+        if (this.state.chosenTable == null) {
+            node.click()
+        } else if (this.state.chosenHeight == null) {
+            nodeHeight.click()
+        } else if (this.state.chosenMonitorRow == null) {
+            nodeMonitor.click()
+        } else if (this.state.chosenBlende == null) {
+            nodeBlende.click()
+        } else if (this.state.chosenTechnikSide == null)  {
+            nodeTechnik.click();
+            nodeButton.style.display = 'none'
+        }
+
+    };
+
+    /*handleBack = () => {
+        const node = this.tableRef.current;
+        const nodeHeight = this.heightRef.current;
+        const nodeMonitor = this.monitorRef.current;
+        const nodeBlende = this.blendeRef.current;
+        const nodeTechnik = this.technikRef.current;
+
+        if (this.state.chosenTechnikSide != null) {
+            nodeTechnik.click()
+        } else if (this.state.chosenBlende != null) {
+            nodeBlende.click()
+        } else if (this.state.chosenMonitorRow != null) {
+            nodeMonitor.click()
+        } else if (this.state.chosenHeight != null) {
+            nodeHeight.click()
+        } else if (this.state.chosenTable != null)  {
+            node.click();
+        }
+    };*/
 
     render() {
       return (
-            <>
-                <div className="padding-left">
-                <h2>Konfigurieren Sie Ihre Leitstelle </h2>
+            <div id="content-wrap">
+                <div className="productcode">
+                    <div>
+                        <ProductCodeForm
+                            callback={this.code2state}
+                        />
+                    </div>
                 </div>
                 <div className="settings">
-                <Table
-                smallTable={this.loadTableSmall}
-                middleTable={this.loadTableMiddle}
-                largeTable={this.loadTableLarge}
-                />
-                <Monitor
-                monitorSize={this.monitorSize}
-                />
-                <Kabel
-                kabelSize={this.KabelSize}
-                />
-                <Blende
-                chosenBlende={this.chosenBlende}
-                />
-                <Technik
-                chosenLight={this.chosenTechnik}
-                />
-                <Summary
-                chosenTable={this.state.chosenTable}
-                chosenMonitorSize={this.state.chosenMonitorSize}
-                chosenServerSize={this.state.chosenKabelSize}
-                chosenBlende={this.state.chosenBlende}
-                chosenTechnik={this.state.chosenTechnik}
-                />
+                    <Table
+                        tableRef={this.tableRef}
+                        callback={this.setTableState}
+                        chosenTable={this.state.chosenTable}
+                    />
+                    <Height
+                        heightRef={this.heightRef}
+                        navDependencyTable={this.state.chosenTable}
+                        callback={this.setHeightState}
+                        chosen={this.state.chosenHeight}
+                    />
+                    <Monitor
+                        monitorRef={this.monitorRef}
+                        navDependencyHeight={this.state.chosenHeight}
+                        callbackSystem={this.setMonitorSystemState}
+                        callbackRow={this.setMonitorRowState}
+                        blendeState={this.setBlendeState}
+                        // callbackCount={this.setMonitorCountState}
+                        tableDependency={this.state.chosenTable} // Dependency for choosing the monitor size
+                        chosen={this.state.chosenMonitorSystem} /* this is probably a hack: in case the system is chosen highlight monitor */
+                        chosenRow={this.state.chosenMonitorRow}
+                    />
+                    <Blende
+                        blendeRef={this.blendeRef}
+                        monitorDependency={this.state.chosenMonitorSystem}
+                        callback={this.setBlendeState}
+                        chosen={this.state.chosenBlende}
+                    />
+                    <Technik
+                        technikRef={this.technikRef}
+                        navDependencyMonitor={this.state.chosenMonitorSystem}
+                        navDependencyBlende={this.state.chosenBlende}
+                        callbackSide={this.setChosenTechnikSidesState}
+                        callbackContainer={this.setChosenTechnikContainerState}
+                        chosenSide={this.state.chosenTechnikSide}
+                        chosenContainer={this.state.chosenTechnikContainer}
+                    />
                 </div>
-            </>
+               <div className="summary">
+                    <Summary
+                        chosenTable={this.state.chosenTable}
+                        chosenMonitorCount={this.state.chosenMonitorCount}
+                        chosenMonitorRow={this.state.chosenMonitorRow}
+                        chosenMonitorSystem={this.state.chosenMonitorSystem}
+                        chosenHeight={this.state.chosenHeight}
+                        chosenBlende={this.state.chosenBlende}
+                        chosenKabel={this.state.chosenKabel}
+                        chosenTechnikSide={this.state.chosenTechnikSide}
+                        chosenTechnikContainer={this.state.chosenTechnikContainer}
+                    />
+                    <ProductCode
+                        table={this.state.chosenTable}
+                        height={this.state.chosenHeight}
+                        monitorRow={this.state.chosenMonitorRow}
+                        //monitorCount={this.state.chosenMonitorCount}
+                        monitorSystem={this.state.chosenMonitorSystem}
+                        blende={this.state.chosenBlende}
+                        // cable={this.state.chosenKabel}
+                        technikSide={this.state.chosenTechnikSide}
+                        technikContainer={this.state.chosenTechnikContainer}
+                    />
+                </div>
+                <div className="tourView">
+                    <ProductDisplay
+                        table={this.state.chosenTable}
+                        height={this.state.chosenHeight}
+                        monitorRow={this.state.chosenMonitorRow}
+                        //monitorCount={this.state.chosenMonitorCount}
+                        monitorSystem={this.state.chosenMonitorSystem}
+                        blende={this.state.chosenBlende}
+                        // cable={this.state.chosenKabel}
+                        technikSide={this.state.chosenTechnikSide}
+                        technikContainer={this.state.chosenTechnikContainer}
+                    />
+
+                </div>
+                <br />
+
+                <div className="footer-navigation">
+                    {/*<div className="visible">
+                    <button className="backBtn" onClick={this.handleBack} ref={this.backBtnRef}>
+                        Auswahl ändern
+                    </button>
+                    </div>*/}
+                    <div className="divideBtn" />
+                    <button className="startBtn" onClick={this.handleClick} ref={this.buttonRef}>
+                        Jetzt konfigurieren ➤
+                    </button>
+                </div>
+
+            </div>
        )
 }
 

@@ -1,0 +1,581 @@
+$hasel-red: rgb(209,0,25);
+$hasel-grey: rgb(53,62,72);
+$light-grey: rgb(177,179,180);
+
+$font-large: 24px;
+$margin-large: 30px;
+$margin-small: 15px;
+
+.navbar-default {
+	border-color: rgb(209,0,25);
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+	background-color: rgb(209,0,25);
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+	background-color: rgb(209,0,25);
+}
+.navbar-default .navbar-toggle {
+	border-color: rgb(209,0,25);
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+	background-color: rgb(209,0,25);
+}
+
+#root {
+    min-height: 100vh;
+}
+
+.App {
+  text-align: center;
+
+}
+
+.configurator {
+  width: 100%;
+    height: 100%;
+
+  margin: 0;
+  left: 0;
+  overflow-y: hidden;
+  overflow-x: hidden;
+ }
+
+.productView {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+
+.tourView {
+    position: relative;
+    padding-left: 20px;
+}
+
+
+
+.background_black {
+    background-color: #000000;
+    text-align: center;
+}
+
+input {
+    background-color: $hasel-grey;
+}
+
+.tourNav {
+    position: relative;
+    }
+    .next {
+        bottom: 1245px;
+        left: 870px;
+    }
+    .prev {
+        left: 228px;
+        bottom: 1245px;
+    }
+
+.summary {
+  
+    z-index: 2;
+  margin-top: 20px;
+
+box-shadow: 6px 2px #E0E0E0;
+  position: absolute;
+  width: 300px;
+  right: 400px;
+  padding: 0 20px 10px 20px;
+  line-height: 2px;
+  color: #fff;
+
+  background: $hasel-grey;
+}
+
+.configuration {
+    color: #ffffff;
+    visibility: visible;
+
+}
+
+
+.lineSpacing {
+    line-height: 2.0;
+}
+
+/* HEADER */
+header {
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  background-color: $hasel-grey;
+}
+header h1 {
+  font-size: $font-large;
+  margin-left: $margin-large;
+  flex-grow: 1;
+}
+header img {
+  height: $font-large; // image not higher than text
+  margin-left: $font-large;
+}
+
+.productcode {
+    // top right within header
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    margin: $margin-small;
+    color: white;
+}
+
+input {
+    background-color: #efefef;
+}
+
+
+
+h4 {
+   text-decoration: underline;
+}
+
+.settings {
+    height: 40px;
+    width: 100%;
+    background:  $light-grey;
+    display: flex;
+    text-transform: uppercase;
+
+    .navBtn {
+        min-width: 120px;
+        margin: 0;
+        border: none;
+        font-size: medium;
+
+        background: transparent;
+        cursor: pointer;
+    //     font-size: 12px;
+    //     color: inherit;
+        
+    //     cursor: pointer;
+    //     padding: 15px 60px;
+    //     display: inline-block;
+        
+    //     text-transform: uppercase;
+    //     letter-spacing: 1px;
+    //     font-weight: 500;
+    //     outline: none;
+    //     position: relative;
+    //     -webkit-transition: all 0.3s;
+    //     -moz-transition: all 0.3s;
+    //     transition: all 0.3s;        
+    }
+
+    .navBtn.done {
+        background: $hasel-red;
+        margin-left: -8px; // some overflow to have nice red background
+        padding-left: 16px;
+        color: white;
+    }
+    .navBtn.done:before {
+        // content: '✅';
+    }    
+    .divider {
+        display: inline;
+
+        width: 0;
+        height: 0;
+        content: '';
+        border-bottom: 20px solid transparent;
+        border-top: 20px solid transparent;
+
+        border-left: 8px solid darken($light-grey, 25);
+        position: relative;
+    }
+    .divider:after {
+        width:0;
+        height:0;
+        content:'';
+        border-bottom: 17px solid transparent;
+        border-top: 17px solid transparent;
+        border-left: 6px solid $light-grey;
+        position: absolute;
+        top: 50%;
+        left:-8px;
+        transform: translateY(-50%);
+    } 
+    .divider.done {
+        border-left: 8px solid $hasel-red !important;
+    }
+    .divider.done:after {
+        border:none !important;
+    }
+}
+
+
+
+.current_state {
+    position: relative;
+    right: 0;
+}
+
+.top {
+    position: relative;
+    padding-top: 2px;
+    padding-bottom: 5px;
+}
+
+// .padding-left {
+//   padding-left: 40px;
+// }
+// .reset {
+//     position: relative;
+//     left: 80%;
+//     bottom: 70px;
+// }
+// .input {
+//     position: relative;
+//     left: 60%;
+//     bottom: 40px;
+// }
+
+// .padding-right {
+//     position: relative;
+//     left: 800px;
+// }
+
+
+.btn {
+    margin: 0;
+
+    border: none;
+    font-size: 15px;
+    color: inherit;
+    
+    cursor: pointer;
+    padding: 10px 20px;
+    display: inline-block;
+    
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+
+.btn-2a:active {
+  background-color: rgb(209,0,25);
+  box-shadow: 0 2px #666;
+  transform: translateY(3px);
+}
+
+.border-white {
+    border: white;
+}
+
+.btn:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.btn-1 {
+    border: 3px solid #fff;
+    color: 	#A9A9A9;
+}
+
+.nextBtn {
+    border: 1px solid $hasel-red;
+    border-radius: 3px;
+    pointer-events: none;
+    background-color: #666666;
+}
+
+.btn-1e {
+    border: 3px solid #fff;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    border-top: 10px solid transparent;
+    border-left: 10px solid red;
+    border-bottom: 5px solid transparent;
+}
+
+.btn-1a:hover, .btn-1a:active {
+    color: #0e83cd;
+    background: #fff;
+}
+
+.btn-1:hover, .btn-1e:active {
+    color: #cd1806;
+}
+
+.btn:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.btn-1e:after {
+    width: 100%;
+    height: 0;
+    top: 50%;
+    left: 50%;
+    background: #003ffa;
+    opacity: 0;
+    -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    -moz-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    -ms-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+}
+
+.btn-2a {
+    border-radius: 0 0 0 0;
+}
+
+.btn-2 {
+    background: #eeeeee;
+    display: inline-block;
+    color: #000;
+    -webkit-transition: none;
+    -moz-transition: none;
+    transition: none;
+    border-left: 15px solid $hasel-red;
+}
+
+
+.btn-4 {
+    border: 3px solid #fff;
+    color: #B0B0B0;
+    overflow: hidden;
+}
+
+.btn-4:hover {
+    background: rgb(209,0,25);
+    color: white;
+}
+
+.btn-4:active {
+    border-color: rgb(209,0,25);
+    color: #ffffff;
+}
+
+.btn-4a:before {
+    left: 130%;
+    top: 0;
+}
+
+.btn-4:before {
+    position: absolute;
+    height: 100%;
+    font-size: 125%;
+    line-height: 3.5;
+    color: #fff;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+
+.btn:before, .icon-heart:after, .icon-star:after, .icon-plus:after, .icon-file:before {
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+// .App-header {
+// background-color: #282c34;
+// min-height: 100vh;
+// display: flex;
+// flex-direction: column;
+// align-items: center;
+// justify-content: center;
+// font-size: calc(10px + 2vmin);
+// color: white;
+// }
+// .App-link {
+//   color: #61dafb;
+// }
+
+#content-wrap {
+    padding-bottom: 4.5rem;    /* Footer height */
+}
+
+.footer-navigation {
+    // left: 0;
+    // bottom: 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem; 
+    background: $hasel-grey;
+    padding: 1rem;
+}
+
+#code {
+    padding-bottom: 2rem;
+    p {
+        margin-bottom: 2rem;
+    }
+    a {
+        color: white;
+        
+    }
+    div.code {
+        padding: 10px;
+        font-weight: bold;
+        color: #fff;
+        size: $font-large;
+        background: $hasel-red;
+        border: 1px solid darken($hasel-red, 5);
+        border-radius: 15px;
+        width: 15em;
+    }
+}
+
+
+.startBtn {
+    padding: 10px;
+    font-weight: bolder;
+    color: #fff;
+    size: $font-large;
+    background: $hasel-red;
+    border: 1px solid darken($hasel-red, 5);
+    border-radius: 15px;
+    width: 15em;
+    outline: none;
+}
+
+.backBtn {
+    padding: 10px;
+    font-weight: bolder;
+    color: $hasel-grey;
+    size: $font-large;
+    background: $light-grey;
+    border: 1px solid darken($hasel-grey, 5);
+    border-radius: 15px;
+    width: 15em;
+    outline: none;
+}
+
+.visible {
+    display: none;
+}
+
+.divideBtn {
+    width: 15px;
+    height: auto;
+    display: inline-block;
+}
+
+.row {
+    display: table;
+    border-spacing: 10px;
+}
+
+.column {
+    display: table-cell;
+}
+
+.center {
+    position: center;
+}
+
+
+video {
+    outline: none;
+}
+
+
+@media (max-width: 1200px) {
+    .configurator {
+        width: 100%;
+    }
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    video {
+        width: 100%;
+        height: auto;
+    }
+    .tourView {
+        position: relative;
+        margin-left: 0;
+    }
+    .settings {
+        display: none;
+    }
+    .productcode {
+        position: relative;
+        color: black;
+        text-align: left;
+        left: 0;
+        bottom: 0;
+    }
+    .summary {
+        width: 100%;
+        position: relative;
+        left: 0;
+        bottom: 0;
+        padding-top: 20px;
+        visibility: visible;
+    }
+
+    .visible {
+        display: inline;
+    }
+
+    .configuration {
+        color: #ffffff;
+        display: none;
+    }
+
+    // .footer-navigation {
+    //     left: 0;
+    // }
+
+    .row {
+        display: table;
+    }
+    .column {
+        display: inline-block;
+
+    }
+
+
+
+    .settings {
+        position: relative;
+        width: 100%;
+        left: 0;
+        .navBtn {
+            left: 0;
+        }
+    }
+
+
+/*    .summary {
+  position: absolute;
+  right: 0;
+  padding: 0 20px 10px 10px;
+  line-height: 2px;
+  color: #0096d0;
+}*/
+
+}

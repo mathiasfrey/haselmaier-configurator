@@ -1,26 +1,23 @@
 import React, {Component} from 'react';
 import Header from './components/Header';
-import './App.css';
+import './App.scss';
 import Settings from './components/Settings';
-import Product from "./components/Product";
+import Intro from "./components/Intro";
+
 
 
 class App extends Component{
-
 
   render() {
   return (
       <div className="configurator">
           <Header
-          title="Leitstellen Konfigurator TTV"
+          title="Der Haselmaier Leitstellen Konfigurator"
           />
+          <Intro />
           <Settings />
-          <Product
-          />
       </div>
   );
   }
 }
-
-
 export default App;
