@@ -290,7 +290,7 @@ class Settings extends React.Component {
 
     };
 
-    handleBack = () => {
+    /*handleBack = () => {
         const node = this.tableRef.current;
         const nodeHeight = this.heightRef.current;
         const nodeMonitor = this.monitorRef.current;
@@ -308,7 +308,7 @@ class Settings extends React.Component {
         } else if (this.state.chosenTable != null)  {
             node.click();
         }
-    };
+    };*/
 
     render() {
       return (
@@ -400,11 +400,11 @@ class Settings extends React.Component {
                 <br />
 
                 <div className="footer-navigation">
-                    <div className="visible">
+                    {/*<div className="visible">
                     <button className="backBtn" onClick={this.handleBack} ref={this.backBtnRef}>
                         Auswahl ändern
                     </button>
-                    </div>
+                    </div>*/}
                     <div className="divideBtn" />
                     <button className="startBtn" onClick={this.handleClick} ref={this.buttonRef}>
                         Jetzt konfigurieren ➤
