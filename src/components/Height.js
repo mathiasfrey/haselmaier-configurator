@@ -44,7 +44,7 @@ class Height extends React.Component {
             <>
             <button ref={this.props.heightRef}
             className={ 'navBtn ' + (this.props.chosen && 'done')}
-            onClick={this.onOpenModal} disabled={disabled}>2. Höhenverstellbar</button>
+            onClick={this.onOpenModal} disabled={disabled} data-cy="height">2. Höhenverstellbar</button>
             <div className={'divider ' + (this.props.chosen && 'done')} />
             </>
         )
@@ -63,12 +63,12 @@ class Height extends React.Component {
             <div className="column">
                 <button className="border-white" onClick={() => this.handleHeight('E')}>{this.loadPreviewImages('E')}</button>
                 <br />
-                <button className="btn btn-2 btn-2a" onClick={() => this.handleHeight('E')}> ECO </button>
+                <button className="btn btn-2 btn-2a" onClick={() => this.handleHeight('E')} data-cy="E"> ECO </button>
             </div>
             <div className="column">
                 <button className="border-white" onClick={() => this.handleHeight('V')}>{this.loadPreviewImages('V')}</button>
                 <br />
-                <button className="btn btn-2 btn-2a" onClick={() => this.handleHeight('V')}> VARIO </button>
+                <button className="btn btn-2 btn-2a" onClick={() => this.handleHeight('V')} data-cy="V"> VARIO </button>
             </div>
             </div>
         </Modal>

@@ -56,7 +56,7 @@ class Blende extends Component {
             <>
             <button ref={this.props.blendeRef}
             className={ 'navBtn ' + (this.props.chosen && 'done')}
-            onClick={this.onOpenModal} disabled={disabled}>4. Blende</button>
+            onClick={this.onOpenModal} disabled={disabled} data-cy="blende">4. Blende</button>
             <div className={'divider ' + (this.props.chosen && 'done')} />
             </>
         )
@@ -76,11 +76,11 @@ class Blende extends Component {
         <div className="row">
         <div className="column">
             <button className="border-white" onClick={() => this.handleBlende('X')}>{this.loadPreviewImage('X')}</button>
-            <button className="btn btn-2 btn-2a" onClick={() => this.handleBlende('X')}> Keinen </button>
+            <button className="btn btn-2 btn-2a" onClick={() => this.handleBlende('X')} data-cy="XB"> Keinen </button>
         </div>
         <div className="column">
             <button className="border-white" onClick={() => this.handleBlende('B')}>{this.loadPreviewImage('B')}</button>
-            <button className="btn btn-2 btn-2a" onClick={() => this.handleBlende('B')}> Voller Blendschutz </button>
+            <button className="btn btn-2 btn-2a" onClick={() => this.handleBlende('B')} data-cy="B"> Voller Blendschutz </button>
         </div>
         </div>
         </Modal>

@@ -79,7 +79,7 @@ class Monitor extends React.Component {
             <>
             <button ref={this.props.monitorRef}
             className={ 'navBtn ' + (this.props.chosen && 'done')}
-            onClick={this.onOpenModal} disabled={disabled}>3. Monitortragsystem</button>
+            onClick={this.onOpenModal} disabled={disabled} data-cy="monitor">3. Monitortragsystem</button>
             <div className={'divider ' + (this.props.chosen && 'done')} />
         </>
         )
@@ -100,11 +100,11 @@ class Monitor extends React.Component {
          <h2> 1-reihig oder 2-reihig? </h2>
         <div className="column">
             <button className="border-white" onClick={() => this.handleMonitorRow('1')}>{this.loadPreviewImages('one_row')}</button>
-            <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorRow('1')}> 1 - Reihig </button>
+            <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorRow('1')} data-cy="1"> 1 - Reihig </button>
         </div>
         <div className="column">
             <button className="border-white" onClick={() => this.handleMonitorRow('2')}>{this.loadPreviewImages('two_row')}</button>
-            <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorRow('2')}> 2 - Reihig </button>
+            <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorRow('2')} data-cy="2"> 2 - Reihig </button>
         </div>
         </div>
         <h2>Monitorsystem</h2>
@@ -115,15 +115,15 @@ class Monitor extends React.Component {
             {/*<br />*/}
         <div className="column">
             <button className="border-white" onClick={() => this.handleMonitorSystem('S')}>{this.loadPreviewImages('stativ')}</button>
-            <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorSystem('S')}> 1. STATIVSYSTEM </button>
+            <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorSystem('S')} data-cy="SM"> 1. STATIVSYSTEM </button>
         </div>
         <div className="column">
             <button className="border-white" onClick={() => this.handleMonitorSystem('F')}>{this.loadPreviewImages('reling')}</button>
-            <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorSystem('F')}>2. RELING: OHNE HV </button>
+            <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorSystem('F')} data-cy="F">2. RELING: OHNE HV </button>
         </div>
         <div className="column">
             <button className="border-white" onClick={() => this.handleMonitorSystem('H')}>{this.loadPreviewImages('reling_hv')}</button>
-            <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorSystem('H')}> 3. RELING: MIT HV </button>
+            <button className="btn btn-2 btn-2a" onClick={() => this.handleMonitorSystem('H')} data-cy="H"> 3. RELING: MIT HV </button>
         </div>
         </Modal>
         </>

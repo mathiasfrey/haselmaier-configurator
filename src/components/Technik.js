@@ -91,7 +91,7 @@ class Technik extends React.Component {
             <>
             <button ref={this.props.technikRef}
             className={ 'navBtn ' + (this.props.chosenSide && this.props.chosenContainer && 'done')}
-            onClick={this.onOpenModal} disabled={disabled}>5. Technik</button>
+            onClick={this.onOpenModal} disabled={disabled} data-cy="technik">5. Technik</button>
             <div className={'divider ' + (this.props.chosenSide && this.props.chosenContainer && 'done')} />
             </>
         )
@@ -111,25 +111,25 @@ class Technik extends React.Component {
         <div className="row">
         <div className="column">
             <button className="border-white" onClick={() => this.handleTechnikSide('E')}>{this.loadPreviewImage('E')}</button>
-            <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnikSide('E')}> Einseitig </button>
+            <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnikSide('E')} data-cy="ET"> Einseitig </button>
         </div>
         <div className="column">
             <button className="border-white" onClick={() => this.handleTechnikSide('B')}>{this.loadPreviewImage('B')}</button>
-            <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnikSide('B')}> Beidseitig </button>
+            <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnikSide('B')} data-cy="BT"> Beidseitig </button>
         </div>
         <div className="column">
             <button className="border-white" onClick={() => this.handleTechnikSide('X')}>{this.loadPreviewImage('XSide')}</button>
-            <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnikSide('X')}> Ohne </button>
+            <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnikSide('X')} data-cy="XT"> Ohne </button>
         </div>
        </div>
         <h2> Ladencontainer </h2>
         <div className="row">
         <div className="column">
-            <button className="border-white" onClick={() => this.handleContainer('L')}>{this.loadPreviewImage('L')}</button>
+            <button className="border-white" onClick={() => this.handleContainer('L')} data-cy="ML">{this.loadPreviewImage('L')}</button>
             {this.renderContainerButton('L', '(Mit Ladencontainer)')}
         </div>
         <div className="column">
-            <button className="border-white" onClick={() => this.handleContainer('X')}>{this.loadPreviewImage('XContainer')}</button>
+            <button className="border-white" onClick={() => this.handleContainer('X')} data-cy="XL">{this.loadPreviewImage('XContainer')}</button>
             {this.renderContainerButton('X', '(Ohne Ladencontainer)')}
         </div>
         </div>

@@ -44,7 +44,7 @@ class Table extends React.PureComponent {
         <>
         <button ref={this.props.tableRef}
             className={ 'navBtn ' + (this.props.chosenTable && 'done')}
-            onClick={this.onOpenModal}>1. Tisch
+            onClick={this.onOpenModal} data-cy="table">1. Tisch
         </button>
         <div className={'divider ' + (this.props.chosenTable && 'done')}/>
 
@@ -55,16 +55,16 @@ class Table extends React.PureComponent {
         </video>
             <div className="row">
             <div className="column">
-                <button className="border-white" onClick={() => this.handleTable('S')}>{this.loadPreviewImages('S')}</button>
+                <button className="border-white" onClick={() => this.handleTable('S')} data-cy="S">{this.loadPreviewImages('S')}</button>
                 <button className="btn btn-2 btn-2a" onClick={() => this.handleTable('S')}>KLEIN (bis zu 3 Monitore)</button>
             </div>
             <div className="column">
                 <button className="border-white" onClick={() => this.handleTable('M')}>{this.loadPreviewImages('M')}</button>
-                <button className="btn btn-2 btn-2a" onClick={() => this.handleTable('M')}>MITTEL (bis zu 4 Monitore)</button>
+                <button className="btn btn-2 btn-2a" onClick={() => this.handleTable('M')} data-cy="M">MITTEL (bis zu 4 Monitore)</button>
             </div>
             <div className="column">
                 <button className="border-white" onClick={() => this.handleTable('L')}>{this.loadPreviewImages('L')}</button>
-                <button className="btn btn-2 btn-2a" onClick={() => this.handleTable('L')}> GROß (bis zu 5 Monitore) </button>
+                <button className="btn btn-2 btn-2a" onClick={() => this.handleTable('L')} data-cy="L"> GROß (bis zu 5 Monitore) </button>
             </div>
             </div>
         </Modal>
