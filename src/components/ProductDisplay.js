@@ -1,5 +1,6 @@
 import React from 'react';
 import {Images} from './Images/Images'
+import PropTypes from 'prop-types';
 
 
 
@@ -42,6 +43,17 @@ class ProductDisplay extends React.PureComponent {
             </div>
         );
     }
-}  
+}
+
+ProductDisplay.propTypes = {
+    table: PropTypes.string,
+    height: PropTypes.string,
+    monitorRow: PropTypes.string,
+    monitorSystem: PropTypes.string,
+    blende: PropTypes.string,
+    technikSide: PropTypes.string,
+    technikContainer: PropTypes.string
+
+};
 
 export default ProductDisplay;

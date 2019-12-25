@@ -2,6 +2,8 @@ import React from 'react';
 import tisch_video from '../assets/tisch_video.mp4';
 import Modal from "react-responsive-modal";
 import {ModalImagesPath} from "./PreviewImageHandler";
+import { Consumer } from "./Context";
+
 
 class Table extends React.PureComponent {
 
@@ -17,10 +19,10 @@ class Table extends React.PureComponent {
         this.setState({ open: false });
     };
 
-    handleTable = (size) => {
+    /*    handleTable = (size) => {
         this.setState({open: false});
-        this.props.callback(size);
-    };
+        context.actions.tableState(size);
+    };*/
 
 
     loadPreviewImages = (images) => {
@@ -36,41 +38,52 @@ class Table extends React.PureComponent {
         }
 
     };
-
+    handleTable;
 
     render() {
-
         return (
-        <>
-        <button ref={this.props.tableRef}
-            className={ 'navBtn ' + (this.props.chosenTable && 'done')}
-            onClick={this.onOpenModal} data-cy="table">1. Tisch
-        </button>
-        <div className={'divider ' + (this.props.chosenTable && 'done')}/>
+        <Consumer>
+            { context => (
 
-        <Modal open={this.state.open} onClose={this.onCloseModal} center>
-        <h2>Tischgröße</h2>
-        <video autoPlay={false} height="300" width="500" controls playsInline={false}>
-        <source src={tisch_video} type="video/mp4"/>
-        </video>
-            <div className="row">
-            <div className="column">
-                <button className="border-white" onClick={() => this.handleTable('S')} data-cy="S">{this.loadPreviewImages('S')}</button>
-                <button className="btn btn-2 btn-2a" onClick={() => this.handleTable('S')}>KLEIN (bis zu 3 Monitore)</button>
-            </div>
-            <div className="column">
-                <button className="border-white" onClick={() => this.handleTable('M')}>{this.loadPreviewImages('M')}</button>
-                <button className="btn btn-2 btn-2a" onClick={() => this.handleTable('M')} data-cy="M">MITTEL (bis zu 4 Monitore)</button>
-            </div>
-            <div className="column">
-                <button className="border-white" onClick={() => this.handleTable('L')}>{this.loadPreviewImages('L')}</button>
-                <button className="btn btn-2 btn-2a" onClick={() => this.handleTable('L')} data-cy="L"> GROß (bis zu 5 Monitore) </button>
-            </div>
-            </div>
-        </Modal>
-        </>
+                this.handleTable = (size) => {
+                    this.setState({open: false});
+                    context.actions.tableState(size);
+                },
+
+                <>
+                    <button ref={this.props.tableRef}
+                        className={ 'navBtn ' + (context.chosenTable && 'done')}
+                        onClick={this.onOpenModal} data-cy="table">1. Tisch
+                    </button>
+                    <div className={'divider ' + (context.chosenTable && 'done')}/>
+                    <Modal open={this.state.open} onClose={this.onCloseModal} center>
+                    <h2>Tischgröße</h2>
+                    <video autoPlay={false} height="300" width="500" controls playsInline={false}>
+                    <source src={tisch_video} type="video/mp4"/>
+                    </video>
+                        <div className="row">
+                        <div className="column">
+                            <button className="border-white" onClick={() => this.handleTable('S')} data-cy="S">{this.loadPreviewImages('S')}</button>
+                            <button className="btn btn-2 btn-2a" onClick={() => this.handleTable('S')}>KLEIN (bis zu 3 Monitore)</button>
+                        </div>
+                        <div className="column">
+                            <button className="border-white" onClick={() => this.handleTable('M')}>{this.loadPreviewImages('M')}</button>
+                            <button className="btn btn-2 btn-2a" onClick={() => this.handleTable('M')} data-cy="M">MITTEL (bis zu 4 Monitore)</button>
+                        </div>
+                        <div className="column">
+                            <button className="border-white" onClick={() => this.handleTable('L')}>{this.loadPreviewImages('L')}</button>
+                            <button className="btn btn-2 btn-2a" onClick={() => this.handleTable('L')} data-cy="L"> GROß (bis zu 5 Monitore) </button>
+                        </div>
+                        </div>
+                    </Modal>
+                    </>
+                )}
+        </Consumer>
         )
     }
+
 }
+
+
 
 export default Table;

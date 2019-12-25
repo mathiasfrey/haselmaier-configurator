@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import Modal from 'react-responsive-modal';
 import blende_video from '../assets/blende_video.mp4';
 import {ModalImagesPath} from "./PreviewImageHandler";
+import { Consumer } from "./Context";
+
 
 
 class Blende extends Component {
@@ -12,7 +14,7 @@ class Blende extends Component {
 
     onOpenModal = () => {
     if (this.props.monitorDependency === 'S') {
-        alert('Stativsystem gewählt, keine Blendeneinstellung möglich 😉')
+        alert('Stativsystem gewählt, keine Blendeneinstellung möglich 😉');
         this.setState({open: false})
     } else {
         this.setState({ open: true });
@@ -24,10 +26,7 @@ class Blende extends Component {
     this.setState({ open: false });
     };
 
-    handleBlende = (blende) => {
-       this.props.callback(blende);
-       this.setState({ open: false});
-    };
+
 
     loadPreviewImage = (image) => {
         switch (image) {
@@ -40,51 +39,57 @@ class Blende extends Component {
         }
     };
 
-    renderBlendeButton = () => {
 
-        var disabled = true;
-        if (this.props.monitorDependency != null) {
-            disabled = false
-        }
-        /*if (this.props.monitorDependency === 'X') {
-            disabled = false;
-        } else if (this.props.monitorDependency === 'S') {
-            disabled = false;
-        }*/
-
-        return (
-            <>
-            <button ref={this.props.blendeRef}
-            className={ 'navBtn ' + (this.props.chosen && 'done')}
-            onClick={this.onOpenModal} disabled={disabled} data-cy="blende">4. Blende</button>
-            <div className={'divider ' + (this.props.chosen && 'done')} />
-            </>
-        )
-    };
-
+    handleBlende;
+    renderBlendeButton;
 
 
     render() {
         return (
-        <>
-        {this.renderBlendeButton()}
-        <Modal open={this.state.open} onClose={this.onCloseModal} center>
-        <video autoPlay={false} height="300" width="500" controls playsInline={false}>
-        <source src={blende_video} type="video/mp4"/>
-        </video>
-        <h2>Blendeneinstellung</h2>
-        <div className="row">
-        <div className="column">
-            <button className="border-white" onClick={() => this.handleBlende('X')}>{this.loadPreviewImage('X')}</button>
-            <button className="btn btn-2 btn-2a" onClick={() => this.handleBlende('X')} data-cy="XB"> Keinen </button>
-        </div>
-        <div className="column">
-            <button className="border-white" onClick={() => this.handleBlende('B')}>{this.loadPreviewImage('B')}</button>
-            <button className="btn btn-2 btn-2a" onClick={() => this.handleBlende('B')} data-cy="B"> Voller Blendschutz </button>
-        </div>
-        </div>
-        </Modal>
-        </>
+            <Consumer>
+                { context => (
+
+                    this.handleBlende = (blende) => {
+                       context.actions.blendeState(blende);
+                       this.setState({ open: false});
+                    },
+
+                    this.renderBlendeButton = () => {
+                        var disabled = true;
+                        if (context.chosenMonitorSystem != null) {
+                            disabled = false
+                        }
+                        return (
+                            <>
+                            <button ref={this.props.blendeRef}
+                            className={ 'navBtn ' + (context.chosenBlende && 'done')}
+                            onClick={this.onOpenModal} disabled={disabled} data-cy="blende">4. Blende</button>
+                            <div className={'divider ' + (context.chosenBlende && 'done')} />
+                            </>
+                        )
+                    },
+
+                        <>
+                        {this.renderBlendeButton()}
+                        <Modal open={this.state.open} onClose={this.onCloseModal} center>
+                        <video autoPlay={false} height="300" width="500" controls playsInline={false}>
+                        <source src={blende_video} type="video/mp4"/>
+                        </video>
+                        <h2>Blendeneinstellung</h2>
+                        <div className="row">
+                        <div className="column">
+                            <button className="border-white" onClick={() => this.handleBlende('X')}>{this.loadPreviewImage('X')}</button>
+                            <button className="btn btn-2 btn-2a" onClick={() => this.handleBlende('X')} data-cy="XB"> Keinen </button>
+                        </div>
+                        <div className="column">
+                            <button className="border-white" onClick={() => this.handleBlende('B')}>{this.loadPreviewImage('B')}</button>
+                            <button className="btn btn-2 btn-2a" onClick={() => this.handleBlende('B')} data-cy="B"> Voller Blendschutz </button>
+                        </div>
+                        </div>
+                        </Modal>
+                        </>
+                    )}
+            </Consumer>
         )
     }
 

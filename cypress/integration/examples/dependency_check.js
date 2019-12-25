@@ -1,33 +1,35 @@
-// Integration tests
-// 1.Arrange - setup initial app state
-// 2.Act - take an action
-// 3.Assert - make an assertion
-
-// Legend for configuration
-// table
-// height
-// monitor
-// blende
-// technik
-
-// Legend for single configuration
-// Small - S
-// Middle - M
-// Large - L
-// Eco - E
-// Vario - V
-// Monitor 1-reihig - 1
-// Monitor 2-reihig - 2
-// Stativ - SM
-// Reling - ohne HV - F
-// Reling - mit HV - H
-// Blende - ohne - XB
-// Blende voll - B
-// Technik - einseitig - ET
-// Technik - beidseitig - BT
-// Technik - keine - XT
-// Technik Ladencontainer - ML
-// Technik ohne Container - XL
+/*
+ Integration tests
+ 1.Arrange - setup initial app state
+ 2.Act - take an action
+ 3.Assert - make an assertion
+ --------------------------------
+ Legend for configuration
+ table
+ height
+ monitor
+ blende
+ technik
+ --------------------------------
+ Legend for single configuration
+ Small - S
+ Middle - M
+ Large - L
+ Eco - E
+ Vario - V
+ Monitor 1-reihig - 1
+ Monitor 2-reihig - 2
+ Stativ - SM
+ Reling - ohne HV - F
+ Reling - mit HV - H
+ Blende - ohne - XB
+ Blende voll - B
+ Technik - einseitig - ET
+ Technik - beidseitig - BT
+ Technik - keine - XT
+ Technik Ladencontainer - ML
+ Technik ohne Container - XL
+*/
 
 
 describe('Dependencies: Stativsystem ☓ Blende', function () {
@@ -60,7 +62,7 @@ describe('Dependencies: Ladencontainer', function () {
         cy.get('[data-cy=F]').click();
         cy.get('[data-cy=blende]').click();
         cy.get('[data-cy=B]').click();
-        cy.get('[data-cy=technik]').click()
+        cy.get('[data-cy=technik]').click();
         cy.get('[data-cy=BT]').click()
     })
 });

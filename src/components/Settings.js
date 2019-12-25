@@ -8,13 +8,13 @@ import Summary from "./Summary";
 import ProductDisplay from "./ProductDisplay";
 import ProductCodeForm from './ProductCodeForm';
 import ProductCode from './ProductCode';
+import {Provider } from '../components/Context'
 
 
 class Settings extends React.Component {
     constructor(props) {
         super(props);
         this.state =
-            this.backBtnRef = React.createRef()
             this.buttonRef = React.createRef();
             this.tableRef = React.createRef();
             this.heightRef = React.createRef();
@@ -235,23 +235,12 @@ class Settings extends React.Component {
         this.setState({chosenMonitorRow: row});
     };
 
-    /*setMonitorCountState = (count) => {
-        this.setState({chosenMonitorCount: count})
-    };*/
 
-    //BLEND CONFIGURATION
+    //BLENDE CONFIGURATION
 
     setBlendeState = (blende) => {
         this.setState({chosenBlende: blende});
     };
-
-
-    // KABEL CONFIGURATION
-
-   /* setKabelState = (kabel) => {
-        this.setState({chosenKabel: kabel});
-    };*/
-
 
     //TECHNIK CONFIGURATION
 
@@ -290,28 +279,28 @@ class Settings extends React.Component {
 
     };
 
-    /*handleBack = () => {
-        const node = this.tableRef.current;
-        const nodeHeight = this.heightRef.current;
-        const nodeMonitor = this.monitorRef.current;
-        const nodeBlende = this.blendeRef.current;
-        const nodeTechnik = this.technikRef.current;
-
-        if (this.state.chosenTechnikSide != null) {
-            nodeTechnik.click()
-        } else if (this.state.chosenBlende != null) {
-            nodeBlende.click()
-        } else if (this.state.chosenMonitorRow != null) {
-            nodeMonitor.click()
-        } else if (this.state.chosenHeight != null) {
-            nodeHeight.click()
-        } else if (this.state.chosenTable != null)  {
-            node.click();
-        }
-    };*/
 
     render() {
       return (
+         <Provider value={{
+              chosenTable: this.state.chosenTable,
+              chosenHeight: this.state.chosenHeight,
+              chosenMonitorSystem: this.state.chosenMonitorSystem,
+              chosenMonitorRow: this.state.chosenMonitorRow,
+              chosenBlende: this.state.chosenBlende,
+              chosenTechnikSide: this.state.chosenTechnikSide,
+              chosenTechnikContainer: this.state.chosenTechnikContainer,
+              actions: {
+                  tableState: this.setTableState,
+                  heightState: this.setHeightState,
+                  monitorSystemState: this.setMonitorSystemState,
+                  monitorRowState: this.setMonitorRowState,
+                  blendeState: this.setBlendeState,
+                  technikSideState: this.setChosenTechnikSidesState,
+                  technikContainerState: this.setChosenTechnikContainerState,
+              }
+
+          }}>
             <div id="content-wrap">
                 <div className="productcode">
                     <div>
@@ -323,62 +312,28 @@ class Settings extends React.Component {
                 <div className="settings">
                     <Table
                         tableRef={this.tableRef}
-                        callback={this.setTableState}
-                        chosenTable={this.state.chosenTable}
                     />
                     <Height
                         heightRef={this.heightRef}
-                        navDependencyTable={this.state.chosenTable}
-                        callback={this.setHeightState}
-                        chosen={this.state.chosenHeight}
                     />
                     <Monitor
                         monitorRef={this.monitorRef}
-                        navDependencyHeight={this.state.chosenHeight}
-                        callbackSystem={this.setMonitorSystemState}
-                        callbackRow={this.setMonitorRowState}
-                        blendeState={this.setBlendeState}
-                        // callbackCount={this.setMonitorCountState}
-                        tableDependency={this.state.chosenTable} // Dependency for choosing the monitor size
-                        chosen={this.state.chosenMonitorSystem} /* this is probably a hack: in case the system is chosen highlight monitor */
-                        chosenRow={this.state.chosenMonitorRow}
                     />
                     <Blende
                         blendeRef={this.blendeRef}
-                        monitorDependency={this.state.chosenMonitorSystem}
-                        callback={this.setBlendeState}
-                        chosen={this.state.chosenBlende}
                     />
                     <Technik
                         technikRef={this.technikRef}
-                        navDependencyMonitor={this.state.chosenMonitorSystem}
-                        navDependencyBlende={this.state.chosenBlende}
-                        callbackSide={this.setChosenTechnikSidesState}
-                        callbackContainer={this.setChosenTechnikContainerState}
-                        chosenSide={this.state.chosenTechnikSide}
-                        chosenContainer={this.state.chosenTechnikContainer}
                     />
                 </div>
                <div className="summary">
-                    <Summary
-                        chosenTable={this.state.chosenTable}
-                        chosenMonitorCount={this.state.chosenMonitorCount}
-                        chosenMonitorRow={this.state.chosenMonitorRow}
-                        chosenMonitorSystem={this.state.chosenMonitorSystem}
-                        chosenHeight={this.state.chosenHeight}
-                        chosenBlende={this.state.chosenBlende}
-                        chosenKabel={this.state.chosenKabel}
-                        chosenTechnikSide={this.state.chosenTechnikSide}
-                        chosenTechnikContainer={this.state.chosenTechnikContainer}
-                    />
+                    <Summary />
                     <ProductCode
                         table={this.state.chosenTable}
                         height={this.state.chosenHeight}
                         monitorRow={this.state.chosenMonitorRow}
-                        //monitorCount={this.state.chosenMonitorCount}
                         monitorSystem={this.state.chosenMonitorSystem}
                         blende={this.state.chosenBlende}
-                        // cable={this.state.chosenKabel}
                         technikSide={this.state.chosenTechnikSide}
                         technikContainer={this.state.chosenTechnikContainer}
                     />
@@ -388,10 +343,8 @@ class Settings extends React.Component {
                         table={this.state.chosenTable}
                         height={this.state.chosenHeight}
                         monitorRow={this.state.chosenMonitorRow}
-                        //monitorCount={this.state.chosenMonitorCount}
                         monitorSystem={this.state.chosenMonitorSystem}
                         blende={this.state.chosenBlende}
-                        // cable={this.state.chosenKabel}
                         technikSide={this.state.chosenTechnikSide}
                         technikContainer={this.state.chosenTechnikContainer}
                     />
@@ -400,18 +353,13 @@ class Settings extends React.Component {
                 <br />
 
                 <div className="footer-navigation">
-                    {/*<div className="visible">
-                    <button className="backBtn" onClick={this.handleBack} ref={this.backBtnRef}>
-                        Auswahl ändern
-                    </button>
-                    </div>*/}
                     <div className="divideBtn" />
                     <button className="startBtn" onClick={this.handleClick} ref={this.buttonRef}>
                         Jetzt konfigurieren ➤
                     </button>
                 </div>
-
             </div>
+         </Provider>
        )
 }
 

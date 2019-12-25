@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class ProductCode extends React.PureComponent {
     
@@ -48,6 +49,16 @@ class ProductCode extends React.PureComponent {
             </div>
         );
     }
-}  
+}
+
+ProductCode.propTypes = {
+    table: PropTypes.string,
+    height: PropTypes.string,
+    monitorRow: PropTypes.string,
+    monitorSystem: PropTypes.string,
+    blende: PropTypes.string,
+    technikSide: PropTypes.string,
+    technikContainer: PropTypes.string
+};
 
 export default ProductCode;
