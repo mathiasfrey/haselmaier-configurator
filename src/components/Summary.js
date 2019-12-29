@@ -27,6 +27,7 @@ class Summary extends React.Component {
                         } else {
                             return null
                         }
+                        // eslint-disable-next-line
                     },
                     this.loadHeight = () => {
                         if (context.chosenHeight != null) {

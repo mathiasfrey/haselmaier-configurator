@@ -45,6 +45,7 @@ class Height extends React.Component {
                     this.handleHeight = (height) => {
                         this.setState({ open: false});
                         context.actions.heightState(height)
+                        // eslint-disable-next-line
                     },
                         this.renderHeightButton = () => {
                             let disabled = true;

@@ -1,9 +1,9 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Summary from "./Summary";
-var enzyme  = require('enzyme');
+import { shallow } from 'enzyme';
 
 it('render Component', () => {
-    const component = mount(<Summary />);
+    const component = shallow(<Summary />);
 });
 

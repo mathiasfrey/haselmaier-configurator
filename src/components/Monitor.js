@@ -65,7 +65,7 @@ class Monitor extends React.Component {
                         } else {
                             alert('1-reihig oder 2-reihig? 🌟')
                         }
-
+                        // eslint-disable-next-line
                     },
 
                     this.handleMonitorRow = (row) => {

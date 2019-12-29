@@ -56,6 +56,7 @@ class Technik extends React.Component {
                             this.setContainerState('X');
                             this.setState({open: false})
                         }
+                        // eslint-disable-next-line
                     },
                     this.handleContainer = (container) => {
                         if (context.chosenTechnikSide != null) {

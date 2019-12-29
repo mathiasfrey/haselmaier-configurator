@@ -48,6 +48,7 @@ class Table extends React.PureComponent {
                 this.handleTable = (size) => {
                     this.setState({open: false});
                     context.actions.tableState(size);
+                    // eslint-disable-next-line
                 },
 
                 <>

@@ -52,6 +52,7 @@ class Blende extends Component {
                     this.handleBlende = (blende) => {
                        context.actions.blendeState(blende);
                        this.setState({ open: false});
+                       // eslint-disable-next-line
                     },
 
                     this.renderBlendeButton = () => {

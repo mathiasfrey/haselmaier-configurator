@@ -4,6 +4,7 @@ import { Route, BrowserRouter as Router } from 'react-router-dom'
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import * as Sentry from '@sentry/browser';
 import Height from "./components/Height";
 import Monitor from "./components/Monitor";
 import Blende from "./components/Blende";
@@ -28,6 +29,8 @@ const routing = (
     </div>
   </Router>
 );
+
+Sentry.init({dsn: "https://00bc05c773154b4e8e5a8e7280a4ef4a@sentry.io/1868209"});
 
 ReactDOM.render(routing, document.getElementById('root'));
 
