@@ -16,7 +16,7 @@ class App extends Component{
           />
           <Intro />
           <ErrorBoundary>
-             <Settings />
+            <Settings />
           </ErrorBoundary>
       </div>
   );
