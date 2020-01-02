@@ -3,7 +3,7 @@ import Header from './components/Header';
 import './App.scss';
 import Settings from './components/Settings';
 import Intro from "./components/Intro";
-
+import ErrorBoundary from "./components/ErrorBoundary";
 
 
 class App extends Component{
@@ -15,7 +15,9 @@ class App extends Component{
           title="Der Haselmaier Leitstellen Konfigurator"
           />
           <Intro />
-          <Settings />
+          <ErrorBoundary>
+            <Settings />
+          </ErrorBoundary>
       </div>
   );
   }
