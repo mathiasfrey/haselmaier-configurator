@@ -105,7 +105,7 @@ class Technik extends React.Component {
                     },
                     <>
                         {this.renderTechnikButton()}
-                        <Modal open={this.state.open} onClose={this.onCloseModal} center showCloseIcon={false}>
+                        <Modal open={this.state.open} onClose={this.onCloseModal} center>
                                 <h2>Technik</h2>
                                 <video autoPlay={false} height="300" width="500" controls playsInline={false}>
                                     <source src={technik_video} type="video/mp4"/>
