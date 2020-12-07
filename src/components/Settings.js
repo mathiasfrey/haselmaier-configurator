@@ -8,7 +8,7 @@ import Summary from "./Summary";
 import ProductDisplay from "./ProductDisplay";
 import ProductCodeForm from './ProductCodeForm';
 import ProductCode from './ProductCode';
-import {Provider } from '../components/Context'
+import {Provider } from './Context'
 
 
 class Settings extends React.Component {
@@ -47,7 +47,7 @@ class Settings extends React.Component {
                     'table': table,
                     'remainder': code.replace(tableRegex, '')
                 };
-            } 
+            }
             return false;
         }
 
@@ -73,7 +73,7 @@ class Settings extends React.Component {
                     'remainder': code.replace(monitorSystemsRegex, '')
                 };
             }
-            
+
             return false;
         }
 
@@ -81,7 +81,6 @@ class Settings extends React.Component {
             const monitorRowRegex = /[12]/;
             if (code.match(monitorRowRegex)) {
                 const monitorRow = code.match(monitorRowRegex)[0];
-
                 return {
                     'monitorRow': monitorRow,
                     'remainder': code.replace(monitorRowRegex, '')
@@ -129,7 +128,7 @@ class Settings extends React.Component {
         }
 
 
-    
+
         var originalCode = code;
         var rv; // return value
         var table, height, monitorRow, monitorSystem,/*monitorCount*/

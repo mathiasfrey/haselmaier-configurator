@@ -69,26 +69,25 @@ class Blende extends Component {
                             </>
                         )
                     },
-
-                        <>
+                    <>
                         {this.renderBlendeButton()}
                         <Modal open={this.state.open} onClose={this.onCloseModal} center>
-                        <video autoPlay={false} height="300" width="500" controls playsInline={false}>
-                        <source src={blende_video} type="video/mp4"/>
-                        </video>
-                        <h2>Blendeneinstellung</h2>
-                        <div className="row">
-                        <div className="column">
-                            <button className="border-white" onClick={() => this.handleBlende('X')}>{this.loadPreviewImage('X')}</button>
-                            <button className="btn btn-2 btn-2a" onClick={() => this.handleBlende('X')} data-cy="XB"> Keinen </button>
-                        </div>
-                        <div className="column">
-                            <button className="border-white" onClick={() => this.handleBlende('B')}>{this.loadPreviewImage('B')}</button>
-                            <button className="btn btn-2 btn-2a" onClick={() => this.handleBlende('B')} data-cy="B"> Voller Blendschutz </button>
-                        </div>
-                        </div>
+                                <h2>Blende</h2>
+                                <video autoPlay={false} height="300" width="500" controls playsInline={false}>
+                                    <source src={blende_video} type="video/mp4"/>
+                                </video>
+                                    <div className="row">
+                                        <div className="column">
+                                            <button className="border-white" onClick={() => this.handleBlende('X')}>{this.loadPreviewImage('X')}</button>
+                                            <button className="btn btn-2 btn-2a" onClick={() => this.handleBlende('X')} data-cy="XB"> Keinen </button>
+                                        </div>
+                                        <div className="column">
+                                            <button className="border-white" onClick={() => this.handleBlende('B')}>{this.loadPreviewImage('B')}</button>
+                                            <button className="btn btn-2 btn-2a" onClick={() => this.handleBlende('B')} data-cy="B"> Voller Blendschutz </button>
+                                        </div>
+                                    </div>
                         </Modal>
-                        </>
+                     </>
                     )}
             </Consumer>
         )

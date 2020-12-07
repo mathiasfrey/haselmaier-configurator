@@ -63,27 +63,27 @@ class Height extends React.Component {
                                 </>
                             )
                     },
-                            <>
-                           {this.renderHeightButton()}
+                    <>
+                        {this.renderHeightButton()}
                             <Modal open={this.state.open} onClose={this.onCloseModal} center>
-                            <h2>Höhenverstellbar</h2>
-                            <video autoPlay={false} height="300" width="500" controls playsInline={false}>
-                            <source src={hv_video} type="video/mp4"/>
-                            </video>
-                                <div className="row">
-                                <div className="column">
-                                    <button className="border-white" onClick={() => this.handleHeight('E')}>{this.loadPreviewImages('E')}</button>
-                                    <br />
-                                    <button className="btn btn-2 btn-2a" onClick={() => this.handleHeight('E')} data-cy="E"> ECO </button>
-                                </div>
-                                <div className="column">
-                                    <button className="border-white" onClick={() => this.handleHeight('V')}>{this.loadPreviewImages('V')}</button>
-                                    <br />
-                                    <button className="btn btn-2 btn-2a" onClick={() => this.handleHeight('V')} data-cy="V"> VARIO </button>
-                                </div>
-                                </div>
+                                    <h2>Höhenverstellbar</h2>
+                                        <video autoPlay={false} height="300" width="500" controls playsInline={false}>
+                                            <source src={hv_video} type="video/mp4"/>
+                                        </video>
+                                            <div className="row">
+                                                <div className="column">
+                                                    <button className="border-white" onClick={() => this.handleHeight('E')}>{this.loadPreviewImages('E')}</button>
+                                                    <br />
+                                                    <button className="btn btn-2 btn-2a" onClick={() => this.handleHeight('E')} data-cy="E"> ECO </button>
+                                                </div>
+                                                <div className="column">
+                                                    <button className="border-white" onClick={() => this.handleHeight('V')}>{this.loadPreviewImages('V')}</button>
+                                                    <br />
+                                                    <button className="btn btn-2 btn-2a" onClick={() => this.handleHeight('V')} data-cy="V"> VARIO </button>
+                                                </div>
+                                            </div>
                             </Modal>
-                            </>
+                      </>
                 )}
             </Consumer>
         )
