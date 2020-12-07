@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class ProductCode extends React.PureComponent {
-    
+
     constructor(props) {
         super(props);
         this.state = { code: '' };
@@ -34,11 +34,10 @@ class ProductCode extends React.PureComponent {
 
         return (
             <div id="code">
-                <h1>Produkt-Code</h1>
+                <h2>Produkt-Code</h2>
                 <div className="btn nextBtn">
                 {code}
                 </div>
-
                 <h2>Mail</h2>
 
                 <p>

@@ -75,14 +75,14 @@ class Summary extends React.Component {
                     },
                         <>
                         <div className="configuration">
-                            <h3> Konfiguration </h3>
-                            <br />
+                            <h2> Konfiguration </h2>
                             {this.loadTable()}
                             {this.loadHeight()}
                             {this.loadMonitor()}
                             {this.loadBlende()}
                             {this.loadTechnik()}
                         </div>
+                            <br />
                         </>
                   )}
             </Consumer>
