@@ -24,8 +24,7 @@ class ProductCode extends React.PureComponent {
     }
     render() {
         // nothing unless FULLY filled out
-        if (!this.props.table || !this.props.height || !this.props.monitorRow /*||
-            ! this.props.monitorCount*/ || !this.props.monitorSystem || !this.props.technikSide ||!this.props.technikContainer
+        if (!this.props.table || !this.props.height || !this.props.monitorRow || !this.props.monitorSystem || !this.props.technikSide ||!this.props.technikContainer
         ) {
             return null;
         }

@@ -202,9 +202,7 @@ class Settings extends React.Component {
                 chosenHeight: height,
                 chosenMonitorRow: monitorRow,
                 chosenMonitorSystem: monitorSystem,
-                // chosenMonitorCount: monitorCount,
                 chosenBlende: blende,
-                // chosenKabel: kabel,
                 chosenTechnikSide: technikSide,
                 chosenTechnikContainer: technikContainer
 

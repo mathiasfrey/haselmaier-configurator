@@ -19,9 +19,6 @@ class Monitor extends React.Component {
     this.setState({ open: false });
     };
 
-    /*handleMonitorCount = (count) => {
-        this.props.callbackCount(count);
-    };*/
 
     loadPreviewImages = (images) => {
         switch(images) {

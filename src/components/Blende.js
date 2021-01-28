@@ -12,15 +12,7 @@ class Blende extends Component {
         disable: false
     };
 
-    onOpenModal = () => {
-    if (this.props.monitorDependency === 'S') {
-        alert('Stativsystem gewählt, keine Blendeneinstellung möglich 😉');
-        this.setState({open: false})
-    } else {
-        this.setState({ open: true });
-    }
 
-    };
 
     onCloseModal = () => {
     this.setState({ open: false });
@@ -54,6 +46,16 @@ class Blende extends Component {
                        this.setState({ open: false});
                        // eslint-disable-next-line
                     },
+
+                       this.onOpenModal = () => {
+                        if (context.chosenMonitorSystem === 'S') {
+                             alert('Stativsystem gewählt, keine Blendeneinstellung möglich 😉');
+                             this.setState({open: false})
+                        } else {
+                            this.setState({ open: true });
+                        }
+
+                        },
 
                     this.renderBlendeButton = () => {
                         var disabled = true;
