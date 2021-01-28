@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class ProductCode extends React.PureComponent {
-    
+
     constructor(props) {
         super(props);
         this.state = { code: '' };
@@ -24,8 +24,7 @@ class ProductCode extends React.PureComponent {
     }
     render() {
         // nothing unless FULLY filled out
-        if (!this.props.table || !this.props.height || !this.props.monitorRow /*||
-            ! this.props.monitorCount*/ || !this.props.monitorSystem || !this.props.technikSide ||!this.props.technikContainer
+        if (!this.props.table || !this.props.height || !this.props.monitorRow || !this.props.monitorSystem || !this.props.technikSide ||!this.props.technikContainer
         ) {
             return null;
         }
@@ -34,11 +33,10 @@ class ProductCode extends React.PureComponent {
 
         return (
             <div id="code">
-                <h1>Produkt-Code</h1>
+                <h2>Produkt-Code</h2>
                 <div className="btn nextBtn">
                 {code}
                 </div>
-
                 <h2>Mail</h2>
 
                 <p>

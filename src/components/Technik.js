@@ -103,40 +103,39 @@ class Technik extends React.Component {
 
                         )
                     },
-
-                        <>
+                    <>
                         {this.renderTechnikButton()}
-                        <Modal open={this.state.open} onClose={this.onCloseModal} center showCloseIcon={false}>
-                        <h2>Technik Integration</h2>
-                        <video autoPlay={false} height="300" width="500" controls playsInline={false}>
-                        <source src={technik_video} type="video/mp4"/>
-                        </video>
-                        <h2> Auswahl Technikraum </h2>
-                        <div className="row">
-                        <div className="column">
-                            <button className="border-white" onClick={() => this.handleTechnikSide('E')}>{this.loadPreviewImage('E')}</button>
-                            <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnikSide('E')} data-cy="ET"> Einseitig </button>
-                        </div>
-                        <div className="column">
-                            <button className="border-white" onClick={() => this.handleTechnikSide('B')}>{this.loadPreviewImage('B')}</button>
-                            <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnikSide('B')} data-cy="BT"> Beidseitig </button>
-                        </div>
-                        <div className="column">
-                            <button className="border-white" onClick={() => this.handleTechnikSide('X')}>{this.loadPreviewImage('XSide')}</button>
-                            <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnikSide('X')} data-cy="XT"> Ohne </button>
-                        </div>
-                       </div>
-                        <h2> Ladencontainer </h2>
-                        <div className="row">
-                        <div className="column">
-                            <button className="border-white" onClick={() => this.handleContainer('L')} data-cy="ML">{this.loadPreviewImage('L')}</button>
-                            {this.renderContainerButton('L', '(Mit Ladencontainer)')}
-                        </div>
-                        <div className="column">
-                            <button className="border-white" onClick={() => this.handleContainer('X')} data-cy="XL">{this.loadPreviewImage('XContainer')}</button>
-                            {this.renderContainerButton('X', '(Ohne Ladencontainer)')}
-                        </div>
-                        </div>
+                        <Modal open={this.state.open} onClose={this.onCloseModal} center>
+                                <h2>Technik</h2>
+                                <video autoPlay={false} height="300" width="500" controls playsInline={false}>
+                                    <source src={technik_video} type="video/mp4"/>
+                                </video>
+                                <h2> Auswahl Technikraum </h2>
+                                <div className="row">
+                                    <div className="column">
+                                        <button className="border-white" onClick={() => this.handleTechnikSide('E')}>{this.loadPreviewImage('E')}</button>
+                                        <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnikSide('E')} data-cy="ET"> Einseitig </button>
+                                    </div>
+                                    <div className="column">
+                                        <button className="border-white" onClick={() => this.handleTechnikSide('B')}>{this.loadPreviewImage('B')}</button>
+                                        <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnikSide('B')} data-cy="BT"> Beidseitig </button>
+                                    </div>
+                                    <div className="column">
+                                        <button className="border-white" onClick={() => this.handleTechnikSide('X')}>{this.loadPreviewImage('XSide')}</button>
+                                        <button className="btn btn-2 btn-2a" onClick={() => this.handleTechnikSide('X')} data-cy="XT"> Ohne </button>
+                                    </div>
+                               </div>
+                                <h2> Auswahl Ladencontainer </h2>
+                                <div className="row">
+                                    <div className="column">
+                                        <button className="border-white" onClick={() => this.handleContainer('L')} data-cy="ML">{this.loadPreviewImage('L')}</button>
+                                        {this.renderContainerButton('L', '(Mit Ladencontainer)')}
+                                    </div>
+                                    <div className="column">
+                                        <button className="border-white" onClick={() => this.handleContainer('X')} data-cy="XL">{this.loadPreviewImage('XContainer')}</button>
+                                        {this.renderContainerButton('X', '(Ohne Ladencontainer)')}
+                                    </div>
+                                </div>
                         </Modal>
                         </>
                 )}
