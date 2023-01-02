@@ -17,7 +17,7 @@
     "react-responsive-modal": "^4.0.1",
     "react-responsive-navbar": "^1.0.11",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^3.4.4",
+    "react-scripts": "^5.0.1",
     "react-socks": "^2.1.0",
     "react-swipe": "^6.0.4",
     "react-text-collapse": "^0.5.2",
@@ -56,11 +56,11 @@
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
     "enzyme-to-json": "^3.6.1",
-    "file-loader": "^4.2.0",
+    "file-loader": "^6.2.0",
     "node-sass": "^7.0.0",
     "react-test-renderer": "^16.14.0",
     "sinon": "^7.5.0",
-    "url-loader": "^2.2.0"
+    "url-loader": "^4.1.1"
   },
   "jest": {
     "snapshotSerializers": [
